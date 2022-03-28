@@ -5,3 +5,16 @@
   border-bottom: 3px solid purple;
   z-index: 2;
 }
+
+.motto {
+  font-size: 3vw;
+  font-weight: bold;
+  margin: auto;
+  width: 90%;
+  color: goldenrod;
+}
+
+.toggle img {
+  width: 35px;
+  height: 32px;
+}

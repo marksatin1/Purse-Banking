@@ -283,8 +283,8 @@ const Register = () => {
       {!isLoading && (
         <Container>
           <Row>
-            <Col xs={10} md={7} lg={5} className={classes.form}>
-              <form onSubmit={submitFormHandler}>
+            <form onSubmit={submitFormHandler}>
+              <Col xs={10} md={7} lg={5} className={classes.form}>
                 <h1>REGISTER NOW!</h1>
                 <div className={classes['text-fields']}>
                   <input
@@ -419,8 +419,8 @@ const Register = () => {
                     disabled={isDisabled}
                   />
                 </div>
-              </form>
-            </Col>
+              </Col>
+            </form>
           </Row>
         </Container>
       )}

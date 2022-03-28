@@ -33,7 +33,7 @@ const App = () => {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div>
+    <Fragment>
       <header>
         <Header />
       </header>
@@ -84,9 +84,11 @@ const App = () => {
             <Route path='*' element={<NotFound404 />} />
           </Routes>
         </Suspense>
-        <Footer />
       </main>
-    </div>
+      <footer>
+        <Footer />
+      </footer>
+    </Fragment>
   );
 };
 export default App;

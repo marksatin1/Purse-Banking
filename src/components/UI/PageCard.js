@@ -6,13 +6,15 @@ const PageCard = (props) => {
   return (
     <Container>
       <Row>
-        <Col xs={10} className={classes.page}>
-          <h1 className={classes.title}>{props.title}</h1>
-          <h2 className={classes.subtitle}>
-            <i>{props.subtitle}</i>
-          </h2>
-          <div className={classes.content}>{props.children}</div>
-        </Col>
+        <div>
+          <Col xs={10} className={classes.page}>
+            <h1 className={classes.title}>{props.title}</h1>
+            <h2 className={classes.subtitle}>
+              <i>{props.subtitle}</i>
+            </h2>
+            <div className={classes.content}>{props.children}</div>
+          </Col>
+        </div>
       </Row>
     </Container>
   );

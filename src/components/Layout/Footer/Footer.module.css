@@ -1,5 +1,6 @@
 .footer {
   margin-bottom: 2rem;
+  padding: 1rem 0;
   background-color: rgb(32, 145, 32);
   font-family: 'Times New Roman', Times, serif;
   display: flex;
@@ -10,7 +11,7 @@
 }
 
 .help {
-  margin: 1.5rem 0 1rem;
+  margin: 0.5rem 0 1rem;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -36,7 +37,7 @@
 }
 
 .nav-bar {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.2rem;
 }
 
@@ -53,4 +54,43 @@
 
 .nav-bar button:hover {
   color: gold;
+}
+
+@media only screen and (max-width: 768px) {
+  .help {
+    font-size: 1.4rem;
+  }
+
+  .follow {
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  .logo-bar img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .nav-bar {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .help {
+    font-size: 1.3rem;
+  }
+
+  .follow {
+    font-size: 1rem;
+  }
+
+  .logo-bar img {
+    width: 23px;
+    height: 23px;
+  }
+
+  .nav-bar {
+    font-size: 1rem;
+  }
 }
