@@ -1,0 +1,47 @@
+.page {
+  position: relative;
+  top: 20rem;
+  margin: 0 auto 10rem;
+  padding: 2rem 3rem 3rem;
+  background-color: beige;
+  box-shadow: 2px 2px 5px black;
+  text-align: center;
+}
+
+.title {
+  color: green;
+  text-decoration: underline;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+  color: rgb(175, 116, 175);
+}
+
+.page img {
+  width: 10rem;
+}
+
+.content {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: rgba(240, 248, 255, 0.542);
+}
+
+@media only screen and (max-width: 500px) {
+  .page {
+    /* margin-top: 16rem; */
+    padding: 2rem 2rem 3rem;
+  }
+
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .subtitle {
+    font-size: 2.3rem;
+  }
+}

@@ -1,0 +1,95 @@
+.form {
+  position: relative; /* set for the error message pos */
+  max-width: 23rem;
+  min-height: 20rem;
+  padding: 2rem 1rem;
+  background-color: rgb(175, 116, 175);
+  box-shadow: 6px 6px 2px black;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.form input {
+  max-width: 70%;
+  margin: 0.5rem auto;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 1px 2px black;
+  font-size: 1.3rem;
+}
+
+.links p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.branch-button {
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(83, 192, 204);
+  box-shadow: 2px 2px 4px black;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.branch-button:hover {
+  color: gold;
+  transform: scale(1.02);
+}
+
+.error {
+  position: absolute;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.error p {
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(208, 26, 26);
+  background-color: lime;
+  animation: blink 200ms steps(2, start);
+  animation-iteration-count: 50;
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .form {
+    margin: 0 auto 4rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .form {
+    margin: -5rem auto 5rem;
+    max-width: 22rem;
+  }
+
+  .form input {
+    width: 70%;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .links p {
+    font-size: 1.1rem;
+  }
+
+  .branch-button {
+    font-size: 1.3rem;
+    padding: 0.4rem 0.75rem;
+  }
+}

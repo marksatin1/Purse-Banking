@@ -1,0 +1,119 @@
+.crypto {
+  margin: 20rem auto 10rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: green;
+  text-decoration: underline;
+}
+
+.subtitle {
+  margin-bottom: 3rem;
+  color: rgb(175, 116, 175);
+  text-align: center;
+}
+
+.crypto-table {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 0 4px black;
+  text-align: center;
+  overflow-x: scroll;
+  cursor: default;
+}
+
+.tbody a {
+  text-decoration: none;
+  color: black;
+}
+
+.thead th {
+  background-color: gold;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.tbody {
+  background-color: beige;
+  font-size: 1.3rem;
+}
+
+.tbody td {
+  padding: 1rem;
+  padding-left: 1rem;
+}
+
+.tbody tr:hover {
+  color: gold;
+  background-color: rgb(175, 116, 175);
+}
+
+.tbody tr:hover a {
+  color: white;
+  text-decoration: underline;
+}
+
+.money {
+  color: green;
+}
+
+.tbody tr:hover .money {
+  color: gold;
+}
+
+.footer {
+  width: 80%;
+  margin: 2rem auto 0;
+  padding: 1rem 1.5rem;
+  border-top: 3px solid purple;
+  border-bottom: 3px solid purple;
+  background-color: gold;
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer h4 {
+  font-size: 1.8rem;
+}
+
+.footer a {
+  color: black;
+}
+
+.content {
+  width: 75%;
+  margin: 3rem auto 7rem;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.apiError {
+  width: 40%;
+  margin: 5rem auto 6rem;
+  padding: 1rem 0;
+  text-align: center;
+  background-color: red;
+  box-shadow: 10px 10px black;
+}
+
+.apiError h1 {
+  position: relative;
+  color: white;
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.apiError p {
+  position: relative;
+  font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .crypto {
+    margin-top: 16rem;
+  }
+}

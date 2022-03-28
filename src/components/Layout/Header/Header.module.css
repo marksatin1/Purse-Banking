@@ -1,0 +1,7 @@
+.header {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  border-bottom: 3px solid purple;
+  z-index: 2;
+}

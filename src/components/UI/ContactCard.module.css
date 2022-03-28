@@ -1,0 +1,52 @@
+.card {
+  margin: 1rem 0;
+  padding: 2rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px black;
+  background-color: aliceblue;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.department {
+  color: goldenrod;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  /* border: 2px solid purple; */
+  min-height: 25rem;
+  margin: 1rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.4rem;
+}
+
+.issue {
+  font-weight: bold;
+}
+
+.wait-time {
+  color: rgb(175, 116, 175);
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1400px) {
+  .content {
+    min-height: 50rem;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .content {
+    text-align: center;
+  }
+}

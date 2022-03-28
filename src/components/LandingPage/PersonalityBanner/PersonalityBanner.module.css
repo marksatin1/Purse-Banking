@@ -1,0 +1,24 @@
+.personality-layout {
+  margin-top: 8rem;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2.7rem;
+  margin-bottom: 1rem;
+}
+
+.green {
+  color: green;
+  font-weight: bold;
+}
+
+.wrapper {
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 400px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+}

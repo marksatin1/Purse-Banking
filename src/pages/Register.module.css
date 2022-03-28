@@ -1,0 +1,160 @@
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.form {
+  margin: 20rem auto 10rem;
+  padding: 2rem 1rem;
+  background-color: rgb(175, 116, 175);
+  box-shadow: 6px 6px 2px black;
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form h1 {
+  color: gold;
+}
+
+.text-fields input {
+  width: 60%;
+  margin: 1.5rem auto;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 1px 2px black;
+  font-size: 1.3rem;
+  display: block;
+}
+
+.click-fields {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio div {
+  margin: 0.25rem 0.5rem;
+}
+
+.radio input {
+  margin: 0 0.5rem;
+  transform: scale(1.3);
+}
+
+.form p {
+  margin: 0.25rem auto;
+  padding: 0.25rem 0;
+  text-align: center;
+  background-color: lime;
+  font-weight: bold;
+  color: red;
+}
+
+.country {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.country label {
+  margin: 0.25rem 0;
+}
+
+.country select {
+  padding: 0.5rem 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: gold;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.certify {
+  /* border: 1px solid red; */
+  text-align: left;
+  margin: 1.5rem 0;
+}
+
+.certify input {
+  transform: scale(1.3);
+}
+
+.certify-p {
+  font-size: 1.2rem;
+}
+
+.button-container {
+  margin: 1rem 0 1rem;
+}
+
+.access {
+  margin: -1rem 0 3rem;
+  text-align: center;
+}
+
+.access button {
+  margin: 2rem 0 -1rem;
+  padding: 0.75rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: gold;
+  color: green;
+  border-radius: 3px;
+  box-shadow: 1px 1px black;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .form {
+    margin-top: 15rem;
+  }
+
+  .form h1 {
+    font-size: 3rem;
+  }
+
+  .text-fields input {
+    width: 70%;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .text-fields input {
+    font-size: 1.2rem;
+  }
+
+  .click-fields {
+    font-size: 1.2rem;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .country label {
+    font-size: 1.2rem;
+  }
+
+  .country select {
+    font-size: 1.3rem;
+  }
+
+  .certify input {
+    transform: scale(1.1);
+  }
+}

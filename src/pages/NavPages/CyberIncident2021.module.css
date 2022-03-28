@@ -1,0 +1,17 @@
+.apply {
+  margin: 3rem 0 1rem;
+}
+
+.apply h2 {
+  font-size: 2rem;
+}
+
+.purple {
+  color: purple;
+}
+
+@media only screen and (max-width: 500px) {
+  .apply h2 {
+    font-size: 1.4rem;
+  }
+}

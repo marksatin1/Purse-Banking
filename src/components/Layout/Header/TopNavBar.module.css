@@ -1,0 +1,94 @@
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.help-bar {
+  margin: 0.25rem 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.help-bar button {
+  border: none;
+  background-color: inherit;
+}
+
+.help-bar span {
+  margin: 0.4rem;
+}
+
+.help-bar button:hover {
+  color: purple;
+}
+
+.dropdown img {
+  width: 30px;
+  height: 30px;
+}
+
+.dropdown-content {
+  position: absolute;
+  right: 0.5rem;
+  padding: 0.75rem;
+  background-color: beige;
+  border-radius: 4px;
+  box-shadow: 0 0 5px black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  color: black;
+  text-align: right;
+  display: none;
+  z-index: 4;
+}
+
+.dropdown-content img {
+  width: 30px;
+  height: 30px;
+  margin: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content div:hover {
+  color: green;
+  transform: scale(1.03);
+}
+
+@media only screen and (max-width: 800px) {
+  .help-bar {
+    font-size: 1.2rem;
+  }
+
+  .dropdown img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .dropdown-content {
+    font-size: 1.1rem;
+    margin-right: 0.25rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .help-bar {
+    font-size: 1.1rem;
+    margin-right: -0.5rem;
+  }
+
+  .help-bar span {
+    margin: 0.25rem;
+  }
+
+  .dropdown-content {
+    font-size: 1rem;
+  }
+}

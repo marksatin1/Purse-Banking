@@ -1,0 +1,54 @@
+.page {
+  position: relative;
+  top: 20rem;
+  margin: 0 auto 30rem;
+  padding: 2rem 2rem 3rem;
+  background-color: beige;
+  box-shadow: 2px 2px 5px black;
+  text-align: center;
+}
+
+.title {
+  color: green;
+  text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subtitle {
+  margin-bottom: 1rem;
+  color: rgb(175, 116, 175);
+}
+
+.location h2 {
+  margin-top: 2rem;
+}
+
+.location h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@media only screen and (max-width: 500px) {
+  .page {
+    margin-top: 16rem;
+    padding: 2rem 2rem 3rem;
+  }
+
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .subtitle {
+    font-size: 2.3rem;
+  }
+
+  .location h2 {
+    font-size: 2.3rem;
+  }
+
+  .location h1 {
+    font-size: 2.8rem;
+  }
+}

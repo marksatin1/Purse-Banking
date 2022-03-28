@@ -1,0 +1,55 @@
+.banner {
+  /* border: 2px solid brown; */
+  margin: 20rem 0 10rem;
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 1rem;
+  color: green;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.backplate-container {
+  margin-left: -1rem;
+  width: 54rem;
+}
+
+.backplate {
+  background-color: goldenrod;
+  border-radius: 4px;
+  box-shadow: 2px 2px 3px black;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 1400px) {
+  .title {
+    margin: 0 0 1.5rem;
+  }
+
+  .backplate-container {
+    margin: 0 auto;
+  }
+
+  .backplate {
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .backplate {
+    max-width: 40rem;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .backplate {
+    max-width: 30rem;
+  }
+}

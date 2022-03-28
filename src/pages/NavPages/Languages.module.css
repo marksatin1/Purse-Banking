@@ -1,0 +1,17 @@
+.languages h2 {
+  margin: 2rem 0;
+}
+
+.languages h2:nth-child(odd) {
+  color: goldenrod;
+}
+
+.languages h2:nth-child(even) {
+  color: dodgerblue;
+}
+
+@media only screen and (max-width: 500px) {
+  .languages h2 {
+    font-size: 2rem;
+  }
+}

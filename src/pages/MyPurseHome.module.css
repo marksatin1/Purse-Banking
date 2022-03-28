@@ -1,0 +1,136 @@
+.header {
+  position: relative;
+  background-color: rgba(137, 43, 226, 0.788);
+  height: 43rem;
+  margin: 17rem 0 2.5rem;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -5rem;
+  overflow: hidden;
+  right: 0;
+  content: '';
+  background-image: url(../assets/banners/KKK_Cops.webp);
+  opacity: 0.75;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top 40% center;
+}
+
+.layout {
+  margin: 0 auto;
+  padding: 10rem 0;
+  overflow-x: hidden;
+}
+
+.table-container {
+  margin: 5rem 0 10rem;
+}
+
+.main-title {
+  margin: 0 auto;
+  color: purple;
+  border-bottom: 4px solid purple;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.main-title h1 {
+  font-size: 3.5rem;
+}
+
+.table {
+  margin: 0 auto;
+  background-color: gold;
+  box-shadow: 0 0 5px black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.table * {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.thead {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.line-item {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.line-item:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.advert {
+  padding: 1rem 0;
+  background-color: white;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.advert:hover {
+  border-top: 2px solid lime;
+  border-bottom: 2px solid lime;
+  background-color: red;
+  color: white;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+@media only screen and (max-width: 850px) {
+  .header {
+    margin-top: 15rem;
+  }
+}
+
+@media only screen and (max-width: 993px) and (min-width: 769px) {
+  .account {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .main-title h1 {
+    font-size: 3rem;
+  }
+
+  .account {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    margin-top: 16rem;
+  }
+
+  .line-item * {
+    font-size: 1.2rem;
+  }
+}

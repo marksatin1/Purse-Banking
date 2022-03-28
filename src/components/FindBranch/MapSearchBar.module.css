@@ -1,0 +1,36 @@
+.input {
+  width: 100%;
+  padding: 0.25rem 1rem;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+  border: 2px solid black;
+}
+
+.popover {
+  padding: 0.5rem;
+  background-color: rgb(245, 245, 220);
+  border-radius: 4px;
+  box-shadow: -1px 1px 4px black;
+  font-size: 1.1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  z-index: 2;
+}
+
+.option {
+  background-color: none;
+}
+
+.option:hover {
+  background-color: none;
+  color: green;
+  transform: scale(1.02);
+}
+
+.results-message {
+  margin: 1rem 0 0.5rem;
+  color: goldenrod;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
