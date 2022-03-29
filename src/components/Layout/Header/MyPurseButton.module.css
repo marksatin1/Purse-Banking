@@ -1,16 +1,16 @@
-.my-purse-container {
-  margin-top: -0.75rem;
+.button-container {
+  position: relative;
+  top: -0.75rem;
+  padding-left: 0.75rem;
   padding: 0.1rem;
-  padding-left: 0.5rem;
   border-radius: 20px;
   border: 0.5px solid black;
   box-shadow: -1px -1px 4px black;
   background-color: gold;
   cursor: pointer;
-  z-index: 3;
 }
 
-.my-purse-container button {
+.button-container button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
@@ -19,8 +19,8 @@
   background-color: inherit;
 }
 
-.my-purse-container:hover {
-  animation: button-gleam 300ms forwards;
+.button-container:hover {
+  animation: button-gleam 400ms forwards;
 }
 @keyframes button-gleam {
   from {
@@ -38,6 +38,7 @@
 
 .dropdown-content {
   position: absolute;
+  margin-left: 1rem;
   padding: 0.75rem;
   border-radius: 4px;
   background-color: beige;
@@ -62,7 +63,7 @@
   transform: scale(1.02);
 }
 
-.my-purse-container:hover .dropdown-content {
+.button-container:hover .dropdown-content {
   display: block;
   z-index: 3;
 }
@@ -97,38 +98,44 @@
   }
 }
 
-@media only screen and (max-width: 1000px) {
-  .my-purse-container {
-    padding: 0;
+@media only screen and (max-width: 1030px) {
+  .button-container button {
+    font-size: 1.4rem;
   }
-}
 
-@media only screen and (max-width: 800px) {
+  .dropdown-content {
+    padding: 0.5rem;
+  }
+
   .link {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .dropdown-content button {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
 
 @media only screen and (max-width: 768px) {
+  .button-container {
+    top: -0.5rem;
+  }
+
   .centered {
     margin: 0 auto;
   }
 
-  .my-purse-container {
+  .button-container {
     text-align: center;
   }
 }
-
+/* 
 @media only screen and (max-width: 500px) {
-  .my-purse-container {
+  .button-container {
     margin-top: -0.4rem;
   }
 
-  .my-purse-container button {
+  .button-container button {
     font-size: 1.2rem;
   }
 
@@ -143,4 +150,4 @@
   .dropdown-content button {
     font-size: 0.9rem;
   }
-}
+} */

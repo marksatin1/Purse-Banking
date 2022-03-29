@@ -42,6 +42,5 @@
 @media only screen and (max-width: 500px) {
   .legal-content {
     overflow-x: hidden;
-    overflow-y: scroll;
   }
 }

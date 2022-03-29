@@ -20,7 +20,7 @@
 
 @media only screen and (max-width: 768px) {
   .header {
-    position: relative;
+    position: static;
     border-bottom: none;
   }
 

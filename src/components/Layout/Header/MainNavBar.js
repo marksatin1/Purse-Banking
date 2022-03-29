@@ -82,15 +82,6 @@ const MainNavBar = () => {
                 </Link>
               </div>
             </Col>
-            {/* <Col>
-              <Nav>
-                <NavDropdown title='Test'>
-                  <NavDropdown.Item>Test 1</NavDropdown.Item>
-                  <NavDropdown.Item>Test 2</NavDropdown.Item>
-                  <NavDropdown.Item>Test 3</NavDropdown.Item>
-                </NavDropdown>
-              </Nav>
-            </Col> */}
           </Row>
         </Col>
       </Row>

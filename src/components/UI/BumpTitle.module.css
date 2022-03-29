@@ -158,6 +158,12 @@
 
 /*  BOTH DIMENSIONS  */
 
+@media only screen and (max-width: 768px) and (max-height: 1000px) {
+  .container {
+    bottom: 33vh;
+  }
+}
+
 @media only screen and (max-width: 500px) and (max-height: 900px) {
   .container {
     bottom: 30vh;

@@ -25,12 +25,12 @@
 
 .money-mural {
   margin: 0 auto;
+  z-index: 2;
 }
 
 .money-mural img {
   width: 600px;
   height: 360px;
-  z-index: 2;
 }
 
 .moneybags {

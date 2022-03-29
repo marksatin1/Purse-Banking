@@ -1,11 +1,12 @@
 .header {
   position: relative;
-  background-color: rgba(137, 43, 226, 0.788);
   height: 43rem;
   margin: 17rem 0 2.5rem;
   overflow-x: hidden;
+  background-color: rgba(137, 43, 226, 0.788);
   display: flex;
   justify-content: flex-end;
+  z-index: -1;
 }
 
 .header__checking::before {
@@ -39,12 +40,10 @@
 }
 
 .layout {
-  /* border: 5px solid yellowgreen; */
   overflow: hidden;
 }
 
 .account-data {
-  /* border: 2px solid brown; */
   position: relative;
   width: 75%;
   margin: 0 auto -8rem;
@@ -87,14 +86,18 @@
   z-index: 1;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1030px) {
+  .header {
+    margin-top: 15.5rem;
+  }
+
   .button {
     font-size: 1.3rem;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .header {
-    margin-top: 16rem;
+    margin-top: 3rem;
   }
 }

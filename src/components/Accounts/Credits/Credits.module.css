@@ -6,6 +6,7 @@
   overflow-x: hidden;
   display: flex;
   justify-content: flex-end;
+  z-index: -1;
 }
 
 .header::before {
@@ -70,8 +71,18 @@
   z-index: 1;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1030px) {
+  .header {
+    margin-top: 15.5rem;
+  }
+
   .button {
     font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    margin-top: 3rem;
   }
 }

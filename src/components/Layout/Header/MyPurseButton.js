@@ -19,29 +19,27 @@ const MyPurseButton = () => {
           xl={{ offset: 10 }}
           className={classes.centered}
         >
-          <Row>
+          <Row className={classes['button-container']}>
             {!authCtx.isSignedIn && (
               <Link to='/register'>
-                <Col className={classes['my-purse-container']}>
+                <Col>
                   <button type='button'>Register</button>
                 </Col>
               </Link>
             )}
             {authCtx.isSignedIn && (
               <Col>
-                <div className={classes['my-purse-container']}>
-                  <button type='button'>My Purse</button>
-                  <div className={classes['dropdown-content']}>
-                    <Link to='my-purse/accounts' className={classes.link}>
-                      My Accounts
-                    </Link>
-                    <Link to='my-purse/user-settings' className={classes.link}>
-                      User Settings
-                    </Link>
-                    <button type='button' onClick={authCtx.signOut}>
-                      Sign Out
-                    </button>
-                  </div>
+                <button type='button'>My Purse</button>
+                <div className={classes['dropdown-content']}>
+                  <Link to='my-purse/accounts' className={classes.link}>
+                    My Accounts
+                  </Link>
+                  <Link to='my-purse/user-settings' className={classes.link}>
+                    User Settings
+                  </Link>
+                  <button type='button' onClick={authCtx.signOut}>
+                    Sign Out
+                  </button>
                 </div>
               </Col>
             )}
