@@ -6,7 +6,6 @@
   border-radius: 20px;
   border: 0.5px solid black;
   box-shadow: -1px -1px 4px black;
-  color: black;
   background-color: gold;
   cursor: pointer;
 }
@@ -17,6 +16,7 @@
   font-weight: bold;
   border-radius: 20px;
   border: none;
+  color: black;
   background-color: inherit;
 }
 
