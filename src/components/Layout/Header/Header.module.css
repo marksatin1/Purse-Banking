@@ -1,9 +1,13 @@
 .header {
   position: fixed;
-  top: 0;
   background-color: white;
   border-bottom: 3px solid purple;
   z-index: 2;
+}
+
+.icon {
+  width: 35px;
+  height: 32px;
 }
 
 .motto {
@@ -14,7 +18,20 @@
   color: goldenrod;
 }
 
-.toggle img {
-  width: 35px;
-  height: 32px;
+@media only screen and (max-width: 768px) {
+  .header {
+    position: relative;
+    border-bottom: none;
+  }
+
+  .toggle {
+    margin: 0.25rem auto;
+    outline: 1px solid darkred;
+  }
+
+  .toggle img {
+    width: 35px;
+    height: 35px;
+    margin: 0 -0.3rem;
+  }
 }

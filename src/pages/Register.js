@@ -13,7 +13,6 @@ import {
   RegistrationSuccess,
 } from '../helpers/WrittenContent';
 import AuthContext from '../context/auth-context';
-import wtf_loader from '../assets/wtf_loader.gif';
 
 import Modal from '../components/UI/Modal';
 import FormButton from '../components/UI/FormButton';
@@ -276,9 +275,6 @@ const Register = () => {
           content={PrivacyPolicy.content}
           hideModal={hideModalHandler}
         />
-      )}
-      {isLoading && (
-        <img className={classes.loader} src={wtf_loader} alt='wtf_loader' />
       )}
       {!isLoading && (
         <Container>

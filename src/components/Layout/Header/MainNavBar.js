@@ -8,12 +8,12 @@ const MainNavBar = () => {
     <Container fluid>
       <Row>
         <Col
-          xs={{ span: 12, offset: 1 }}
-          sm={{ offset: 2 }}
-          md={{ offset: 3 }}
+          xs={11}
+          md={{ span: 12, offset: 3 }}
           lg={{ offset: 4 }}
           xl={{ offset: 5 }}
           xxl={{ offset: 7 }}
+          className={classes.centered}
         >
           <Row className={classes['main-nav']}>
             <Col xs={'auto'} className={classes['nav-dropdown']}>
@@ -82,6 +82,15 @@ const MainNavBar = () => {
                 </Link>
               </div>
             </Col>
+            {/* <Col>
+              <Nav>
+                <NavDropdown title='Test'>
+                  <NavDropdown.Item>Test 1</NavDropdown.Item>
+                  <NavDropdown.Item>Test 2</NavDropdown.Item>
+                  <NavDropdown.Item>Test 3</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Col> */}
           </Row>
         </Col>
       </Row>

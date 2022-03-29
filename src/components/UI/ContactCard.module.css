@@ -15,8 +15,7 @@
 }
 
 .content {
-  /* border: 2px solid purple; */
-  min-height: 25rem;
+  min-height: 30rem;
   margin: 1rem;
   text-align: left;
   display: flex;

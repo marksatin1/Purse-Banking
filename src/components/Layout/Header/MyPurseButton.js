@@ -13,11 +13,11 @@ const MyPurseButton = () => {
     <Container>
       <Row>
         <Col
-          xs={{ span: 6, offset: 7 }}
-          sm={{ offset: 8 }}
-          md={{ offset: 8 }}
+          xs={5}
+          md={{ span: 6, offset: 8 }}
           lg={{ offset: 9 }}
           xl={{ offset: 10 }}
+          className={classes.centered}
         >
           <Row>
             {!authCtx.isSignedIn && (

@@ -22,7 +22,7 @@ const CyberIncident2021 = () => {
         update="February 18, 2022 update: On February 11, 2022, as a result of
             Purse's ongoing analysis of the files stolen by the unauthorized
             individual in the 2021 Cybersecurity Incident, we discovered
-            approximately 14,700,000 credit card customers/applicants whose
+            approximately 14,700,000 credit card customers and applicants whose
             names, addresses, social security numbers, cell phone numbers,
             personal passwords, sexual preferences, weird fetishes, and bank
             accounts were accessed, manipulated, and exposed to the

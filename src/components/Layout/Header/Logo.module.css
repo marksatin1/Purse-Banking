@@ -32,7 +32,7 @@
   font-weight: bold;
   color: purple;
 }
-
+/* 
 .logo-bar:hover {
   background-color: goldenrod;
   box-shadow: 1px 3px white, inset 2px 2px white;
@@ -41,7 +41,7 @@
 .logo-bar:hover .logo span {
   margin: 0.5rem 0.75rem;
   font-size: 3rem;
-}
+} */
 
 .motto {
   position: fixed;
@@ -90,17 +90,20 @@
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 768px) {
   .logo-bar {
-    margin-top: 0;
+    /* border: 2px solid purple; */
+    margin: -0.75rem auto 0;
+    padding: 1.75rem 0.5rem 0.25rem;
+    border-radius: 10px;
   }
 
   .logo img {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
 
   .logo span {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
   }
 }

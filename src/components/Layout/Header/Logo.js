@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import AuthContext from '../../../context/auth-context';
 
-import Handbag_25 from '../../../assets/Emojis/Handbag_25.webp';
 import classes from './Logo.module.css';
 
 const Logo = () => {
@@ -19,10 +18,10 @@ const Logo = () => {
   return (
     <Container>
       <Row>
-        <Col xs={12} className={classes['flex-start']}>
+        <Col className={classes['flex-start']}>
           <div className={classes['logo-bar']} onMouseOver={showMottoHandler}>
             <Link to={homepageLink} className={classes.logo}>
-              <img src={Handbag_25} alt='Da purse' />
+              {/* <img src={Handbag_25} alt='Da purse' /> */}
               <span>Purse</span>
             </Link>
           </div>

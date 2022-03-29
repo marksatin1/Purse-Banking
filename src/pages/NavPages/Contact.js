@@ -15,32 +15,34 @@ const Contact = () => {
   return (
     <Container>
       <Row>
-        <Col xs={10} className={classes.page}>
-          <h1 className={classes.title}>Contact Us</h1>
-          <h2 className={classes.subtitle}>
-            <i>What seems to be the problem, dear?</i>
-          </h2>
-          <Row>
-            {ContactData.map((item) => (
-              <Col xs={12} md={6} key={uuidv4()}>
-                <ContactCard
-                  department={item.department}
-                  contactData={item.data}
-                />
-              </Col>
-            ))}
-          </Row>
-          <div className={classes.location}>
-            <h2>
-              <i>Or visit us in person at one of our </i>
+        <div>
+          <Col xs={10} className={classes.page}>
+            <h1 className={classes.title}>Contact Us</h1>
+            <h2 className={classes.subtitle}>
+              <i>What seems to be the problem, dear?</i>
             </h2>
-            <h1>
-              <Link to='/find-branch' className='link'>
-                Fine Locations
-              </Link>
-            </h1>
-          </div>
-        </Col>
+            <Row>
+              {ContactData.map((item) => (
+                <Col xs={12} md={6} key={uuidv4()}>
+                  <ContactCard
+                    department={item.department}
+                    contactData={item.data}
+                  />
+                </Col>
+              ))}
+            </Row>
+            <div className={classes.location}>
+              <h2>
+                <i>Or visit us in person at one of our </i>
+              </h2>
+              <h1>
+                <Link to='/find-branch' className='link'>
+                  Fine Locations
+                </Link>
+              </h1>
+            </div>
+          </Col>
+        </div>
       </Row>
     </Container>
   );

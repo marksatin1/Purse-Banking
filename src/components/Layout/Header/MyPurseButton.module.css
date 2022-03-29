@@ -113,7 +113,21 @@
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .centered {
+    margin: 0 auto;
+  }
+
+  .my-purse-container {
+    text-align: center;
+  }
+}
+
 @media only screen and (max-width: 500px) {
+  .my-purse-container {
+    margin-top: -0.4rem;
+  }
+
   .my-purse-container button {
     font-size: 1.2rem;
   }

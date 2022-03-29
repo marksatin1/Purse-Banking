@@ -37,8 +37,8 @@ const TopNavBar = () => {
   return (
     <Container>
       <Row>
-        <Col xs={12} className={classes['flex-end']}>
-          <nav className={classes['help-bar']}>
+        <Col className={classes['flex-end']}>
+          <div className={classes['top-nav']}>
             <Link to='/about'>
               <button type='button'>About</button>
             </Link>
@@ -93,7 +93,7 @@ const TopNavBar = () => {
                 </div>
               )}
             </button>
-          </nav>
+          </div>
         </Col>
       </Row>
     </Container>

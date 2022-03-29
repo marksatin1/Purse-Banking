@@ -31,7 +31,7 @@
 
 @media only screen and (max-width: 768px) {
   .page {
-    margin: 5rem auto;
+    margin: 3rem auto 5rem;
   }
 }
 
@@ -41,11 +41,12 @@
   }
 
   .title {
+    margin-top: -0.5rem;
     font-size: 2.5rem;
   }
 
   .subtitle {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 2rem;
   }
 
