@@ -37,9 +37,7 @@ When ideating the site I set out to create something that fell somewhere between
 
 The final product is a fully-operational website that has a very distinct personality of its own: a brutally honest banking app that never misses a chance to tell you exactly how it's screwing you over. Anyone who has dealt with banks, healthcare providers, call centers, and bureacratic agencies of any size will enjoy exploring this site.
 
-And exploration is the main thing! Users can visit as many or as few links as they would like, but each page will add another layer to the overall argument being made. I suspect different people will have different takeaways, and that's great - the main idea is to spark imagination and self-reflection.
-
-While I can't predict exactly how a particular user will chart their path through the site there are certain "plot points" and calls to action that encourage users to pass through checkpoints in a certain order. Whether or not they do so doesn't affect the overall story or the UX, but it's worth mentioning that there is structural logic to the site.
+And exploration is the main thing! Users can visit as many or as few links as they would like, and each page will add another layer to the overall argument being made. While I can't predict exactly how a particular user will chart their path through the site there are certain "plot points" and calls to action that encourage users to pass through checkpoints in a certain order. Whether or not they do so doesn't affect the overall story or the UX, but it's worth mentioning that there is structural logic to the site. I suspect different people will have different takeaways from the overall experience and content, and that's great - the main idea is to spark imagination and self-reflection.
 
 A final note: all links to outside content were carefully chosen for what they add to the overall purpose of the site. Likewise those links or design elments that appear broken are "broken" on purpose.
 
