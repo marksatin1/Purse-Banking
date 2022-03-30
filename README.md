@@ -88,13 +88,13 @@ Credit card images and homepage banner images are sourced from Google Images.
 
 4. I'm really proud of a number of small features across the site, perhaps initially unnoticeable, that I think really add to its overall production value. Of particular note:
 
-- The red banner at the top of every protected page greets the user by name. This data point, along with many others, are gathered in the auth Context function and saved to the browser's Local Storage (and removed from Local Storage upon signing out). This banner also grabs the current date, and properly formats (en-US) and displays it, along with the current time of day. If a user logs in between midnight and 6am local time a message tells them to 'GOT TO SLEEP, <name>!'
+     - The red banner at the top of every protected page greets the user by name. This data point, along with many others, are gathered in the auth Context function and saved to the browser's Local Storage (and removed from Local Storage upon signing out). This banner also grabs the current date, and properly formats (en-US) and displays it, along with the current time of day. If a user logs in between midnight and 6am local time a message tells them to 'GOT TO SLEEP, <name>!'
 
-- The Title Bump animation on protected pages took a long time to perfect, especially once I bootstrapped the site and adjusted it for different viewport sizes. It works via a combination of sticky positioning, margins, and container sizes. When visiting a protected page this title slides in at the bottom of the screen from the left. It initially presents a visual counterpoint to the red banner at the top, but as the user scrolls down the page, it also scrolls until reaching its final position as the title atop that page's content. This is perhaps my best example of marrying art, design, and technical know-how on the site.
+     - The Title Bump animation on protected pages took a long time to perfect, especially once I bootstrapped the site and adjusted it for different viewport sizes. It works via a combination of sticky positioning, margins, and container sizes. When visiting a protected page this title slides in at the bottom of the screen from the left. It initially presents a visual counterpoint to the red banner at the top, but as the user scrolls down the page, it also scrolls until reaching its final position as the title atop that page's content. This is perhaps my best example of marrying art, design, and technical know-how on the site.
 
-- Button animations make use of rotating box-shadows and highlighted text that impart a sense of impending change _before the user clicks through_. I think this adds a lot more to the UX than its small size suggests.
+     - Button animations make use of rotating box-shadows and highlighted text that impart a sense of impending change _before the user clicks through_. I think this adds a lot more to the UX than its small size suggests.
 
-- There are many, many more animations and design elements that I'm excited about, but I'll let you discover them for yourself!
+     - There are many, many more animations and design elements that I'm excited about, but I'll let you discover them for yourself!
 
 ## Final Thoughts
 
