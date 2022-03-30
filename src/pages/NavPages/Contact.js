@@ -16,14 +16,14 @@ const Contact = () => {
     <Container>
       <Row>
         <div>
-          <Col xs={10} className={classes.page}>
+          <Col xs={12} md={10} className={classes.page}>
             <h1 className={classes.title}>Contact Us</h1>
             <h2 className={classes.subtitle}>
               <i>What seems to be the problem, dear?</i>
             </h2>
             <Row>
               {ContactData.map((item) => (
-                <Col xs={12} md={6} key={uuidv4()}>
+                <Col xs={12} lg={6} key={uuidv4()}>
                   <ContactCard
                     department={item.department}
                     contactData={item.data}

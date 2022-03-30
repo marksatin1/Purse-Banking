@@ -81,6 +81,12 @@
   }
 }
 
+@media only screen and (max-width: 992px) {
+  .button {
+    font-size: 1.5rem;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .header {
     margin-top: 3rem;

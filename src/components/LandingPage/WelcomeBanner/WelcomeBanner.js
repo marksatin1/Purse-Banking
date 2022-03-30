@@ -14,13 +14,19 @@ const WelcomeBanner = () => {
           <Col lg={12} xl={4} className={classes.container}>
             <SignIn />
           </Col>
-          <Col xs={11} md={8} xl={8} className={classes['backplate-container']}>
+          <Col
+            xs={11}
+            md={8}
+            lg={12}
+            xl={8}
+            className={classes['backplate-container']}
+          >
             <h2 className={classes.title}>
               Choose the card that's right for you!
             </h2>
             <Row className={classes.backplate}>
               {CreditCardOffers.map((item) => (
-                <Col key={uuidv4()} md={4} className='d-none d-xl-block'>
+                <Col key={uuidv4()} md={4} className='d-none d-lg-block'>
                   <WelcomeCard
                     name={item.name}
                     description={item.description}
@@ -32,7 +38,7 @@ const WelcomeBanner = () => {
                   />
                 </Col>
               ))}
-              <Col className='d-block d-xl-none'>
+              <Col className='d-block d-lg-none'>
                 <Carousel>
                   {CreditCardOffers.map((item) => (
                     <Carousel.Item key={uuidv4()}>

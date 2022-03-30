@@ -42,18 +42,12 @@ const MyPurseHome = () => {
       <Container className={classes.layout}>
         <div className={classes['table-container']}>
           <Row>
-            <Col
-              xs={10}
-              sm={12}
-              md={10}
-              lg={11}
-              className={classes['main-title']}
-            >
+            <Col xs={10} sm={12} className={classes['main-title']}>
               <h1>Debit Accounts</h1>
             </Col>
           </Row>
           <Row>
-            <Col xs={9} sm={11} md={9} lg={10} className={classes.table}>
+            <Col xs={9} sm={11} className={classes.table}>
               <Row className={classes.thead}>
                 <Col></Col>
                 <Col className={classes.green}>Available Balance</Col>

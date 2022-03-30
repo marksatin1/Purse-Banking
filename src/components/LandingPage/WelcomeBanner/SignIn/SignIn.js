@@ -1,6 +1,5 @@
-import { useState, useRef, useContext, useEffect } from 'react';
+import { useState, useRef, useContext, useEffect, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Stack } from 'react-bootstrap';
 import AuthContext from '../../../../context/auth-context';
 
 import { Sleep } from '../../../../helpers/Helpers';
@@ -144,7 +143,10 @@ const SignIn = () => {
       )}
       <form noValidate onSubmit={submitHandler}>
         {!showReset && !httpError && (
-          <Stack gap={2}>
+          <Fragment>
+            <h2 className={`d-xl-none ${classes.title}`}>
+              Get In There Already!!!
+            </h2>
             <input
               placeholder='Email'
               type='email'
@@ -167,7 +169,7 @@ const SignIn = () => {
               <FormButton type='submit' name='Sign In' disabled={isDisabled} />
             </div>
             <div className={classes.links}>
-              <p>New?? Don't forget to </p>
+              <p>New!?! Don't forget to </p>
               <p>
                 <Link className='link' to='/register'>
                   REGISTER!
@@ -189,7 +191,7 @@ const SignIn = () => {
                 Find your local branch
               </button>
             </Link>
-          </Stack>
+          </Fragment>
         )}
       </form>
     </div>

@@ -24,8 +24,19 @@
 }
 
 .location h1 {
+  font-size: 3.5rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@media only screen and (max-width: 992px) {
+  .location h2 {
+    font-size: 2.5rem;
+  }
+
+  .location h1 {
+    font-size: 3rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {

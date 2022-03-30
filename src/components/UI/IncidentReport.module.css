@@ -67,6 +67,54 @@
   }
 }
 
+@media only screen and (max-width: 992px) {
+  .ceo {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact {
+    font-size: 3.3rem;
+  }
+
+  .ceo img {
+    width: 70%;
+  }
+
+  .ceo h3 {
+    margin: 1rem 0;
+    font-size: 2.4rem;
+    color: goldenrod;
+  }
+
+  .dogmo p {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .contact {
+    font-size: 2.5rem;
+  }
+
+  .ceo img {
+    width: 60%;
+  }
+
+  .ceo h3 {
+    margin: 1rem 0;
+    font-size: 2rem;
+    color: goldenrod;
+  }
+
+  .dogmo p {
+    font-size: 1.1rem;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .content {
     padding-right: 0;
@@ -78,13 +126,5 @@
 
   .quote {
     font-size: 1.6rem;
-  }
-
-  .ceo {
-    border: none;
-  }
-
-  .ceo img {
-    width: 130%;
   }
 }

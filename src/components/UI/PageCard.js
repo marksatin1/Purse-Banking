@@ -7,7 +7,7 @@ const PageCard = (props) => {
     <Container>
       <Row>
         <div>
-          <Col xs={10} className={classes.page}>
+          <Col xs={12} md={11} lg={10} className={classes.page}>
             <h1 className={classes.title}>{props.title}</h1>
             <h2 className={classes.subtitle}>
               <i>{props.subtitle}</i>

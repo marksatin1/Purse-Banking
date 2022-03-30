@@ -21,7 +21,19 @@
   font-weight: bold;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1200px) {
+  .heading img {
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .heading img {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
   .heading img {
     width: 250px;
   }

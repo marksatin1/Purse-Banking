@@ -23,7 +23,7 @@
 
 .logo-bar {
   cursor: pointer;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .logo-bar img {
@@ -83,7 +83,7 @@
   }
 
   .follow {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .logo-bar img {

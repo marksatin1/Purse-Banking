@@ -26,7 +26,7 @@
 
   .toggle {
     margin: 0.25rem auto;
-    outline: 1px solid darkred;
+    outline: 3px solid green;
   }
 
   .toggle img {

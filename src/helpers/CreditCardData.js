@@ -28,7 +28,8 @@ export const CreditCardOffers = [
     annualFee: '42,000',
     signingNumber: '$99',
     signingBonus: 'donated to a nonprofit charity of your choice',
-    cashbackOffer: 'Earn one point for every $4.20 spent on snacks',
+    cashbackOffer:
+      "Earn one point for every $4.20 spent at participating 7-11's",
     pageUrl: '/credit-offer?card=blaze-card',
   },
 ];

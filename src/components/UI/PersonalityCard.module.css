@@ -34,7 +34,7 @@
 
 .title {
   font-size: 3rem;
-  color: purple;
+  color: green;
 }
 
 .content p {
@@ -51,6 +51,8 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 1.4rem;
   font-weight: 600;
   color: black;
@@ -61,6 +63,7 @@
 }
 
 .learn-container button:hover {
+  color: gold;
   animation: button-gleam 700ms forwards;
 }
 @keyframes button-gleam {
@@ -88,5 +91,47 @@
 
   .learn-container button {
     font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .content p {
+    font-size: 1.8rem;
+  }
+
+  .learn-container button {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .content p {
+    font-size: 1.7rem;
+  }
+
+  .learn-container button {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .title {
+    font-size: 2.6rem;
+  }
+
+  .content p {
+    font-size: 1.4rem;
+  }
+
+  .learn-container button {
+    font-size: 1.1rem;
   }
 }

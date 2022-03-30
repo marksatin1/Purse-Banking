@@ -332,7 +332,11 @@ const Register = () => {
                   )}
                 </div>
                 <Row className={classes['click-fields']}>
-                  <Col md={7}>Cede rights to your firstborn?</Col>
+                  <Col md={7}>
+                    <span className={classes.text}>
+                      Cede rights to your firstborn?
+                    </span>
+                  </Col>
                   <Col md={3} className={classes.radio}>
                     <div>
                       <input
@@ -343,7 +347,9 @@ const Register = () => {
                         required
                         onChange={inputChangeHandler}
                       />
-                      <label htmlFor='yes'>Yes</label>
+                      <label htmlFor='yes'>
+                        <span className={classes.text}>Yes</span>
+                      </label>
                     </div>
                     <div>
                       <input
@@ -354,14 +360,18 @@ const Register = () => {
                         disabled
                         onChange={inputChangeHandler}
                       />
-                      <label htmlFor='no'>No</label>
+                      <label htmlFor='no'>
+                        <span className={classes.text}>No</span>
+                      </label>
                     </div>
                   </Col>
                 </Row>
                 {formErrors.firstborn && <p>{formErrors.firstborn}</p>}
                 <Row className={classes.country}>
                   <Col md={4}>
-                    <label htmlFor='country'>Country of Origin</label>
+                    <label htmlFor='country'>
+                      <span className={classes.text}>Country of Origin</span>
+                    </label>
                   </Col>
                   <Col md={6}>
                     <select
@@ -387,7 +397,7 @@ const Register = () => {
                     />
                   </Col>
                   <Col>
-                    <span className={classes['certify-p']}>
+                    <span className={classes.text}>
                       I certify that I am 18 years of age or older, and agree to
                       the{' '}
                       <span

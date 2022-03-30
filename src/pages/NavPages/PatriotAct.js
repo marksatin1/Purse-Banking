@@ -20,14 +20,14 @@ const PatriotAct = () => {
     >
       <Container className={classes.heading}>
         <Row>
-          <Col>
+          <Col md={6}>
             <img
               src={images.CyberCommandLogo}
               srcSet={`${images.CyberCommandLogo} 1200w, ${images.CyberCommandLogo_66} 792w`}
               alt='Cyber Command logo'
             />
           </Col>
-          <Col>
+          <Col md={6}>
             <img
               src={images.IAOLogo}
               srcSet={`${images.IAOLogo} 658w, ${images.IAOLogo_66} 434w`}
@@ -95,7 +95,7 @@ const PatriotAct = () => {
           <br />
           If you are a representative of a foreign bank that wishes to establish
           a professional working relationship with Purse do not hesitate to{' '}
-          <Link to='/contact' className={classes.link}>
+          <Link to='/contact' className='link'>
             contact us
           </Link>
           . We will be happy to supply you with the necessary paperwork to

@@ -1,6 +1,6 @@
 .form-button {
   margin: 1rem 0;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 1.5rem;
   border-radius: 25px;
   background-color: inherit;
   font-size: 1.4rem;
@@ -41,7 +41,6 @@
 
 @media only screen and (max-width: 500px) {
   .form-button {
-    margin: 0;
     padding: 0.25rem 1.5rem;
     font-size: 1.3rem;
     font-weight: bold;

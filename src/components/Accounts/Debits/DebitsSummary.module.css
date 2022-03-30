@@ -36,8 +36,24 @@
   margin: -0.5rem 0 1rem;
 }
 
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: 992px) {
+  .summary p {
+    font-size: 1.3rem;
+  }
+
+  .summary h1 {
+    font-size: 3.5rem;
+  }
+
+  .summary select {
+    margin: 0.5rem 0 1.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
   .summary {
+    max-width: 23rem;
     text-align: center;
   }
 
@@ -57,8 +73,8 @@
   }
 
   .summary select {
-    padding: 0.25rem 0;
-    font-size: 1.1rem;
+    /* padding: 0.25rem 0; */
+    font-size: 1rem;
   }
 
   .data h5 {
