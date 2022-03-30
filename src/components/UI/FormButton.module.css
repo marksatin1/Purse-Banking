@@ -1,9 +1,9 @@
 .form-button {
   margin: 1rem 0;
-  padding: 0.25rem 1.5rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 25px;
   background-color: inherit;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: bold;
   border: 2px solid white;
 }

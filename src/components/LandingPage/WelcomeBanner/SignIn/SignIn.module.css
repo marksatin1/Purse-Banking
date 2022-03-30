@@ -16,13 +16,17 @@
 }
 
 .form input {
-  max-width: 70%;
+  max-width: 80%;
   margin: 0.5rem auto;
   border: none;
   border-radius: 12px;
   padding: 0.5rem 0.7rem;
   box-shadow: 1px 2px black;
   font-size: 1.3rem;
+}
+
+.links {
+  margin: 1rem 0 0;
 }
 
 .links p {

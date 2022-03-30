@@ -167,20 +167,18 @@ const SignIn = () => {
               <FormButton type='submit' name='Sign In' disabled={isDisabled} />
             </div>
             <div className={classes.links}>
+              <p>New?? Don't forget to </p>
               <p>
-                New?? Don't forget to{' '}
                 <Link className='link' to='/register'>
                   REGISTER!
                 </Link>
               </p>
-              <p>
-                Lost credentials?{' '}
-                <span className='link' onClick={() => setShowReset(true)}>
-                  Click Here
-                </span>
+              <p>Lost credentials? </p>
+              <p className='link' onClick={() => setShowReset(true)}>
+                Click Here
               </p>
+              <p>Security, privacy, </p>
               <p>
-                Security, privacy,{' '}
                 <Link className='link' to='/privacy'>
                   etc., etc.
                 </Link>
