@@ -47,7 +47,7 @@ Unless otherwise stated, all written text, photographs, design components, and r
 
 Loading Gif is created by and copyright [Sam Rolfes](https://www.instagram.com/sam.rolfes/).
 
-Emoji icons are public domain.
+Emoji icons are owned by Apple.
 
 Credit card images and homepage banner images are sourced from Google Images.
 
