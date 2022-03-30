@@ -4,7 +4,7 @@
 
 ![Purse Banking Homepage](./src/assets/Purse%20Homepage.jpg)
 
-Site is now [LIVE!!](www.purse.wtf)
+Site is now [LIVE!!](https://www.purse.wtf)
 
 ## Build Dependencies
 
