@@ -1,5 +1,4 @@
 .layout {
-  /* border: 3px solid brown; */
   width: 75vw;
   margin: 17rem auto 10rem;
   text-align: center;
@@ -20,7 +19,6 @@
 }
 
 .description {
-  /* border: 3px solid orchid; */
   position: relative;
   width: 75%;
   margin: 0 auto;
@@ -60,8 +58,7 @@
 }
 
 .legal {
-  /* border: 3px solid purple; */
-  margin: 4rem 0 0;
+  margin: 3rem 0 0;
 }
 
 .legal h3 {
@@ -80,24 +77,33 @@
 }
 
 .reviews {
-  /* border: 3px solid brown; */
   position: relative;
   margin: 3rem auto 10rem;
 }
 
-.reviews h1 {
+.reviews h2 {
   color: green;
-  width: 90%;
+  width: 100%;
   margin: 5rem auto 2rem;
   padding: 0 0 1rem;
   border-bottom: 2px solid goldenrod;
 }
 
 @media only screen and (max-width: 768px) {
+  .layout {
+    margin-top: 2rem;
+  }
+
   .layout * {
     text-align: center;
   }
+
   .layout img {
-    width: 70%;
+    width: 80%;
+  }
+
+  .legal img {
+    width: 75vw;
+    height: 50vh;
   }
 }

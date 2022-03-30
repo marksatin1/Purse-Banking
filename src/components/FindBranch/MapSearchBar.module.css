@@ -1,5 +1,5 @@
 .input {
-  width: 100%;
+  width: 80%;
   padding: 0.25rem 1rem;
   font-size: 1.3rem;
   border-radius: 5px;
@@ -29,8 +29,14 @@
 }
 
 .results-message {
-  margin: 1rem 0 0.5rem;
+  margin: 1.5rem auto;
   color: goldenrod;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .results-message {
+    width: 80%;
+  }
 }

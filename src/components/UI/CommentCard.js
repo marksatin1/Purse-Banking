@@ -16,7 +16,7 @@ const CommentCard = (props) => {
   return (
     <Container>
       <Row className={classes.layout}>
-        <Col xs={12} sm={4} className={classes['user-info']}>
+        <Col sm={12} md={4} className={classes['user-info']}>
           <h3 className={classes.username}>{props.username}</h3>
           <div>
             <p>
@@ -32,21 +32,21 @@ const CommentCard = (props) => {
         </Col>
         <Col className={classes['comment-info']}>
           <Row className={classes['header']}>
-            <Col xs={12} md={'auto'}>
+            <Col sm={12} md={'auto'}>
               <img
                 style={{ width: '140px' }}
                 src={props.overallStars}
                 alt='Overall Rating'
               />
             </Col>
-            <Col xs={12} md={'auto'}>
+            <Col sm={12} md={'auto'}>
               <p>{props.commentDate}</p>
             </Col>
           </Row>
           <h3 className={classes.title}>{props.title}</h3>
           <p>{props.content}</p>
           <Row>
-            <Col xs={12} lg={4} className={classes.rating}>
+            <Col sm={12} lg={4} className={classes.rating}>
               Online Experience
               <img
                 style={{ width: '100px' }}
@@ -54,7 +54,7 @@ const CommentCard = (props) => {
                 alt='Online Experience Rating'
               />
             </Col>
-            <Col xs={12} lg={4} className={classes.rating}>
+            <Col sm={12} lg={4} className={classes.rating}>
               Customer Service
               <img
                 style={{ width: '100px' }}
@@ -62,7 +62,7 @@ const CommentCard = (props) => {
                 alt='Customer Service Rating'
               />
             </Col>
-            <Col xs={12} lg={4} className={classes.rating}>
+            <Col sm={12} lg={4} className={classes.rating}>
               Account Benefits
               <img
                 style={{ width: '100px' }}

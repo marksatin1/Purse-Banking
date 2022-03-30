@@ -7,24 +7,30 @@ import classes from './CreditsActivity.module.css';
 const CreditsActivity = (props) => {
   return (
     <Container className={classes.table}>
-      <Row className={classes.trow}>
-        <Col xs={3}>
-          <b>Date</b>
-        </Col>
-        <Col xs={6}>
-          <b>Description</b>
-        </Col>
-        <Col xs={3}>
-          <b>Amount</b>
-        </Col>
-      </Row>
-      {props.activity.map((item) => (
-        <Row key={uuidv4()} className={classes.trow}>
-          <Col xs={3}>{item.date}</Col>
-          <Col xs={6}>{item.description}</Col>
-          <Col xs={3}>{usdFormatter.format(item.amount)}</Col>
+      <div className={classes.layout}>
+        <Row className={classes.trow}>
+          <Col xs={2}>
+            <b>Date</b>
+          </Col>
+          <Col xs={5} sm={5}>
+            <b>Description</b>
+          </Col>
+          <Col xs={1} sm={2}>
+            <b>Amount</b>
+          </Col>
         </Row>
-      ))}
+        {props.activity.map((item) => (
+          <Row key={uuidv4()} className={classes.trow}>
+            <Col xs={2}>{item.date}</Col>
+            <Col xs={5} sm={5}>
+              {item.description}
+            </Col>
+            <Col xs={1} sm={2}>
+              {usdFormatter.format(item.amount)}
+            </Col>
+          </Row>
+        ))}
+      </div>
     </Container>
   );
 };

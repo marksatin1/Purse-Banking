@@ -21,6 +21,15 @@
   align-items: baseline;
 }
 
+.trow > * {
+  margin: 0.5rem 2rem;
+}
+
+.layout {
+  width: 60rem;
+  margin: 0 auto;
+}
+
 @media only screen and (max-width: 992px) {
   .table {
     font-size: 1.2rem;
@@ -30,5 +39,11 @@
 @media only screen and (max-width: 900px) {
   .trow {
     margin-right: -15rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .layout {
+    width: 45rem;
   }
 }

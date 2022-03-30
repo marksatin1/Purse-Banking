@@ -9,7 +9,6 @@ import { convertRating } from '../helpers/Helpers';
 import { v4 as uuidv4 } from 'uuid';
 
 import LegalMashup_40 from '../assets/LegalMashup_40.webp';
-import LegalMashup_25 from '../assets/LegalMashup_25.webp';
 
 import CommentCard from '../components/UI/CommentCard';
 import classes from './CreditOffer.module.css';
@@ -148,14 +147,10 @@ const CreditOffer = () => {
           Be sure to read all Terms and Conditions prior to applying for a Purse
           Credit Card.
         </p>
-        <img
-          src={LegalMashup_40}
-          srcSet={`${LegalMashup_40} 2000w ${LegalMashup_25} 1250w`}
-          alt='Terms and Conditions'
-        />
+        <img src={LegalMashup_40} alt='Terms and Conditions' />
       </div>
       <div className={classes.reviews}>
-        <h1>See what the world is saying!</h1>
+        <h2>See what the world is saying!</h2>
         {comments}
       </div>
     </div>

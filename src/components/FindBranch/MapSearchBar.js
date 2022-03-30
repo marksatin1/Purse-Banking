@@ -55,9 +55,9 @@ const MapSearchBar = (props) => {
           setValue(event.target.value);
         }}
       />
-      <h4 className={classes['results-message']}>
+      <h3 className={classes['results-message']}>
         Returning the top 20 results within 5 miles
-      </h4>
+      </h3>
       <ComboboxPopover className={classes.popover}>
         <ComboboxList>
           {status === 'OK' &&

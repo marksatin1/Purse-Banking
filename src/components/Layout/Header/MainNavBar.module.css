@@ -83,15 +83,21 @@
   }
 
   .nav-dropdown {
-    margin: 0 1rem;
+    margin: 0 1.5rem;
   }
 
   .nav-dropdown h2 {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 
   .dropdown-content .link {
     font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 625px) {
+  .nav-dropdown {
+    margin: 0 0.25rem;
   }
 }
 
@@ -107,6 +113,10 @@
 
   .nav-dropdown h2 {
     font-size: 1.4rem;
+  }
+
+  .dropdown-content {
+    padding: 0.25rem;
   }
 
   .dropdown-content .link {

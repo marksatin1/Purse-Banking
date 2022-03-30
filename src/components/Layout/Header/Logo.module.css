@@ -92,6 +92,22 @@
   }
 
   .handbag {
+    display: none;
+  }
+
+  .purse {
+    font-size: 3.2rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .logo-nav {
+    margin: -0.75rem auto 0;
+    padding: 1.75rem 0.5rem 0.25rem;
+    border-radius: 10px;
+  }
+
+  .handbag {
     width: 0;
     height: 0;
   }
