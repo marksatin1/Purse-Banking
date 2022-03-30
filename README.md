@@ -1,7 +1,7 @@
 # README
 
-#### Updated March 30, 2022
-#### Site is now [LIVE!!](https://www.purse.wtf)
+### Updated March 30, 2022
+### Site is now [LIVE!!](https://www.purse.wtf)
 
 
 ![Purse Banking Homepage](./src/assets/Purse%20Homepage.jpg)
