@@ -1,5 +1,8 @@
 # README
 
+### Updated March 31, 2022
+### [3 minute overview video](https://youtu.be/oqCGS89yQuk)
+
 ### Updated March 30, 2022
 ### Site is now [LIVE!!](https://www.purse.wtf)
 
