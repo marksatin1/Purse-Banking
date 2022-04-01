@@ -107,4 +107,4 @@ Thanks for reading!
 
 A very special thanks to my teachers - David Malan, Brian Yu, Doug Lloyd, Maximillian Schwarzmüller - to my family, and to my friend, Haris Shafiq, for their continual support and encouragement.
 
-I also want to thank the mods and users of Stack Overflow as well as the authors of so many blogs who have taught me so so so so much about coding and best practices over the last year.
+I also want to thank the mods and users of Stack Overflow as well as the authors of so many blogs who have taught me so so so much about coding and best practices over the last year.
