@@ -58,7 +58,7 @@ Credit card images and homepage banner images are sourced from Google Images.
 
 - Working Registration, Sign In, and Password Reset components
 - User credential validation and feedback (frontend) and authentication via ID tokens (backend)
-- Static routing via React Router, protected pages, and dynamic routing with query params
+- SPA routing via React Router, protected pages, and dynamic routing with query params
 - API connections and response error handling for Google Maps, CoinCap, and Google Firebase
 - Customized and interactive Google Map with working search, results, and geolocator functionalities
 - Original header navigation design
