@@ -32,7 +32,7 @@
 
 ## Background
 
-"Purse - Brutally Honest Banking" is my capstone project for Harvard CS50x and Udemy-Academind's "React - The Complete Guide" courses. While I finished CS50x in April 2021 I wanted to build a website that pushes beyond the introductory dev skills I learned there. After an exploratory journey into Project Management I returned to software development earlier this year with [Maximilian Schwarzmüller](https://www.udemy.com/user/maximilian-schwarzmuller/)'s Udemy course and worked on sharpening the additional tools I needed to complete this project. The result is not merely a practice project, but a fully-featured React application that makes use of React Router, the Context API, backend connections, and react-bootstrap among other packages and dependencies.
+"Purse - Brutally Honest Banking" is my capstone project for [Harvard's CS50x](https://cs50.harvard.edu/x/2022/) and [Udemy-Academind's "React - The Complete Guide"](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) courses. While I finished CS50x in April 2021 I wanted to build a website that pushes beyond the introductory dev skills I learned there. After an exploratory journey into Project Management I returned to software development earlier this year with [Maximilian Schwarzmüller](https://www.udemy.com/user/maximilian-schwarzmuller/)'s Udemy course and worked on sharpening the additional tools I needed to complete this project. The result is not merely a practice project, but a fully-featured React application that makes use of React Router, the Context API, backend connections, and react-bootstrap among other packages and dependencies.
 
 My educational background is in fine art: I went to film school and have spent the last decade working in the film and photography industry. I'm proud to say I was able to marry my art and design background with my new technical skills into a piece of interactive art that stands on its own. Visually speaking, I took equal inspiration from real banking websites, the design aesthetics of newspaper circular advertisements, the no man's land of Web 1.0, streetwear graphic design, and 1980's color patterns.
 
@@ -58,7 +58,7 @@ Credit card images and homepage banner images are sourced from Google Images.
 
 - Working Registration, Sign In, and Password Reset components
 - User credential validation and feedback (frontend) and authentication via ID tokens (backend)
-- Static routing via React Router, protected pages, and dynamic routing with query params
+- SPA routing via React Router, protected pages, and dynamic routing with query params
 - API connections and response error handling for Google Maps, CoinCap, and Google Firebase
 - Customized and interactive Google Map with working search, results, and geolocator functionalities
 - Original header navigation design
