@@ -22,7 +22,7 @@
   padding: 2rem;
   text-align: center;
   overflow: scroll;
-  z-index: 3;
+  z-index: 5;
 }
 
 .title {
