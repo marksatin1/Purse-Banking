@@ -80,7 +80,7 @@ export const PrivacyPolicy = {
       <h2 className={classes.intertitle}>YOU DON'T KNOW!!!</h2>
       <p>
         After all, these shady players are lining the pockets of the very
-        inpsectors sent out to provide ovesight into the legality of their
+        inpsectors sent out to provide oversight into the legality of their
         operations! There are so many backdoors coded into these apps, hidden
         agreements being made, secret wars being waged, and it's all buried
         underneath ten tons of legalese you wouldn't be able to tell which way
