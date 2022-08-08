@@ -1,4 +1,3 @@
-import { Fragment, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -29,12 +28,8 @@ const creditData = {
 const MyPurseHome = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <Fragment>
+    <>
       <div className={classes.header}>
         <BannerDetails />
       </div>
@@ -173,7 +168,7 @@ const MyPurseHome = () => {
           </Row>
         </div>
       </Container>
-    </Fragment>
+    </>
   );
 };
 

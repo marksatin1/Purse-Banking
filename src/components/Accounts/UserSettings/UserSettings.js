@@ -1,4 +1,4 @@
-import { Fragment, useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../../context/auth-context';
 
 import PageCard from '../../UI/PageCard';
@@ -10,10 +10,6 @@ const UserSettings = () => {
   const [showModal, setShowModal] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const authCtx = useContext(AuthContext);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const username = localStorage.getItem('userName');
   const email = localStorage.getItem('userEmail');
@@ -84,7 +80,7 @@ const UserSettings = () => {
         <Modal
           title='Success'
           content={
-            <Fragment>
+            <>
               <p className={classes.content}>
                 If you have previously registered with Purse a password reset
                 link will appear in your inbox shortly.
@@ -92,7 +88,7 @@ const UserSettings = () => {
                 <br />
                 You will be redirected momentarily.
               </p>
-            </Fragment>
+            </>
           }
         />
       )}

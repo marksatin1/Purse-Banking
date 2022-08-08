@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 import { usdFormatter } from '../../../helpers/Helpers';
@@ -7,7 +6,7 @@ import classes from './DebitsActivity.module.css';
 
 const DepositsActivity = (props) => {
   return (
-    <Fragment>
+    <>
       <Container className={classes.table}>
         <div className={classes.layout}>
           <Row className={classes.trow}>
@@ -38,7 +37,7 @@ const DepositsActivity = (props) => {
           ))}
         </div>
       </Container>
-    </Fragment>
+    </>
   );
 };
 

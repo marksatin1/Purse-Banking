@@ -1,10 +1,10 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { validateEmail } from '../../../../helpers/FormValidation';
 
 import FormButton from '../../../UI/FormButton';
 import classes from './PasswordReset.module.css';
 
-const PasswordReset = (props) => {
+const PasswordReset = ({ setShowReset }) => {
   const [email, setEmail] = useState('');
   const [formErrors, setFormErrors] = useState({});
   const [isDisabled, setIsDisabled] = useState(true);
@@ -66,7 +66,7 @@ const PasswordReset = (props) => {
   return (
     <form className={classes.form} onSubmit={passwordResetHandler}>
       {!showSuccess && (
-        <Fragment>
+        <>
           <h1 className={classes.title}>Reset Password</h1>
           <p className={classes.body}>
             Please enter your email below to reset your password.
@@ -85,25 +85,22 @@ const PasswordReset = (props) => {
           <div className={classes.reset}>
             <FormButton type='submit' name='Reset' disabled={isDisabled} />
           </div>
-          <p className='link' onClick={() => props.setShowReset(false)}>
+          <p className='link' onClick={() => setShowReset(false)}>
             Return to Sign In
           </p>
-        </Fragment>
+        </>
       )}
       {showSuccess && (
-        <Fragment>
+        <>
           <h2 className={classes.title}>Success</h2>
           <p className={classes.body}>
             If you have previously registered with Purse a password reset link
             will appear in your inbox shortly.
           </p>
-          <p
-            className={classes.return}
-            onClick={() => props.setShowReset(false)}
-          >
+          <p className={classes.return} onClick={() => setShowReset(false)}>
             Return to Sign In
           </p>
-        </Fragment>
+        </>
       )}
     </form>
   );

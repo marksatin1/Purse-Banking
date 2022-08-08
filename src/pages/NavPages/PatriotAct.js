@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { importAll } from '../../helpers/Helpers';
@@ -7,10 +6,6 @@ import PageCard from '../../components/UI/PageCard';
 import classes from './PatriotAct.module.css';
 
 const PatriotAct = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const images = importAll(require.context('../../assets'));
 
   return (

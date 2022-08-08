@@ -3,15 +3,17 @@ import { v4 as uuidv4 } from 'uuid';
 
 import classes from './ContactCard.module.css';
 
-const ContactCard = (props) => {
+const ContactCard = ({ department, contactData }) => {
   return (
     <Container className={classes.card}>
       <Row>
         <Col xs={12}>
-          <h2 className={classes.department}>{props.department}</h2>
+          <h2 className={classes.department}>
+            {{ department, contactData }.department}
+          </h2>
         </Col>
         <Col className={classes.content}>
-          {props.contactData.map((item) => (
+          {{ department, contactData }.contactData.map((item) => (
             <Row key={uuidv4()}>
               <Col xs={12} xl={6} className={classes.issue}>
                 <p>{item.issue}</p>

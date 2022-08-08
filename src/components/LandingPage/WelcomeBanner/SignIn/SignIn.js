@@ -1,4 +1,4 @@
-import { useState, useRef, useContext, useEffect, Fragment } from 'react';
+import { useState, useRef, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../../../context/auth-context';
 
@@ -143,7 +143,7 @@ const SignIn = () => {
       )}
       <form noValidate onSubmit={submitHandler}>
         {!showReset && !httpError && (
-          <Fragment>
+          <>
             <h2 className={`d-xl-none ${classes.title}`}>
               Get In There Already!!!
             </h2>
@@ -191,7 +191,7 @@ const SignIn = () => {
                 Find your local branch
               </button>
             </Link>
-          </Fragment>
+          </>
         )}
       </form>
     </div>

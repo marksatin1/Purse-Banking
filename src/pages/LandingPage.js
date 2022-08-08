@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import WelcomeBanner from '../components/LandingPage/WelcomeBanner/WelcomeBanner';
@@ -7,10 +6,6 @@ import PersonalityBanner from '../components/LandingPage/PersonalityBanner/Perso
 import LegalBanner from '../components/LandingPage/LegalBanner/LegalBanner';
 
 const LandingPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <Container>
       <Row>

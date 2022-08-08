@@ -1,12 +1,6 @@
-import { useEffect } from 'react';
-
 import PageCard from '../../components/UI/PageCard';
 
 const Careers = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <PageCard title='Careers' subtitle='Work for us!'>
       <p>

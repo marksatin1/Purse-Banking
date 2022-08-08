@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import { usdFormatter } from '../helpers/Helpers';
 import { CryptoContent } from '../helpers/WrittenContent';
 import { v4 as uuidv4 } from 'uuid';
@@ -8,10 +8,6 @@ import classes from './Crypto.module.css';
 const Crypto = () => {
   const [cryptoData, setCryptoData] = useState([]);
   const [errorMessage, setErrorMessage] = useState();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   useEffect(() => {
     fetch('https://api.coincap.io/v2/assets?limit=10', {
@@ -92,7 +88,7 @@ const Crypto = () => {
         <i>Bitcoin? More like Shitcoin, am I right!?</i>
       </h2>
       {!errorMessage && (
-        <Fragment>
+        <>
           <div className={classes['crypto-table']}>
             <table>
               <thead className={classes.thead}>
@@ -136,7 +132,7 @@ const Crypto = () => {
               </h4>
             </a>
           </div>
-        </Fragment>
+        </>
       )}
       {errorMessage && (
         <div className={classes.apiError}>

@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import BannerDetails from '../../UI/BannerDetails';
@@ -32,10 +32,6 @@ const Debits = () => {
   const queryParams = new URLSearchParams(location.search);
   const accountParam = queryParams.get('account');
   const navigate = useNavigate();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   useEffect(() => {
     if (accountParam === 'checking') {
@@ -220,7 +216,7 @@ const Debits = () => {
   }`;
 
   return (
-    <Fragment>
+    <>
       <div className={headerClasses}>
         <BannerDetails />
       </div>
@@ -252,7 +248,7 @@ const Debits = () => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 

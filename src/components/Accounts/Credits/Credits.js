@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import BannerDetails from '../../UI/BannerDetails';
 import BumpTitle from '../../UI/BumpTitle';
@@ -12,10 +12,6 @@ const Credits = () => {
   const [details, setDetails] = useState([]);
   const [showActivity, setShowActivity] = useState(true);
   const [showDetails, setShowDetails] = useState(false);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const creditActivity = [];
   const creditDetails = [];
@@ -113,7 +109,7 @@ const Credits = () => {
   }`;
 
   return (
-    <Fragment>
+    <>
       <div className={classes.header}>
         <BannerDetails />
       </div>
@@ -141,7 +137,7 @@ const Credits = () => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 export default Credits;

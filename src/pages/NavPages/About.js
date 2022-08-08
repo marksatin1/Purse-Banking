@@ -1,14 +1,9 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import PageCard from '../../components/UI/PageCard';
 import classes from './About.module.css';
 
 const About = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <PageCard title='About Us' subtitle='Get in the bag today!'>
       <p>

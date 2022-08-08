@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Container, Row, Navbar } from 'react-bootstrap';
 
 import Handbag from '../../../assets/Emojis/Handbag.webp';
@@ -11,7 +10,7 @@ import classes from './Header.module.css';
 
 const Header = () => {
   return (
-    <Fragment>
+    <>
       <Container fluid className={`d-none d-md-block ${classes.header}`}>
         <Row>
           <TopNavBar />
@@ -33,7 +32,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Navbar>
       </Container>
-    </Fragment>
+    </>
   );
 };
 

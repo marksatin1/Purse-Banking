@@ -1,13 +1,7 @@
-import { useEffect } from 'react';
-
 import PageCard from '../../components/UI/PageCard';
 import classes from './Languages.module.css';
 
 const Languages = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <PageCard title='Languages' subtitle='How many languages do you speak?'>
       <div className={classes.languages}>

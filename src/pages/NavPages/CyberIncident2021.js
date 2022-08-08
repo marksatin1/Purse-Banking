@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import PageCard from '../../components/UI/PageCard';
@@ -6,10 +5,6 @@ import IncidentReport from '../../components/UI/IncidentReport';
 import classes from './CyberIncident2021.module.css';
 
 const CyberIncident2021 = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <PageCard
       title='2021 Cybersecurity Incident'

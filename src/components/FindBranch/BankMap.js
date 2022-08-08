@@ -1,4 +1,4 @@
-import { Fragment, useState, memo } from 'react';
+import { useState, memo } from 'react';
 import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import { v4 as uuidv4 } from 'uuid';
 import { convertRating } from '../../helpers/Helpers';
@@ -25,18 +25,18 @@ const options = {
   zoomControl: true,
 };
 
-const BankMap = (props) => {
+const BankMap = ({ loadPlaces, requestedPlaces, panTo }) => {
   const [selected, setSelected] = useState(null);
   const [isGeoLocating, setIsGeoLocating] = useState(false);
 
   return (
-    <Fragment>
+    <>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={11}
         center={center}
         options={options}
-        onLoad={props.loadPlaces}
+        onLoad={loadPlaces}
       >
         {isGeoLocating && (
           <div className={classes.wait}>
@@ -51,7 +51,7 @@ const BankMap = (props) => {
             <h1>PLEASE WAIT PLEASE WAIT PLEASE WAIT</h1>
           </div>
         )}
-        {props.requestedPlaces.map((place) => (
+        {requestedPlaces.map((place) => (
           <Marker
             key={uuidv4()}
             position={place.geometry.location}
@@ -94,9 +94,9 @@ const BankMap = (props) => {
             </div>
           </InfoWindow>
         )}
-        <LocateMe panTo={props.panTo} setIsGeoLocating={setIsGeoLocating} />)
+        <LocateMe panTo={panTo} setIsGeoLocating={setIsGeoLocating} />)
       </GoogleMap>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import classes from './Modal.module.css';
@@ -28,7 +28,7 @@ const Modal = (props) => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       {ReactDOM.createPortal(
         <Backdrop hideModal={props.hideModal} />,
         document.getElementById('overlays')
@@ -42,7 +42,7 @@ const Modal = (props) => {
         />,
         document.getElementById('overlays')
       )}
-    </Fragment>
+    </>
   );
 };
 

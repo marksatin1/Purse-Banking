@@ -1,19 +1,19 @@
 import Compass from '../../assets/Emojis/Compass.webp';
 import classes from './LocateMe.module.css';
 
-const LocateMe = (props) => {
+const LocateMe = ({ setIsGeoLocating }) => {
   return (
     <button
       className={classes['locate-icon']}
       onClick={() => {
-        props.setIsGeoLocating(true);
+        setIsGeoLocating(true);
         navigator.geolocation.getCurrentPosition(
           (position) => {
             props.panTo({
               lat: position.coords.latitude,
               lng: position.coords.longitude,
             });
-            props.setIsGeoLocating(false);
+            setIsGeoLocating(false);
           },
           () => null
         );

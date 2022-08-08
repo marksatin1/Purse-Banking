@@ -1,13 +1,7 @@
-import { useEffect } from 'react';
-
 import PageCard from '../../components/UI/PageCard';
 import IncidentReport from '../../components/UI/IncidentReport';
 
 const CyberIncident2019 = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <PageCard title='2019 Cybersecurity Incident' subtitle="We're very sorry">
       <IncidentReport

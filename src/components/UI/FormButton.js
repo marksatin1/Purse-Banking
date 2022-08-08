@@ -1,13 +1,9 @@
 import classes from './FormButton.module.css';
 
-const FormButton = (props) => {
+const FormButton = ({ type, disabled, name }) => {
   return (
-    <button
-      className={classes['form-button']}
-      type={props.type}
-      disabled={props.disabled}
-    >
-      {props.name}
+    <button className={classes['form-button']} type={type} disabled={disabled}>
+      {name}
     </button>
   );
 };

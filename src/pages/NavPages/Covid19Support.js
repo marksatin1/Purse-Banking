@@ -1,12 +1,6 @@
-import { useEffect } from 'react';
-
 import PageCard from '../../components/UI/PageCard';
 
 const Covid19Support = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <PageCard
       title='COVID-19 Support'

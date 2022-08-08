@@ -14,7 +14,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import classes from './MapSearchBar.module.css';
 
-const MapSearchBar = (props) => {
+const MapSearchBar = ({ center, panTo }) => {
   const {
     ready,
     value,
@@ -24,8 +24,8 @@ const MapSearchBar = (props) => {
   } = usePlacesAutocomplete({
     requestOptions: {
       location: {
-        lat: () => props.center.lat,
-        lng: () => props.center.lng,
+        lat: () => center.lat,
+        lng: () => center.lng,
       },
       radius: 20000,
     },
@@ -40,7 +40,7 @@ const MapSearchBar = (props) => {
         try {
           const results = await getGeocode({ address });
           const { lat, lng } = await getLatLng(results[0]);
-          props.panTo({ lat, lng });
+          panTo({ lat, lng });
         } catch (error) {
           console.log('Error');
         }

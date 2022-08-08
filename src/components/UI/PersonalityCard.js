@@ -4,14 +4,14 @@ import Lasagna from '../../assets/Personality-Banners/Lasagna.webp';
 
 import classes from './PersonalityCard.module.css';
 
-const PersonalityCard = (props) => {
+const PersonalityCard = ({ name, title, subtitle, href }) => {
   let cardImage;
 
-  if (props.name === 'Guns') {
+  if (name === 'Guns') {
     cardImage = Guns;
-  } else if (props.name === 'Diamonds') {
+  } else if (name === 'Diamonds') {
     cardImage = BloodDiamonds;
-  } else if (props.name === 'Lasagna') {
+  } else if (name === 'Lasagna') {
     cardImage = Lasagna;
   } else {
     return null;
@@ -19,14 +19,14 @@ const PersonalityCard = (props) => {
 
   return (
     <div className={classes.card}>
-      <img src={cardImage} alt={props.title} />
+      <img src={cardImage} alt={title} />
       <div className={classes.content}>
         <div className={classes.titles}>
-          <h1 className={classes.title}>{props.title}</h1>
-          <p>{props.subtitle}</p>
+          <h1 className={classes.title}>{title}</h1>
+          <p>{subtitle}</p>
         </div>
         <div className={classes['learn-container']}>
-          <a href={props.href} target='_blank' rel='noopener noreferrer'>
+          <a href={href} target='_blank' rel='noopener noreferrer'>
             <button type='button'>Learn More {'>'}</button>
           </a>
         </div>

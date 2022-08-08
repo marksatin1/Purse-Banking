@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useContext, useRef } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import {
   minMaxLength,
@@ -43,10 +43,6 @@ const Register = () => {
   const authCtx = useContext(AuthContext);
   const emailRef = useRef();
   const passwordRef = useRef();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   useEffect(() => {
     if (
@@ -247,7 +243,7 @@ const Register = () => {
   };
 
   return (
-    <Fragment>
+    <>
       {showModal && (
         <Modal
           title='Welcome To The Fold'
@@ -430,7 +426,7 @@ const Register = () => {
           </Row>
         </Container>
       )}
-    </Fragment>
+    </>
   );
 };
 

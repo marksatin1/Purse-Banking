@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import {
   starCardData,
@@ -25,10 +25,6 @@ const dateFormatter = (value) => {
 const CreditOffer = () => {
   const [comments, setComments] = useState();
   const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const queryParams = new URLSearchParams(location.search);
   const cardParam = queryParams.get('card');

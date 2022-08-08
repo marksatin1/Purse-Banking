@@ -1,17 +1,11 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { ContactData } from '../../helpers/ContactData';
-import { v4 as uuidv4 } from 'uuid';
 
 import ContactCard from '../../components/UI/ContactCard';
 import classes from './Contact.module.css';
 
 const Contact = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <Container>
       <Row>
@@ -23,7 +17,7 @@ const Contact = () => {
             </h2>
             <Row>
               {ContactData.map((item) => (
-                <Col xs={12} lg={6} key={uuidv4()}>
+                <Col xs={12} lg={6} key={item.department}>
                   <ContactCard
                     department={item.department}
                     contactData={item.data}

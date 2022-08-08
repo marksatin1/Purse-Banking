@@ -32,10 +32,6 @@ const FindBranch = () => {
   const [requestedPlaces, setRequestedPlaces] = useState([]);
   const mapRef = useRef();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,

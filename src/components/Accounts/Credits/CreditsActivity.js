@@ -4,7 +4,7 @@ import { usdFormatter } from '../../../helpers/Helpers';
 
 import classes from './CreditsActivity.module.css';
 
-const CreditsActivity = (props) => {
+const CreditsActivity = ({ activity }) => {
   return (
     <Container className={classes.table}>
       <div className={classes.layout}>
@@ -19,7 +19,7 @@ const CreditsActivity = (props) => {
             <b>Amount</b>
           </Col>
         </Row>
-        {props.activity.map((item) => (
+        {activity.map((item) => (
           <Row key={uuidv4()} className={classes.trow}>
             <Col xs={2}>{item.date}</Col>
             <Col xs={5} sm={5}>

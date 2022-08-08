@@ -5,11 +5,24 @@ import Crossmark from '../../assets/Emojis/Crossmark.webp';
 
 import classes from './CommentCard.module.css';
 
-const CommentCard = (props) => {
+const CommentCard = ({
+  recommend,
+  username,
+  age,
+  location,
+  memberDate,
+  overallStars,
+  commentDate,
+  title,
+  content,
+  onlineStars,
+  customerStars,
+  accountStars,
+}) => {
   let recImage;
-  if (props.recommend === 'Yes, I recommend this card') {
+  if (recommend === 'Yes, I recommend this card') {
     recImage = Checkmark;
-  } else if (props.recommend === 'No, I do not recommend this card') {
+  } else if (recommend === 'No, I do not recommend this card') {
     recImage = Crossmark;
   }
 
@@ -17,16 +30,16 @@ const CommentCard = (props) => {
     <Container>
       <Row className={classes.layout}>
         <Col sm={12} md={4} className={classes['user-info']}>
-          <h3 className={classes.username}>{props.username}</h3>
+          <h3 className={classes.username}>{username}</h3>
           <div>
             <p>
-              Age: <b>{props.age}</b>
+              Age: <b>{age}</b>
             </p>
             <p>
-              Location: <b>{props.location}</b>
+              Location: <b>{location}</b>
             </p>
             <p>
-              Member since: <b>{props.memberDate}</b>
+              Member since: <b>{memberDate}</b>
             </p>
           </div>
         </Col>
@@ -35,22 +48,22 @@ const CommentCard = (props) => {
             <Col sm={12} md={'auto'}>
               <img
                 style={{ width: '140px' }}
-                src={props.overallStars}
+                src={overallStars}
                 alt='Overall Rating'
               />
             </Col>
             <Col sm={12} md={'auto'}>
-              <p>{props.commentDate}</p>
+              <p>{commentDate}</p>
             </Col>
           </Row>
-          <h3 className={classes.title}>{props.title}</h3>
-          <p>{props.content}</p>
+          <h3 className={classes.title}>{title}</h3>
+          <p>{content}</p>
           <Row>
             <Col sm={12} lg={4} className={classes.rating}>
               Online Experience
               <img
                 style={{ width: '100px' }}
-                src={props.onlineStars}
+                src={onlineStars}
                 alt='Online Experience Rating'
               />
             </Col>
@@ -58,7 +71,7 @@ const CommentCard = (props) => {
               Customer Service
               <img
                 style={{ width: '100px' }}
-                src={props.customerStars}
+                src={customerStars}
                 alt='Customer Service Rating'
               />
             </Col>
@@ -66,14 +79,14 @@ const CommentCard = (props) => {
               Account Benefits
               <img
                 style={{ width: '100px' }}
-                src={props.accountStars}
+                src={accountStars}
                 alt='Account Benefits Rating'
               />
             </Col>
           </Row>
           <div className={classes.recommendation}>
             <img style={{ width: '40px' }} src={recImage} alt='checkmark' />
-            <p>{props.recommend}</p>
+            <p>{recommend}</p>
           </div>
         </Col>
       </Row>

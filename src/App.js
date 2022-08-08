@@ -1,4 +1,4 @@
-import { Fragment, useContext, lazy, Suspense } from 'react';
+import { useContext, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AuthContext from './context/auth-context';
 
@@ -33,7 +33,7 @@ const App = () => {
   const authCtx = useContext(AuthContext);
 
   return (
-    <Fragment>
+    <>
       <header>
         <Header />
       </header>
@@ -41,13 +41,13 @@ const App = () => {
         <Suspense fallback={wtf_loader}>
           <Routes>
             {!authCtx.isSignedIn && (
-              <Fragment>
+              <>
                 <Route path='/' element={<LandingPage />} />
                 <Route path='/register' element={<Register />} />
-              </Fragment>
+              </>
             )}
             {authCtx.isSignedIn && (
-              <Fragment>
+              <>
                 <Route path='/' element={<MyPurseHome />} />
                 <Route path='/my-purse/accounts' element={<MyPurseHome />} />
                 <Route path='/my-purse/debit-accounts' element={<Debits />} />
@@ -59,7 +59,7 @@ const App = () => {
                   path='/my-purse/user-settings'
                   element={<UserSettings />}
                 />
-              </Fragment>
+              </>
             )}
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
@@ -88,7 +88,7 @@ const App = () => {
       <footer>
         <Footer />
       </footer>
-    </Fragment>
+    </>
   );
 };
 export default App;

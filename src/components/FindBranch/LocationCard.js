@@ -1,19 +1,15 @@
 import classes from './LocationCard.module.css';
 
-const LocationCard = (props) => {
+const LocationCard = ({ name, icon, status, rating, address }) => {
   return (
     <div className={classes.card}>
-      <h3 className={classes.name}>{props.name}</h3>
+      <h3 className={classes.name}>{name}</h3>
       <div className={classes['status-container']}>
-        <img className={classes.icon} src={props.icon} alt='Location icon' />
-        <h5 className={classes.status}>{props.status}</h5>
+        <img className={classes.icon} src={icon} alt='Location icon' />
+        <h5 className={classes.status}>{status}</h5>
       </div>
-      <img
-        className={classes.rating}
-        src={props.rating}
-        alt='Business rating'
-      />
-      <p className={classes.address}>{props.address}</p>
+      <img className={classes.rating} src={rating} alt='Business rating' />
+      <p className={classes.address}>{address}</p>
     </div>
   );
 };
