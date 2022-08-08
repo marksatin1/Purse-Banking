@@ -6,17 +6,16 @@ import {
   userExists,
   passwordStrength,
   validateConfirmPassword,
-} from '../helpers/FormValidation';
+} from '../helpers/functions/FormValidationFunctions';
 import {
   UserAgreement,
   PrivacyPolicy,
   RegistrationSuccess,
-} from '../helpers/WrittenContent';
+} from '../helpers/data/WrittenContent';
 import AuthContext from '../context/auth-context';
 
-import Modal from '../components/UI/Modal';
-import FormButton from '../components/UI/FormButton';
-import classes from './Register.module.css';
+import Modal from '../components/UI/General/Modal';
+import FormButton from '../components/UI/General/FormButton';
 
 let idToken, expirationTime;
 
@@ -250,7 +249,7 @@ const Register = () => {
           subtitle='You are now part of 6000 years of human history'
           content={RegistrationSuccess}
           button={
-            <div className={classes['access']}>
+            <div className='access'>
               <button onClick={signInHandler}>Access MyPurse</button>
             </div>
           }
@@ -276,9 +275,9 @@ const Register = () => {
         <Container>
           <Row>
             <form onSubmit={submitFormHandler}>
-              <Col xs={10} md={7} lg={5} className={classes.form}>
+              <Col xs={10} md={7} lg={5} className='form'>
                 <h1>REGISTER NOW!</h1>
-                <div className={classes['text-fields']}>
+                <div className='text-fields'>
                   <input
                     name='firstName'
                     type='text'
@@ -327,13 +326,11 @@ const Register = () => {
                     <p>{formErrors.confirmPassword}</p>
                   )}
                 </div>
-                <Row className={classes['click-fields']}>
+                <Row className='click-fields'>
                   <Col md={7}>
-                    <span className={classes.text}>
-                      Cede rights to your firstborn?
-                    </span>
+                    <span className='text'>Cede rights to your firstborn?</span>
                   </Col>
-                  <Col md={3} className={classes.radio}>
+                  <Col md={3} className='radio'>
                     <div>
                       <input
                         name='firstborn'
@@ -344,7 +341,7 @@ const Register = () => {
                         onChange={inputChangeHandler}
                       />
                       <label htmlFor='yes'>
-                        <span className={classes.text}>Yes</span>
+                        <span className='text'>Yes</span>
                       </label>
                     </div>
                     <div>
@@ -357,16 +354,16 @@ const Register = () => {
                         onChange={inputChangeHandler}
                       />
                       <label htmlFor='no'>
-                        <span className={classes.text}>No</span>
+                        <span className='text'>No</span>
                       </label>
                     </div>
                   </Col>
                 </Row>
                 {formErrors.firstborn && <p>{formErrors.firstborn}</p>}
-                <Row className={classes.country}>
+                <Row className='country'>
                   <Col md={4}>
                     <label htmlFor='country'>
-                      <span className={classes.text}>Country of Origin</span>
+                      <span className='text'>Country of Origin</span>
                     </label>
                   </Col>
                   <Col md={6}>
@@ -382,7 +379,7 @@ const Register = () => {
                   </Col>
                 </Row>
                 {formErrors.country && <p>{formErrors.country}</p>}
-                <Row className={classes.certify}>
+                <Row className='certify'>
                   <Col xs={{ span: 1, offset: 1 }}>
                     <input
                       name='agree'
@@ -393,7 +390,7 @@ const Register = () => {
                     />
                   </Col>
                   <Col>
-                    <span className={classes.text}>
+                    <span className='text'>
                       I certify that I am 18 years of age or older, and agree to
                       the{' '}
                       <span
@@ -414,7 +411,7 @@ const Register = () => {
                   </Col>
                 </Row>
                 {formErrors.agree && <p>{formErrors.agree}</p>}
-                <div className={classes['button-container']}>
+                <div className='button-container'>
                   <FormButton
                     type='submit'
                     name='Register'

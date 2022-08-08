@@ -35,7 +35,7 @@ const calculateRemainingTime = (expirationTime) => {
 
 let logoutTimer;
 
-export const AuthContextProvider = (props) => {
+export const AuthContextProvider = ({ children }) => {
   const tokenData = retrieveStoredToken();
 
   let initialToken;
@@ -121,9 +121,7 @@ export const AuthContextProvider = (props) => {
   };
 
   return (
-    <AuthContext.Provider value={context}>
-      {props.children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
   );
 };
 

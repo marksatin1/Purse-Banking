@@ -1,25 +1,17 @@
-import {
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-  lazy,
-  Suspense,
-} from 'react';
+import { useState, useRef, useCallback, lazy, Suspense } from 'react';
 import { useLoadScript } from '@react-google-maps/api';
 import { Container, Row, Col } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
-import { convertRating } from '../helpers/Helpers';
+import { convertRating } from '../helpers/functions/MiscFunctions';
 import wtf_loader from '../assets/wtf_loader.gif';
 
-import LocationCard from '../components/FindBranch/LocationCard';
-import classes from './FindBranch.module.css';
+import LocationCard from '../components/UI/FindBranch/LocationCard';
 
 const MapSearchBar = lazy(() =>
-  import('../components/FindBranch/MapSearchBar')
+  import('../components/UI/FindBranch/MapSearchBar')
 );
 
-const BankMap = lazy(() => import('../components/FindBranch/BankMap'));
+const BankMap = lazy(() => import('../components/UI/FindBranch/BankMap'));
 
 const libraries = ['places'];
 const center = {
@@ -96,16 +88,16 @@ const FindBranch = () => {
   }
 
   return (
-    <Container className={classes.layout}>
+    <Container className='layout'>
       {isLoading && (
-        <img src={wtf_loader} className={classes.loader} alt='Loading page' />
+        <img src={wtf_loader} className='loader' alt='Loading page' />
       )}
-      <h1 className={classes.title}>Find A Branch Near You</h1>
-      <h2 className={classes.subtitle}>
+      <h1 className='title'>Find A Branch Near You</h1>
+      <h2 className='subtitle'>
         <i>ATMs conveniently located inside of every casino!</i>
       </h2>
       <Row>
-        <Col xs={12} className={classes.search}>
+        <Col xs={12} className='search'>
           <Suspense fallback={wtf_loader}>
             <MapSearchBar panTo={panTo} center={center} />
           </Suspense>
@@ -113,7 +105,7 @@ const FindBranch = () => {
         <Col
           xs={{ span: 12, order: 3 }}
           xl={{ span: 5, order: 1 }}
-          className={classes.returns}
+          className='returns'
         >
           {requestedPlaces.map((place) => (
             <LocationCard
@@ -126,7 +118,7 @@ const FindBranch = () => {
             />
           ))}
         </Col>
-        <Col xs={12} xl={{ span: 7, order: 2 }} className={classes.map}>
+        <Col xs={12} xl={{ span: 7, order: 2 }} className='map'>
           <Suspense fallback={wtf_loader}>
             <BankMap
               panTo={panTo}

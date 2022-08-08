@@ -1,0 +1,38 @@
+.card {
+  margin: 0.5rem 1rem 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+  background-color: white;
+  z-index: 2;
+}
+
+.name {
+  color: green;
+  margin: 0.5rem 0;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 50px;
+  margin-right: 1rem;
+  padding: 0.25rem;
+}
+
+.status {
+  margin: 0.25rem 0;
+}
+
+.rating {
+  width: 100px;
+  margin: 0.5rem 0;
+}
+
+.address {
+  margin: 0.5rem 0;
+}

@@ -1,0 +1,106 @@
+.layout div {
+  margin: 1rem 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.layout h3 {
+  font-size: 2.3rem;
+  color: goldenrod;
+  font-weight: bold;
+}
+
+.layout p {
+  font-size: 1.9rem;
+  word-wrap: break-word;
+}
+
+.buttons {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons button {
+  margin: 0.5rem auto;
+  padding: 0.25rem 1rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.purple {
+  background-color: rgb(175, 116, 175);
+  color: white;
+}
+
+.gold {
+  background-color: gold;
+}
+
+.content {
+  margin: 0 auto 1.5rem;
+  width: 60%;
+  font-size: 1.1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.yes button {
+  padding: 0.75rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: gold;
+  color: green;
+  border-radius: 3px;
+  box-shadow: 1px 1px black;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  .layout div {
+    margin: 1rem auto;
+    flex-direction: column;
+  }
+
+  .layout h3 {
+    margin: 0 auto;
+    font-size: 2rem;
+  }
+
+  .layout p {
+    margin: 0 auto;
+    font-size: 1.6rem;
+  }
+
+  .buttons button {
+    margin: 0.5rem auto;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .layout h3 {
+    font-size: 1.6rem;
+  }
+
+  .layout p {
+    font-size: 1.2rem;
+  }
+
+  .buttons button {
+    margin: 0.5rem auto;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .layout p {
+    width: 50%;
+  }
+}

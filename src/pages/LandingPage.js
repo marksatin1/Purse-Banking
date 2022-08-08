@@ -1,9 +1,9 @@
 import { Container, Row, Col } from 'react-bootstrap';
 
-import WelcomeBanner from '../components/LandingPage/WelcomeBanner/WelcomeBanner';
-import RegisterBanner from '../components/LandingPage/RegisterBanner/RegisterBanner';
-import PersonalityBanner from '../components/LandingPage/PersonalityBanner/PersonalityBanner';
-import LegalBanner from '../components/LandingPage/LegalBanner/LegalBanner';
+import WelcomeBanner from '../components/UI/LandingPage/WelcomeBanner';
+import RegisterBanner from '../components/UI/LandingPage/RegisterBanner';
+import PersonalityBanner from '../components/UI/LandingPage/PersonalityBanner';
+import LegalBanner from '../components/UI/LandingPage/LegalBanner';
 
 const LandingPage = () => {
   return (

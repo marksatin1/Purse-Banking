@@ -4,14 +4,13 @@ import {
   starCardData,
   travelCardData,
   blazeCardData,
-} from '../helpers/CreditCardData';
-import { convertRating } from '../helpers/Helpers';
+} from '../helpers/data/CreditCardData';
+import { convertRating } from '../helpers/functions/MiscFunctions';
 import { v4 as uuidv4 } from 'uuid';
 
 import LegalMashup_40 from '../assets/LegalMashup_40.webp';
 
-import CommentCard from '../components/UI/CommentCard';
-import classes from './CreditOffer.module.css';
+import CommentCard from '../components/UI/General/CommentCard';
 
 let title, cardImage, about, catchphrase, description;
 
@@ -120,24 +119,24 @@ const CreditOffer = () => {
   }, []);
 
   return (
-    <div className={classes.layout}>
-      <h1 className={classes.title}>{title}</h1>
-      <h2 className={classes.subtitle}>
+    <div className='layout'>
+      <h1 className='title'>{title}</h1>
+      <h2 className='subtitle'>
         <i>Our Best Credit Card Bar None!</i>
       </h2>
       <img src={cardImage} alt='Credit Card' />
-      <div className={classes.description}>
-        <h2 className={classes.about}>{about}</h2>
-        <h3 className={classes.catchphrase}>
+      <div className='description'>
+        <h2 className='about'>{about}</h2>
+        <h3 className='catchphrase'>
           <i>{catchphrase}</i>
         </h3>
         {description}
-        <Link to='/contact' className={classes.enroll}>
+        <Link to='/contact' className='enroll'>
           <h2>Call Now To Enroll!</h2>
         </Link>
       </div>
-      <div className={classes.divider} />
-      <div className={classes.legal}>
+      <div className='divider' />
+      <div className='legal'>
         <h3>Rate and Fee Information</h3>
         <p>
           Be sure to read all Terms and Conditions prior to applying for a Purse
@@ -145,7 +144,7 @@ const CreditOffer = () => {
         </p>
         <img src={LegalMashup_40} alt='Terms and Conditions' />
       </div>
-      <div className={classes.reviews}>
+      <div className='reviews'>
         <h2>See what the world is saying!</h2>
         {comments}
       </div>

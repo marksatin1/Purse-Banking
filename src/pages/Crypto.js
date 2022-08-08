@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import { usdFormatter } from '../helpers/Helpers';
-import { CryptoContent } from '../helpers/WrittenContent';
+import { usdFormatter } from '../helpers/functions/MiscFunctions';
+import { CryptoContent } from '../helpers/data/WrittenContent';
 import { v4 as uuidv4 } from 'uuid';
-
-import classes from './Crypto.module.css';
 
 const Crypto = () => {
   const [cryptoData, setCryptoData] = useState([]);
@@ -44,7 +42,7 @@ const Crypto = () => {
           });
         }
         const tableData = coincapData.map((item) => (
-          <tr key={uuidv4()} className={classes.row}>
+          <tr key={uuidv4()} className='row'>
             <td>{item.rank}</td>
             <td>{item.symbol}</td>
             <td>
@@ -52,12 +50,8 @@ const Crypto = () => {
                 <b>{item.name}</b>
               </a>
             </td>
-            <td className={classes.money}>
-              {usdFormatter.format(item.valueUSD)}
-            </td>
-            <td className={classes.money}>
-              {usdFormatter.format(item.avgValue)}
-            </td>
+            <td className='money'>{usdFormatter.format(item.valueUSD)}</td>
+            <td className='money'>{usdFormatter.format(item.avgValue)}</td>
             <td>{Number(item.changeIndex).toLocaleString('en-US')}%</td>
             <td>{Number(item.supply).toLocaleString('en-US')}</td>
             <td>
@@ -65,9 +59,7 @@ const Crypto = () => {
                 ? 'No Cap'
                 : Number(item.maxSupply).toLocaleString('en-US')}
             </td>
-            <td className={classes.money}>
-              {usdFormatter.format(item.marketCapUSD)}
-            </td>
+            <td className='money'>{usdFormatter.format(item.marketCapUSD)}</td>
           </tr>
         ));
 
@@ -82,16 +74,16 @@ const Crypto = () => {
   }, []);
 
   return (
-    <div className={classes.crypto}>
-      <h1 className={classes.title}>Cryptocurrency</h1>
-      <h2 className={classes.subtitle}>
+    <div className='crypto'>
+      <h1 className='title'>Cryptocurrency</h1>
+      <h2 className='subtitle'>
         <i>Bitcoin? More like Shitcoin, am I right!?</i>
       </h2>
       {!errorMessage && (
         <>
-          <div className={classes['crypto-table']}>
+          <div className='crypto-table'>
             <table>
-              <thead className={classes.thead}>
+              <thead className='thead'>
                 <tr>
                   <th title='Cryptocurrency ranks are determined by Market Cap and listed in descending order'>
                     Rank
@@ -118,10 +110,10 @@ const Crypto = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className={classes.tbody}>{cryptoData}</tbody>
+              <tbody className='tbody'>{cryptoData}</tbody>
             </table>
           </div>
-          <div className={classes.footer}>
+          <div className='footer'>
             <a
               href='https://docs.coincap.io/#ee0c0be6-513f-4466-bbb0-2016add462e9'
               target='_blank'
@@ -135,12 +127,12 @@ const Crypto = () => {
         </>
       )}
       {errorMessage && (
-        <div className={classes.apiError}>
+        <div className='apiError'>
           <h1>Error</h1>
           <p>{errorMessage}</p>
         </div>
       )}
-      <div className={classes.content}>{CryptoContent}</div>
+      <div className='content'>{CryptoContent}</div>
     </div>
   );
 };

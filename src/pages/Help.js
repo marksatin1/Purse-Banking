@@ -1,0 +1,25 @@
+import { Link } from 'react-router-dom';
+
+import PageCard from '../components/UI/General/PageCard';
+
+const Help = () => {
+  return (
+    <PageCard title='Help' subtitle='Seriously?'>
+      <p>
+        You actually need help navigating around this simple website?
+        <br />
+        <br />
+        Did you at least try the{' '}
+        <Link to='/contact' className='link'>
+          Contact
+        </Link>{' '}
+        page?
+        <br />
+        <br />
+        <span className='small'>(I bet you didn't, did you?)</span>
+      </p>
+    </PageCard>
+  );
+};
+
+export default Help;
