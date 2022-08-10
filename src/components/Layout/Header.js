@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <>
       <Container fluid>
-        <Row className='d-none d-md-block p-fixed header'>
+        <Row className='d-none d-md-block header'>
           <TopNav />
           <MainNav />
           <MyPurseButton />

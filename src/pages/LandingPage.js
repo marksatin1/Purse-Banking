@@ -10,8 +10,8 @@ const LandingPage = () => {
     <Container>
       <Row>
         <Col>
-          {/* <WelcomeBanner />
-          <RegisterBanner />
+          <WelcomeBanner />
+          {/* <RegisterBanner />
           <PersonalityBanner />
           <LegalBanner /> */}
         </Col>

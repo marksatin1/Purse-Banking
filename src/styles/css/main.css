@@ -170,6 +170,8 @@
   }
 }
 .header {
+  position: fixed;
+  width: 100%;
   background-color: white;
   border-bottom: 3px solid purple;
   z-index: 2;
