@@ -88,7 +88,7 @@ const FindBranch = () => {
   }
 
   return (
-    <Container className='layout'>
+    <Container className='find-branch'>
       {isLoading && (
         <img src={wtf_loader} className='loader' alt='Loading page' />
       )}

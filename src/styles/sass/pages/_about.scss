@@ -29,24 +29,10 @@
   border: 2px solid goldenrod;
   font-size: 2rem;
   z-index: 2;
-}
 
-.register-container button:hover {
-  cursor: pointer;
-  animation: button-gleam 700ms forwards;
-}
-@keyframes button-gleam {
-  from {
-    box-shadow: none;
-  }
-  25% {
-    box-shadow: -2px 1px 3px white;
-  }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: gold;
-    border: 2px solid gold;
+  &:hover {
+    cursor: pointer;
+    animation: button-gleam 700ms forwards;
   }
 }
 

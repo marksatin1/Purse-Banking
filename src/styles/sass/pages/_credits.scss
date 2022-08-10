@@ -1,4 +1,4 @@
-.header {
+.credits-header {
   position: relative;
   background-color: rgba(137, 43, 226, 0.788);
   height: 43rem;
@@ -9,7 +9,7 @@
   z-index: -1;
 }
 
-.header::before {
+.credits-header::before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -17,7 +17,7 @@
   overflow: hidden;
   right: 0;
   content: '';
-  background-image: url(../../../assets/banners/Funeral_Parking_1000w.jpg);
+  // background-image: url(../../../assets/banners/Funeral_Parking_1000w.jpg);
   opacity: 0.75;
   background-size: cover;
   background-repeat: no-repeat;
@@ -72,7 +72,7 @@
 }
 
 @media only screen and (max-width: 1030px) {
-  .header {
+  .credits-header {
     margin-top: 15.5rem;
   }
 
@@ -88,7 +88,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .header {
+  .credits-header {
     margin-top: 3rem;
   }
 }

@@ -6,7 +6,7 @@ import ContactCard from '../components/UI/General/ContactCard';
 
 const Contact = () => {
   return (
-    <Container>
+    <Container className='contact'>
       <Row>
         <div>
           <Col xs={12} md={10} className='page'>

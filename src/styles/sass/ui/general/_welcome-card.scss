@@ -8,15 +8,7 @@
 
 .card:hover {
   cursor: pointer;
-  animation: bump 800ms forwards;
-}
-@keyframes bump {
-  from {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.03);
-  }
+  animation: bump-2 800ms forwards;
 }
 
 .link {

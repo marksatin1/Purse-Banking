@@ -1,117 +1,95 @@
-.button-container {
+.my-purse-btn {
+  width: 18%;
   position: relative;
   top: -0.75rem;
-  padding-left: 0.75rem;
+  right: -0.1rem;
+  margin-bottom: 0.5rem;
   padding: 0.1rem;
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px;
   border: 0.5px solid black;
   box-shadow: -1px -1px 4px black;
   background-color: gold;
   cursor: pointer;
-}
 
-.button-container button {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 20px;
-  border: none;
-  color: black;
-  background-color: inherit;
-}
-
-.button-container:hover {
-  animation: button-gleam 400ms forwards;
-}
-@keyframes button-gleam {
-  from {
-    box-shadow: none;
+  &:hover {
+    animation: button-gleam-2 400ms forwards;
   }
-  25% {
-    box-shadow: -1px 0 3px white;
+
+  &:hover .dropdown-content {
+    display: block;
+    z-index: 3;
   }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: white;
+
+  button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    color: black;
+    background-color: inherit;
   }
-}
 
-.dropdown-content {
-  position: absolute;
-  padding: 0.75rem;
-  border-radius: 4px;
-  background-color: beige;
-  box-shadow: 0 0 5px black;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight: bold;
-  text-align: right;
-  display: none;
-}
+  &--content {
+    position: absolute;
+    padding: 0.75rem;
+    border-radius: 4px;
+    background-color: beige;
+    box-shadow: 0 0 5px black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: right;
+    display: none;
 
-.link {
-  margin: 0.5rem;
-  font-size: 1.3rem;
-  text-decoration: none;
-  color: black;
-  display: block;
-}
+    button {
+      margin: 0.75rem;
+      margin-right: 0.25rem;
+      background-color: inherit;
+      border: 1px solid black;
+      border-radius: 20px;
+      padding: 0.25rem 0.75rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: purple;
+      cursor: pointer;
 
-.link:hover {
-  color: green;
-  transform: scale(1.02);
-}
+      &:hover {
+        animation: button-gleam-2 500ms forwards;
+      }
+    }
 
-.button-container:hover .dropdown-content {
-  display: block;
-  z-index: 3;
-}
+    .link {
+      margin: 0.5rem;
+      font-size: 1.3rem;
+      text-decoration: none;
+      color: black;
+      display: block;
 
-.dropdown-content button {
-  margin: 0.75rem;
-  margin-right: 0.25rem;
-  background-color: inherit;
-  border: 1px solid black;
-  border-radius: 20px;
-  padding: 0.25rem 0.75rem;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: purple;
-  cursor: pointer;
-}
-
-.dropdown-content button:hover {
-  animation: button-gleam-2 500ms forwards;
-}
-@keyframes button-gleam-2 {
-  from {
-    box-shadow: none;
-  }
-  25% {
-    box-shadow: -1px 0 3px white;
-  }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: goldenrod;
+      &:hover {
+        color: green;
+        transform: scale(1.02);
+      }
+    }
   }
 }
 
 @media only screen and (max-width: 1030px) {
-  .button-container button {
-    font-size: 1.4rem;
-  }
+  .button-container {
+    button {
+      font-size: 1.4rem;
+    }
 
-  .dropdown-content {
-    padding: 0.5rem;
+    &--content {
+      padding: 0.5rem;
+
+      button {
+        font-size: 1.2rem;
+      }
+    }
   }
 
   .link {
-    font-size: 1.2rem;
-  }
-
-  .dropdown-content button {
     font-size: 1.2rem;
   }
 }
@@ -119,35 +97,34 @@
 @media only screen and (max-width: 768px) {
   .button-container {
     top: -0.5rem;
-  }
-
-  .centered {
-    margin: 0 auto;
-  }
-
-  .button-container {
     text-align: center;
-  }
 
-  .dropdown-content {
-    text-align: center;
-  }
+    .centered {
+      margin: 0 auto;
+    }
 
-  .dropdown-content button {
-    margin: 0.5rem 0;
+    &--content {
+      text-align: center;
+
+      button {
+        margin: 0.5rem 0;
+      }
+    }
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .button-container button {
-    font-size: 1.1rem;
+  .button-container {
+    button {
+      font-size: 1.1rem;
+    }
+
+    &--content button {
+      font-size: 1rem;
+    }
   }
 
   .link {
-    font-size: 1rem;
-  }
-
-  .dropdown-content button {
     font-size: 1rem;
   }
 }

@@ -16,7 +16,6 @@
 }
 
 .status-container {
-  /* border: 1px solid black; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -62,9 +61,4 @@
   background-color: lime;
   animation: blink 200ms steps(2, start);
   animation-iteration-count: 50;
-}
-@keyframes blink {
-  to {
-    visibility: hidden;
-  }
 }

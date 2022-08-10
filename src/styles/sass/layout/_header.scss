@@ -1,21 +1,9 @@
 .header {
-  position: fixed;
+  // position: fixed;
+  // width: 100%;
   background-color: white;
   border-bottom: 3px solid purple;
   z-index: 2;
-}
-
-.icon {
-  width: 35px;
-  height: 32px;
-}
-
-.motto {
-  font-size: 3vw;
-  font-weight: bold;
-  margin: auto;
-  width: 90%;
-  color: goldenrod;
 }
 
 @media only screen and (max-width: 768px) {

@@ -5,7 +5,7 @@ import PersonalityCard from '../General/PersonalityCard';
 
 const PersonalityBanner = () => {
   return (
-    <Container className='personality-layout'>
+    <Container className='personality-banner'>
       <h1 className='heading'>
         We're <span className='green'>more</span> than just a bank!
       </h1>

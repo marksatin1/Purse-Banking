@@ -7,7 +7,7 @@ import WelcomeCard from '../General/WelcomeCard';
 
 const WelcomeBanner = () => {
   return (
-    <div className='banner'>
+    <div className='welcome-banner'>
       <Container>
         <Row>
           <Col lg={12} xl={4} className='container'>

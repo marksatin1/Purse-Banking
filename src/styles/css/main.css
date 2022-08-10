@@ -1,8 +1,83 @@
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@keyframes bump {
+  from {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+    box-shadow: 3px 3px 5px black;
+  }
+}
+@keyframes bump-2 {
+  from {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+}
+@keyframes button-gleam {
+  from {
+    box-shadow: none;
+  }
+  25% {
+    box-shadow: -2px 1px 3px white;
+  }
+  to {
+    box-shadow: 0 2px 3px black;
+    transform: translate(1px, -1px);
+    color: gold;
+    border: 2px solid gold;
+  }
+}
+@keyframes button-gleam-2 {
+  from {
+    box-shadow: none;
+  }
+  25% {
+    box-shadow: -1px 0 3px white;
+  }
+  to {
+    box-shadow: 0 2px 3px black;
+    transform: translate(1px, -1px);
+    color: white;
+  }
+}
+@keyframes motto-slide-in {
+  to {
+    transform: translateX(14%);
+  }
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  90% {
+    transform: translateX(5%);
+  }
+}
+@keyframes slide-in-green {
+  from {
+    margin-left: -100%;
+    width: 100%;
+  }
+  90% {
+    width: 80%;
+  }
+  to {
+    margin-left: -5rem;
+    width: 71%;
+  }
+}
 .footer {
   margin-bottom: 2rem;
   padding: 1rem 0;
   background-color: rgb(32, 145, 32);
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,23 +170,9 @@
   }
 }
 .header {
-  position: fixed;
   background-color: white;
   border-bottom: 3px solid purple;
   z-index: 2;
-}
-
-.icon {
-  width: 35px;
-  height: 32px;
-}
-
-.motto {
-  font-size: 3vw;
-  font-weight: bold;
-  margin: auto;
-  width: 90%;
-  color: goldenrod;
 }
 
 @media only screen and (max-width: 768px) {
@@ -149,24 +210,25 @@
   }
 }
 .main-nav {
-  padding-top: 1.25rem;
+  width: 50%;
+  margin-right: -0.75rem;
+  padding-top: 0.5rem;
   background-color: rgb(32, 145, 32);
-  border-radius: 15px;
-  z-index: 2;
+  border-radius: 15px 0 0 15px;
 }
-
-.nav-dropdown {
-  margin: 1rem;
-  font-family: 'Times New Roman', Times, serif;
-  cursor: default;
+.main-nav--item {
+  margin: 1rem 1rem 1rem 1.5rem;
+  font-family: "Times New Roman", Times, serif;
   z-index: 3;
+  cursor: default;
 }
-
-.nav-dropdown:hover {
+.main-nav--item:hover {
   color: goldenrod;
 }
-
-.dropdown-content {
+.main-nav--item:hover .main-nav--dropdown-content {
+  display: block;
+}
+.main-nav--dropdown-content {
   position: absolute;
   padding: 0.75rem;
   background-color: beige;
@@ -174,49 +236,37 @@
   box-shadow: 0 0 5px black;
   display: none;
 }
-
-.dropdown-content .link {
+.main-nav--dropdown-content .link {
   margin: 0.5rem 0.25rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.3rem;
   font-weight: bolder;
   color: black;
   display: block;
 }
-
-.strike {
+.main-nav--dropdown-content .strike {
   text-decoration: line-through;
   cursor: default;
 }
-
-.no-strike {
+.main-nav--dropdown-content .no-strike {
   text-decoration: none;
 }
-
-.dropdown-content .no-strike:hover {
+.main-nav--dropdown-content .no-strike:hover {
   color: green;
   transform: scale(1.02);
 }
 
-.nav-dropdown:hover .dropdown-content {
-  display: block;
-}
-
 @media only screen and (max-width: 1030px) {
-  .nav-dropdown {
+  .main-nav--dropdown {
     margin: 0.75rem;
   }
-
-  .nav-dropdown > h2 {
+  .main-nav--dropdown > h2 {
     font-size: 1.8rem;
   }
-
-  .dropdown-content {
+  .main-nav--dropdown--content {
     padding: 0.5rem;
   }
-
-  .link {
+  .main-nav--dropdown--content .link {
     font-size: 1.2rem;
   }
 }
@@ -230,21 +280,18 @@
     display: flex;
     justify-content: center;
   }
-
-  .nav-dropdown {
+  .main-nav--dropdown {
     margin: 0 1.5rem;
   }
-
-  .nav-dropdown h2 {
+  .main-nav--dropdown > h2 {
     font-size: 2rem;
   }
-
-  .dropdown-content .link {
+  .main-nav--dropdown-content .link {
     font-size: 1rem;
   }
 }
 @media only screen and (max-width: 625px) {
-  .nav-dropdown {
+  .main-nav--dropdown {
     margin: 0 0.25rem;
   }
 }
@@ -253,45 +300,38 @@
     padding: 0.75rem 0.5rem 0.5rem;
     border-radius: 10px;
   }
-
-  .nav-dropdown {
+  .main-nav--dropdown {
     margin: 0;
   }
-
-  .nav-dropdown h2 {
+  .main-nav--dropdown > h2 {
     font-size: 1.4rem;
   }
-
-  .dropdown-content {
+  .main-nav--dropdown-content {
     padding: 0.25rem;
   }
-
-  .dropdown-content .link {
+  .main-nav--dropdown-content .link {
     font-size: 0.9rem;
   }
 }
 .top-nav {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 1.3rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
-
-.top-nav a {
+.top-nav h5 {
+  margin: 0;
   color: black;
 }
-
-.top-nav a:hover {
+.top-nav h5:hover {
   color: purple;
 }
+.top-nav--dropdown {
+  margin: -1rem;
+}
 
-.dropdown img {
+.dropdown-icon {
   width: 30px;
   height: 30px;
-  margin-left: 1rem;
-  margin-right: 0.5rem;
 }
 
 .dropdown-container {
@@ -302,26 +342,18 @@
   background-color: beige;
   box-shadow: 0 0 5px black;
   font-size: 1.2rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: black;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: white;
   font-weight: bold;
   text-align: right;
-  display: none;
   z-index: 7;
 }
-
 .dropdown-container img {
   width: 30px;
   height: 30px;
   margin: 0.25rem;
   margin-left: 0.5rem;
 }
-
-.dropdown:hover .dropdown-container {
-  display: block;
-}
-
 .dropdown-container div:hover {
   color: green;
   transform: scale(1.03);
@@ -411,26 +443,11 @@
   font-size: 2rem;
   z-index: 2;
 }
-
 .register-container button:hover {
   cursor: pointer;
   animation: button-gleam 700ms forwards;
 }
 
-@keyframes button-gleam {
-  from {
-    box-shadow: none;
-  }
-  25% {
-    box-shadow: -2px 1px 3px white;
-  }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: gold;
-    border: 2px solid gold;
-  }
-}
 @media only screen and (max-width: 800px) {
   .register-container h2 {
     font-size: 2.2rem;
@@ -457,150 +474,126 @@
   text-align: center;
 }
 
-.page {
+.contact .page {
   margin: 18rem auto 30rem;
   padding: 2rem 3rem 3rem;
   background-color: beige;
   box-shadow: 2px 2px 5px black;
   text-align: center;
 }
-
-.title {
+.contact .title {
   color: green;
   text-decoration: underline;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-.subtitle {
+.contact .subtitle {
   margin-bottom: 2rem;
   color: rgb(175, 116, 175);
 }
-
-.location h2 {
+.contact .location h1 {
+  font-size: 3.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.contact .location h2 {
   margin-top: 2rem;
 }
 
-.location h1 {
-  font-size: 3.5rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
 @media only screen and (max-width: 992px) {
-  .location h2 {
+  .contact .location h2 {
     font-size: 2.5rem;
   }
-
-  .location h1 {
+  .contact .location h1 {
     font-size: 3rem;
   }
 }
 @media only screen and (max-width: 768px) {
-  .page {
+  .contact .page {
     margin: 2rem auto 5rem;
   }
 }
 @media only screen and (max-width: 576px) {
-  .page {
+  .contact .page {
     padding: 2rem;
   }
-
-  .title {
+  .contact .title {
     margin-top: -0.5rem;
     font-size: 2.5rem;
   }
-
-  .subtitle {
+  .contact .subtitle {
     margin-bottom: 1rem;
     font-size: 2rem;
   }
 }
-.layout {
+.credit-offer {
   width: 75vw;
   margin: 17rem auto 10rem;
   text-align: center;
 }
-
-.title {
+.credit-offer .title {
   color: green;
   text-decoration: underline;
 }
-
-.subtitle {
+.credit-offer .subtitle {
   color: rgb(175, 116, 175);
   margin-bottom: 0;
 }
-
-.layout img {
+.credit-offer .layout img {
   width: 50%;
 }
-
-.description {
+.credit-offer .description {
   position: relative;
   width: 75%;
   margin: 0 auto;
 }
-
-.about {
+.credit-offer .about {
   text-align: left;
   color: goldenrod;
   border-bottom: 2px solid purple;
   padding-bottom: 0.5rem;
 }
-
-.catchphrase {
+.credit-offer .catchphrase {
   margin-bottom: 2rem;
   color: green;
   text-align: right;
 }
-
-.enroll {
+.credit-offer .enroll {
   position: relative;
   text-decoration: none;
 }
-
-.enroll h2 {
+.credit-offer .enroll h1:hover {
+  color: gold;
+}
+.credit-offer .enroll h2 {
   color: rgb(175, 116, 175);
   margin: 3rem auto;
 }
-
-.enroll h1:hover {
-  color: gold;
-}
-
-.divider {
+.credit-offer .divider {
   width: 50%;
   margin: 2rem auto;
   border-top: 2px solid rgba(0, 128, 0, 0.7);
 }
-
-.legal {
+.credit-offer .legal {
   margin: 3rem 0 0;
 }
-
-.legal h3 {
+.credit-offer .legal h3 {
   color: goldenrod;
   font-weight: bold;
 }
-
-.legal p {
+.credit-offer .legal p {
   color: green;
   margin-bottom: 2rem;
 }
-
-.legal img {
+.credit-offer .legal img {
   width: 100%;
   box-shadow: 0 0 4px black;
 }
-
-.reviews {
+.credit-offer .reviews {
   position: relative;
   margin: 3rem auto 10rem;
 }
-
-.reviews h2 {
+.credit-offer .reviews h2 {
   color: green;
   width: 100%;
   margin: 5rem auto 2rem;
@@ -626,7 +619,7 @@
     height: 50vh;
   }
 }
-.header {
+.credits-header {
   position: relative;
   background-color: rgba(137, 43, 226, 0.788);
   height: 43rem;
@@ -637,15 +630,14 @@
   z-index: -1;
 }
 
-.header::before {
+.credits-header::before {
   position: absolute;
   top: 0;
   bottom: 0;
   left: -5rem;
   overflow: hidden;
   right: 0;
-  content: '';
-  /* background-image: url(../../../assets/banners/Funeral_Parking_1000w.jpg); */
+  content: "";
   opacity: 0.75;
   background-size: cover;
   background-repeat: no-repeat;
@@ -700,7 +692,7 @@
 }
 
 @media only screen and (max-width: 1030px) {
-  .header {
+  .credits-header {
     margin-top: 15.5rem;
   }
 
@@ -714,22 +706,20 @@
   }
 }
 @media only screen and (max-width: 768px) {
-  .header {
+  .credits-header {
     margin-top: 3rem;
   }
 }
 .crypto {
   margin: 17rem auto 10rem;
 }
-
-.title {
+.crypto .title {
   margin-bottom: 1rem;
   text-align: center;
   color: green;
   text-decoration: underline;
 }
-
-.subtitle {
+.crypto .subtitle {
   margin-bottom: 3rem;
   color: rgb(175, 116, 175);
   text-align: center;
@@ -811,8 +801,7 @@
   width: 75%;
   margin: 3rem auto 7rem;
   text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .apiError {
@@ -858,7 +847,7 @@
     font-size: 1.4rem;
   }
 }
-.header {
+.debits-header {
   position: relative;
   height: 43rem;
   margin: 17rem 0 2.5rem;
@@ -869,30 +858,28 @@
   z-index: -1;
 }
 
-.header__checking::before {
+.debits-header__checking::before {
   position: absolute;
   top: 0;
   bottom: 0;
   left: -5rem;
   overflow: hidden;
   right: 0;
-  content: '';
-  /* background-image: url(../../../assets/banners/Loot_1.webp); */
+  content: "";
   opacity: 0.75;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 10% 40%;
 }
 
-.header__savings::before {
+.debits-header__savings::before {
   position: absolute;
   top: 0;
   bottom: 0;
   left: -5rem;
   overflow: hidden;
   right: 0;
-  content: '';
-  /* background-image: url(../../../assets/banners/Loot_2.webp); */
+  content: "";
   opacity: 0.75;
   background-size: cover;
   background-repeat: no-repeat;
@@ -947,7 +934,7 @@
 }
 
 @media only screen and (max-width: 1030px) {
-  .header {
+  .debits-header {
     margin-top: 15.5rem;
   }
 
@@ -956,22 +943,20 @@
   }
 }
 @media only screen and (max-width: 768px) {
-  .header {
+  .debits-header {
     margin-top: 3rem;
   }
 }
-.layout {
+.find-branch {
   margin: 17rem auto 10rem;
 }
-
-.title {
+.find-branch .title {
   color: green;
   font-size: 4rem;
   text-decoration: underline;
   text-align: center;
 }
-
-.subtitle {
+.find-branch .subtitle {
   margin-bottom: 3rem;
   color: rgb(175, 116, 175);
   text-align: center;
@@ -1030,7 +1015,7 @@
     font-size: 1rem;
   }
 }
-.header {
+.home-header {
   position: relative;
   height: 43rem;
   margin: 17rem 0 2.5rem;
@@ -1041,14 +1026,14 @@
   z-index: -1;
 }
 
-.header::before {
+.home-header::before {
   position: absolute;
   top: 0;
   bottom: 0;
   left: -5rem;
   overflow: hidden;
   right: 0;
-  content: '';
+  content: "";
   opacity: 0.75;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1082,7 +1067,7 @@
   padding-top: 1rem;
   background-color: gold;
   box-shadow: 0 0 5px black;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .table * {
@@ -1113,8 +1098,7 @@
   padding: 1rem 0;
   background-color: white;
   text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: bold;
   border-top: 2px solid red;
   border-bottom: 2px solid red;
@@ -1138,7 +1122,7 @@
 }
 
 @media only screen and (max-width: 1030px) {
-  .header {
+  .home-header {
     margin-top: 15.5rem;
   }
 
@@ -1151,7 +1135,7 @@
   }
 }
 @media only screen and (max-width: 768px) {
-  .header {
+  .home-header {
     margin-top: 3rem;
   }
 
@@ -1202,8 +1186,7 @@
   background-color: rgba(165, 42, 42, 0.9);
   box-shadow: -30px 20px 10px black, 30px -20px 10px green;
   text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -1286,8 +1269,7 @@
   box-shadow: 6px 6px 2px black;
   text-align: center;
   font-size: 1.3rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1377,7 +1359,7 @@
 .access button {
   margin: 2rem 0 -1rem;
   padding: 0.75rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 1.2rem;
   font-weight: bold;
   background-color: gold;
@@ -1487,13 +1469,12 @@
   margin: 0 auto 1.5rem;
   width: 60%;
   font-size: 1.1rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .yes button {
   padding: 0.75rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 1.2rem;
   font-weight: bold;
   background-color: gold;
@@ -1597,8 +1578,7 @@
   background-color: gold;
   box-shadow: 0 0 5px black;
   text-align: left;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.5rem;
   overflow-x: scroll;
 }
@@ -1644,8 +1624,7 @@
   background-color: gold;
   box-shadow: 0 0 5px black;
   text-align: left;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.5rem;
 }
 
@@ -1675,8 +1654,7 @@
   border-radius: 2px;
   background-color: rgba(9, 189, 189, 0.9);
   box-shadow: 2px 2px 4px black;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .summary h1 {
@@ -1755,8 +1733,7 @@
   padding: 1rem;
   background-color: gold;
   box-shadow: 0 0 5px black;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.5rem;
   overflow-x: scroll;
 }
@@ -1788,8 +1765,7 @@
   background-color: gold;
   box-shadow: 0 0 5px black;
   text-align: left;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.5rem;
 }
 
@@ -1820,8 +1796,7 @@
   border-radius: 2px;
   background-color: rgba(9, 189, 189, 0.9);
   box-shadow: 2px 2px 4px black;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .summary h1 {
@@ -1912,7 +1887,6 @@
 }
 
 .status-container {
-  /* border: 1px solid black; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1960,11 +1934,6 @@
   animation-iteration-count: 50;
 }
 
-@keyframes blink {
-  to {
-    visibility: hidden;
-  }
-}
 .locate-icon {
   position: absolute;
   top: 0.5rem;
@@ -2035,8 +2004,7 @@
   border-radius: 4px;
   box-shadow: -1px 1px 4px black;
   font-size: 1.1rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   z-index: 2;
 }
 
@@ -2053,7 +2021,7 @@
 .results-message {
   margin: 1.5rem auto;
   color: goldenrod;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   text-align: center;
 }
 
@@ -2078,19 +2046,6 @@
   animation: slide-in-green 1.5s ease-in-out forwards;
 }
 
-@keyframes slide-in-green {
-  from {
-    margin-left: -100%;
-    width: 100%;
-  }
-  90% {
-    width: 80%;
-  }
-  to {
-    margin-left: -5rem;
-    width: 71%;
-  }
-}
 .title {
   margin: 5rem auto -10rem;
   /*affects sticky pos */
@@ -2099,14 +2054,6 @@
   animation: slide-in 1.5s ease-in-out forwards;
 }
 
-@keyframes slide-in {
-  from {
-    transform: translateX(-100%);
-  }
-  90% {
-    transform: translateX(5%);
-  }
-}
 /*  HEIGHTS  */
 @media only screen and (max-height: 1400px) {
   .container {
@@ -2256,19 +2203,19 @@
   font-size: 1.3rem;
 }
 
-.header {
+.comment-header {
   margin-bottom: 0.5rem;
   margin-left: -1rem;
   display: flex;
   justify-content: space-between;
 }
 
-.header img {
+.comment-header img {
   width: 125px;
   margin: 0.25rem 0;
 }
 
-.header p {
+.comment-header p {
   margin: 0.25rem 0;
   margin-left: 0.25rem;
 }
@@ -2310,7 +2257,7 @@
   border-radius: 5px;
   box-shadow: 3px 3px 2px black;
   background-color: aliceblue;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .department {
@@ -2330,7 +2277,7 @@
 }
 
 .content p {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 1.4rem;
 }
 
@@ -2379,22 +2326,9 @@
 
 .form-button:hover {
   cursor: pointer;
-  animation: button-gleam 700ms forwards;
+  animation: button-gleam-2 700ms forwards;
 }
 
-@keyframes button-gleam {
-  from {
-    box-shadow: none;
-  }
-  25% {
-    box-shadow: -1px 0 3px white;
-  }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: white;
-  }
-}
 .form-button:disabled:hover {
   background-color: goldenrod;
   animation: none;
@@ -2426,7 +2360,7 @@
 }
 
 .content p {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .quote-block {
@@ -2434,8 +2368,7 @@
 }
 
 .quote-block > * {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .quote {
@@ -2539,67 +2472,50 @@
     font-size: 1.6rem;
   }
 }
-.display {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.logo-nav {
-  margin: -1.5rem 0 -3.3rem -2rem;
-  padding: 0.25rem 0.75rem 0.25rem 1.75rem;
-  border-radius: 20px;
+.logo {
+  position: fixed;
+  top: 8.5rem;
+  border-radius: 0 20px 20px 0;
   background-color: rgb(225, 193, 15);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
+  z-index: 2;
   cursor: pointer;
 }
-
-.handbag {
+.logo:hover {
+  background-color: goldenrod;
+}
+.logo .icon--bag {
   width: 50px;
   height: 50px;
 }
-
-.purse {
-  margin: 0.25rem 0.5rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.logo--title {
+  margin: 0 0.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 3.2rem;
   font-style: italic;
   font-weight: bold;
   color: purple;
 }
 
-.logo-nav:hover {
-  background-color: goldenrod;
-}
-
 .motto {
-  position: fixed;
+  position: absolute;
   top: 9.2rem;
-  left: -41rem;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 2rem;
+  transform: translateX(-50%);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.8rem;
   font-weight: 600;
-  z-index: -1;
+  cursor: pointer;
+}
+.motto--slide-in {
+  animation: motto-slide-in 2.5s forwards;
 }
 
-.motto-animation {
-  animation: slidein 2.5s forwards;
-}
-
-@keyframes slidein {
-  to {
-    left: 15.5rem;
-  }
-}
 @media only screen and (max-width: 1328px) {
   .motto {
     font-size: 1.5rem;
     top: 9.8rem;
   }
 
-  @keyframes slidein {
+  @keyframes logo-slidein {
     to {
       left: 15.5rem;
     }
@@ -2687,7 +2603,7 @@
   font-size: 4rem;
   text-align: center;
   text-decoration: underline;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .subtitle {
@@ -2696,7 +2612,7 @@
   margin: 0.5rem 0 2rem;
   text-align: center;
   font-style: italic;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .content {
@@ -2711,19 +2627,27 @@
     height: 80vh;
   }
 }
-.button-container {
+.my-purse-btn {
+  width: 18%;
   position: relative;
   top: -0.75rem;
-  padding-left: 0.75rem;
+  right: -0.1rem;
+  margin-bottom: 0.5rem;
   padding: 0.1rem;
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px;
   border: 0.5px solid black;
   box-shadow: -1px -1px 4px black;
   background-color: gold;
   cursor: pointer;
 }
-
-.button-container button {
+.my-purse-btn:hover {
+  animation: button-gleam-2 400ms forwards;
+}
+.my-purse-btn:hover .dropdown-content {
+  display: block;
+  z-index: 3;
+}
+.my-purse-btn button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
@@ -2732,56 +2656,18 @@
   color: black;
   background-color: inherit;
 }
-
-.button-container:hover {
-  animation: button-gleam 400ms forwards;
-}
-
-@keyframes button-gleam {
-  from {
-    box-shadow: none;
-  }
-  25% {
-    box-shadow: -1px 0 3px white;
-  }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: white;
-  }
-}
-.dropdown-content {
+.my-purse-btn--content {
   position: absolute;
   padding: 0.75rem;
   border-radius: 4px;
   background-color: beige;
   box-shadow: 0 0 5px black;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: bold;
   text-align: right;
   display: none;
 }
-
-.link {
-  margin: 0.5rem;
-  font-size: 1.3rem;
-  text-decoration: none;
-  color: black;
-  display: block;
-}
-
-.link:hover {
-  color: green;
-  transform: scale(1.02);
-}
-
-.button-container:hover .dropdown-content {
-  display: block;
-  z-index: 3;
-}
-
-.dropdown-content button {
+.my-purse-btn--content button {
   margin: 0.75rem;
   margin-right: 0.25rem;
   background-color: inherit;
@@ -2793,59 +2679,48 @@
   color: purple;
   cursor: pointer;
 }
-
-.dropdown-content button:hover {
+.my-purse-btn--content button:hover {
   animation: button-gleam-2 500ms forwards;
 }
-
-@keyframes button-gleam-2 {
-  from {
-    box-shadow: none;
-  }
-  25% {
-    box-shadow: -1px 0 3px white;
-  }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: goldenrod;
-  }
+.my-purse-btn--content .link {
+  margin: 0.5rem;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: black;
+  display: block;
 }
+.my-purse-btn--content .link:hover {
+  color: green;
+  transform: scale(1.02);
+}
+
 @media only screen and (max-width: 1030px) {
   .button-container button {
     font-size: 1.4rem;
   }
-
-  .dropdown-content {
+  .button-container--content {
     padding: 0.5rem;
   }
-
-  .link {
+  .button-container--content button {
     font-size: 1.2rem;
   }
 
-  .dropdown-content button {
+  .link {
     font-size: 1.2rem;
   }
 }
 @media only screen and (max-width: 768px) {
   .button-container {
     top: -0.5rem;
+    text-align: center;
   }
-
-  .centered {
+  .button-container .centered {
     margin: 0 auto;
   }
-
-  .button-container {
+  .button-container--content {
     text-align: center;
   }
-
-  .dropdown-content {
-    text-align: center;
-  }
-
-  .dropdown-content button {
+  .button-container--content button {
     margin: 0.5rem 0;
   }
 }
@@ -2853,12 +2728,11 @@
   .button-container button {
     font-size: 1.1rem;
   }
-
-  .link {
+  .button-container--content button {
     font-size: 1rem;
   }
 
-  .dropdown-content button {
+  .link {
     font-size: 1rem;
   }
 }
@@ -2939,15 +2813,6 @@
   animation: bump 800ms forwards;
 }
 
-@keyframes bump {
-  from {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.03);
-    box-shadow: 3px 3px 5px black;
-  }
-}
 .card img {
   width: 100%;
   height: 100%;
@@ -2969,7 +2834,7 @@
 }
 
 .content p {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .learn-container {
@@ -2982,8 +2847,7 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.4rem;
   font-weight: 600;
   color: black;
@@ -2995,22 +2859,9 @@
 
 .learn-container button:hover {
   color: gold;
-  animation: button-gleam 700ms forwards;
+  animation: button-gleam-2 700ms forwards;
 }
 
-@keyframes button-gleam {
-  from {
-    box-shadow: none;
-  }
-  25% {
-    box-shadow: -1px 0 3px white;
-  }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: gold;
-  }
-}
 @media only screen and (max-width: 1200px) {
   .title {
     font-size: 2.5rem;
@@ -3065,7 +2916,7 @@
 }
 .card {
   text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3073,17 +2924,9 @@
 
 .card:hover {
   cursor: pointer;
-  animation: bump 800ms forwards;
+  animation: bump-2 800ms forwards;
 }
 
-@keyframes bump {
-  from {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.03);
-  }
-}
 .link {
   text-decoration: none;
 }
@@ -3111,7 +2954,7 @@
 
 .signing-number {
   margin: -0.5rem 0;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 5rem;
   font-weight: bold;
   color: purple;
@@ -3246,44 +3089,37 @@
     font-size: 1.1rem;
   }
 }
-.legal-container {
+.legal-banner {
   margin: 8rem 0 5rem;
 }
-
-.legal-container h1 {
+.legal-banner h1 {
   text-align: center;
   font-size: 2.7rem;
   margin-bottom: 1rem;
 }
-
-.legal-content {
+.legal-banner .legal-content {
   background-color: rgba(218, 165, 32, 0.8);
   height: 140vh;
 }
-
-.legal-content p {
+.legal-banner .legal-content p {
   position: relative;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 1.3rem;
   z-index: 2;
 }
-
-.first-p {
+.legal-banner .first-p {
   padding: 1rem 1.5rem;
 }
-
-.second-p {
+.legal-banner .second-p {
   margin-top: -2.5rem;
   margin-left: -2rem;
 }
-
-.third-p {
+.legal-banner .third-p {
   margin-top: -1.5rem;
   width: 110%;
   text-align: right;
 }
-
-.fourth-p {
+.legal-banner .fourth-p {
   margin-top: -1rem;
 }
 
@@ -3301,27 +3137,24 @@
     font-size: 1.2rem;
   }
 }
-.personality-layout {
+.personality-banner {
   margin-top: 10rem;
 }
-
-.heading {
+.personality-banner .heading {
   text-align: center;
   font-size: 2.7rem;
   margin-bottom: 1rem;
 }
-
-.green {
+.personality-banner .green {
   color: green;
   font-weight: bold;
 }
-
-.wrapper {
+.personality-banner .wrapper {
   margin: 0 auto;
 }
 
 @media only screen and (max-width: 400px) {
-  .heading {
+  .personality-banner .heading {
     font-size: 2.5rem;
   }
 }
@@ -3332,57 +3165,47 @@
   border-radius: 5px;
   box-shadow: 2px 2px 4px purple;
 }
-
-.section {
+.register-banner .section {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-.section h1 {
+.register-banner .section h1 {
   color: green;
   font-size: 3rem;
   margin-left: 0.5rem;
 }
-
-.section p {
+.register-banner .section p {
   padding: 0.5rem;
   font-size: 1.3rem;
 }
-
-.money-mural {
+.register-banner .money-mural {
   margin: 0 auto;
   z-index: 2;
 }
-
-.money-mural img {
+.register-banner .money-mural img {
   width: 500px;
   height: 312px;
 }
-
-.moneybags {
+.register-banner .moneybags {
   margin: 1rem auto;
   text-align: center;
   z-index: 2;
 }
-
-.moneybags img {
+.register-banner .moneybags img {
   width: 100px;
   height: 100px;
 }
-
-.register-container {
+.register-banner .register-container {
   text-align: center;
   display: flex;
   align-items: center;
 }
-
-.register-container h2 {
+.register-banner .register-container h2 {
   font-size: 2.5rem;
   font-style: italic;
 }
-
-.register-container button {
+.register-banner .register-container button {
   border-radius: 7px;
   padding: 0.25rem 1.5rem;
   color: white;
@@ -3391,26 +3214,11 @@
   font-size: 2rem;
   z-index: 2;
 }
-
-.register-container button:hover {
+.register-banner .register-container button:hover {
   cursor: pointer;
   animation: button-gleam 700ms forwards;
 }
 
-@keyframes button-gleam {
-  from {
-    box-shadow: none;
-  }
-  25% {
-    box-shadow: -2px 1px 3px white;
-  }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: gold;
-    border: 2px solid gold;
-  }
-}
 @media only screen and (max-width: 1400px) {
   .money-mural img {
     width: 500px;
@@ -3455,7 +3263,7 @@
     font-size: 1.8rem;
   }
 }
-.form {
+.sign-in--form {
   position: relative;
   /* set for the error message pos */
   max-width: 23rem;
@@ -3464,21 +3272,27 @@
   background-color: rgb(175, 116, 175);
   box-shadow: 6px 6px 2px black;
   text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 3;
 }
-
-.title {
-  color: gold;
-  margin-bottom: 1rem;
+.sign-in--form .error {
+  position: absolute;
+  z-index: 3;
+  overflow: hidden;
 }
-
-.form input {
+.sign-in--form .error p {
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(208, 26, 26);
+  background-color: lime;
+  animation: blink 200ms steps(2, start);
+  animation-iteration-count: 50;
+}
+.sign-in--form input {
   max-width: 70%;
   margin: 0.5rem auto;
   border: none;
@@ -3488,10 +3302,14 @@
   font-size: 1.2rem;
 }
 
+.sign-in--title {
+  color: gold;
+  margin-bottom: 1rem;
+}
+
 .links {
   margin: 0.5rem 0 1.5rem;
 }
-
 .links p {
   font-size: 1.2rem;
   margin: 0;
@@ -3507,40 +3325,19 @@
   color: white;
   cursor: pointer;
 }
-
 .branch-button:hover {
   color: gold;
   transform: scale(1.02);
 }
 
-.error {
-  position: absolute;
-  z-index: 3;
-  overflow: hidden;
-}
-
-.error p {
-  font-size: 2rem;
-  text-align: center;
-  color: rgb(208, 26, 26);
-  background-color: lime;
-  animation: blink 200ms steps(2, start);
-  animation-iteration-count: 50;
-}
-
-@keyframes blink {
-  to {
-    visibility: hidden;
-  }
-}
 @media only screen and (max-width: 1400px) {
-  .form {
+  .sign-in--form {
     max-width: 20rem;
     margin: 0 auto 4rem;
   }
 }
 @media only screen and (max-width: 1200px) {
-  .form {
+  .sign-in--form {
     max-width: 25rem;
     margin: 0 auto 4rem;
   }
@@ -3551,16 +3348,16 @@
   }
 }
 @media only screen and (max-width: 768px) {
-  .form {
+  .sign-in--form {
     margin-top: -17rem;
   }
 }
 @media only screen and (max-width: 500px) {
-  .form {
+  .sign-in--form {
     max-width: 20rem;
   }
 
-  .form input {
+  .sign-in--form input {
     padding: 0.25rem 0.5rem;
   }
 
@@ -3573,18 +3370,7 @@
     padding: 0.4rem 0.75rem;
   }
 }
-.title {
-  color: gold;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.body {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-}
-
-.form input {
+.pass-reset--form input {
   width: 60%;
   margin: 0.5rem auto;
   border: none;
@@ -3593,49 +3379,51 @@
   box-shadow: 1px 2px black;
   font-size: 1.3rem;
 }
-
-.error {
+.pass-reset--form .title {
+  color: gold;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.pass-reset--form .body {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+.pass-reset--form .error {
   padding: 0.25rem 0;
   text-align: center;
   background-color: lime;
   font-weight: bold;
   color: red;
 }
-
-.reset {
+.pass-reset--form .reset {
   width: 60%;
   margin: 0 auto 2rem;
 }
-
-.return {
+.pass-reset--form .return {
   margin: 0.5rem 0;
   font-weight: bold;
   color: white;
   cursor: pointer;
 }
-
-.return:hover {
+.pass-reset--form .return:hover {
   color: goldenrod;
   text-decoration: none;
 }
 
-.banner {
+.welcome-banner {
   margin: 20rem 0 10rem;
   text-align: center;
 }
-
-.container {
+.welcome-banner .container {
   margin: 0 auto;
 }
-
-.title {
+.welcome-banner .title {
   margin-bottom: 1rem;
   color: green;
   font-size: 2.5rem;
   font-weight: bold;
 }
-
-.backplate {
+.welcome-banner .backplate {
   padding: 1rem 0.5rem;
   background-color: goldenrod;
   border-radius: 7px;

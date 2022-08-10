@@ -11,33 +11,12 @@
   padding: 0.5rem 0;
   animation: slide-in-green 1.5s ease-in-out forwards;
 }
-@keyframes slide-in-green {
-  from {
-    margin-left: -100%;
-    width: 100%;
-  }
-  90% {
-    width: 80%;
-  }
-  to {
-    margin-left: -5rem;
-    width: 71%;
-  }
-}
 
 .title {
   margin: 5rem auto -10rem; /*affects sticky pos */
   color: gold;
   text-align: center;
   animation: slide-in 1.5s ease-in-out forwards;
-}
-@keyframes slide-in {
-  from {
-    transform: translateX(-100%);
-  }
-  90% {
-    transform: translateX(5%);
-  }
 }
 
 /*  HEIGHTS  */

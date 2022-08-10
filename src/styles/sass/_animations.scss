@@ -1,0 +1,82 @@
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes bump {
+  from {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+    box-shadow: 3px 3px 5px black;
+  }
+}
+
+@keyframes bump-2 {
+  from {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes button-gleam {
+  from {
+    box-shadow: none;
+  }
+  25% {
+    box-shadow: -2px 1px 3px white;
+  }
+  to {
+    box-shadow: 0 2px 3px black;
+    transform: translate(1px, -1px);
+    color: gold;
+    border: 2px solid gold;
+  }
+}
+
+@keyframes button-gleam-2 {
+  from {
+    box-shadow: none;
+  }
+  25% {
+    box-shadow: -1px 0 3px white;
+  }
+  to {
+    box-shadow: 0 2px 3px black;
+    transform: translate(1px, -1px);
+    color: white;
+  }
+}
+
+@keyframes motto-slide-in {
+  to {
+    transform: translateX(14%);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  90% {
+    transform: translateX(5%);
+  }
+}
+
+@keyframes slide-in-green {
+  from {
+    margin-left: -100%;
+    width: 100%;
+  }
+  90% {
+    width: 80%;
+  }
+  to {
+    margin-left: -5rem;
+    width: 71%;
+  }
+}

@@ -1,6 +1,6 @@
 // SIGN IN
 
-.form {
+.sign-in--form {
   position: relative; /* set for the error message pos */
   max-width: 23rem;
   min-height: 20rem;
@@ -15,30 +15,45 @@
   justify-content: center;
   align-items: center;
   z-index: 3;
+
+  .error {
+    position: absolute;
+    z-index: 3;
+    overflow: hidden;
+
+    p {
+      font-size: 2rem;
+      text-align: center;
+      color: rgb(208, 26, 26);
+      background-color: lime;
+      animation: blink 200ms steps(2, start);
+      animation-iteration-count: 50;
+    }
+  }
+
+  input {
+    max-width: 70%;
+    margin: 0.5rem auto;
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem 0.7rem;
+    box-shadow: 1px 2px black;
+    font-size: 1.2rem;
+  }
 }
 
-.title {
+.sign-in--title {
   color: gold;
   margin-bottom: 1rem;
 }
 
-.form input {
-  max-width: 70%;
-  margin: 0.5rem auto;
-  border: none;
-  border-radius: 12px;
-  padding: 0.5rem 0.7rem;
-  box-shadow: 1px 2px black;
-  font-size: 1.2rem;
-}
-
 .links {
   margin: 0.5rem 0 1.5rem;
-}
 
-.links p {
-  font-size: 1.2rem;
-  margin: 0;
+  p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
 }
 
 .branch-button {
@@ -50,42 +65,22 @@
   font-size: 1.4rem;
   color: white;
   cursor: pointer;
-}
 
-.branch-button:hover {
-  color: gold;
-  transform: scale(1.02);
-}
-
-.error {
-  position: absolute;
-  z-index: 3;
-  overflow: hidden;
-}
-
-.error p {
-  font-size: 2rem;
-  text-align: center;
-  color: rgb(208, 26, 26);
-  background-color: lime;
-  animation: blink 200ms steps(2, start);
-  animation-iteration-count: 50;
-}
-@keyframes blink {
-  to {
-    visibility: hidden;
+  &:hover {
+    color: gold;
+    transform: scale(1.02);
   }
 }
 
 @media only screen and (max-width: 1400px) {
-  .form {
+  .sign-in--form {
     max-width: 20rem;
     margin: 0 auto 4rem;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  .form {
+  .sign-in--form {
     max-width: 25rem;
     margin: 0 auto 4rem;
   }
@@ -97,17 +92,17 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .form {
+  .sign-in--form {
     margin-top: -17rem;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .form {
+  .sign-in--form {
     max-width: 20rem;
   }
 
-  .form input {
+  .sign-in--form input {
     padding: 0.25rem 0.5rem;
   }
 
@@ -123,48 +118,50 @@
 
 // PASSWORD RESET
 
-.title {
-  color: gold;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
+.pass-reset--form {
+  input {
+    width: 60%;
+    margin: 0.5rem auto;
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem 0.7rem;
+    box-shadow: 1px 2px black;
+    font-size: 1.3rem;
+  }
 
-.body {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-}
+  .title {
+    color: gold;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
 
-.form input {
-  width: 60%;
-  margin: 0.5rem auto;
-  border: none;
-  border-radius: 12px;
-  padding: 0.5rem 0.7rem;
-  box-shadow: 1px 2px black;
-  font-size: 1.3rem;
-}
+  .body {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+  }
 
-.error {
-  padding: 0.25rem 0;
-  text-align: center;
-  background-color: lime;
-  font-weight: bold;
-  color: red;
-}
+  .error {
+    padding: 0.25rem 0;
+    text-align: center;
+    background-color: lime;
+    font-weight: bold;
+    color: red;
+  }
 
-.reset {
-  width: 60%;
-  margin: 0 auto 2rem;
-}
+  .reset {
+    width: 60%;
+    margin: 0 auto 2rem;
+  }
 
-.return {
-  margin: 0.5rem 0;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-}
+  .return {
+    margin: 0.5rem 0;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
 
-.return:hover {
-  color: goldenrod;
-  text-decoration: none;
+    &:hover {
+      color: goldenrod;
+      text-decoration: none;
+    }
+  }
 }

@@ -85,9 +85,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <footer>{/* <Footer /> */}</footer>
     </>
   );
 };

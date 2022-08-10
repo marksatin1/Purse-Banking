@@ -7,15 +7,6 @@
 .card:hover {
   animation: bump 800ms forwards;
 }
-@keyframes bump {
-  from {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.03);
-    box-shadow: 3px 3px 5px black;
-  }
-}
 
 .card img {
   width: 100%;
@@ -64,20 +55,7 @@
 
 .learn-container button:hover {
   color: gold;
-  animation: button-gleam 700ms forwards;
-}
-@keyframes button-gleam {
-  from {
-    box-shadow: none;
-  }
-  25% {
-    box-shadow: -1px 0 3px white;
-  }
-  to {
-    box-shadow: 0 2px 3px black;
-    transform: translate(1px, -1px);
-    color: gold;
-  }
+  animation: button-gleam-2 700ms forwards;
 }
 
 @media only screen and (max-width: 1200px) {

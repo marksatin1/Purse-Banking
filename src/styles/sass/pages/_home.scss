@@ -1,4 +1,4 @@
-.header {
+.home-header {
   position: relative;
   height: 43rem;
   margin: 17rem 0 2.5rem;
@@ -9,7 +9,7 @@
   z-index: -1;
 }
 
-.header::before {
+.home-header::before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -107,7 +107,7 @@
 }
 
 @media only screen and (max-width: 1030px) {
-  .header {
+  .home-header {
     margin-top: 15.5rem;
   }
 
@@ -121,7 +121,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .header {
+  .home-header {
     margin-top: 3rem;
   }
 

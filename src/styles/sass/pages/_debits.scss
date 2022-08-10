@@ -1,4 +1,4 @@
-.header {
+.debits-header {
   position: relative;
   height: 43rem;
   margin: 17rem 0 2.5rem;
@@ -9,7 +9,7 @@
   z-index: -1;
 }
 
-.header__checking::before {
+.debits-header__checking::before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -17,14 +17,14 @@
   overflow: hidden;
   right: 0;
   content: '';
-  background-image: url(../../../assets/banners/Loot_1.webp);
+  // background-image: url(../../../assets/banners/Loot_1.webp);
   opacity: 0.75;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 10% 40%;
 }
 
-.header__savings::before {
+.debits-header__savings::before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -32,7 +32,7 @@
   overflow: hidden;
   right: 0;
   content: '';
-  background-image: url(../../../assets/banners/Loot_2.webp);
+  // background-image: url(../../../assets/banners/Loot_2.webp);
   opacity: 0.75;
   background-size: cover;
   background-repeat: no-repeat;
@@ -87,7 +87,7 @@
 }
 
 @media only screen and (max-width: 1030px) {
-  .header {
+  .debits-header {
     margin-top: 15.5rem;
   }
 
@@ -97,7 +97,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .header {
+  .debits-header {
     margin-top: 3rem;
   }
 }

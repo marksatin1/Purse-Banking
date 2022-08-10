@@ -119,7 +119,7 @@ const CreditOffer = () => {
   }, []);
 
   return (
-    <div className='layout'>
+    <div className='credit-offer'>
       <h1 className='title'>{title}</h1>
       <h2 className='subtitle'>
         <i>Our Best Credit Card Bar None!</i>

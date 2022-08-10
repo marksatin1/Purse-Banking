@@ -63,7 +63,7 @@ const PasswordReset = ({ setShowReset }) => {
   };
 
   return (
-    <form className='form' onSubmit={passwordResetHandler}>
+    <form className='pass-reset--form' onSubmit={passwordResetHandler}>
       {!showSuccess && (
         <>
           <h1 className='title'>Reset Password</h1>

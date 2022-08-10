@@ -10,10 +10,10 @@ const LandingPage = () => {
     <Container>
       <Row>
         <Col>
-          <WelcomeBanner />
+          {/* <WelcomeBanner />
           <RegisterBanner />
           <PersonalityBanner />
-          <LegalBanner />
+          <LegalBanner /> */}
         </Col>
       </Row>
     </Container>

@@ -123,7 +123,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className='form'>
+    <div className='sign-in--form'>
       {showReset && <PasswordReset setShowReset={setShowReset} />}
       {httpError && (
         <div className='error'>
@@ -143,7 +143,9 @@ const SignIn = () => {
       <form noValidate onSubmit={submitHandler}>
         {!showReset && !httpError && (
           <>
-            <h2 className={`d-xl-none $'title'`}>Get In There Already!!!</h2>
+            <h2 className='d-xl-none sign-in--title'>
+              Get In There Already!!!
+            </h2>
             <input
               placeholder='Email'
               type='email'
@@ -162,7 +164,7 @@ const SignIn = () => {
               noValidate
               onChange={(event) => setPassword(event.target.value)}
             />
-            <div className='sign-in__button'>
+            <div className='sign-in--button'>
               <FormButton type='submit' name='Sign In' disabled={isDisabled} />
             </div>
             <div className='links'>

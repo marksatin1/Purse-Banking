@@ -1,6 +1,6 @@
 const LegalBanner = () => {
   return (
-    <div className='legal-container'>
+    <div className='legal-banner'>
       <div className='heading'>
         <h1>Legal</h1>
       </div>
