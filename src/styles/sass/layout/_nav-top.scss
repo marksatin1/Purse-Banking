@@ -1,4 +1,5 @@
 .top-nav {
+  width: 100%;
   font-family: $tnr-family;
   font-size: 1.3rem;
   cursor: pointer;
@@ -13,7 +14,7 @@
   }
 
   &--dropdown {
-    margin: -1rem;
+    margin: 0 0.25rem 0 -0.25rem;
   }
 }
 

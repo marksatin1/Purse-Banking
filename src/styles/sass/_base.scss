@@ -1,8 +1,81 @@
 $primary-color: rgb(32, 145, 32);
+$primary-alt-color: rgb(0, 128, 0); //green
 $secondary-color: rgb(225, 193, 15);
+$secondary-alt-color: rgb(218, 165, 32);
+
 $accent-color: purple;
 
 $tnr-family: 'Times New Roman', Times, serif;
 $lucida-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
   'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 $courier-family: 'Courier New', Courier, monospace;
+$georgia-family: Georgia, 'Times New Roman', Times, serif;
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body {
+  font-family: $georgia-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  //   & > footer {
+  //   position: sticky;
+  //   top: 100vh;
+  // }
+}
+
+main {
+  font-family: $tnr-family;
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-family: $lucida-family;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  main {
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+// Will prob delete this
+.link {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: goldenrod;
+  }
+}

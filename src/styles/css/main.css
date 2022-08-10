@@ -49,7 +49,7 @@
 }
 @keyframes motto-slide-in {
   to {
-    transform: translateX(14%);
+    transform: translateX(32%);
   }
 }
 @keyframes slide-in {
@@ -73,6 +73,58 @@
     width: 71%;
   }
 }
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  font-family: "Times New Roman", Times, serif;
+}
+main h1 {
+  font-size: 4rem;
+}
+main h2 {
+  font-size: 3rem;
+}
+main h3 {
+  font-size: 2rem;
+}
+main p {
+  font-size: 1.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+@media only screen and (max-width: 800px) {
+  main h1 {
+    font-size: 3.5rem;
+  }
+  main h2 {
+    font-size: 2.5rem;
+  }
+  main p {
+    font-size: 1.3rem;
+  }
+}
+.link {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.link:hover {
+  color: goldenrod;
+}
+
 .footer {
   margin-bottom: 2rem;
   padding: 1rem 0;
@@ -170,8 +222,6 @@
   }
 }
 .header {
-  position: fixed;
-  width: 100%;
   background-color: white;
   border-bottom: 3px solid purple;
   z-index: 2;
@@ -211,9 +261,12 @@
     margin: 0 -0.3rem;
   }
 }
+.main-nav--container {
+  width: 100%;
+}
+
 .main-nav {
   width: 50%;
-  margin-right: -0.75rem;
   padding-top: 0.5rem;
   background-color: rgb(32, 145, 32);
   border-radius: 15px 0 0 15px;
@@ -316,6 +369,7 @@
   }
 }
 .top-nav {
+  width: 100%;
   font-family: "Times New Roman", Times, serif;
   font-size: 1.3rem;
   cursor: pointer;
@@ -328,7 +382,7 @@
   color: purple;
 }
 .top-nav--dropdown {
-  margin: -1rem;
+  margin: 0 0.25rem 0 -0.25rem;
 }
 
 .dropdown-icon {
@@ -2474,9 +2528,13 @@
     font-size: 1.6rem;
   }
 }
+.logo--container {
+  width: 100%;
+}
+
 .logo {
   position: fixed;
-  top: 8.5rem;
+  top: 10rem;
   border-radius: 0 20px 20px 0;
   background-color: rgb(225, 193, 15);
   z-index: 2;
@@ -2499,9 +2557,9 @@
 }
 
 .motto {
-  position: absolute;
-  top: 9.2rem;
-  transform: translateX(-50%);
+  position: fixed;
+  top: 10.5rem;
+  transform: translateX(-70%);
   font-family: "Courier New", Courier, monospace;
   font-size: 1.8rem;
   font-weight: 600;
@@ -2629,36 +2687,37 @@
     height: 80vh;
   }
 }
-.my-purse-btn {
-  width: 18%;
+.purse-btn--container {
+  width: 100%;
+}
+
+.purse-btn {
   position: relative;
   top: -0.75rem;
-  right: -0.1rem;
+  width: 18vw;
   margin-bottom: 0.5rem;
-  padding: 0.1rem;
   border-radius: 20px 0 0 20px;
-  border: 0.5px solid black;
+  border-top: 0.5px solid black;
+  border-bottom: 0.5px solid black;
   box-shadow: -1px -1px 4px black;
   background-color: gold;
   cursor: pointer;
 }
-.my-purse-btn:hover {
+.purse-btn p {
+  margin: 0 0 0 0.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: black;
+}
+.purse-btn:hover {
   animation: button-gleam-2 400ms forwards;
 }
-.my-purse-btn:hover .dropdown-content {
+.purse-btn:hover--content-container {
   display: block;
   z-index: 3;
 }
-.my-purse-btn button {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 20px;
-  border: none;
-  color: black;
-  background-color: inherit;
-}
-.my-purse-btn--content {
+.purse-btn--content-container {
   position: absolute;
   padding: 0.75rem;
   border-radius: 4px;
@@ -2669,7 +2728,7 @@
   text-align: right;
   display: none;
 }
-.my-purse-btn--content button {
+.purse-btn--content-container .btn--sign-out {
   margin: 0.75rem;
   margin-right: 0.25rem;
   background-color: inherit;
@@ -2681,18 +2740,18 @@
   color: purple;
   cursor: pointer;
 }
-.my-purse-btn--content button:hover {
+.purse-btn--content-container .btn--sign-out:hover {
   animation: button-gleam-2 500ms forwards;
 }
-.my-purse-btn--content .link {
+.purse-btn--content-container .link {
   margin: 0.5rem;
   font-size: 1.3rem;
   text-decoration: none;
   color: black;
   display: block;
 }
-.my-purse-btn--content .link:hover {
-  color: green;
+.purse-btn--content-container .link:hover {
+  color: rgb(0, 128, 0);
   transform: scale(1.02);
 }
 
@@ -2916,32 +2975,32 @@
     font-size: 1.1rem;
   }
 }
-.card {
-  text-align: center;
+.credit-offer {
   font-family: Georgia, "Times New Roman", Times, serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
-
-.card:hover {
+.credit-offer:hover {
   cursor: pointer;
   animation: bump-2 800ms forwards;
 }
-
-.link {
+.credit-offer img {
+  width: 266px;
+  height: 200px;
+  margin: -0.5rem 0;
+}
+.credit-offer .link {
   text-decoration: none;
+}
+.credit-offer p {
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .description {
   font-size: 1.4rem;
   color: black;
-}
-
-.card img {
-  width: 266px;
-  height: 200px;
-  margin: -0.5rem 0;
 }
 
 .wrapper {
@@ -3266,19 +3325,10 @@
   }
 }
 .sign-in--form {
-  position: relative;
-  /* set for the error message pos */
-  max-width: 23rem;
-  min-height: 20rem;
   padding: 2rem 1rem;
   background-color: rgb(175, 116, 175);
   box-shadow: 6px 6px 2px black;
-  text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   z-index: 3;
 }
 .sign-in--form .error {
@@ -3412,42 +3462,34 @@
   text-decoration: none;
 }
 
-.welcome-banner {
-  margin: 20rem 0 10rem;
-  text-align: center;
-}
-.welcome-banner .container {
-  margin: 0 auto;
-}
 .welcome-banner .title {
   margin-bottom: 1rem;
-  color: green;
+  color: rgb(0, 128, 0);
   font-size: 2.5rem;
   font-weight: bold;
 }
 .welcome-banner .backplate {
   padding: 1rem 0.5rem;
-  background-color: goldenrod;
+  background-color: rgb(218, 165, 32);
   border-radius: 7px;
   box-shadow: 2px 2px 3px black;
 }
 
 @media only screen and (max-width: 1400px) {
-  .title {
+  .welcome-banner .title {
     margin: 0 0 1.5rem;
   }
-
-  .backplate-container {
+  .welcome-banner .backplate-container {
     margin: 0 auto;
   }
 }
 @media only screen and (max-width: 980px) {
-  .backplate {
+  .welcome-banner .backplate {
     max-width: 30rem;
   }
 }
 @media only screen and (max-width: 500px) {
-  .title {
+  .welcome-banner .title {
     font-size: 2.2rem;
   }
 }

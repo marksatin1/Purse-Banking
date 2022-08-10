@@ -1,36 +1,37 @@
-.my-purse-btn {
-  width: 18%;
+.purse-btn--container {
+  width: 100%;
+}
+
+.purse-btn {
   position: relative;
   top: -0.75rem;
-  right: -0.1rem;
+  width: 18vw;
   margin-bottom: 0.5rem;
-  padding: 0.1rem;
   border-radius: 20px 0 0 20px;
-  border: 0.5px solid black;
+  border-top: 0.5px solid black;
+  border-bottom: 0.5px solid black;
   box-shadow: -1px -1px 4px black;
   background-color: gold;
   cursor: pointer;
 
+  p {
+    margin: 0 0 0 0.5rem;
+    font-family: $lucida-family;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: black;
+  }
+
   &:hover {
     animation: button-gleam-2 400ms forwards;
+
+    &--content-container {
+      display: block;
+      z-index: 3;
+    }
   }
 
-  &:hover .dropdown-content {
-    display: block;
-    z-index: 3;
-  }
-
-  button {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 20px;
-    border: none;
-    color: black;
-    background-color: inherit;
-  }
-
-  &--content {
+  &--content-container {
     position: absolute;
     padding: 0.75rem;
     border-radius: 4px;
@@ -42,7 +43,7 @@
     text-align: right;
     display: none;
 
-    button {
+    .btn--sign-out {
       margin: 0.75rem;
       margin-right: 0.25rem;
       background-color: inherit;
@@ -67,7 +68,7 @@
       display: block;
 
       &:hover {
-        color: green;
+        color: $primary-alt-color;
         transform: scale(1.02);
       }
     }

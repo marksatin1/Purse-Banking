@@ -2,7 +2,7 @@ import { Nav } from 'react-bootstrap';
 
 const MainNav = () => {
   return (
-    <div className='d-flex justify-content-end'>
+    <div className='d-flex justify-content-end main-nav--container'>
       <Nav className='main-nav'>
         <Nav.Item className='main-nav--item'>
           <h2>Learning</h2>

@@ -1,6 +1,10 @@
+.logo--container {
+  width: 100%;
+}
+
 .logo {
   position: fixed;
-  top: 8.5rem;
+  top: 10rem;
   border-radius: 0 20px 20px 0;
   background-color: $secondary-color;
   z-index: 2;
@@ -26,9 +30,9 @@
 }
 
 .motto {
-  position: absolute;
-  top: 9.2rem;
-  transform: translateX(-50%);
+  position: fixed;
+  top: 10.5rem;
+  transform: translateX(-70%);
   font-family: $courier-family;
   font-size: 1.8rem;
   font-weight: 600;

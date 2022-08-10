@@ -12,8 +12,8 @@ const Logo = () => {
   const homeLink = authCtx.isSignedIn ? '/my-purse/accounts' : '/';
 
   return (
-    <>
-      <Nav className='d-flex justify-content-start'>
+    <div className='logo--container'>
+      <Nav>
         <Nav.Link
           href={homeLink}
           className='d-flex align-items-center logo'
@@ -28,7 +28,7 @@ const Logo = () => {
       <span className={mottoClasses}>
         Keeping Eyes On Your Bag For Over 6000 Years!
       </span>
-    </>
+    </div>
   );
 };
 
