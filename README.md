@@ -1,4 +1,4 @@
-# README
+# Purse Banking Website
 
 ### [3 minute overview video](https://youtu.be/oqCGS89yQuk)
 
