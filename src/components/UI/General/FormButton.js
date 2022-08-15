@@ -1,6 +1,6 @@
 const FormButton = ({ type, disabled, name }) => {
   return (
-    <button className='form-button' type={type} disabled={disabled}>
+    <button className='form-btn' type={type} disabled={disabled}>
       {name}
     </button>
   );
