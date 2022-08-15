@@ -1,36 +1,33 @@
-.page {
-  margin: 18rem auto 10rem;
-  padding: 2rem 3rem 3rem;
+.page-card {
+  width: 80%;
+  margin: 20rem auto 10rem;
+  padding: 2rem 0 3rem;
   background-color: beige;
   box-shadow: 2px 2px 5px black;
+  border-radius: 3px 15px 3px 15px;
   text-align: center;
-}
 
-.title {
-  color: green;
-  text-decoration: underline;
-}
+  &--title {
+    color: $primary-alt-color;
+    text-decoration: underline;
+  }
 
-.subtitle {
-  margin-bottom: 2rem;
-  color: rgb(175, 116, 175);
-}
+  &--subtitle {
+    margin-bottom: 2rem;
+    color: $accent-color;
+  }
 
-.page img {
-  width: 10rem;
-}
+  &--content {
+    margin: 1rem 7rem 0;
+    padding: 4rem 6rem;
+    border: 2px solid $secondary-color;
+    box-shadow: 0 0 13px 3px $secondary-alt-color;
+    background-color: $page-card-bg-color;
 
-.content {
-  max-width: 60rem;
-  min-height: 40vh;
-  margin: 0 auto;
-  padding: 2rem 4rem;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  background-color: rgba(240, 248, 255, 0.542);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    & > * {
+      margin: 2rem 0;
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {

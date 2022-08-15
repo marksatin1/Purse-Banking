@@ -1,15 +1,41 @@
+// EXTENSIBLE STYLES
+
 $primary-color: rgb(32, 145, 32);
 $primary-alt-color: rgb(0, 128, 0); //green
 $secondary-color: rgb(225, 193, 15);
-$secondary-alt-color: rgb(218, 165, 32);
+$secondary-alt-color: rgb(218, 165, 32); //goldenrod
 
-$accent-color: purple;
+$accent-color: rgb(175, 116, 175);
+$accent-alt-color: rgb(128, 0, 128); //purple
+
+$page-card-bg-color: rgba(240, 248, 255, 0.7);
 
 $tnr-family: 'Times New Roman', Times, serif;
 $lucida-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
   'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 $courier-family: 'Courier New', Courier, monospace;
 $georgia-family: Georgia, 'Times New Roman', Times, serif;
+
+%form-btn {
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 0.25rem 1.25rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+@mixin link($color: $primary-alt-color, $color-hov: $secondary-alt-color) {
+  color: $color;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-hov;
+  }
+}
+
+// GENERAL STYLES
 
 * {
   box-sizing: border-box;
@@ -32,7 +58,7 @@ body {
 }
 
 main {
-  font-family: $tnr-family;
+  font-family: $lucida-family;
 
   h1 {
     font-size: 4rem;
@@ -43,12 +69,11 @@ main {
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   p {
     font-size: 1.5rem;
-    font-family: $lucida-family;
   }
 }
 
@@ -65,17 +90,5 @@ main {
     p {
       font-size: 1.3rem;
     }
-  }
-}
-
-// Will prob delete this
-.link {
-  color: green;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    color: goldenrod;
   }
 }

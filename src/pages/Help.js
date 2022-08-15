@@ -5,19 +5,15 @@ import PageCard from '../components/UI/General/PageCard';
 const Help = () => {
   return (
     <PageCard title='Help' subtitle='Seriously?'>
+      <p>You actually need help navigating around this simple website?</p>
       <p>
-        You actually need help navigating around this simple website?
-        <br />
-        <br />
         Did you at least try the{' '}
         <Link to='/contact' className='link'>
-          Contact
+          <span>Contact</span>
         </Link>{' '}
         page?
-        <br />
-        <br />
-        <span className='small'>(I bet you didn't, did you?)</span>
       </p>
+      <h5 className='small'>(I bet you didn't, did you?)</h5>
     </PageCard>
   );
 };

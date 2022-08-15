@@ -1,26 +1,15 @@
-.purple {
-  color: purple;
-}
-
-.goldenrod {
-  color: goldenrod;
-}
-
-.green {
-  color: green;
-}
-
-.register-container {
+.reg-btn-container {
   margin-top: 2rem;
   text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    font-style: italic;
+  }
 }
 
-.register-container h2 {
-  font-size: 2.5rem;
-  font-style: italic;
-}
-
-.register-container button {
+.special-btn {
+  font-size: 10rem;
   border-radius: 7px;
   margin: 1rem 0;
   padding: 0.25rem 1.5rem;

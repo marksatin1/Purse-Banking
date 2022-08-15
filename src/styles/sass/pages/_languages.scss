@@ -1,13 +1,15 @@
-.languages h2 {
-  margin: 2rem 0;
-}
+.languages {
+  h2 {
+    margin: 2rem 0;
 
-.languages h2:nth-child(odd) {
-  color: goldenrod;
-}
+    &:nth-child(odd) {
+      color: $secondary-alt-color;
+    }
 
-.languages h2:nth-child(even) {
-  color: dodgerblue;
+    &:nth-child(even) {
+      color: $primary-alt-color;
+    }
+  }
 }
 
 @media only screen and (max-width: 500px) {

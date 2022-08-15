@@ -1,21 +1,15 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 const PageCard = ({ title, subtitle, children }) => {
   return (
     <Container>
-      <Row>
-        <div>
-          <Col xs={12} md={11} lg={10} className='page'>
-            <h1 className='title'>{{ title, subtitle, children }.title}</h1>
-            <h2 className='subtitle'>
-              <i>{{ title, subtitle, children }.subtitle}</i>
-            </h2>
-            <div className='content'>
-              {{ title, subtitle, children }.children}
-            </div>
-          </Col>
-        </div>
-      </Row>
+      <div className=' d-flex flex-column justify-content-around page-card'>
+        <h1 className='page-card--title'>{title}</h1>
+        <h3 className='page-card--subtitle'>
+          <i>{subtitle}</i>
+        </h3>
+        <div className='page-card--content'>{children}</div>
+      </div>
     </Container>
   );
 };
