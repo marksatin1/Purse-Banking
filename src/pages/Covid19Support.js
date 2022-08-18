@@ -14,8 +14,8 @@ const Covid19Support = () => {
         uncertainty you may be experiencing surrounding the coronavirus
         (COVID-19) situation and we are committed to being as transparent as
         possible about our needs as the situation evolves.
-        <br />
-        <br />
+      </p>
+      <p>
         We also understand there may be instances where customers find
         themselves facing financial difficulties. That being said, we ask that
         you not let your personal financial or physical and mental health
@@ -23,15 +23,15 @@ const Covid19Support = () => {
         We encourage customers who may be impacted by COVID-19 or need
         assistance to just find some way to deal with it and not turn it into
         some big thing that we end up having to deal with.
-        <br />
-        <br />
+      </p>
+      <p>
         Should you find yourself in need of assistance please do not contact us.
         While the health, safety, and well-being of our customers, associates,
         and our communities is of paramount concern, it has thus far not spurred
         us to actually take steps to assist them. We simply wish to remind you
         not to default on your loans during this difficult time.
-        <br />
-        <br />
+      </p>
+      <p>
         For additional information about COVID-19 please visit the Centers for
         Disease Control website at{' '}
         <a
