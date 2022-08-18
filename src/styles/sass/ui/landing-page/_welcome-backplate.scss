@@ -1,0 +1,34 @@
+.title {
+  margin: 0 0 1rem 0;
+  color: $primary-alt-color;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.backplate {
+  margin-left: 2rem;
+  padding: 1rem 0.5rem;
+  background-color: $secondary-alt-color;
+  border-radius: 7px;
+  box-shadow: 2px 2px 3px black;
+}
+
+@media only screen and (max-width: 1400px) {
+  .welcome-banner {
+    .title {
+      margin: 0 0 1.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .welcome-banner .backplate {
+    max-width: 30rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .welcome-banner .title {
+    font-size: 2.2rem;
+  }
+}
