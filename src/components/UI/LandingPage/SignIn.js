@@ -1,5 +1,6 @@
 import { useState, useRef, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Form, Col } from 'react-bootstrap';
 import AuthContext from '../../../context/auth-context';
 
 import { Sleep } from '../../../helpers/functions/MiscFunctions';
@@ -123,77 +124,105 @@ const SignIn = () => {
   };
 
   return (
-    <div className='sign-in--form'>
-      {showReset && <PasswordReset setShowReset={setShowReset} />}
-      {httpError && (
-        <div className='error'>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-        </div>
-      )}
-      <form noValidate onSubmit={submitHandler}>
-        {!showReset && !httpError && (
-          <>
-            <h2 className='d-xl-none sign-in--title'>
-              Get In There Already!!!
-            </h2>
-            <input
-              placeholder='Email'
-              type='email'
-              name='email'
-              autoComplete='current-email'
-              ref={emailRef}
-              noValidate
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <input
-              placeholder='Password'
-              type='password'
-              name='password'
-              autoComplete='current-password'
-              ref={passwordRef}
-              noValidate
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            <div className='sign-in--button'>
-              <FormButton type='submit' name='Sign In' disabled={isDisabled} />
-            </div>
-            <div className='links'>
-              <p>New!?! Don't forget to </p>
-              <p>
-                <Link className='link' to='/register'>
-                  REGISTER!
-                </Link>
-              </p>
-              <p>Lost credentials? </p>
-              <p className='link' onClick={() => setShowReset(true)}>
-                Click Here
-              </p>
-              <p>Security, privacy, </p>
-              <p>
-                <Link className='link' to='/privacy'>
-                  etc., etc.
-                </Link>
-              </p>
-            </div>
-            <Link to='/find-branch'>
-              <button className='branch-button' type='button'>
-                Find your local branch
-              </button>
-            </Link>
-          </>
-        )}
-      </form>
+    <div className='d-flex flex-column align-items-center sign-in--form'>
+      <Form>
+        <Form.Group controlId='formEmail'>
+          <Form.Control type='email' placeholder='Email address' />
+        </Form.Group>
+        <Form.Group controlId='formPassword'>
+          <Form.Control type='password' placeholder='Password' />
+        </Form.Group>
+        <FormButton type='submit' name='Sign In' disabled={isDisabled} />
+      </Form>
+      <div className='sign-in--links-container'>
+        <p>New? Don't forget to </p>
+        <Link className='link' to='/register'>
+          <p>REGISTER!</p>
+        </Link>
+        <p>Lost credentials? </p>
+        <p className='link' onClick={() => setShowReset(true)}>
+          Click Here
+        </p>
+        <p>Security, privacy, </p>
+        <Link className='link' to='/privacy'>
+          <p>etc., etc.</p>
+        </Link>
+      </div>
+      <Link to='/find-branch'>
+        <button className='branch-btn'>Find your local branch</button>
+      </Link>
     </div>
+    // <div className='sign-in--form'>
+    //   {showReset && <PasswordReset setShowReset={setShowReset} />}
+    //   {httpError && (
+    //     <div className='error'>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //       <p>USER CREDENTIALS NOT FOUND!!!!!</p>
+    //     </div>
+    //   )}
+    //   <form noValidate onSubmit={submitHandler}>
+    //     {!showReset && !httpError && (
+    //       <>
+    //         <h2 className='d-xl-none sign-in--title'>
+    //           Get In There Already!!!
+    //         </h2>
+    //         <input
+    //           placeholder='Email'
+    //           type='email'
+    //           name='email'
+    //           autoComplete='current-email'
+    //           ref={emailRef}
+    //           noValidate
+    //           onChange={(event) => setEmail(event.target.value)}
+    //         />
+    //         <input
+    //           placeholder='Password'
+    //           type='password'
+    //           name='password'
+    //           autoComplete='current-password'
+    //           ref={passwordRef}
+    //           noValidate
+    //           onChange={(event) => setPassword(event.target.value)}
+    //         />
+    //         <div className='sign-in--button'>
+    //           <FormButton type='submit' name='Sign In' disabled={isDisabled} />
+    //         </div>
+    // <div className='links'>
+    //   <p>New!?! Don't forget to </p>
+    //   <p>
+    //     <Link className='link' to='/register'>
+    //       REGISTER!
+    //     </Link>
+    //   </p>
+    //   <p>Lost credentials? </p>
+    //   <p className='link' onClick={() => setShowReset(true)}>
+    //     Click Here
+    //   </p>
+    //   <p>Security, privacy, </p>
+    //   <p>
+    //     <Link className='link' to='/privacy'>
+    //       etc., etc.
+    //     </Link>
+    //   </p>
+    // </div>
+    // <Link to='/find-branch'>
+    //   <button className='branch-button' type='button'>
+    //     Find your local branch
+    //   </button>
+    // </Link>
+    //       </>
+    //     )}
+    //   </form>
+    // </div>
   );
 };
 
