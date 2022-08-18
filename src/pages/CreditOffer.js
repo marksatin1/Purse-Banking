@@ -5,118 +5,100 @@ import {
   travelCardData,
   blazeCardData,
 } from '../helpers/data/CreditCardData';
-import { convertRating } from '../helpers/functions/MiscFunctions';
-import { v4 as uuidv4 } from 'uuid';
+import {
+  dateFormatter,
+  convertRating,
+} from '../helpers/functions/MiscFunctions';
 
 import LegalMashup_40 from '../assets/LegalMashup_40.webp';
 
 import CommentCard from '../components/UI/General/CommentCard';
 
-let title, cardImage, about, catchphrase, description;
-
-const dateFormatter = (value) => {
-  const formattedDate = new Intl.DateTimeFormat('en-US', {
-    dateStyle: 'long',
-  }).format(new Date(value));
-  return formattedDate;
-};
+const axios = require('axios');
 
 const CreditOffer = () => {
-  const [comments, setComments] = useState();
+  const [comments, setComments] = useState([]);
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
   const cardParam = queryParams.get('card');
 
-  if (cardParam === 'star-card') {
-    title = starCardData.title;
-    about = starCardData.about;
-    cardImage = starCardData.cardImage;
-    catchphrase = starCardData.catchphrase;
-    description = starCardData.description;
-  } else if (cardParam === 'travel-card') {
-    title = travelCardData.title;
-    about = travelCardData.about;
-    cardImage = travelCardData.cardImage;
-    catchphrase = travelCardData.catchphrase;
-    description = travelCardData.description;
-  } else if (cardParam === 'blaze-card') {
-    title = blazeCardData.title;
-    about = blazeCardData.about;
-    cardImage = blazeCardData.cardImage;
-    catchphrase = blazeCardData.catchphrase;
-    description = blazeCardData.description;
+  let title, cardImage, about, catchphrase, description;
+
+  switch (cardParam) {
+    case 'star-card':
+      title = starCardData.title;
+      about = starCardData.about;
+      cardImage = starCardData.cardImage;
+      catchphrase = starCardData.catchphrase;
+      description = starCardData.description;
+    case 'travel-card':
+      title = travelCardData.title;
+      about = travelCardData.about;
+      cardImage = travelCardData.cardImage;
+      catchphrase = travelCardData.catchphrase;
+      description = travelCardData.description;
+    case 'blaze-card':
+      title = blazeCardData.title;
+      about = blazeCardData.about;
+      cardImage = blazeCardData.cardImage;
+      catchphrase = blazeCardData.catchphrase;
+      description = blazeCardData.description;
   }
 
   useEffect(() => {
     const commentData = [];
 
-    fetch(
-      'https://react-http-841ed-default-rtdb.firebaseio.com/comments.json',
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then(async (response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          const data = await response.json();
-          if (data.error.message) {
-            throw new Error(data.error.message);
-          }
-        }
-      })
-      .then((data) => {
-        for (const key in data) {
+    axios
+      .get('https://react-http-841ed-default-rtdb.firebaseio.com/comments.json')
+      .then((response) => {
+        const { data } = response;
+
+        for (const review in data) {
           commentData.push({
-            id: uuidv4(),
-            username: data[key].username,
-            age: data[key].age,
-            location: data[key].location,
-            memberDate: data[key].memberDate,
-            overallStars: data[key].overallStars,
-            commentDate: data[key].commentDate,
-            title: data[key].title,
-            content: data[key].content,
-            onlineStars: data[key].onlineStars,
-            customerStars: data[key].customerStars,
-            accountStars: data[key].accountStars,
-            recommend: data[key].recommend,
+            username: data[review].username,
+            age: data[review].age,
+            location: data[review].location,
+            memberDate: data[review].memberDate,
+            overallStars: data[review].overallStars,
+            commentDate: data[review].commentDate,
+            title: data[review].title,
+            content: data[review].content,
+            onlineStars: data[review].onlineStars,
+            customerStars: data[review].customerStars,
+            accountStars: data[review].accountStars,
+            recommend: data[review].recommend,
           });
         }
-
-        const commentCards = commentData.map((item) => {
-          return (
-            <CommentCard
-              key={item.id}
-              username={item.username}
-              age={item.age}
-              location={item.location}
-              memberDate={item.memberDate}
-              overallStars={convertRating(item.overallStars)}
-              commentDate={dateFormatter(item.commentDate)}
-              title={item.title}
-              content={item.content}
-              onlineStars={convertRating(item.onlineStars)}
-              customerStars={convertRating(item.customerStars)}
-              accountStars={convertRating(item.accountStars)}
-              recommend={item.recommend}
-            />
-          );
-        });
-        commentCards.sort(
-          (a, b) =>
-            new Date(b.props.commentDate) - new Date(a.props.commentDate)
+        commentData.sort(
+          (a, b) => new Date(b.commentDate) - new Date(a.commentDate)
         );
-        setComments(commentCards);
+        setComments(commentData);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error.message);
       });
   }, []);
+
+  let commentCards = comments
+    ? comments.map((item) => (
+        <CommentCard
+          key={item.username}
+          username={item.username}
+          age={item.age}
+          location={item.location}
+          memberDate={item.memberDate}
+          overallStars={convertRating(item.overallStars)}
+          commentDate={dateFormatter(item.commentDate)}
+          title={item.title}
+          content={item.content}
+          onlineStars={convertRating(item.onlineStars)}
+          customerStars={convertRating(item.customerStars)}
+          accountStars={convertRating(item.accountStars)}
+          recommend={item.recommend}
+        />
+      ))
+    : null;
 
   return (
     <div className='credit-offer'>
@@ -146,7 +128,7 @@ const CreditOffer = () => {
       </div>
       <div className='reviews'>
         <h2>See what the world is saying!</h2>
-        {comments}
+        <div>{commentCards}</div>
       </div>
     </div>
   );
