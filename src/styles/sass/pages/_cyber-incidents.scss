@@ -1,13 +1,13 @@
 .apply {
   margin: 3rem 0 1rem;
-}
 
-.apply h2 {
-  font-size: 2rem;
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 .purple {
-  color: purple;
+  color: $accent-alt-color;
 }
 
 @media only screen and (max-width: 500px) {
