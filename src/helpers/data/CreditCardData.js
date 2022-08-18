@@ -16,7 +16,7 @@ export const CreditCardOffers = [
     name: 'Travel Card',
     description: 'Travel Rewards',
     annualFee: '12,000',
-    signingNumber: '400,000',
+    signingNumber: '4,000',
     signingBonus: 'bonus frequent flier miles on activation',
     cashbackOffer:
       '20% discount on NY Times Bestsellers at airport book stores',
