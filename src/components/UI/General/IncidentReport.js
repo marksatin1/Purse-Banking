@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import PurseCEO from '../../../assets/PurseCEO.webp';
@@ -18,14 +17,14 @@ const IncidentReport = ({
   return (
     <Container>
       <Row>
-        <Col xs={12} lg={9} className='content'>
+        <Col xs={12} lg={9} className='inc-report'>
           <h2>{title}</h2>
           <h4>
             <i>
               For our statement on the {incident}{' '}
-              <Link to={url} className='link'>
+              <a href={url} className='link'>
                 click here
-              </Link>
+              </a>
               .
             </i>
           </h4>
