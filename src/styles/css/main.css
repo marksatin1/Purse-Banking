@@ -73,6 +73,14 @@
     width: 71%;
   }
 }
+.form-btn:disabled, .form-btn {
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 0.25rem 1.25rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -88,7 +96,7 @@ body {
 }
 
 main {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 main h1 {
   font-size: 4rem;
@@ -97,11 +105,10 @@ main h2 {
   font-size: 3rem;
 }
 main h3 {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 main p {
   font-size: 1.5rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 @media only screen and (max-width: 800px) {
@@ -115,16 +122,6 @@ main p {
     font-size: 1.3rem;
   }
 }
-.link {
-  color: green;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-}
-.link:hover {
-  color: goldenrod;
-}
-
 .footer {
   margin-bottom: 2rem;
   padding: 1rem 0;
@@ -136,52 +133,38 @@ main p {
   text-align: center;
   z-index: 2;
 }
-
-.help {
+.footer--title {
   margin: 0.5rem 0 1rem;
+  color: rgb(225, 193, 15);
   font-size: 1.5rem;
   font-weight: bold;
 }
-
-.follow {
-  margin: 1rem 0 -0.1rem;
+.footer--subtitle {
   font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
-
-.logo-bar {
+.footer--logos {
   cursor: pointer;
-  margin-bottom: 1rem;
 }
-
-.logo-bar img {
-  margin: 0.75rem;
+.footer--logos img {
   width: 30px;
   height: 30px;
 }
-
-.logo-bar img:hover {
-  background-color: gold;
+.footer--logos img:hover {
+  background-color: rgb(225, 193, 15);
 }
-
-.nav-bar {
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+.footer--nav-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 0.75rem;
 }
-
-.nav-bar button {
+.footer--nav-bar h5 {
+  margin: 0;
   color: black;
-  border: none;
-  background-color: inherit;
-  font-family: inherit;
   cursor: pointer;
 }
-
-.nav-bar span {
-  margin: 0.2rem;
-}
-
-.nav-bar button:hover {
-  color: gold;
+.footer--nav-bar h5:hover {
+  color: rgb(225, 193, 15);
 }
 
 @media only screen and (max-width: 768px) {
@@ -467,29 +450,17 @@ main p {
     margin-left: 0.6rem;
   }
 }
-.purple {
-  color: purple;
-}
-
-.goldenrod {
-  color: goldenrod;
-}
-
-.green {
-  color: green;
-}
-
-.register-container {
+.reg-btn-container {
   margin-top: 2rem;
   text-align: center;
 }
-
-.register-container h2 {
+.reg-btn-container h2 {
   font-size: 2.5rem;
   font-style: italic;
 }
 
-.register-container button {
+.special-btn {
+  font-size: 10rem;
   border-radius: 7px;
   margin: 1rem 0;
   padding: 0.25rem 1.5rem;
@@ -499,7 +470,7 @@ main p {
   font-size: 2rem;
   z-index: 2;
 }
-.register-container button:hover {
+.special-btn:hover {
   cursor: pointer;
   animation: button-gleam 700ms forwards;
 }
@@ -526,33 +497,37 @@ main p {
     font-size: 1.5rem;
   }
 }
-.content {
-  text-align: center;
+.link {
+  color: rgb(0, 128, 0);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.link:hover {
+  color: rgb(218, 165, 32);
 }
 
-.contact .page {
-  margin: 18rem auto 30rem;
+.contact-page {
+  margin: 20rem auto 10rem;
   padding: 2rem 3rem 3rem;
   background-color: beige;
   box-shadow: 2px 2px 5px black;
+  border-radius: 3px 15px 3px 15px;
   text-align: center;
 }
-.contact .title {
-  color: green;
+.contact-page--title {
+  color: rgb(0, 128, 0);
   text-decoration: underline;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
-.contact .subtitle {
+.contact-page--subtitle {
   margin-bottom: 2rem;
   color: rgb(175, 116, 175);
 }
-.contact .location h1 {
+.contact-page--footer h1 {
   font-size: 3.5rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-.contact .location h2 {
+.contact-page--footer h2 {
   margin-top: 2rem;
 }
 
@@ -767,116 +742,95 @@ main p {
   }
 }
 .crypto {
-  margin: 17rem auto 10rem;
-}
-.crypto .title {
-  margin-bottom: 1rem;
+  margin: 20rem auto 10rem;
   text-align: center;
-  color: green;
+}
+.crypto--title {
+  margin-bottom: 1rem;
+  color: rgb(0, 128, 0);
   text-decoration: underline;
 }
-.crypto .subtitle {
-  margin-bottom: 3rem;
+.crypto--subtitle {
+  margin-bottom: 2rem;
   color: rgb(175, 116, 175);
-  text-align: center;
 }
-
-.crypto-table {
+.crypto table {
   width: 80%;
   margin: 0 auto;
-  border-radius: 15px;
   box-shadow: 0 0 4px black;
-  text-align: center;
   overflow-x: scroll;
   cursor: default;
 }
-
-.tbody a {
-  text-decoration: none;
-  color: black;
-}
-
-.thead th {
+.crypto thead {
   background-color: gold;
   font-size: 1.5rem;
+}
+.crypto thead th {
   padding: 1rem;
 }
-
-.tbody {
+.crypto tbody {
   background-color: beige;
   font-size: 1.3rem;
 }
-
-.tbody td {
+.crypto tbody td {
   padding: 1rem;
   padding-left: 1rem;
 }
-
-.tbody tr:hover {
+.crypto tbody a {
+  text-decoration: none;
+  color: black;
+}
+.crypto tbody tr:hover {
   color: gold;
   background-color: rgb(175, 116, 175);
 }
-
-.tbody tr:hover a {
+.crypto tbody tr:hover a {
   color: white;
   text-decoration: underline;
 }
-
-.money {
-  color: green;
+.crypto tbody .money {
+  color: rgb(0, 128, 0);
 }
-
-.tbody tr:hover .money {
+.crypto tbody .money:hover {
   color: gold;
 }
-
-.footer {
+.crypto .tfoot {
   width: 80%;
   margin: 2rem auto 0;
-  padding: 1rem 1.5rem;
-  border-top: 3px solid purple;
-  border-bottom: 3px solid purple;
+  padding-top: 0.5rem;
+  border-top: 3px solid rgb(128, 0, 128);
+  border-bottom: 3px solid rgb(128, 0, 128);
   background-color: gold;
   font-weight: bold;
-  text-align: center;
 }
-
-.footer h4 {
+.crypto .tfoot h4 {
   font-size: 1.8rem;
 }
-
-.footer a {
+.crypto .tfoot a {
   color: black;
 }
-
-.footer a:hover {
-  color: black;
+.crypto .tfoot a:hover {
+  color: rgb(0, 128, 0);
 }
-
-.content {
+.crypto--content {
   width: 75%;
   margin: 3rem auto 7rem;
-  text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-
-.apiError {
+.crypto--apiError {
   width: 40%;
   margin: 5rem auto 6rem;
   padding: 1rem 0;
-  text-align: center;
   background-color: red;
   box-shadow: 10px 10px black;
 }
-
-.apiError h1 {
+.crypto--apiError h1 {
   position: relative;
   color: white;
   font-size: 3rem;
   margin: 1rem 0;
 }
-
-.apiError p {
+.crypto--apiError p {
   position: relative;
   font-size: 1.3rem;
 }
@@ -889,13 +843,12 @@ main p {
 .apply {
   margin: 3rem 0 1rem;
 }
-
 .apply h2 {
   font-size: 2rem;
 }
 
 .purple {
-  color: purple;
+  color: rgb(128, 0, 128);
 }
 
 @media only screen and (max-width: 500px) {
@@ -1062,6 +1015,16 @@ main p {
     font-size: 2.1rem;
   }
 }
+.link {
+  color: rgb(0, 128, 0);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.link:hover {
+  color: rgb(218, 165, 32);
+}
+
 .small {
   font-size: 1.2rem;
 }
@@ -1219,13 +1182,11 @@ main p {
 .languages h2 {
   margin: 2rem 0;
 }
-
 .languages h2:nth-child(odd) {
-  color: goldenrod;
+  color: rgb(218, 165, 32);
 }
-
 .languages h2:nth-child(even) {
-  color: dodgerblue;
+  color: rgb(0, 128, 0);
 }
 
 @media only screen and (max-width: 500px) {
@@ -1233,7 +1194,7 @@ main p {
     font-size: 2rem;
   }
 }
-.layout {
+.not-found--layout {
   width: 50%;
   height: 60vh;
   margin: 18rem auto 10rem;
@@ -1248,22 +1209,19 @@ main p {
   justify-content: space-evenly;
   align-items: center;
 }
-
-.layout h1 {
+.not-found--layout h1 {
   color: gold;
 }
-
-.layout h2 {
+.not-found--layout h2 {
   color: white;
 }
-
-.layout p {
+.not-found--layout p {
   color: gold;
   font-weight: bold;
 }
 
 @media only screen and (max-width: 768px) {
-  .layout {
+  .not-found--layout {
     margin-top: 3rem;
   }
 }
@@ -2102,7 +2060,7 @@ main p {
   animation: slide-in-green 1.5s ease-in-out forwards;
 }
 
-.title {
+.bump-title {
   margin: 5rem auto -10rem;
   /*affects sticky pos */
   color: gold;
@@ -2230,115 +2188,88 @@ main p {
     height: 5rem;
   }
 }
-.layout {
+.comment-card {
   padding: 1rem 0;
   border-bottom: 2px solid goldenrod;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.user-info {
+.comment-card .user-info {
   margin-bottom: 1rem;
   text-align: left;
 }
-
-.username {
+.comment-card .user-info .username {
   color: green;
   font-size: 1.8rem;
 }
-
-.user-info p {
+.comment-card .user-info p {
   margin: 0.25rem 0;
   font-size: 1.2rem;
 }
-
-.comment-info {
+.comment-card .comment-info {
   text-align: left;
 }
-
-.comment-info p {
+.comment-card .comment-info p {
   font-size: 1.3rem;
 }
-
-.comment-header {
+.comment-card .comment-info .header {
   margin-bottom: 0.5rem;
   margin-left: -1rem;
   display: flex;
   justify-content: space-between;
 }
-
-.comment-header img {
+.comment-card .comment-info .header img {
   width: 125px;
   margin: 0.25rem 0;
 }
-
-.comment-header p {
+.comment-card .comment-info .header p {
   margin: 0.25rem 0;
   margin-left: 0.25rem;
 }
-
-.title {
+.comment-card .comment-info .title {
   color: rgb(175, 116, 175);
 }
-
-.rating {
-  color: green;
+.comment-card .comment-info .rating {
+  color: rgb(0, 128, 0);
   margin: 1rem 0;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-.recommendation {
+.comment-card .comment-info .recommendation {
   margin: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.recommendation img {
+.comment-card .comment-info .recommendation img {
   width: 40px;
   margin-right: 1rem;
 }
-
-.recommendation p {
+.comment-card .comment-info .recommendation p {
   padding-top: 1rem;
   text-align: center;
 }
 
-.card {
+.contact-card {
   margin: 1rem 0;
-  padding: 2rem;
+  padding: 2rem 0;
   border: 2px solid black;
-  border-radius: 5px;
-  box-shadow: 3px 3px 2px black;
-  background-color: aliceblue;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px black;
   font-family: "Times New Roman", Times, serif;
 }
-
-.department {
-  margin-bottom: 2rem;
-  color: goldenrod;
-  display: flex;
-  justify-content: center;
+.contact-card .department {
+  margin-bottom: 1rem;
+  color: rgb(218, 165, 32);
 }
-
-.content {
+.contact-card .content {
   min-height: 30rem;
-  margin: 1rem;
-  text-align: left;
+}
+.contact-card .test {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-}
-
-.content p {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1.4rem;
-}
-
-.issue {
-  font-weight: bold;
 }
 
 .wait-time {
@@ -2363,29 +2294,189 @@ main p {
     overflow-y: scroll;
   }
 }
-.form-button {
-  margin: 1rem 0;
-  padding: 0.25rem 1.5rem;
-  border-radius: 25px;
-  background-color: inherit;
-  font-size: 1.4rem;
-  font-weight: bold;
-  border: 2px solid white;
+.credit-offer-card {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  padding: 1rem;
+}
+.credit-offer-card:hover {
+  cursor: pointer;
+  animation: bump-2 800ms forwards;
+}
+.credit-offer-card * {
+  margin: 0;
+}
+.credit-offer-card img {
+  width: 266px;
+  height: 200px;
+}
+.credit-offer-card .link {
+  text-decoration: none;
+}
+.credit-offer-card p {
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.form-button:disabled {
-  border: 2px solid white;
-  border-radius: 25px;
-  padding: 0.25rem 1.5rem;
+.description {
+  font-size: 1.4rem;
   color: black;
 }
 
-.form-button:hover {
+.annual-fee {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.signing-number {
+  margin-top: -1rem;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 5rem;
+  font-weight: bold;
+  color: purple;
+}
+
+.signing-bonus {
+  color: purple;
+  font-size: 1.3rem;
+}
+
+.cashback-offer {
+  margin-top: 1rem;
+  color: green;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 1400px) {
+  .card img {
+    width: 200px;
+    height: 150px;
+  }
+
+  .description {
+    font-size: 1.3rem;
+  }
+
+  .annual-fee {
+    font-size: 1.1rem;
+  }
+
+  .signing-number {
+    font-size: 4rem;
+  }
+
+  .signing-bonus {
+    font-size: 1.2rem;
+  }
+
+  .cashback-offer {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .card img {
+    width: 250px;
+    height: 188px;
+  }
+
+  .description {
+    font-size: 1.3rem;
+  }
+
+  .annual-fee {
+    font-size: 1.2rem;
+  }
+
+  .signing-number {
+    font-size: 4rem;
+  }
+
+  .signing-bonus {
+    font-size: 1.3rem;
+  }
+
+  .cashback-offer {
+    font-size: 1.3rem;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .card img {
+    width: 300px;
+    height: 226px;
+  }
+
+  .description {
+    font-size: 1.4rem;
+  }
+
+  .annual-fee {
+    font-size: 1.4rem;
+  }
+
+  .signing-number {
+    font-size: 5rem;
+  }
+
+  .wrapper {
+    width: 40vw;
+    min-height: 25vh;
+  }
+
+  .signing-bonus {
+    font-size: 1.5rem;
+  }
+
+  .cashback-offer {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    width: 50vw;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .card img {
+    width: 200px;
+    height: 150px;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .annual-fee {
+    font-size: 1rem;
+  }
+
+  .signing-number {
+    font-size: 3.5rem;
+  }
+
+  .wrapper {
+    min-height: 27vh;
+  }
+
+  .signing-bonus {
+    font-size: 1.1rem;
+  }
+
+  .cashback-offer {
+    font-size: 1.1rem;
+  }
+}
+.form-btn {
+  margin: 1rem 0;
+  background-color: inherit;
+}
+.form-btn:hover {
   cursor: pointer;
   animation: button-gleam-2 700ms forwards;
 }
-
-.form-button:disabled:hover {
+.form-btn:disabled {
+  color: black;
+}
+.form-btn:disabled:hover {
   background-color: goldenrod;
   animation: none;
   cursor: default;
@@ -2397,12 +2488,11 @@ main p {
     font-size: 1.3rem;
     font-weight: bold;
   }
-
   .form-button:disabled {
     padding: 0.25rem 1.25rem;
   }
 }
-.content {
+.inc-report {
   text-align: left;
   margin: 0 auto;
   padding-right: 1.5rem;
@@ -2410,50 +2500,40 @@ main p {
   flex-direction: column;
   justify-content: center;
 }
-
-.content h4 {
+.inc-report h4 {
   margin: 1rem 0;
 }
-
-.content p {
+.inc-report p {
   font-family: "Times New Roman", Times, serif;
 }
 
 .quote-block {
   margin: 1rem 0;
-}
-
-.quote-block > * {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-
-.quote {
-  color: goldenrod;
+.quote-block .quote {
+  color: rgb(218, 165, 32);
 }
-
-.speaker {
-  color: green;
+.quote-block .speaker {
+  color: rgb(0, 128, 0);
 }
 
 .ceo {
-  /* border: 2px solid orange; */
   margin-top: 10vh;
   text-align: left;
-  border-left: 2px solid goldenrod;
+  border-left: 2px solid rgb(218, 165, 32);
+}
+.ceo h3 {
+  margin: 0.75rem 0;
+}
+.ceo img {
+  width: 110%;
 }
 
 .contact {
   margin-bottom: 0.75rem;
-  color: green;
+  color: rgb(0, 128, 0);
   text-align: center;
-}
-
-.ceo h3 {
-  margin: 0.75rem 0;
-}
-
-.ceo img {
-  width: 110%;
 }
 
 .role {
@@ -2797,39 +2877,32 @@ main p {
     font-size: 1rem;
   }
 }
-.page {
-  margin: 18rem auto 10rem;
-  padding: 2rem 3rem 3rem;
+.page-card {
+  width: 80%;
+  margin: 20rem auto 10rem;
+  padding: 2rem 0 3rem;
   background-color: beige;
   box-shadow: 2px 2px 5px black;
+  border-radius: 3px 15px 3px 15px;
   text-align: center;
 }
-
-.title {
-  color: green;
+.page-card--title {
+  color: rgb(0, 128, 0);
   text-decoration: underline;
 }
-
-.subtitle {
+.page-card--subtitle {
   margin-bottom: 2rem;
   color: rgb(175, 116, 175);
 }
-
-.page img {
-  width: 10rem;
+.page-card--content {
+  margin: 1rem 7rem 0;
+  padding: 4rem 6rem;
+  border: 2px solid rgb(225, 193, 15);
+  box-shadow: 0 0 13px 3px rgb(218, 165, 32);
+  background-color: rgba(240, 248, 255, 0.7);
 }
-
-.content {
-  max-width: 60rem;
-  min-height: 40vh;
-  margin: 0 auto;
-  padding: 2rem 4rem;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  background-color: rgba(240, 248, 255, 0.542);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.page-card--content > * {
+  margin: 2rem 0;
 }
 
 @media only screen and (max-width: 768px) {
@@ -2975,179 +3048,46 @@ main p {
     font-size: 1.1rem;
   }
 }
-.credit-offer {
+.content p {
+  font-size: 1.3rem;
+  padding: 0 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.intertitle {
+  width: 75%;
+  margin: 1.5rem auto;
+  font-size: 2.5rem;
+  color: rgb(0, 128, 0);
+  text-align: center;
   font-family: Georgia, "Times New Roman", Times, serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.endtitle {
+  width: 75%;
+  margin: 2rem auto 1rem;
+  font-size: 2.5rem;
+  color: rgb(128, 0, 128);
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.centered {
   text-align: center;
 }
-.credit-offer:hover {
-  cursor: pointer;
-  animation: bump-2 800ms forwards;
-}
-.credit-offer img {
-  width: 266px;
-  height: 200px;
-  margin: -0.5rem 0;
-}
-.credit-offer .link {
+
+.action {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(128, 0, 128);
   text-decoration: none;
 }
-.credit-offer p {
-  font-family: Georgia, "Times New Roman", Times, serif;
+.action:hover {
+  color: rgb(0, 128, 0);
 }
 
-.description {
-  font-size: 1.4rem;
-  color: black;
-}
-
-.wrapper {
-  margin: 0 auto;
-  min-height: 15vh;
-}
-
-.annual-fee {
-  color: black;
-  font-size: 1.2rem;
-}
-
-.signing-number {
-  margin: -0.5rem 0;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 5rem;
-  font-weight: bold;
-  color: purple;
-}
-
-.signing-bonus {
-  color: purple;
-  font-size: 1.3rem;
-}
-
-.cashback-offer {
-  color: green;
-  font-weight: bold;
-  font-size: 1.3rem;
-}
-
-@media only screen and (max-width: 1400px) {
-  .card img {
-    width: 200px;
-    height: 150px;
-  }
-
-  .description {
-    font-size: 1.3rem;
-  }
-
-  .annual-fee {
-    font-size: 1.1rem;
-  }
-
-  .signing-number {
-    font-size: 4rem;
-  }
-
-  .signing-bonus {
-    font-size: 1.2rem;
-  }
-
-  .cashback-offer {
-    font-size: 1.2rem;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  .card img {
-    width: 250px;
-    height: 188px;
-  }
-
-  .description {
-    font-size: 1.3rem;
-  }
-
-  .annual-fee {
-    font-size: 1.2rem;
-  }
-
-  .signing-number {
-    font-size: 4rem;
-  }
-
-  .signing-bonus {
-    font-size: 1.3rem;
-  }
-
-  .cashback-offer {
-    font-size: 1.3rem;
-  }
-}
-@media only screen and (max-width: 992px) {
-  .card img {
-    width: 300px;
-    height: 226px;
-  }
-
-  .description {
-    font-size: 1.4rem;
-  }
-
-  .annual-fee {
-    font-size: 1.4rem;
-  }
-
-  .signing-number {
-    font-size: 5rem;
-  }
-
-  .wrapper {
-    width: 40vw;
-    min-height: 25vh;
-  }
-
-  .signing-bonus {
-    font-size: 1.5rem;
-  }
-
-  .cashback-offer {
-    font-size: 1.5rem;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .wrapper {
-    width: 50vw;
-  }
-}
 @media only screen and (max-width: 500px) {
-  .card img {
-    width: 200px;
-    height: 150px;
-  }
-
-  .description {
-    font-size: 1.1rem;
-  }
-
-  .annual-fee {
-    font-size: 1rem;
-  }
-
-  .signing-number {
-    font-size: 3.5rem;
-  }
-
-  .wrapper {
-    min-height: 27vh;
-  }
-
-  .signing-bonus {
-    font-size: 1.1rem;
-  }
-
-  .cashback-offer {
-    font-size: 1.1rem;
+  .endtitle {
+    font-size: 1.7rem;
   }
 }
 .legal-banner {
@@ -3325,33 +3265,25 @@ main p {
   }
 }
 .sign-in--form {
-  padding: 2rem 1rem;
+  padding: 1rem;
   background-color: rgb(175, 116, 175);
   box-shadow: 6px 6px 2px black;
+  text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   z-index: 3;
 }
-.sign-in--form .error {
-  position: absolute;
-  z-index: 3;
-  overflow: hidden;
-}
-.sign-in--form .error p {
-  font-size: 2rem;
-  text-align: center;
-  color: rgb(208, 26, 26);
-  background-color: lime;
-  animation: blink 200ms steps(2, start);
-  animation-iteration-count: 50;
-}
 .sign-in--form input {
-  max-width: 70%;
-  margin: 0.5rem auto;
-  border: none;
+  margin: 1rem auto;
   border-radius: 12px;
-  padding: 0.5rem 0.7rem;
   box-shadow: 1px 2px black;
   font-size: 1.2rem;
+}
+.sign-in--links-container {
+  margin: 0.5rem 0 1.5rem;
+}
+.sign-in--links-container p {
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 .sign-in--title {
@@ -3359,15 +3291,8 @@ main p {
   margin-bottom: 1rem;
 }
 
-.links {
-  margin: 0.5rem 0 1.5rem;
-}
-.links p {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-.branch-button {
+.branch-btn {
+  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 8px;
@@ -3377,7 +3302,7 @@ main p {
   color: white;
   cursor: pointer;
 }
-.branch-button:hover {
+.branch-btn:hover {
   color: gold;
   transform: scale(1.02);
 }
@@ -3462,13 +3387,19 @@ main p {
   text-decoration: none;
 }
 
-.welcome-banner .title {
-  margin-bottom: 1rem;
+.welcome-banner {
+  margin: 20rem 0 10rem;
+}
+
+.title {
+  margin: 0 0 1rem 0;
   color: rgb(0, 128, 0);
   font-size: 2.5rem;
   font-weight: bold;
 }
-.welcome-banner .backplate {
+
+.backplate {
+  margin-left: 2rem;
   padding: 1rem 0.5rem;
   background-color: rgb(218, 165, 32);
   border-radius: 7px;
@@ -3478,9 +3409,6 @@ main p {
 @media only screen and (max-width: 1400px) {
   .welcome-banner .title {
     margin: 0 0 1.5rem;
-  }
-  .welcome-banner .backplate-container {
-    margin: 0 auto;
   }
 }
 @media only screen and (max-width: 980px) {
