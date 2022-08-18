@@ -1,62 +1,55 @@
 // SIGN IN
 
-.sign-in--form {
-  position: relative; /* set for the error message pos */
-  max-width: 23rem;
-  min-height: 20rem;
-  padding: 2rem 1rem;
-  background-color: rgb(175, 116, 175);
-  box-shadow: 6px 6px 2px black;
-  text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-
-  .error {
-    position: absolute;
+.sign-in {
+  &--form {
+    // width: 40vw;
+    padding: 1rem;
+    background-color: $accent-color;
+    box-shadow: 6px 6px 2px black;
+    text-align: center;
+    font-family: $lucida-family;
     z-index: 3;
-    overflow: hidden;
 
-    p {
-      font-size: 2rem;
-      text-align: center;
-      color: rgb(208, 26, 26);
-      background-color: lime;
-      animation: blink 200ms steps(2, start);
-      animation-iteration-count: 50;
+    input {
+      margin: 1rem auto;
+      border-radius: 12px;
+      box-shadow: 1px 2px black;
+      font-size: 1.2rem;
     }
   }
 
-  input {
-    max-width: 70%;
-    margin: 0.5rem auto;
-    border: none;
-    border-radius: 12px;
-    padding: 0.5rem 0.7rem;
-    box-shadow: 1px 2px black;
-    font-size: 1.2rem;
+  &--links-container {
+    margin: 0.5rem 0 1.5rem;
+
+    p {
+      font-size: 1.2rem;
+      margin: 0;
+    }
   }
 }
+
+// .error {
+//   position: absolute;
+//   z-index: 3;
+//   overflow: hidden;
+
+//   p {
+//     font-size: 2rem;
+//     text-align: center;
+//     color: rgb(208, 26, 26);
+//     background-color: lime;
+//     animation: blink 200ms steps(2, start);
+//     animation-iteration-count: 50;
+//   }
+// }
 
 .sign-in--title {
   color: gold;
   margin-bottom: 1rem;
 }
 
-.links {
-  margin: 0.5rem 0 1.5rem;
-
-  p {
-    font-size: 1.2rem;
-    margin: 0;
-  }
-}
-
-.branch-button {
+.branch-btn {
+  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 8px;
