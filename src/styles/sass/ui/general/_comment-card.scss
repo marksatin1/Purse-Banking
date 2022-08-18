@@ -1,75 +1,75 @@
-.layout {
+.comment-card {
   padding: 1rem 0;
   border-bottom: 2px solid goldenrod;
   font-family: Arial, Helvetica, sans-serif;
-}
 
-.user-info {
-  margin-bottom: 1rem;
-  text-align: left;
-}
+  .user-info {
+    margin-bottom: 1rem;
+    text-align: left;
 
-.username {
-  color: green;
-  font-size: 1.8rem;
-}
+    .username {
+      color: green;
+      font-size: 1.8rem;
+    }
 
-.user-info p {
-  margin: 0.25rem 0;
-  font-size: 1.2rem;
-}
+    p {
+      margin: 0.25rem 0;
+      font-size: 1.2rem;
+    }
+  }
 
-.comment-info {
-  text-align: left;
-}
+  .comment-info {
+    text-align: left;
 
-.comment-info p {
-  font-size: 1.3rem;
-}
+    p {
+      font-size: 1.3rem;
+    }
 
-.comment-header {
-  margin-bottom: 0.5rem;
-  margin-left: -1rem;
-  display: flex;
-  justify-content: space-between;
-}
+    .header {
+      margin-bottom: 0.5rem;
+      margin-left: -1rem;
+      display: flex;
+      justify-content: space-between;
 
-.comment-header img {
-  width: 125px;
-  margin: 0.25rem 0;
-}
+      img {
+        width: 125px;
+        margin: 0.25rem 0;
+      }
 
-.comment-header p {
-  margin: 0.25rem 0;
-  margin-left: 0.25rem;
-}
+      p {
+        margin: 0.25rem 0;
+        margin-left: 0.25rem;
+      }
+    }
 
-.title {
-  color: rgb(175, 116, 175);
-}
+    .title {
+      color: $accent-color;
+    }
 
-.rating {
-  color: green;
-  margin: 1rem 0;
-  font-size: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .rating {
+      color: $primary-alt-color;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.recommendation {
-  margin: 1rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .recommendation {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-.recommendation img {
-  width: 40px;
-  margin-right: 1rem;
-}
+      img {
+        width: 40px;
+        margin-right: 1rem;
+      }
 
-.recommendation p {
-  padding-top: 1rem;
-  text-align: center;
+      p {
+        padding-top: 1rem;
+        text-align: center;
+      }
+    }
+  }
 }

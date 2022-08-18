@@ -26,7 +26,7 @@ const CommentCard = ({
 
   return (
     <Container>
-      <Row className='layout'>
+      <Row className='comment-card'>
         <Col sm={12} md={4} className='user-info'>
           <h3 className='username'>{username}</h3>
           <div>
@@ -43,7 +43,7 @@ const CommentCard = ({
         </Col>
         <Col className='comment-info'>
           <Row className='header'>
-            <Col sm={12} md={'auto'}>
+            <Col sm={12} md='auto'>
               <img
                 style={{ width: '140px' }}
                 src={overallStars}
