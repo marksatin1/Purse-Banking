@@ -4,12 +4,12 @@ const ContactCard = ({ department, data }) => {
       <h2 className='department'>{department}</h2>
       <div className='content'>
         {data.map((item) => (
-          <>
+          <div className='test'>
             <p>
               <b>{item.issue}</b>
             </p>
             <p>{item.phone}</p>
-          </>
+          </div>
         ))}
       </div>
       <h3 className='wait-time'>Estimated wait time {'<'} 175 mins</h3>
