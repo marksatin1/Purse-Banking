@@ -1,6 +1,6 @@
 const PageNotFound = () => {
   return (
-    <div className='layout'>
+    <div className='not-found--layout'>
       <h1>Page Not Found</h1>
       <h2>Just go somewhere else, alright?</h2>
       <p>Go on git!</p>
