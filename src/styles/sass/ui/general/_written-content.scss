@@ -1,0 +1,43 @@
+.content p {
+  font-size: 1.3rem;
+  padding: 0 1rem;
+  font-family: $lucida-family;
+}
+
+.intertitle {
+  width: 75%;
+  margin: 1.5rem auto;
+  font-size: 2.5rem;
+  color: $primary-alt-color;
+  text-align: center;
+  font-family: $georgia-family;
+}
+
+.endtitle {
+  width: 75%;
+  margin: 2rem auto 1rem;
+  font-size: 2.5rem;
+  color: $accent-alt-color;
+  text-align: center;
+  font-family: $georgia-family;
+}
+
+.centered {
+  text-align: center;
+}
+
+.action {
+  font-family: $georgia-family;
+  color: $accent-alt-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-alt-color;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .endtitle {
+    font-size: 1.7rem;
+  }
+}
