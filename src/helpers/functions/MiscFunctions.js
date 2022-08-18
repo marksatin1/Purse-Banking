@@ -10,6 +10,13 @@ export const usdFormatter = new Intl.NumberFormat('en-US', {
   currency: 'USD',
 });
 
+export const dateFormatter = (value) => {
+  const formattedDate = new Intl.DateTimeFormat('en-US', {
+    dateStyle: 'long',
+  }).format(new Date(value));
+  return formattedDate;
+};
+
 export const Sleep = (duration) => {
   return new Promise((resolve) => setTimeout(resolve, duration));
 };
