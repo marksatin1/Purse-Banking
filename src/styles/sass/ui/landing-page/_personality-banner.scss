@@ -1,24 +1,9 @@
 .personality-banner {
-  margin-top: 10rem;
+  margin: 5rem auto;
 
-  .heading {
+  &--title {
     text-align: center;
-    font-size: 2.7rem;
     margin-bottom: 1rem;
-  }
-
-  .green {
-    color: green;
-    font-weight: bold;
-  }
-
-  .wrapper {
-    margin: 0 auto;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .personality-banner .heading {
-    font-size: 2.5rem;
+    color: $secondary-alt-color;
   }
 }

@@ -8,8 +8,8 @@ const LandingPage = () => {
     <div className='landing-page'>
       <WelcomeBanner />
       <RegisterBanner />
-      {/* <PersonalityBanner />
-      <LegalBanner /> */}
+      <PersonalityBanner />
+      {/* <LegalBanner /> */}
     </div>
   );
 };

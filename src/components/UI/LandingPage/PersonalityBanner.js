@@ -6,12 +6,12 @@ import PersonalityCard from '../General/PersonalityCard';
 const PersonalityBanner = () => {
   return (
     <Container className='personality-banner'>
-      <h1 className='heading'>
-        We're <span className='green'>more</span> than just a bank!
+      <h1 className='personality-banner--title'>
+        We're more than just a bank!
       </h1>
       <Row>
         {PersonalityCardData.map((item) => (
-          <Col key={item.name} xs={11} lg={4} className='wrapper'>
+          <Col key={item.name} lg={4}>
             <PersonalityCard
               name={item.name}
               title={item.title}

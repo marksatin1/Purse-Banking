@@ -3,31 +3,20 @@ import BloodDiamonds from '../../../assets/Personality-Banners/BloodDiamonds.web
 import Lasagna from '../../../assets/Personality-Banners/Lasagna.webp';
 
 const PersonalityCard = ({ name, title, subtitle, href }) => {
-  let cardImage;
-
-  if (name === 'Guns') {
-    cardImage = Guns;
-  } else if (name === 'Diamonds') {
-    cardImage = BloodDiamonds;
-  } else if (name === 'Lasagna') {
-    cardImage = Lasagna;
-  } else {
-    return null;
-  }
+  let cardImage =
+    name === 'Guns' ? Guns : name === 'Diamonds' ? BloodDiamonds : Lasagna;
 
   return (
-    <div className='card'>
+    <div className='personality-card'>
       <img src={cardImage} alt={title} />
-      <div className='content'>
-        <div className='titles'>
-          <h1 className='title'>{title}</h1>
-          <p>{subtitle}</p>
+      <div className='personality-card--content'>
+        <div>
+          <h1 className='personality-card--title'>{title}</h1>
+          <p className='personality-card--subtitle'>{subtitle}</p>
         </div>
-        <div className='learn-container'>
-          <a href={href} target='_blank' rel='noopener noreferrer'>
-            <button type='button'>Learn More {'>'}</button>
-          </a>
-        </div>
+        <a href={href} target='_blank' rel='noopener noreferrer'>
+          <button className='personality-card--btn'>Learn More {'>'}</button>
+        </a>
       </div>
     </div>
   );
