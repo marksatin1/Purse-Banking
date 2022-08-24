@@ -12,11 +12,13 @@ $page-card-bg-color: rgba(240, 248, 255, 0.7);
 
 $tnr-family: 'Times New Roman', Times, serif;
 $lucida-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  'Lucida Sans Unicode', Verdana, sans-serif;
 $courier-family: 'Courier New', Courier, monospace;
 $georgia-family: Georgia, 'Times New Roman', Times, serif;
 
 $page-margin: 20rem auto 10rem;
+
+$border: 2px solid black;
 
 %form-btn {
   border: 2px solid white;

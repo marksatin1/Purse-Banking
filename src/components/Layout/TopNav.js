@@ -16,7 +16,7 @@ const TopNav = () => {
   };
 
   return (
-    <Nav className='d-flex justify-content-end align-items-center top-nav'>
+    <Nav className='d-flex flex-row align-items-center top-nav'>
       <Nav.Link href='/about'>
         <h5>About</h5>
       </Nav.Link>
@@ -32,7 +32,7 @@ const TopNav = () => {
       <Nav.Link href='/help'>
         <h5>Help</h5>
       </Nav.Link>
-      <span>|</span>
+      {/* <span>|</span>
       <Nav.Link>
         <img src={flag} className='dropdown-icon' alt='Country flag' />
       </Nav.Link>
@@ -62,7 +62,7 @@ const TopNav = () => {
         <NavDropdown.Item onClick={selectFlagHandler}>
           Venezuela <img src={AmericanFlag} alt='American Flag' />
         </NavDropdown.Item>
-      </NavDropdown>
+      </NavDropdown> */}
     </Nav>
   );
 };

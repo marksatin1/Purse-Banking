@@ -1,20 +1,16 @@
 .top-nav {
-  width: 100%;
+  margin-top: -0.25rem;
+  justify-content: center;
   font-family: $tnr-family;
-  font-size: 1.3rem;
   cursor: pointer;
 
   h5 {
-    margin: 0;
+    margin: 0 0.5rem;
     color: black;
 
     &:hover {
-      color: purple;
+      color: $accent-alt-color;
     }
-  }
-
-  &--dropdown {
-    margin: 0 0.25rem 0 -0.25rem;
   }
 }
 
@@ -45,62 +41,27 @@
   }
 
   div:hover {
-    color: green;
+    color: $primary-alt-color;
     transform: scale(1.03);
   }
 }
 
-@media only screen and (max-width: 1030px) {
+@media only screen and (min-width: 576px) {
   .top-nav {
-    font-size: 1.25rem;
-  }
-
-  .dropdown img {
-    width: 28px;
-    height: 28px;
-    margin-right: 0;
-  }
-
-  .dropdown-container {
+    width: 100vw;
+    justify-content: flex-end;
     font-size: 1.2rem;
-    margin-right: 0.25rem;
+
+    h5 {
+      font-size: 1.2rem;
+    }
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 992px) {
   .top-nav {
-    font-size: 1.4rem;
-    justify-content: center;
-  }
-
-  .dropdown img {
-    width: 30px;
-    height: 30px;
-    margin: 0 0.5rem 0.2rem 1rem;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .top-nav {
-    font-size: 1.1rem;
-  }
-
-  .top-nav span {
-    margin: 0 -0.5rem;
-  }
-
-  .dropdown img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .dropdown-container {
-    padding: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  .dropdown-container img {
-    margin: 0.3rem;
-    margin-left: 0.6rem;
+    h5 {
+      font-size: 1.3rem;
+    }
   }
 }

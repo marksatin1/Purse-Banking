@@ -1,29 +1,25 @@
-.purse-btn--container {
-  width: 100%;
-}
-
-.purse-btn {
+.my-purse-btn {
+  width: 30vw;
+  margin: 0 auto;
   position: relative;
-  top: -0.75rem;
-  width: 18vw;
-  margin-bottom: 0.5rem;
-  border-radius: 20px 0 0 20px;
-  border-top: 0.5px solid black;
-  border-bottom: 0.5px solid black;
+  top: -0.35rem;
+  border-radius: 25px;
+  border: 0.5px solid black;
   box-shadow: -1px -1px 4px black;
   background-color: gold;
   cursor: pointer;
 
   p {
-    margin: 0 0 0 0.5rem;
+    margin: -0.25rem;
+    text-align: center;
     font-family: $lucida-family;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: black;
   }
 
   &:hover {
-    animation: button-gleam-2 400ms forwards;
+    animation: button-gleam-2 700ms forwards;
 
     &--content-container {
       display: block;
@@ -37,8 +33,7 @@
     border-radius: 4px;
     background-color: beige;
     box-shadow: 0 0 5px black;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: $lucida-family;
     font-weight: bold;
     text-align: right;
     display: none;
@@ -75,57 +70,47 @@
   }
 }
 
-@media only screen and (max-width: 1030px) {
-  .button-container {
-    button {
-      font-size: 1.4rem;
-    }
-
-    &--content {
-      padding: 0.5rem;
-
-      button {
-        font-size: 1.2rem;
-      }
-    }
-  }
-
-  .link {
-    font-size: 1.2rem;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .button-container {
+@media only screen and (min-width: 576px) {
+  .my-purse-btn {
+    width: 25vw;
     top: -0.5rem;
-    text-align: center;
+    margin: initial;
+    border-radius: 25px 0 0 25px;
 
-    .centered {
-      margin: 0 auto;
-    }
-
-    &--content {
-      text-align: center;
-
-      button {
-        margin: 0.5rem 0;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .button-container {
-    button {
+    p {
+      margin-left: 0.5rem;
       font-size: 1.1rem;
     }
+  }
+}
 
-    &--content button {
-      font-size: 1rem;
+@media only screen and (min-width: 768px) {
+  .my-purse-btn {
+    width: 22vw;
+    top: -0.7rem;
+
+    p {
+      font-size: 1.2rem;
     }
   }
+}
 
-  .link {
-    font-size: 1rem;
+@media only screen and (min-width: 992px) {
+  .my-purse-btn {
+    width: 20vw;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .my-purse-btn {
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .my-purse-btn {
+    width: 17vw;
   }
 }

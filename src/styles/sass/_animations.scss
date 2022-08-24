@@ -52,9 +52,37 @@
   }
 }
 
-@keyframes motto-slide-in {
+@keyframes collapse-appear {
+  from {
+    opacity: 0;
+  }
   to {
-    transform: translateX(32%);
+    transform: translateY(1rem);
+    opacity: 1;
+  }
+}
+
+@keyframes collapse-disappear {
+  from {
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+}
+
+// @keyframes motto-slide-in {
+//   to {
+//     transform: translateX(33%);
+//   }
+// }
+
+@mixin motto-anim($percent) {
+  @keyframes motto-slide-in {
+    to {
+      transform: translateX($percent);
+    }
   }
 }
 

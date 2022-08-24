@@ -2,25 +2,25 @@ import { Nav } from 'react-bootstrap';
 
 const MainNav = () => {
   return (
-    <div className='d-flex justify-content-end main-nav--container'>
-      <Nav className='main-nav'>
+    <div className='d-flex justify-content-end'>
+      <Nav className='d-flex flex-row main-nav'>
         <Nav.Item className='main-nav--item'>
           <h2>Learning</h2>
           <div className='main-nav--dropdown-content'>
             <Nav.Link className='link no-strike' href='/crypto'>
-              Crypto
+              <p>Crypto</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>
-              NFTs
+              <p>NFTs</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>
-              Finance 101
+              <p>Finance 101</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>
-              Joint Bank Accounts
+              <p>Joint Bank Accounts</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>
-              Digital Payments
+              <p>Digital Payments</p>
             </Nav.Link>
           </div>
         </Nav.Item>
@@ -28,19 +28,19 @@ const MainNav = () => {
           <h2>Services</h2>
           <div className='main-nav--dropdown-content'>
             <Nav.Link className='link strike' href='#'>
-              Mobile Banking
+              <p>Mobile Banking</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>
-              Student Checking
+              <p>Student Checking</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>
-              Travel Tips
+              <p>Travel Tips</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>
-              Overdraft Services
+              <p>Overdraft Services</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>
-              New to Purse
+              <p>New to Purse</p>
             </Nav.Link>
           </div>
         </Nav.Item>
@@ -48,19 +48,19 @@ const MainNav = () => {
           <h2>Products</h2>
           <div className='main-nav--dropdown-content'>
             <Nav.Link className='link strike' href='#'>
-              CDs
+              <p>CDs</p>
             </Nav.Link>
             <Nav.Link
               className='link no-strike'
               href='/credit-offer?card=travel-card'
             >
-              Credit Cards
+              <p>Credit Cards</p>
             </Nav.Link>
             <Nav.Link className='link no-strike' href='/cyber-incident-2021'>
-              Crypto Wallet
+              <p>Crypto Wallet</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>
-              Stock Wallet
+              <p>Stock Wallet</p>
             </Nav.Link>
           </div>
         </Nav.Item>

@@ -1,6 +1,8 @@
-import { Container, Row, Navbar } from 'react-bootstrap';
+import { useState } from 'react';
 
-import Handbag from '../../assets/Emojis/Handbag.webp';
+import { Navbar } from 'react-bootstrap';
+
+import FlyingMoney from '../../assets/Emojis/FlyingMoney.png';
 
 import TopNav from './TopNav';
 import MainNav from './MainNav';
@@ -8,27 +10,35 @@ import MyPurseButton from '../UI/General/MyPurseButton';
 import Logo from '../UI/General/Logo';
 
 const Header = () => {
+  const [collapseAnim, setCollapseAnim] = useState('');
+
+  const animationHandler = () => {
+    collapseAnim === '' || collapseAnim === 'collapse-disappear'
+      ? setCollapseAnim('collapse-appear')
+      : setCollapseAnim('collapse-disappear');
+  };
+
   return (
-    <Navbar fixed='top' className='d-flex flex-column header'>
-      <TopNav />
-      <MainNav />
-      <MyPurseButton />
+    <>
       <Logo />
-    </Navbar>
-    /*{' '}
-      <Row className='d-md-none header'>
-        <Logo />
-        <Navbar expand='md'>
-          <Navbar.Toggle className='toggle'>
-            <img src={Handbag} alt='Moneybag icon' />
+      <Navbar expand='sm' className='d-flex flex-column header'>
+        <div className='d-sm-none '>
+          <Navbar.Toggle onClick={animationHandler}>
+            <img src={FlyingMoney} alt='Flying Money' />
           </Navbar.Toggle>
-          <Navbar.Collapse>
+          <Navbar.Collapse className={collapseAnim}>
             <TopNav />
             <MainNav />
             <MyPurseButton />
           </Navbar.Collapse>
-        </Navbar>
-      </Row>*/
+        </div>
+        <div className='d-none d-sm-block'>
+          <TopNav />
+          <MainNav />
+          <MyPurseButton />
+        </div>
+      </Navbar>
+    </>
   );
 };
 

@@ -1,109 +1,104 @@
-.logo--container {
-  width: 100%;
-}
-
 .logo {
-  position: fixed;
-  top: 10rem;
+  position: absolute;
+  top: 6rem;
   border-radius: 0 20px 20px 0;
   background-color: $secondary-color;
-  z-index: 2;
+  z-index: 4;
   cursor: pointer;
 
   &:hover {
-    background-color: goldenrod;
+    background-color: $secondary-alt-color;
   }
 
-  .icon--bag {
-    width: 50px;
-    height: 50px;
+  &--icon {
+    width: 35px;
+    height: 35px;
   }
 
   &--title {
     margin: 0 0.5rem;
     font-family: $lucida-family;
-    font-size: 3.2rem;
+    font-size: 2rem;
     font-style: italic;
     font-weight: bold;
-    color: purple;
+    color: $accent-alt-color;
   }
 }
 
-.motto {
-  position: fixed;
-  top: 10.5rem;
-  transform: translateX(-70%);
-  font-family: $courier-family;
-  font-size: 1.8rem;
-  font-weight: 600;
-  cursor: pointer;
+@media only screen and (min-width: 576px) {
+  .logo {
+    top: 9rem;
+  }
+}
 
-  &--slide-in {
+@media only screen and (min-width: 768px) {
+  .logo {
+    top: 9.6rem;
+
+    &--icon {
+      width: 45px;
+      height: 45px;
+    }
+
+    &--title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .motto {
+    position: fixed;
+    top: 9.8rem;
+    transform: translateX(-78%);
+    font-family: $courier-family;
+    font-size: 1.3rem;
+    font-weight: 600;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  .motto-slide-in {
+    @include motto-anim(38%);
     animation: motto-slide-in 2.5s forwards;
   }
 }
 
-@media only screen and (max-width: 1328px) {
+@media only screen and (min-width: 992px) {
   .motto {
-    font-size: 1.5rem;
-    top: 9.8rem;
+    top: 9.7rem;
+    font-size: 1.4rem;
   }
-  @keyframes logo-slidein {
-    to {
-      left: 15.5rem;
+}
+
+@media only screen and (min-width: 1200px) {
+  .logo {
+    top: 9.3rem;
+
+    &--icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    &--title {
+      font-size: 3.2rem;
     }
   }
-}
-
-@media only screen and (max-width: 1030px) {
-  .logo-nav {
-    margin: -1rem 0 -2.5rem -2rem;
-  }
-
-  .handbag {
-    width: 38px;
-    height: 38px;
-  }
-
-  .purse {
-    margin: -0.1rem 0.25rem;
-    font-size: 2.8rem;
-  }
 
   .motto {
-    display: none;
+    font-size: 1.5rem;
+  }
+
+  .motto-slide-in {
+    @include motto-anim(40%);
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .logo-nav {
-    margin: -0.75rem auto 0;
-    padding: 1.75rem 0.5rem 0.25rem;
-    border-radius: 10px;
+@media only screen and (min-width: 1400px) {
+  .motto {
+    top: 9.3rem;
+    font-size: 1.8rem;
   }
 
-  .handbag {
-    display: none;
-  }
-
-  .purse {
-    font-size: 3.2rem;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .logo-nav {
-    margin: -0.75rem auto 0;
-    padding: 1.75rem 0.5rem 0.25rem;
-    border-radius: 10px;
-  }
-
-  .handbag {
-    width: 0;
-    height: 0;
-  }
-
-  .purse {
-    font-size: 2.5rem;
+  .motto-slide-in {
+    @include motto-anim(34%);
   }
 }

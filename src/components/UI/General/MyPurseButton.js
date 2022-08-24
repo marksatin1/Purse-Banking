@@ -16,13 +16,13 @@ const MyPurseButton = () => {
   }
 
   return (
-    <div className='d-flex justify-content-end purse-btn--container'>
-      <Nav>
-        <Nav.Link href={destLink} className='purse-btn'>
+    <div className='d-flex justify-content-end'>
+      <Nav className='my-purse-btn'>
+        <Nav.Link href={destLink}>
           <p>{destName}</p>
         </Nav.Link>
         {authCtx.isSignedIn && (
-          <div className='purse-btn--content-container'>
+          <div className='my-purse-btn--content-container'>
             <Nav.Link href='my-purse/accounts' className='link'>
               My Accounts
             </Nav.Link>
