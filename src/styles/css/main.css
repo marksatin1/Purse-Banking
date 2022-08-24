@@ -218,6 +218,7 @@ main p {
   }
 }
 .header {
+  position: fixed;
   background-color: white;
   text-align: center;
   z-index: 2;
@@ -276,7 +277,7 @@ main p {
   border-radius: 5px;
   box-shadow: 0 0 4px black;
   text-align: center;
-  z-index: 15;
+  z-index: 4;
   display: none;
 }
 .main-nav--dropdown-content .link {
@@ -1136,12 +1137,17 @@ main p {
   position: relative;
   width: 90vw;
   margin: 0 auto;
-  top: 10rem;
+  top: 14rem;
 }
 
+@media only screen and (min-width: 576px) {
+  .landing-page {
+    top: 17rem;
+  }
+}
 @media only screen and (min-width: 768px) {
   .landing-page {
-    top: 8rem;
+    top: 18rem;
   }
 }
 .languages h2 {

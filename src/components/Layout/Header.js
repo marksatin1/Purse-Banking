@@ -21,23 +21,25 @@ const Header = () => {
   return (
     <>
       <Logo />
-      <Navbar expand='sm' className='d-flex flex-column header'>
-        <div className='d-sm-none '>
-          <Navbar.Toggle onClick={animationHandler}>
-            <img src={FlyingMoney} alt='Flying Money' />
-          </Navbar.Toggle>
-          <Navbar.Collapse className={collapseAnim}>
+      <div className='header'>
+        <Navbar expand='sm' className='d-flex flex-column'>
+          <div className='d-sm-none '>
+            <Navbar.Toggle onClick={animationHandler}>
+              <img src={FlyingMoney} alt='Flying Money' />
+            </Navbar.Toggle>
+            <Navbar.Collapse className={collapseAnim}>
+              <TopNav />
+              <MainNav />
+              <MyPurseButton />
+            </Navbar.Collapse>
+          </div>
+          <div className='d-none d-sm-block'>
             <TopNav />
             <MainNav />
             <MyPurseButton />
-          </Navbar.Collapse>
-        </div>
-        <div className='d-none d-sm-block'>
-          <TopNav />
-          <MainNav />
-          <MyPurseButton />
-        </div>
-      </Navbar>
+          </div>
+        </Navbar>
+      </div>
     </>
   );
 };
