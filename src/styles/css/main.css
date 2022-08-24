@@ -111,30 +111,7 @@ body {
 main {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
 }
-main h1 {
-  font-size: 4rem;
-}
-main h2 {
-  font-size: 3rem;
-}
-main h3 {
-  font-size: 2.5rem;
-}
-main p {
-  font-size: 1.5rem;
-}
 
-@media only screen and (max-width: 800px) {
-  main h1 {
-    font-size: 3.5rem;
-  }
-  main h2 {
-    font-size: 2.5rem;
-  }
-  main p {
-    font-size: 1.3rem;
-  }
-}
 .footer {
   margin-bottom: 2rem;
   padding: 1rem 0;
@@ -2040,125 +2017,6 @@ main p {
 }
 
 /*  HEIGHTS  */
-@media only screen and (max-height: 1400px) {
-  .container {
-    bottom: 51vh;
-  }
-}
-@media only screen and (max-height: 1200px) {
-  .container {
-    bottom: 44vh;
-  }
-}
-@media only screen and (max-height: 1100px) {
-  .container {
-    bottom: 35vh;
-  }
-}
-@media only screen and (max-height: 1000px) {
-  .container {
-    bottom: 27vh;
-  }
-}
-@media only screen and (max-height: 860px) {
-  .container {
-    bottom: 20vh;
-  }
-}
-@media only screen and (max-height: 810px) {
-  .container {
-    bottom: 16vh;
-  }
-}
-@media only screen and (max-height: 750px) {
-  .container {
-    bottom: 10vh;
-  }
-}
-@media only screen and (max-height: 700px) {
-  .container {
-    bottom: 4vh;
-  }
-}
-@media only screen and (max-height: 550px) {
-  .container {
-    bottom: 3vh;
-  }
-}
-/*  WIDTHS  */
-@media only screen and (max-width: 1450px) {
-  @keyframes slide-in-green {
-    from {
-      margin-left: -100%;
-      width: 100%;
-    }
-    to {
-      width: 70%;
-      margin-left: -2rem;
-    }
-  }
-}
-@media only screen and (max-width: 1280px) {
-  @keyframes slide-in-green {
-    from {
-      margin-left: -100%;
-      width: 100%;
-    }
-    to {
-      width: 78%;
-      margin-left: -2rem;
-    }
-  }
-}
-@media only screen and (max-width: 900px) {
-  @keyframes slide-in-green {
-    from {
-      margin-left: -100%;
-      width: 100%;
-    }
-    to {
-      width: 85%;
-      margin-left: -2rem;
-    }
-  }
-}
-@media only screen and (max-width: 800px) {
-  .green {
-    height: 5.5rem;
-  }
-}
-@media only screen and (max-width: 600px) {
-  @keyframes slide-in-green {
-    from {
-      margin-left: -100%;
-      width: 100%;
-    }
-    to {
-      width: 100%;
-      margin-left: -2rem;
-    }
-  }
-}
-/*  BOTH DIMENSIONS  */
-@media only screen and (max-width: 768px) and (max-height: 1000px) {
-  .container {
-    bottom: 33vh;
-  }
-}
-@media only screen and (max-width: 500px) and (max-height: 900px) {
-  .container {
-    bottom: 30vh;
-  }
-
-  .title {
-    font-size: 2.7rem;
-    margin: 5.75rem auto -10rem;
-  }
-
-  .green {
-    height: 5rem;
-  }
-}
 .comment-card {
   padding: 1rem 0;
   border-bottom: 2px solid goldenrod;
@@ -3065,108 +2923,92 @@ main p {
   }
 }
 .register-banner {
-  border: 2px solid purple;
-  margin-top: 8rem;
+  margin: 5rem auto;
   padding: 1.5rem;
+  border: 2px solid rgb(128, 0, 128);
   border-radius: 5px;
-  box-shadow: 2px 2px 4px purple;
+  box-shadow: 2px 2px 4px rgb(128, 0, 128);
 }
 .register-banner .section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.register-banner .section h1 {
-  color: green;
-  font-size: 3rem;
-  margin-left: 0.5rem;
-}
-.register-banner .section p {
-  padding: 0.5rem;
-  font-size: 1.3rem;
-}
-.register-banner .money-mural {
-  margin: 0 auto;
-  z-index: 2;
-}
-.register-banner .money-mural img {
-  width: 500px;
-  height: 312px;
-}
-.register-banner .moneybags {
-  margin: 1rem auto;
   text-align: center;
+}
+.register-banner .section--title {
+  color: rgb(0, 128, 0);
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.register-banner .section--body {
+  margin: 1rem auto 0;
+  font-size: 1.2rem;
+}
+.register-banner .section--money-mural {
+  width: 350px;
   z-index: 2;
 }
-.register-banner .moneybags img {
-  width: 100px;
-  height: 100px;
+.register-banner .section .moneybags {
+  margin: 1rem auto;
+  z-index: 2;
+}
+.register-banner .section .moneybags img {
+  width: 80px;
 }
 .register-banner .register-container {
+  margin: 1rem auto;
   text-align: center;
-  display: flex;
-  align-items: center;
 }
 .register-banner .register-container h2 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-style: italic;
 }
 .register-banner .register-container button {
-  border-radius: 7px;
+  border-radius: 30px;
   padding: 0.25rem 1.5rem;
   color: white;
   background-color: rgb(32, 145, 32);
-  border: 2px solid goldenrod;
-  font-size: 2rem;
+  border: 2px solid rgb(218, 165, 32);
+  font-size: 1.8rem;
   z-index: 2;
 }
 .register-banner .register-container button:hover {
   cursor: pointer;
-  animation: button-gleam 700ms forwards;
+  animation: button-gleam 600ms forwards;
 }
 
-@media only screen and (max-width: 1400px) {
-  .money-mural img {
+@media only screen and (min-width: 992px) {
+  .register-banner .section--title {
+    font-size: 3rem;
+  }
+  .register-banner .section--body {
+    font-size: 1.3rem;
+  }
+  .register-banner .section--money-mural {
+    width: 400px;
+  }
+  .register-banner .register-container h2 {
+    font-size: 2.6rem;
+  }
+  .register-banner .register-container button {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .register-banner .section--title {
+    font-size: 3.3rem;
+  }
+  .register-banner .section--body {
+    font-size: 1.4rem;
+  }
+  .register-banner .section--money-mural {
     width: 500px;
-    height: 300px;
   }
-}
-@media only screen and (max-width: 1200px) {
-  .money-mural img {
-    width: 425px;
-    height: 255px;
+  .register-banner .section .moneybags img {
+    width: 90px;
   }
-}
-@media only screen and (max-width: 992px) {
-  .money-mural img {
-    width: 325px;
-    height: 195px;
-    margin-bottom: 2rem;
+  .register-banner .register-container h2 {
+    font-size: 3rem;
   }
-}
-@media only screen and (max-width: 900px) {
-  .section {
-    text-align: center;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .section p {
-    padding: 0.25rem;
-    font-size: 1.2rem;
-  }
-
-  .money-mural img {
-    width: 300px;
-    height: 180px;
-  }
-
-  .register-container h2 {
-    font-size: 2.3rem;
-  }
-
-  .register-container button {
-    padding: 0.25rem 1rem;
-    font-size: 1.8rem;
+  .register-banner .register-container button {
+    font-size: 2.2rem;
   }
 }
 .sign-in {

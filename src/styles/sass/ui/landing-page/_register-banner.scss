@@ -1,120 +1,123 @@
 .register-banner {
-  border: 2px solid purple;
-  margin-top: 8rem;
+  margin: 5rem auto;
   padding: 1.5rem;
+  border: 2px solid $accent-alt-color;
   border-radius: 5px;
-  box-shadow: 2px 2px 4px purple;
+  box-shadow: 2px 2px 4px $accent-alt-color;
 
   .section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    h1 {
-      color: green;
-      font-size: 3rem;
-      margin-left: 0.5rem;
-    }
-
-    p {
-      padding: 0.5rem;
-      font-size: 1.3rem;
-    }
-  }
-
-  .money-mural {
-    margin: 0 auto;
-    z-index: 2;
-
-    img {
-      width: 500px;
-      height: 312px;
-    }
-  }
-
-  .moneybags {
-    margin: 1rem auto;
     text-align: center;
-    z-index: 2;
 
-    img {
-      width: 100px;
-      height: 100px;
+    &--title {
+      color: $primary-alt-color;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    &--body {
+      margin: 1rem auto 0;
+      font-size: 1.2rem;
+    }
+
+    &--money-mural {
+      width: 350px;
+      z-index: 2;
+    }
+
+    .moneybags {
+      margin: 1rem auto;
+      z-index: 2;
+
+      img {
+        width: 80px;
+      }
     }
   }
 
   .register-container {
+    margin: 1rem auto;
     text-align: center;
-    display: flex;
-    align-items: center;
 
     h2 {
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       font-style: italic;
     }
 
     button {
-      border-radius: 7px;
+      border-radius: 30px;
       padding: 0.25rem 1.5rem;
       color: white;
-      background-color: rgb(32, 145, 32);
-      border: 2px solid goldenrod;
-      font-size: 2rem;
+      background-color: $primary-color;
+      border: 2px solid $secondary-alt-color;
+      font-size: 1.8rem;
       z-index: 2;
 
       &:hover {
         cursor: pointer;
-        animation: button-gleam 700ms forwards;
+        animation: button-gleam 600ms forwards;
       }
     }
   }
 }
 
-@media only screen and (max-width: 1400px) {
-  .money-mural img {
-    width: 500px;
-    height: 300px;
+@media only screen and (min-width: 992px) {
+  .register-banner {
+    .section {
+      &--title {
+        font-size: 3rem;
+      }
+
+      &--body {
+        font-size: 1.3rem;
+      }
+
+      &--money-mural {
+        width: 400px;
+      }
+    }
+
+    .register-container {
+      h2 {
+        font-size: 2.6rem;
+      }
+
+      button {
+        font-size: 2rem;
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  .money-mural img {
-    width: 425px;
-    height: 255px;
-  }
-}
+@media only screen and (min-width: 1400px) {
+  .register-banner {
+    .section {
+      &--title {
+        font-size: 3.3rem;
+      }
 
-@media only screen and (max-width: 992px) {
-  .money-mural img {
-    width: 325px;
-    height: 195px;
-    margin-bottom: 2rem;
-  }
-}
+      &--body {
+        font-size: 1.4rem;
+      }
 
-@media only screen and (max-width: 900px) {
-  .section {
-    text-align: center;
-  }
-}
+      &--money-mural {
+        width: 500px;
+      }
 
-@media only screen and (max-width: 500px) {
-  .section p {
-    padding: 0.25rem;
-    font-size: 1.2rem;
-  }
+      .moneybags {
+        img {
+          width: 90px;
+        }
+      }
+    }
 
-  .money-mural img {
-    width: 300px;
-    height: 180px;
-  }
+    .register-container {
+      h2 {
+        font-size: 3rem;
+      }
 
-  .register-container h2 {
-    font-size: 2.3rem;
-  }
-
-  .register-container button {
-    padding: 0.25rem 1rem;
-    font-size: 1.8rem;
+      button {
+        font-size: 2.2rem;
+      }
+    }
   }
 }
