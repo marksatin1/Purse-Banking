@@ -17,6 +17,8 @@ import AuthContext from '../context/auth-context';
 import Modal from '../components/UI/General/Modal';
 import FormButton from '../components/UI/General/FormButton';
 
+const axios = require('axios');
+
 let idToken, expirationTime;
 
 const isEmpty = (value) => value.trim() === '';
@@ -163,34 +165,22 @@ const Register = () => {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
+
     setIsLoading(true);
 
     const enteredEmail = emailRef.current.value;
     const enteredPassword = passwordRef.current.value;
 
-    fetch(
-      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    axios
+      .post('https://identitytoolkit.googleapis.com/v1/accounts:signUp', {
+        params: {
+          key: process.env.REACT_APP_FIREBASE_API_KEY,
         },
         body: JSON.stringify({
           email: enteredEmail,
           password: enteredPassword,
           returnSecureToken: true,
         }),
-      }
-    )
-      .then(async (response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          const data = await response.json();
-          if (data.error.message) {
-            throw new Error(data.error.message);
-          }
-        }
       })
       .then((data) => {
         localStorage.setItem('displayName', user.firstName);
@@ -200,43 +190,34 @@ const Register = () => {
           new Date().getTime() + +data.expiresIn * 1000
         );
 
-        fetch(
-          `https://react-http-841ed-default-rtdb.firebaseio.com/users.json`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              firstName: user.firstName,
-              lastName: user.lastName,
-              email: user.email,
-              password: user.password,
-              firstborn:
-                user.firstborn === 'yes'
-                  ? 'Ceded firstborn'
-                  : 'Did not cede firstborn',
-              country: user.country,
-              agree: user.agree ? 'Agreed' : 'Did not agree',
-            }),
-          }
-        ).then(async (response) => {
-          if (response.ok) {
+        axios
+          .post(
+            'https://react-http-841ed-default-rtdb.firebaseio.com/users.json',
+            {
+              body: JSON.stringify({
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                password: user.password,
+                firstborn:
+                  user.firstborn === 'yes'
+                    ? 'Ceded firstborn'
+                    : 'Did not cede firstborn',
+                country: user.country,
+                agree: user.agree ? 'Agreed' : 'Did not agree',
+              }),
+            }
+          )
+          .then(() => {
             setIsLoading(false);
             setShowModal(true);
-            return response.json();
-          } else {
-            const data = await response.json();
-            if (data.error.message) {
-              throw new Error(data.error.message);
-            }
-          }
-        });
+          });
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error.message);
       });
   };
+
   const signInHandler = () => {
     authCtx.signIn(idToken, expirationTime);
   };

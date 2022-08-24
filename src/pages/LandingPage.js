@@ -6,7 +6,7 @@ import LegalBanner from '../components/UI/LandingPage/LegalBanner';
 const LandingPage = () => {
   return (
     <>
-      <WelcomeBanner />
+      {/* <WelcomeBanner /> */}
       {/* <RegisterBanner />
       <PersonalityBanner />
       <LegalBanner /> */}

@@ -7,14 +7,13 @@
 }
 
 .form {
-  margin: 18rem auto 10rem;
+  margin: $page-margin;
   padding: 2rem 1rem;
-  background-color: rgb(175, 116, 175);
+  background-color: $accent-color;
   box-shadow: 6px 6px 2px black;
   text-align: center;
   font-size: 1.3rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: $lucida-family;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,11 +103,11 @@
 .access button {
   margin: 2rem 0 -1rem;
   padding: 0.75rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: $georgia-family;
   font-size: 1.2rem;
   font-weight: bold;
   background-color: gold;
-  color: green;
+  color: $primary-alt-color;
   border-radius: 3px;
   box-shadow: 1px 1px black;
   cursor: pointer;

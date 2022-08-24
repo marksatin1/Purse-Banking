@@ -3,6 +3,8 @@ import { validateEmail } from '../../../helpers/functions/FormValidationFunction
 
 import FormButton from '../General/FormButton';
 
+const axios = require('axios');
+
 const PasswordReset = ({ setShowReset }) => {
   const [email, setEmail] = useState('');
   const [formErrors, setFormErrors] = useState({});
@@ -32,32 +34,21 @@ const PasswordReset = ({ setShowReset }) => {
   const passwordResetHandler = (event) => {
     event.preventDefault();
 
-    fetch(
-      `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
-      {
-        method: 'POST',
+    axios
+      .post('https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode', {
+        params: {
+          key: process.env.REACT_APP_FIREBASE_API_KEY,
+        },
         headers: {
-          'Content-Type': 'application/json',
           'X-Firebase-Locale': 'en-US',
         },
         body: JSON.stringify({
           requestType: 'PASSWORD_RESET',
           email: email,
         }),
-      }
-    )
-      .then(async (response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          const data = await response.json();
-          if (data.error.message) {
-            throw new Error(data.error.message);
-          }
-        }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error.message);
       });
     setShowSuccess(true);
   };

@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const axios = require('axios');
+
 const AuthContext = createContext({
   token: '',
   isSignedIn: false,
@@ -64,22 +66,15 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.setItem('tokenExpirationTime', expirationTime);
 
     const userEmail = localStorage.getItem('userEmail');
-    fetch('https://react-http-841ed-default-rtdb.firebaseio.com/users.json')
-      .then(async (response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          const data = await response.json();
-          if (data.error.message) {
-            throw new Error(data.error.message);
-          }
-        }
-      })
+
+    axios
+      .get('https://react-http-841ed-default-rtdb.firebaseio.com/users.json')
       .then((data) => {
         const loadedUsers = [];
+
         for (const key in data) {
           loadedUsers.push({
-            id: key,
+            id: data[key].email,
             firstName: data[key].firstName,
             lastName: data[key].lastName,
             country: data[key].country,
