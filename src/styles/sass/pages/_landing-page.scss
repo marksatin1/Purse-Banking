@@ -1,0 +1,12 @@
+.landing-page {
+  position: relative;
+  width: 90vw;
+  margin: 0 auto;
+  top: 10rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .landing-page {
+    top: 8rem;
+  }
+}

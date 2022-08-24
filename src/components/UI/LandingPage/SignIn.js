@@ -1,6 +1,6 @@
 import { useState, useRef, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Col } from 'react-bootstrap';
+import { Form, Nav } from 'react-bootstrap';
 import AuthContext from '../../../context/auth-context';
 
 import { Sleep } from '../../../helpers/functions/MiscFunctions';
@@ -105,40 +105,54 @@ const SignIn = () => {
   };
 
   return (
-    <div className='d-flex flex-column align-items-center sign-in--form'>
+    <div className='d-flex flex-column align-items-center sign-in'>
       {!showReset && !httpError && (
         <>
-          <h2 className='sign-in--title'>Get In There Already!!!</h2>
+          <h1 className='sign-in--title'>Get In There Already!!</h1>
           <Form>
             <Form.Group controlId='formEmail'>
-              <Form.Control type='email' placeholder='Email address' />
+              <Form.Control
+                type='email'
+                placeholder='Email address'
+                autoComplete='email'
+              />
             </Form.Group>
             <Form.Group controlId='formPassword'>
-              <Form.Control type='password' placeholder='Password' />
+              <Form.Control
+                type='password'
+                placeholder='Password'
+                autoComplete='password'
+              />
             </Form.Group>
             <FormButton type='submit' name='Sign In' disabled={isDisabled} />
           </Form>
-          <div className='sign-in--links-container'>
-            <p>New? Don't forget to </p>
-            <Link className='link' to='/register'>
-              <p>REGISTER!</p>
-            </Link>
-            <p>Lost credentials? </p>
-            <p className='link' onClick={() => setShowReset(true)}>
-              Click Here
-            </p>
-            <p>Security, privacy, </p>
-            <Link className='link' to='/privacy'>
-              <p>etc., etc.</p>
-            </Link>
-          </div>
+          <Nav className='d-flex flex-column sign-in--nav'>
+            <Nav.Item>
+              <p>New? Don't forget to </p>
+              <Nav.Link className='link' href='/register'>
+                <p>REGISTER!</p>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <p>Lost credentials? </p>
+              <p className='link' onClick={() => setShowReset(true)}>
+                Click Here
+              </p>
+            </Nav.Item>
+            <Nav.Item>
+              <p>Security, privacy, </p>
+              <Nav.Link className='link' href='/privacy'>
+                <p>etc., etc.</p>
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
           <Link to='/find-branch'>
             <button className='branch-btn'>Find your local branch</button>
           </Link>
         </>
       )}
       {showReset && <PasswordReset setShowReset={setShowReset} />}
-      {httpError && (
+      {/* {httpError && (
         <div className='error'>
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
@@ -152,7 +166,7 @@ const SignIn = () => {
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

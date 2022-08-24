@@ -90,7 +90,7 @@
   border: 2px solid white;
   border-radius: 25px;
   padding: 0.25rem 1.25rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -1130,6 +1130,18 @@ main p {
 
   .table * {
     font-size: 1.2rem;
+  }
+}
+.landing-page {
+  position: relative;
+  width: 90vw;
+  margin: 0 auto;
+  top: 10rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .landing-page {
+    top: 8rem;
   }
 }
 .languages h2 {
@@ -2248,9 +2260,11 @@ main p {
   }
 }
 .credit-offer-card {
+  max-width: 25rem;
+  margin: 0 auto;
+  padding: 1rem;
   font-family: Georgia, "Times New Roman", Times, serif;
   text-align: center;
-  padding: 1rem;
 }
 .credit-offer-card:hover {
   cursor: pointer;
@@ -2258,10 +2272,11 @@ main p {
 }
 .credit-offer-card * {
   margin: 0;
+  text-shadow: 0 0 2px white;
 }
 .credit-offer-card img {
-  width: 266px;
-  height: 200px;
+  max-width: 266px;
+  max-height: 200px;
 }
 .credit-offer-card .link {
   text-decoration: none;
@@ -2271,6 +2286,7 @@ main p {
 }
 
 .description {
+  width: 120%;
   font-size: 1.4rem;
   color: black;
 }
@@ -2295,127 +2311,50 @@ main p {
 
 .cashback-offer {
   margin-top: 1rem;
-  color: green;
+  color: rgb(0, 128, 0);
   font-weight: bold;
   font-size: 1.3rem;
 }
 
-@media only screen and (max-width: 1400px) {
-  .card img {
-    width: 200px;
-    height: 150px;
+@media only screen and (min-width: 1200px) {
+  .credit-offer-card {
+    max-width: 17rem;
   }
-
-  .description {
-    font-size: 1.3rem;
-  }
-
-  .annual-fee {
-    font-size: 1.1rem;
-  }
-
-  .signing-number {
-    font-size: 4rem;
-  }
-
-  .signing-bonus {
+  .credit-offer-card .description {
     font-size: 1.2rem;
   }
-
-  .cashback-offer {
-    font-size: 1.2rem;
+  .credit-offer-card img {
+    width: 210px;
+    height: auto;
   }
-}
-@media only screen and (max-width: 1200px) {
-  .card img {
-    width: 250px;
-    height: 188px;
-  }
-
-  .description {
-    font-size: 1.3rem;
-  }
-
-  .annual-fee {
-    font-size: 1.2rem;
-  }
-
-  .signing-number {
-    font-size: 4rem;
-  }
-
-  .signing-bonus {
-    font-size: 1.3rem;
-  }
-
-  .cashback-offer {
-    font-size: 1.3rem;
-  }
-}
-@media only screen and (max-width: 992px) {
-  .card img {
-    width: 300px;
-    height: 226px;
-  }
-
-  .description {
-    font-size: 1.4rem;
-  }
-
-  .annual-fee {
-    font-size: 1.4rem;
-  }
-
-  .signing-number {
-    font-size: 5rem;
-  }
-
-  .wrapper {
-    width: 40vw;
-    min-height: 25vh;
-  }
-
-  .signing-bonus {
-    font-size: 1.5rem;
-  }
-
-  .cashback-offer {
-    font-size: 1.5rem;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .wrapper {
-    width: 50vw;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .card img {
-    width: 200px;
-    height: 150px;
-  }
-
-  .description {
-    font-size: 1.1rem;
-  }
-
-  .annual-fee {
-    font-size: 1rem;
-  }
-
-  .signing-number {
+  .credit-offer-card .signing-number {
     font-size: 3.5rem;
   }
-
-  .wrapper {
-    min-height: 27vh;
-  }
-
-  .signing-bonus {
+  .credit-offer-card .signing-bonus {
     font-size: 1.1rem;
   }
-
-  .cashback-offer {
+  .credit-offer-card .cashback-offer {
     font-size: 1.1rem;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .credit-offer-card {
+    max-width: 25rem;
+  }
+  .credit-offer-card .description {
+    font-size: 1.4rem;
+  }
+  .credit-offer-card img {
+    width: 330px;
+  }
+  .credit-offer-card .signing-number {
+    font-size: 5rem;
+  }
+  .credit-offer-card .signing-bonus {
+    font-size: 1.4rem;
+  }
+  .credit-offer-card .cashback-offer {
+    font-size: 1.4rem;
   }
 }
 .form-btn {
@@ -2430,21 +2369,11 @@ main p {
   color: black;
 }
 .form-btn:disabled:hover {
-  background-color: goldenrod;
+  background-color: rgb(218, 165, 32);
   animation: none;
   cursor: default;
 }
 
-@media only screen and (max-width: 500px) {
-  .form-button {
-    padding: 0.25rem 1.5rem;
-    font-size: 1.3rem;
-    font-weight: bold;
-  }
-  .form-button:disabled {
-    padding: 0.25rem 1.25rem;
-  }
-}
 .inc-report {
   text-align: left;
   margin: 0 auto;
@@ -2562,7 +2491,7 @@ main p {
   }
 }
 .logo {
-  position: absolute;
+  position: fixed;
   top: 6rem;
   border-radius: 0 20px 20px 0;
   background-color: rgb(225, 193, 15);
@@ -3079,6 +3008,35 @@ main p {
     font-size: 1.2rem;
   }
 }
+.pass-reset--title {
+  color: rgb(225, 193, 15);
+  font-size: 1.7rem;
+  text-shadow: 0 0 2px white;
+}
+.pass-reset--body {
+  margin: 2rem 0 1rem;
+  font-size: 1.1rem;
+}
+.pass-reset input {
+  margin: 0 auto;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 1px 2px black;
+  font-size: 1.1rem;
+}
+.pass-reset .link {
+  margin: 1rem auto 0;
+  font-size: 1.4rem;
+}
+.pass-reset .error {
+  padding: 0.25rem 0;
+  text-align: center;
+  background-color: lime;
+  font-weight: bold;
+  color: red;
+}
+
 .personality-banner {
   margin-top: 10rem;
 }
@@ -3205,41 +3163,55 @@ main p {
     font-size: 1.8rem;
   }
 }
-.sign-in--form {
-  padding: 1rem;
+.sign-in {
+  max-width: 22rem;
+  padding: 2rem;
+  margin: 0 auto;
   background-color: rgb(175, 116, 175);
   box-shadow: 6px 6px 2px black;
-  text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  text-align: center;
   z-index: 3;
 }
-.sign-in--form input {
-  margin: 1rem auto;
-  border-radius: 12px;
-  box-shadow: 1px 2px black;
-  font-size: 1.2rem;
-}
-.sign-in--links-container {
-  margin: 0.5rem 0 1.5rem;
-}
-.sign-in--links-container p {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
 .sign-in--title {
-  color: gold;
-  margin-bottom: 1rem;
+  width: 100vw;
+  color: rgb(225, 193, 15);
+  font-size: 1.7rem;
+  text-shadow: 0 0 2px white;
+}
+.sign-in input {
+  margin: 1rem auto;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 1px 2px black;
+  font-size: 1.1rem;
+}
+.sign-in--nav {
+  margin: 1rem 0;
+}
+.sign-in--nav p {
+  font-size: 1.2rem;
+  margin-bottom: -0.05rem;
+}
+.sign-in--nav .link {
+  color: rgb(0, 128, 0);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+}
+.sign-in--nav .link:hover {
+  color: rgb(218, 165, 32);
 }
 
 .branch-btn {
-  margin-bottom: 1rem;
+  margin-top: 2rem;
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   background-color: rgb(83, 192, 204);
   box-shadow: 2px 2px 4px black;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: white;
   cursor: pointer;
 }
@@ -3248,119 +3220,63 @@ main p {
   transform: scale(1.02);
 }
 
-@media only screen and (max-width: 1400px) {
-  .sign-in--form {
-    max-width: 20rem;
-    margin: 0 auto 4rem;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  .sign-in--form {
+@media only screen and (min-width: 1400px) {
+  .sign-in {
     max-width: 25rem;
-    margin: 0 auto 4rem;
   }
-
-  .branch-button {
-    padding: 0.5rem 1.5rem;
-    font-size: 1.5rem;
+  .sign-in--title {
+    font-size: 2rem;
   }
-}
-@media only screen and (max-width: 768px) {
-  .sign-in--form {
-    margin-top: -17rem;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .sign-in--form {
-    max-width: 20rem;
-  }
-
-  .sign-in--form input {
-    padding: 0.25rem 0.5rem;
-  }
-
-  .links p {
-    font-size: 1.1rem;
-  }
-
-  .branch-button {
+  .sign-in input {
     font-size: 1.3rem;
-    padding: 0.4rem 0.75rem;
   }
 }
-.pass-reset--form input {
-  width: 60%;
-  margin: 0.5rem auto;
-  border: none;
-  border-radius: 12px;
-  padding: 0.5rem 0.7rem;
-  box-shadow: 1px 2px black;
-  font-size: 1.3rem;
-}
-.pass-reset--form .title {
-  color: gold;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.pass-reset--form .body {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-}
-.pass-reset--form .error {
-  padding: 0.25rem 0;
-  text-align: center;
-  background-color: lime;
-  font-weight: bold;
-  color: red;
-}
-.pass-reset--form .reset {
-  width: 60%;
-  margin: 0 auto 2rem;
-}
-.pass-reset--form .return {
-  margin: 0.5rem 0;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-}
-.pass-reset--form .return:hover {
-  color: goldenrod;
-  text-decoration: none;
-}
-
-.welcome-banner {
-  margin: 20rem 0 10rem;
-}
-
-.title {
-  margin: 0 0 1rem 0;
+.welcome-banner--title {
+  margin: 4rem auto 1.5rem;
   color: rgb(0, 128, 0);
-  font-size: 2.5rem;
+  font-size: 1.7rem;
   font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+.welcome-banner--carousel {
+  max-width: 26rem;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  background-color: rgb(218, 165, 32);
+  border-radius: 5px;
+  box-shadow: 0 0 7px black;
 }
 
+@media only screen and (min-width: 768px) {
+  .welcome-banner--title {
+    font-size: 1.9rem;
+    margin-top: 3rem;
+  }
+  .welcome-banner--carousel {
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .welcome-banner--title {
+    width: 80%;
+    font-size: 2.2rem;
+  }
+  .welcome-banner--carousel {
+    max-width: 30rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .welcome-banner--title {
+    font-size: 2.4rem;
+  }
+}
 .backplate {
-  margin-left: 2rem;
+  margin: 0 auto;
   padding: 1rem 0.5rem;
   background-color: rgb(218, 165, 32);
   border-radius: 7px;
   box-shadow: 2px 2px 3px black;
-}
-
-@media only screen and (max-width: 1400px) {
-  .welcome-banner .title {
-    margin: 0 0 1.5rem;
-  }
-}
-@media only screen and (max-width: 980px) {
-  .welcome-banner .backplate {
-    max-width: 30rem;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .welcome-banner .title {
-    font-size: 2.2rem;
-  }
 }
 
 /*# sourceMappingURL=main.css.map */

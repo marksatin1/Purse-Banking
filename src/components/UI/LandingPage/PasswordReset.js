@@ -54,11 +54,11 @@ const PasswordReset = ({ setShowReset }) => {
   };
 
   return (
-    <form className='pass-reset--form' onSubmit={passwordResetHandler}>
+    <form className='pass-reset' onSubmit={passwordResetHandler}>
       {!showSuccess && (
         <>
-          <h1 className='title'>Reset Password</h1>
-          <p className='body'>
+          <h1 className='pass-reset--title'>Reset Password</h1>
+          <p className='pass-reset--body'>
             Please enter your email below to reset your password.
           </p>
           <input
@@ -72,9 +72,7 @@ const PasswordReset = ({ setShowReset }) => {
           {formErrors.resetInput && (
             <p className='error'>{formErrors.resetInput}</p>
           )}
-          <div className='reset'>
-            <FormButton type='submit' name='Reset' disabled={isDisabled} />
-          </div>
+          <FormButton type='submit' name='Reset' disabled={isDisabled} />
           <p className='link' onClick={() => setShowReset(false)}>
             Return to Sign In
           </p>

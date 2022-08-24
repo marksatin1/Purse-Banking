@@ -72,12 +72,6 @@
   }
 }
 
-// @keyframes motto-slide-in {
-//   to {
-//     transform: translateX(33%);
-//   }
-// }
-
 @mixin motto-anim($percent) {
   @keyframes motto-slide-in {
     to {

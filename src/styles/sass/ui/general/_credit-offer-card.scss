@@ -1,7 +1,9 @@
 .credit-offer-card {
+  max-width: 25rem;
+  margin: 0 auto;
+  padding: 1rem;
   font-family: $georgia-family;
   text-align: center;
-  padding: 1rem;
 
   &:hover {
     cursor: pointer;
@@ -10,11 +12,12 @@
 
   & * {
     margin: 0;
+    text-shadow: 0 0 2px white;
   }
 
   img {
-    width: 266px;
-    height: 200px;
+    max-width: 266px;
+    max-height: 200px;
   }
 
   .link {
@@ -27,6 +30,7 @@
 }
 
 .description {
+  width: 120%;
   font-size: 1.4rem;
   color: black;
 }
@@ -51,130 +55,61 @@
 
 .cashback-offer {
   margin-top: 1rem;
-  color: green;
+  color: $primary-alt-color;
   font-weight: bold;
   font-size: 1.3rem;
 }
 
-@media only screen and (max-width: 1400px) {
-  .card img {
-    width: 200px;
-    height: 150px;
-  }
+@media only screen and (min-width: 1200px) {
+  .credit-offer-card {
+    max-width: 17rem;
 
-  .description {
-    font-size: 1.3rem;
-  }
+    .description {
+      font-size: 1.2rem;
+    }
 
-  .annual-fee {
-    font-size: 1.1rem;
-  }
+    img {
+      width: 210px;
+      height: auto;
+    }
 
-  .signing-number {
-    font-size: 4rem;
-  }
+    .signing-number {
+      font-size: 3.5rem;
+    }
 
-  .signing-bonus {
-    font-size: 1.2rem;
-  }
+    .signing-bonus {
+      font-size: 1.1rem;
+    }
 
-  .cashback-offer {
-    font-size: 1.2rem;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .card img {
-    width: 250px;
-    height: 188px;
-  }
-
-  .description {
-    font-size: 1.3rem;
-  }
-
-  .annual-fee {
-    font-size: 1.2rem;
-  }
-
-  .signing-number {
-    font-size: 4rem;
-  }
-
-  .signing-bonus {
-    font-size: 1.3rem;
-  }
-
-  .cashback-offer {
-    font-size: 1.3rem;
+    .cashback-offer {
+      font-size: 1.1rem;
+    }
   }
 }
 
-@media only screen and (max-width: 992px) {
-  .card img {
-    width: 300px;
-    height: 226px;
-  }
+//don't change to 1400px
+@media only screen and (min-width: 1600px) {
+  .credit-offer-card {
+    max-width: 25rem;
 
-  .description {
-    font-size: 1.4rem;
-  }
+    .description {
+      font-size: 1.4rem;
+    }
 
-  .annual-fee {
-    font-size: 1.4rem;
-  }
+    img {
+      width: 330px;
+    }
 
-  .signing-number {
-    font-size: 5rem;
-  }
+    .signing-number {
+      font-size: 5rem;
+    }
 
-  .wrapper {
-    width: 40vw;
-    min-height: 25vh;
-  }
+    .signing-bonus {
+      font-size: 1.4rem;
+    }
 
-  .signing-bonus {
-    font-size: 1.5rem;
-  }
-
-  .cashback-offer {
-    font-size: 1.5rem;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .wrapper {
-    width: 50vw;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .card img {
-    width: 200px;
-    height: 150px;
-  }
-
-  .description {
-    font-size: 1.1rem;
-  }
-
-  .annual-fee {
-    font-size: 1rem;
-  }
-
-  .signing-number {
-    font-size: 3.5rem;
-  }
-
-  .wrapper {
-    min-height: 27vh;
-  }
-
-  .signing-bonus {
-    font-size: 1.1rem;
-  }
-
-  .cashback-offer {
-    font-size: 1.1rem;
+    .cashback-offer {
+      font-size: 1.4rem;
+    }
   }
 }

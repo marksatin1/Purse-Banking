@@ -5,12 +5,12 @@ import LegalBanner from '../components/UI/LandingPage/LegalBanner';
 
 const LandingPage = () => {
   return (
-    <>
-      {/* <WelcomeBanner /> */}
+    <div className='landing-page'>
+      <WelcomeBanner />
       {/* <RegisterBanner />
       <PersonalityBanner />
       <LegalBanner /> */}
-    </>
+    </div>
   );
 };
 

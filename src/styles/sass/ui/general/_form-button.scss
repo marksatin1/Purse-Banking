@@ -13,21 +13,9 @@
     color: black;
 
     &:hover {
-      background-color: goldenrod;
+      background-color: $secondary-alt-color;
       animation: none;
       cursor: default;
-    }
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .form-button {
-    padding: 0.25rem 1.5rem;
-    font-size: 1.3rem;
-    font-weight: bold;
-
-    &:disabled {
-      padding: 0.25rem 1.25rem;
     }
   }
 }
