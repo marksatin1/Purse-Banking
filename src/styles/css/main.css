@@ -274,6 +274,9 @@ main {
   .main-nav--item h2 {
     font-size: 1.9rem;
   }
+  .main-nav--dropdown-content {
+    font-size: 1.3rem;
+  }
 }
 @media only screen and (min-width: 1200px) {
   .main-nav {
@@ -286,7 +289,7 @@ main {
     font-size: 2rem;
   }
   .main-nav--dropdown-content {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 }
 @media only screen and (min-width: 1400px) {
