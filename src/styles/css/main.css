@@ -113,23 +113,22 @@ main {
 }
 
 .footer {
+  position: relative;
   margin-bottom: 2rem;
+  margin-top: 22rem;
   padding: 1rem 0;
   background-color: rgb(32, 145, 32);
   font-family: "Times New Roman", Times, serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  z-index: 2;
+  z-index: 3;
 }
 .footer--title {
   margin: 0.5rem 0 1rem;
-  color: rgb(225, 193, 15);
   font-size: 1.5rem;
   font-weight: bold;
 }
 .footer--subtitle {
+  color: rgb(225, 193, 15);
+  text-shadow: 0 0 2px white;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
@@ -144,8 +143,6 @@ main {
   background-color: rgb(225, 193, 15);
 }
 .footer--nav-bar {
-  display: flex;
-  align-items: center;
   margin-top: 0.75rem;
 }
 .footer--nav-bar h5 {
@@ -155,45 +152,9 @@ main {
 }
 .footer--nav-bar h5:hover {
   color: rgb(225, 193, 15);
+  text-shadow: 0 0 2px white;
 }
 
-@media only screen and (max-width: 768px) {
-  .help {
-    font-size: 1.4rem;
-  }
-
-  .follow {
-    margin-top: 0.8rem;
-    font-size: 1.1rem;
-  }
-
-  .logo-bar img {
-    width: 25px;
-    height: 25px;
-  }
-
-  .nav-bar {
-    font-size: 1.1rem;
-  }
-}
-@media only screen and (max-width: 576px) {
-  .help {
-    font-size: 1.3rem;
-  }
-
-  .follow {
-    font-size: 1.1rem;
-  }
-
-  .logo-bar img {
-    width: 23px;
-    height: 23px;
-  }
-
-  .nav-bar {
-    font-size: 1rem;
-  }
-}
 .header {
   position: fixed;
   background-color: white;
@@ -243,6 +204,7 @@ main {
 }
 .main-nav--item:hover {
   color: rgb(218, 165, 32);
+  text-shadow: 0 0 3px white;
 }
 .main-nav--item:hover .main-nav--dropdown-content {
   display: block;
@@ -334,6 +296,7 @@ main {
 }
 .top-nav h5:hover {
   color: rgb(128, 0, 128);
+  text-shadow: 0 0 1px black;
 }
 
 .dropdown-icon {
@@ -1115,6 +1078,7 @@ main {
   width: 90vw;
   margin: 0 auto;
   top: 14rem;
+  overflow: hidden;
 }
 
 @media only screen and (min-width: 576px) {
@@ -2681,6 +2645,7 @@ main {
   animation: bump 800ms forwards;
 }
 .personality-card img {
+  position: relative;
   width: 100%;
   border-radius: 5px 5px 0 0;
   z-index: 2;
@@ -2699,6 +2664,7 @@ main {
   color: rgb(0, 128, 0);
 }
 .personality-card--btn {
+  position: relative;
   float: right;
   margin: 1rem;
   padding: 0.25rem 1rem;
@@ -2715,6 +2681,25 @@ main {
   animation: button-gleam-2 700ms forwards;
 }
 
+@media only screen and (min-width: 768px) {
+  .personality-card {
+    max-width: 26rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .personality-card--content {
+    height: 20rem;
+  }
+  .personality-card--title {
+    font-size: 2.5rem;
+  }
+  .personality-card--subtitle {
+    font-size: 1.4rem;
+  }
+  .personality-card--btn {
+    font-size: 1.4rem;
+  }
+}
 .content p {
   font-size: 1.3rem;
   padding: 0 1rem;
@@ -2758,21 +2743,23 @@ main {
   }
 }
 .legal-banner {
-  margin: 8rem 0 5rem;
-}
-.legal-banner h1 {
+  margin: 4rem auto;
   text-align: center;
-  font-size: 2.7rem;
+}
+.legal-banner--title {
   margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: rgb(32, 145, 32);
+  text-decoration: underline;
 }
-.legal-banner .legal-content {
-  background-color: rgba(218, 165, 32, 0.8);
-  height: 140vh;
-}
-.legal-banner .legal-content p {
-  position: relative;
-  font-family: "Times New Roman", Times, serif;
+.legal-banner--body {
   font-size: 1.3rem;
+  font-family: "Times New Roman", Times, serif;
+  background-color: rgba(218, 165, 32, 0.8);
+  height: 80rem;
+}
+.legal-banner--body p {
+  position: relative;
   z-index: 2;
 }
 .legal-banner .first-p {
@@ -2791,18 +2778,19 @@ main {
   margin-top: -1rem;
 }
 
-@media only screen and (max-width: 768px) {
-  .legal-content {
-    height: 420vh;
+@media only screen and (min-width: 576px) {
+  .legal-banner--body {
+    height: 120rem;
   }
 }
-@media only screen and (max-width: 500px) {
-  .legal-content {
-    overflow: hidden;
+@media only screen and (min-width: 992px) {
+  .legal-banner--body {
+    height: 100rem;
   }
-
-  .legal-content p {
-    font-size: 1.2rem;
+}
+@media only screen and (min-width: 1200px) {
+  .legal-banner--body {
+    height: 60rem;
   }
 }
 .pass-reset--title {
@@ -2835,15 +2823,18 @@ main {
 }
 
 .personality-banner {
+  position: relative;
   margin: 5rem auto;
 }
 .personality-banner--title {
-  text-align: center;
   margin-bottom: 1rem;
   color: rgb(218, 165, 32);
+  text-align: center;
+  text-decoration: underline;
 }
 
 .register-banner {
+  position: relative;
   margin: 5rem auto;
   padding: 1.5rem;
   border: 2px solid rgb(128, 0, 128);
@@ -2864,11 +2855,11 @@ main {
 }
 .register-banner .section--money-mural {
   width: 350px;
-  z-index: 2;
+  z-index: 3;
 }
 .register-banner .section .moneybags {
   margin: 1rem auto;
-  z-index: 2;
+  z-index: 3;
 }
 .register-banner .section .moneybags img {
   width: 80px;
@@ -2882,13 +2873,14 @@ main {
   font-style: italic;
 }
 .register-banner .register-container button {
+  position: relative;
   border-radius: 30px;
   padding: 0.25rem 1.5rem;
   color: white;
   background-color: rgb(32, 145, 32);
   border: 2px solid rgb(218, 165, 32);
   font-size: 1.8rem;
-  z-index: 2;
+  z-index: 3;
 }
 .register-banner .register-container button:hover {
   cursor: pointer;
@@ -2933,6 +2925,7 @@ main {
   }
 }
 .sign-in {
+  position: relative;
   max-width: 22rem;
   padding: 2rem;
   margin: 0 auto;

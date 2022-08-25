@@ -6,9 +6,9 @@ const Footer = () => {
   const images = importAll(require.context('../../assets/Social-Logos'));
 
   return (
-    <Container fluid className='footer'>
-      <p className='footer--title'>Help us help you manage your wealth</p>
-      <p className='footer--subtitle'>Follow Us</p>
+    <Container fluid className='d-flex flex-column align-items-center footer'>
+      <h1 className='footer--title'>Help us help you manage your wealth</h1>
+      <h2 className='footer--subtitle'>Follow Us</h2>
       <Nav className='footer--logos'>
         <Nav.Link
           href='https://www.facebook.com/realRickLax'
@@ -60,7 +60,7 @@ const Footer = () => {
           <img src={images.YoutubeLogo_25} alt='Youtube logo' />
         </Nav.Link>
       </Nav>
-      <Nav className='footer--nav-bar'>
+      <Nav className='d-flex justify-content-center align-items-center footer--nav-bar'>
         <Nav.Link href='/find-branch'>
           <h5>Locations</h5>
         </Nav.Link>

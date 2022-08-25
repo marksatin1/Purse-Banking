@@ -9,7 +9,7 @@ const LandingPage = () => {
       <WelcomeBanner />
       <RegisterBanner />
       <PersonalityBanner />
-      {/* <LegalBanner /> */}
+      <LegalBanner />
     </div>
   );
 };

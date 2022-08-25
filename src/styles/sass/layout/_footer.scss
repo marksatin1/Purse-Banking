@@ -1,22 +1,21 @@
 .footer {
+  position: relative;
   margin-bottom: 2rem;
+  margin-top: 22rem;
   padding: 1rem 0;
   background-color: $primary-color;
   font-family: $tnr-family;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  z-index: 2;
+  z-index: 3;
 
   &--title {
     margin: 0.5rem 0 1rem;
-    color: $secondary-color;
     font-size: 1.5rem;
     font-weight: bold;
   }
 
   &--subtitle {
+    color: $secondary-color;
+    text-shadow: 0 0 2px white;
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
   }
@@ -35,8 +34,6 @@
   }
 
   &--nav-bar {
-    display: flex;
-    align-items: center;
     margin-top: 0.75rem;
 
     h5 {
@@ -46,46 +43,8 @@
 
       &:hover {
         color: $secondary-color;
+        text-shadow: 0 0 2px white;
       }
     }
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .help {
-    font-size: 1.4rem;
-  }
-
-  .follow {
-    margin-top: 0.8rem;
-    font-size: 1.1rem;
-  }
-
-  .logo-bar img {
-    width: 25px;
-    height: 25px;
-  }
-
-  .nav-bar {
-    font-size: 1.1rem;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  .help {
-    font-size: 1.3rem;
-  }
-
-  .follow {
-    font-size: 1.1rem;
-  }
-
-  .logo-bar img {
-    width: 23px;
-    height: 23px;
-  }
-
-  .nav-bar {
-    font-size: 1rem;
   }
 }

@@ -1,10 +1,8 @@
 const LegalBanner = () => {
   return (
     <div className='legal-banner'>
-      <div className='heading'>
-        <h1>Legal</h1>
-      </div>
-      <div className='legal-content'>
+      <h1 className='legal-banner--title'>Legal Brief</h1>
+      <div className='legal-banner--body'>
         <p className='first-p'>
           Being alive involves risks. Investing in securities involves risks.
           There is always the potential of losing money when you invest in
@@ -62,7 +60,7 @@ const LegalBanner = () => {
           the newest hire on the eighteenth floor of Purse™'s offices in
           downtown Nebraska. To assure timely payment (to us)
         </p>
-        <p className='second-p'>
+        <p className='d-none d-sm-block second-p'>
           and obtain the full benefit of the Online Banking Guarantee described
           herein you must schedule payments, you must make no more and no less
           than one montly transfer of funds between accounts, and your accounts
@@ -91,7 +89,7 @@ const LegalBanner = () => {
           we will remove funds at our discretion from one or more of you
           accounts
         </p>
-        <p className='third-p'>
+        <p className='d-none d-md-block third-p'>
           and never return them. It is your sole responsibility to ensure that
           your account is seeded with proper funding when initiaiting a transfer
           or at any other time. Under our Online Banking Guarantee, if we fail

@@ -9,6 +9,7 @@
   }
 
   & img {
+    position: relative; // for z-index
     width: 100%;
     border-radius: 5px 5px 0 0;
     z-index: 2;
@@ -30,6 +31,7 @@
   }
 
   &--btn {
+    position: relative; // for z-index
     float: right;
     margin: 1rem;
     padding: 0.25rem 1rem;
@@ -44,6 +46,32 @@
 
     &:hover {
       animation: button-gleam-2 700ms forwards;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .personality-card {
+    max-width: 26rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .personality-card {
+    &--content {
+      height: 20rem;
+    }
+
+    &--title {
+      font-size: 2.5rem;
+    }
+
+    &--subtitle {
+      font-size: 1.4rem;
+    }
+
+    &--btn {
+      font-size: 1.4rem;
     }
   }
 }
