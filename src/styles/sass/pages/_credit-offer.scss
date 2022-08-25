@@ -1,109 +1,113 @@
 .credit-offer {
-  width: 75vw;
-  margin: 17rem auto 10rem;
+  width: 80vw;
+  margin: $page-margin;
   text-align: center;
 
-  .title {
-    color: green;
+  &--title {
+    color: $primary-alt-color;
     text-decoration: underline;
+    font-size: 2.5rem;
+    font-weight: bold;
   }
 
-  .subtitle {
+  &--subtitle {
     color: $accent-color;
     margin-bottom: 0;
+    font-size: 1.9rem;
   }
 
-  .layout img {
-    width: 50%;
+  img {
+    width: 70vw;
   }
 
-  .description {
-    position: relative;
-    width: 75%;
+  .body {
+    width: 75vw;
     margin: 0 auto;
-  }
 
-  .about {
-    text-align: left;
-    color: goldenrod;
-    border-bottom: 2px solid purple;
-    padding-bottom: 0.5rem;
-  }
-
-  .catchphrase {
-    margin-bottom: 2rem;
-    color: green;
-    text-align: right;
-  }
-
-  .enroll {
-    position: relative;
-    text-decoration: none;
-
-    h1:hover {
-      color: gold;
+    &--about {
+      text-align: left;
+      color: $secondary-alt-color;
+      border-bottom: 2px solid $accent-alt-color;
+      padding-bottom: 0.5rem;
     }
 
-    h2 {
-      color: rgb(175, 116, 175);
+    &--catchphrase {
+      margin-bottom: 2rem;
+      color: $primary-alt-color;
+      text-align: right;
+    }
+
+    &--description {
+      font-size: 1.2rem;
+    }
+
+    &--link {
+      @include link;
+      color: $accent-color;
       margin: 3rem auto;
+      text-decoration: none;
+
+      h3 {
+        font-size: 2.8rem;
+      }
     }
   }
 
   .divider {
-    width: 50%;
+    width: 70vw;
     margin: 2rem auto;
-    border-top: 2px solid rgba(0, 128, 0, 0.7);
+    border-top: 2px solid $primary-alt-color;
   }
 
   .legal {
-    margin: 3rem 0 0;
+    margin: 2rem 0 0;
 
     h3 {
-      color: goldenrod;
+      color: $secondary-alt-color;
       font-weight: bold;
+      font-size: 1.7rem;
     }
 
     p {
-      color: green;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
     }
 
     img {
-      width: 100%;
-      box-shadow: 0 0 4px black;
+      width: 80vw;
+      box-shadow: 0 0 5px black;
+      border-radius: 5px;
     }
   }
 
   .reviews {
-    position: relative;
     margin: 3rem auto 10rem;
 
-    h2 {
-      color: green;
-      width: 100%;
-      margin: 5rem auto 2rem;
-      padding: 0 0 1rem;
-      border-bottom: 2px solid goldenrod;
+    &--title {
+      font-size: 2rem;
+      margin: 3rem 0;
     }
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .layout {
-    margin-top: 2rem;
+@media only screen and (min-width: 576px) {
+  .credit-offer {
+    img {
+      width: 30vw;
+    }
   }
 
-  .layout * {
-    text-align: center;
+  .legal {
+    img {
+      width: 100vw;
+    }
   }
+}
 
-  .layout img {
-    width: 80%;
-  }
-
-  .legal img {
-    width: 75vw;
-    height: 50vh;
+@media only screen and (min-width: 1200px) {
+  .legal {
+    img {
+      width: 70vw;
+    }
   }
 }

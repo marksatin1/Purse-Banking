@@ -434,96 +434,99 @@ main {
   }
 }
 .credit-offer {
-  width: 75vw;
-  margin: 17rem auto 10rem;
+  width: 80vw;
+  margin: 15rem auto -12rem;
   text-align: center;
 }
-.credit-offer .title {
-  color: green;
+.credit-offer--title {
+  color: rgb(0, 128, 0);
   text-decoration: underline;
-}
-.credit-offer .subtitle {
-  color: rgb(175, 116, 175);
-  margin-bottom: 0;
-}
-.credit-offer .layout img {
-  width: 50%;
-}
-.credit-offer .description {
-  position: relative;
-  width: 75%;
-  margin: 0 auto;
-}
-.credit-offer .about {
-  text-align: left;
-  color: goldenrod;
-  border-bottom: 2px solid purple;
-  padding-bottom: 0.5rem;
-}
-.credit-offer .catchphrase {
-  margin-bottom: 2rem;
-  color: green;
-  text-align: right;
-}
-.credit-offer .enroll {
-  position: relative;
-  text-decoration: none;
-}
-.credit-offer .enroll h1:hover {
-  color: gold;
-}
-.credit-offer .enroll h2 {
-  color: rgb(175, 116, 175);
-  margin: 3rem auto;
-}
-.credit-offer .divider {
-  width: 50%;
-  margin: 2rem auto;
-  border-top: 2px solid rgba(0, 128, 0, 0.7);
-}
-.credit-offer .legal {
-  margin: 3rem 0 0;
-}
-.credit-offer .legal h3 {
-  color: goldenrod;
+  font-size: 2.5rem;
   font-weight: bold;
 }
+.credit-offer--subtitle {
+  color: rgb(175, 116, 175);
+  margin-bottom: 0;
+  font-size: 1.9rem;
+}
+.credit-offer img {
+  width: 70vw;
+}
+.credit-offer .body {
+  width: 75vw;
+  margin: 0 auto;
+}
+.credit-offer .body--about {
+  text-align: left;
+  color: rgb(218, 165, 32);
+  border-bottom: 2px solid rgb(128, 0, 128);
+  padding-bottom: 0.5rem;
+}
+.credit-offer .body--catchphrase {
+  margin-bottom: 2rem;
+  color: rgb(0, 128, 0);
+  text-align: right;
+}
+.credit-offer .body--description {
+  font-size: 1.2rem;
+}
+.credit-offer .body--link {
+  color: rgb(0, 128, 0);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(175, 116, 175);
+  margin: 3rem auto;
+  text-decoration: none;
+}
+.credit-offer .body--link:hover {
+  color: rgb(218, 165, 32);
+}
+.credit-offer .body--link h3 {
+  font-size: 2.8rem;
+}
+.credit-offer .divider {
+  width: 70vw;
+  margin: 2rem auto;
+  border-top: 2px solid rgb(0, 128, 0);
+}
+.credit-offer .legal {
+  margin: 2rem 0 0;
+}
+.credit-offer .legal h3 {
+  color: rgb(218, 165, 32);
+  font-weight: bold;
+  font-size: 1.7rem;
+}
 .credit-offer .legal p {
-  color: green;
+  font-size: 1.1rem;
   margin-bottom: 2rem;
 }
 .credit-offer .legal img {
-  width: 100%;
-  box-shadow: 0 0 4px black;
+  width: 80vw;
+  box-shadow: 0 0 5px black;
+  border-radius: 5px;
 }
 .credit-offer .reviews {
-  position: relative;
   margin: 3rem auto 10rem;
 }
-.credit-offer .reviews h2 {
-  color: green;
-  width: 100%;
-  margin: 5rem auto 2rem;
-  padding: 0 0 1rem;
-  border-bottom: 2px solid goldenrod;
+.credit-offer .reviews--title {
+  font-size: 2rem;
+  margin: 3rem 0;
 }
 
-@media only screen and (max-width: 768px) {
-  .layout {
-    margin-top: 2rem;
-  }
-
-  .layout * {
-    text-align: center;
-  }
-
-  .layout img {
-    width: 80%;
+@media only screen and (min-width: 576px) {
+  .credit-offer img {
+    width: 30vw;
   }
 
   .legal img {
-    width: 75vw;
-    height: 50vh;
+    width: 100vw;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .legal img {
+    width: 70vw;
   }
 }
 .credits-header {
@@ -1988,65 +1991,59 @@ main {
 /*  HEIGHTS  */
 .comment-card {
   padding: 1rem 0;
-  border-bottom: 2px solid goldenrod;
-  font-family: Arial, Helvetica, sans-serif;
+  border-top: 2px solid rgb(128, 0, 128);
+  border-bottom: 2px solid rgb(128, 0, 128);
 }
-.comment-card .user-info {
+.comment-card .user {
+  border: 1px solid rgb(218, 165, 32);
+  border-radius: 20px;
+  padding: 1rem;
   margin-bottom: 1rem;
   text-align: left;
 }
-.comment-card .user-info .username {
-  color: green;
-  font-size: 1.8rem;
+.comment-card .user--username {
+  color: rgb(0, 128, 0);
+  font-size: 1.4rem;
 }
-.comment-card .user-info p {
+.comment-card .user p {
   margin: 0.25rem 0;
+}
+.comment-card .comment {
   font-size: 1.2rem;
 }
-.comment-card .comment-info {
-  text-align: left;
-}
-.comment-card .comment-info p {
-  font-size: 1.3rem;
-}
-.comment-card .comment-info .header {
-  margin-bottom: 0.5rem;
-  margin-left: -1rem;
-  display: flex;
-  justify-content: space-between;
-}
-.comment-card .comment-info .header img {
-  width: 125px;
-  margin: 0.25rem 0;
-}
-.comment-card .comment-info .header p {
-  margin: 0.25rem 0;
-  margin-left: 0.25rem;
-}
-.comment-card .comment-info .title {
+.comment-card .comment--title {
   color: rgb(175, 116, 175);
+  font-size: 2rem;
 }
-.comment-card .comment-info .rating {
+.comment-card .comment img {
+  width: 200px;
+}
+.comment-card .comment--date {
+  margin: 0.5rem 0;
+}
+.comment-card .comment--review {
+  margin-top: 1rem;
+}
+.comment-card .comment--rating {
   color: rgb(0, 128, 0);
   margin: 1rem 0;
-  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.comment-card .comment-info .recommendation {
+.comment-card .comment--rating img {
+  width: 100px;
+}
+.comment-card .comment--recommendation {
   margin: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.comment-card .comment-info .recommendation img {
-  width: 40px;
+.comment-card .comment--recommendation img {
+  width: 30px;
   margin-right: 1rem;
-}
-.comment-card .comment-info .recommendation p {
-  padding-top: 1rem;
-  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .contact-card {

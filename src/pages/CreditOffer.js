@@ -32,12 +32,14 @@ const CreditOffer = () => {
       cardImage = starCardData.cardImage;
       catchphrase = starCardData.catchphrase;
       description = starCardData.description;
+      break;
     case 'travel-card':
       title = travelCardData.title;
       about = travelCardData.about;
       cardImage = travelCardData.cardImage;
       catchphrase = travelCardData.catchphrase;
       description = travelCardData.description;
+      break;
     case 'blaze-card':
       title = blazeCardData.title;
       about = blazeCardData.about;
@@ -102,19 +104,19 @@ const CreditOffer = () => {
 
   return (
     <div className='credit-offer'>
-      <h1 className='title'>{title}</h1>
-      <h2 className='subtitle'>
+      <h1 className='credit-offer--title'>{title}</h1>
+      <h2 className='credit-offer--subtitle'>
         <i>Our Best Credit Card Bar None!</i>
       </h2>
       <img src={cardImage} alt='Credit Card' />
-      <div className='description'>
-        <h2 className='about'>{about}</h2>
-        <h3 className='catchphrase'>
+      <div className='body'>
+        <h2 className='body--about'>{about}</h2>
+        <h3 className='body--catchphrase'>
           <i>{catchphrase}</i>
         </h3>
-        {description}
-        <Link to='/contact' className='enroll'>
-          <h2>Call Now To Enroll!</h2>
+        <p className='body--description'>{description}</p>
+        <Link to='/contact' className='body--link'>
+          <h3>Call Now To Enroll!</h3>
         </Link>
       </div>
       <div className='divider' />
@@ -127,7 +129,7 @@ const CreditOffer = () => {
         <img src={LegalMashup_40} alt='Terms and Conditions' />
       </div>
       <div className='reviews'>
-        <h2>See what the world is saying!</h2>
+        <h3 className='reviews--title'>See what the world is saying!</h3>
         <div>{commentCards}</div>
       </div>
     </div>
