@@ -23,7 +23,7 @@ const Header = () => {
       <Logo />
       <div className='header'>
         <Navbar expand='sm' className='d-flex flex-column'>
-          <div className='d-sm-none '>
+          <div className='d-sm-none'>
             <Navbar.Toggle onClick={animationHandler}>
               <img src={FlyingMoney} alt='Flying Money' />
             </Navbar.Toggle>

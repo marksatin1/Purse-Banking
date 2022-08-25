@@ -1,15 +1,11 @@
 .about {
   h2 {
-    font-size: 2.8rem;
     color: $primary-alt-color;
     font-weight: bold;
-    text-shadow: 0 0 3px black;
   }
 
   h3 {
-    font-size: 1.7rem;
     font-style: italic;
-    text-shadow: 0 0 3px black;
 
     &:nth-child(odd) {
       color: $accent-alt-color;
@@ -17,27 +13,6 @@
 
     &:nth-child(even) {
       color: $secondary-alt-color;
-    }
-  }
-
-  p {
-    margin: 2rem 0;
-    font-size: 1.2rem;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .about {
-    h2 {
-      font-size: 3.2rem;
-    }
-
-    h3 {
-      font-size: 2rem;
-    }
-
-    p {
-      font-size: 1.4rem;
     }
   }
 }

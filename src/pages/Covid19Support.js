@@ -40,9 +40,8 @@ const Covid19Support = () => {
           rel='noopener noreferrer'
           className='link'
         >
-          www.cdc.gov
+          <h2>www.cdc.gov</h2>
         </a>
-        .
       </p>
     </PageCard>
   );

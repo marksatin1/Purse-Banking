@@ -1,5 +1,3 @@
-import { Nav } from 'react-bootstrap';
-
 import PageCard from '../components/UI/General/PageCard';
 
 const Advertising = () => {
@@ -8,17 +6,17 @@ const Advertising = () => {
       title='Advertising Practices'
       subtitle='We already told you already!'
     >
-      <p>Yes,</p>
+      <h2>Yes</h2>
       <p>
-        we are stealing your personal information and your security credentials
-        and monitoring your browsing habits and then cleansing this data and
-        sending it to as many marketing firms as we possibly can.
+        We are stealing your personal information and security credentials and
+        monitoring your browsing habits and cleansing the data and sending it to
+        as many marketing firms as we possibly can. Duh.
       </p>
       <p>
         For more information see our statement on
-        <Nav.Link href='/privacy'>
-          <p className='link'>YOUR PRIVACY</p>
-        </Nav.Link>
+        <a href='/privacy' className='link'>
+          <h3>YOUR PRIVACY</h3>
+        </a>
       </p>
     </PageCard>
   );

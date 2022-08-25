@@ -1,0 +1,11 @@
+.privacy {
+  &--intertitle {
+    color: $primary-alt-color;
+  }
+
+  &--endtitle {
+    width: 50%;
+    margin: 0 auto;
+    color: $accent-alt-color;
+  }
+}

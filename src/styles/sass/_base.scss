@@ -45,6 +45,10 @@ $border: 2px solid black;
   }
 }
 
+@mixin text-shadow($color) {
+  text-shadow: 0 0 3px $color;
+}
+
 // GENERAL STYLES
 
 * {
@@ -64,4 +68,9 @@ body {
 
 main {
   font-family: $lucida-family;
+}
+
+.red {
+  color: red;
+  font-weight: bold;
 }

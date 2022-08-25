@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 export const UserAgreement = {
   title: 'User Agreement',
   subtitle: 'Ready to be a part of something bigger?',
@@ -49,11 +47,9 @@ export const UserAgreement = {
   ),
 };
 
-export const PrivacyPolicy = {
-  title: 'Privacy Policy',
-  subtitle: 'Transparency Is Tantamount',
-  content: (
-    <div className='content'>
+export const PrivacyPolicy = () => {
+  return (
+    <div className='privacy-policy'>
       <p>
         At Purse we believe that total transparency is key to the longevity of
         any successful organization. So to celebrate 6000 years of
@@ -108,7 +104,7 @@ export const PrivacyPolicy = {
         deserve?
       </h2>
     </div>
-  ),
+  );
 };
 
 export const RegistrationSuccess = (
@@ -221,8 +217,8 @@ export const CryptoContent = (
       course!).
     </p>
     <p>What are you waiting for??</p>
-    <Link to='/cyber-incident-2021' className='action'>
+    <a href='/cyber-incident-2021' className='action'>
       <h1>ACT NOW!! </h1>
-    </Link>
+    </a>
   </>
 );

@@ -1,125 +1,77 @@
-.inc-report {
-  text-align: left;
-  margin: 0 auto;
-  padding-right: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  h4 {
-    margin: 1rem 0;
-  }
-
-  p {
-    font-family: $tnr-family;
-  }
-}
-
-.quote-block {
-  margin: 1rem 0;
-  font-family: $lucida-family;
-
-  .quote {
-    color: $secondary-alt-color;
-  }
-
-  .speaker {
-    color: $primary-alt-color;
-  }
-}
-
-.ceo {
-  margin-top: 10vh;
-  text-align: left;
-  border-left: 2px solid $secondary-alt-color;
-
-  h3 {
-    margin: 0.75rem 0;
-  }
-
-  img {
-    width: 110%;
-  }
-}
-
-.contact {
-  margin-bottom: 0.75rem;
-  color: $primary-alt-color;
+.report {
   text-align: center;
-}
 
-.role {
-  margin: -0.5rem 0 1.5rem;
-}
+  .body {
+    &--statement {
+      margin: 1rem 0;
+    }
 
-.dogmo p {
-  font-size: 1.1rem;
-}
+    &--update {
+      margin: 2rem 0;
+    }
 
-@media only screen and (max-width: 1210px) {
-  .content {
-    text-align: center;
+    &--link {
+      @include link;
+    }
+  }
+
+  .quote-block {
+    width: 80%;
+    margin: 3rem auto;
+
+    &--quote {
+      color: $secondary-alt-color;
+    }
+
+    &--speaker {
+      color: $primary-alt-color;
+    }
+  }
+
+  .ceo-block {
+    img {
+      width: 100%;
+    }
+
+    .contact {
+      color: $primary-alt-color;
+
+      &--name {
+        color: $accent-alt-color;
+        margin-top: 1rem;
+      }
+
+      & p:nth-child(even) {
+        margin-bottom: -1.5rem;
+      }
+
+      & p:nth-child(odd) {
+        color: $secondary-alt-color;
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 992px) {
-  .ceo {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .contact {
-    font-size: 3.3rem;
-  }
-
-  .ceo img {
-    width: 70%;
-  }
-
-  .ceo h3 {
-    margin: 1rem 0;
-    font-size: 2.4rem;
-    color: goldenrod;
-  }
-
-  .dogmo p {
-    font-size: 1.3rem;
+@media only screen and (min-width: 768px) {
+  .report {
+    .ceo-block {
+      img {
+        width: 30%;
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .contact {
-    font-size: 2.5rem;
-  }
+@media only screen and (min-width: 1200px) {
+  .report {
+    .ceo-block {
+      .contact {
+        font-size: 2rem;
+      }
 
-  .ceo img {
-    width: 60%;
-  }
-
-  .ceo h3 {
-    margin: 1rem 0;
-    font-size: 2rem;
-    color: goldenrod;
-  }
-
-  .dogmo p {
-    font-size: 1.1rem;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .content {
-    padding-right: 0;
-  }
-
-  .content h2 {
-    font-size: 2.2rem;
-  }
-
-  .quote {
-    font-size: 1.6rem;
+      &--name {
+        font-size: 2rem;
+      }
+    }
   }
 }

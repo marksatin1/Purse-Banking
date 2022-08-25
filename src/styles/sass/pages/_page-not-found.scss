@@ -1,19 +1,13 @@
 .not-found {
   &--layout {
-    width: 50%;
-    height: 60vh;
-    margin: 18rem auto 10rem;
+    width: 80vw;
+    margin: $page-margin;
     padding: 3rem;
     border: 15px solid goldenrod;
     background-color: rgba(165, 42, 42, 0.9);
     box-shadow: -30px 20px 10px black, 30px -20px 10px green;
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    font-family: $lucida-family;
 
     h1 {
       color: gold;
@@ -30,8 +24,27 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .not-found--layout {
-    margin-top: 3rem;
+@media only screen and (min-width: 576px) {
+  .not-found {
+    &--layout {
+      margin-top: 18rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .not-found {
+    &--layout {
+      max-width: 60vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .not-found {
+    &--layout {
+      max-width: 50vw;
+      height: 40vh;
+    }
   }
 }

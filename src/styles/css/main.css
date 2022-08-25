@@ -112,6 +112,11 @@ main {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
 }
 
+.red {
+  color: red;
+  font-weight: bold;
+}
+
 .footer {
   position: relative;
   margin-bottom: 2rem;
@@ -182,6 +187,7 @@ main {
   .header {
     height: 11rem;
     border-bottom: 3px solid rgb(128, 0, 128);
+    background-color: white;
     z-index: 2;
   }
 }
@@ -349,15 +355,11 @@ main {
   }
 }
 .about h2 {
-  font-size: 2.8rem;
   color: rgb(0, 128, 0);
   font-weight: bold;
-  text-shadow: 0 0 3px black;
 }
 .about h3 {
-  font-size: 1.7rem;
   font-style: italic;
-  text-shadow: 0 0 3px black;
 }
 .about h3:nth-child(odd) {
   color: rgb(128, 0, 128);
@@ -365,27 +367,14 @@ main {
 .about h3:nth-child(even) {
   color: rgb(218, 165, 32);
 }
-.about p {
-  margin: 2rem 0;
-  font-size: 1.2rem;
-}
 
-@media only screen and (min-width: 992px) {
-  .about h2 {
-    font-size: 3.2rem;
-  }
-  .about h3 {
-    font-size: 2rem;
-  }
-  .about p {
-    font-size: 1.4rem;
-  }
-}
 .link {
   color: rgb(0, 128, 0);
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
+  display: block;
+  margin-top: 2rem;
 }
 .link:hover {
   color: rgb(218, 165, 32);
@@ -735,11 +724,6 @@ main {
   color: rgb(128, 0, 128);
 }
 
-@media only screen and (max-width: 500px) {
-  .apply h2 {
-    font-size: 1.4rem;
-  }
-}
 .debits-header {
   position: relative;
   height: 43rem;
@@ -1110,19 +1094,14 @@ main {
   }
 }
 .not-found--layout {
-  width: 50%;
-  height: 60vh;
-  margin: 18rem auto 10rem;
+  width: 80vw;
+  margin: 15rem auto -12rem;
   padding: 3rem;
   border: 15px solid goldenrod;
   background-color: rgba(165, 42, 42, 0.9);
   box-shadow: -30px 20px 10px black, 30px -20px 10px green;
   text-align: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
 }
 .not-found--layout h1 {
   color: gold;
@@ -1135,54 +1114,43 @@ main {
   font-weight: bold;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 576px) {
   .not-found--layout {
-    margin-top: 3rem;
+    margin-top: 18rem;
   }
 }
-.heading {
+@media only screen and (min-width: 768px) {
+  .not-found--layout {
+    max-width: 60vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .not-found--layout {
+    max-width: 50vw;
+    height: 40vh;
+  }
+}
+.patriot-act {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
-
-.heading img {
-  width: 300px;
+.patriot-act img {
+  width: 250px;
   margin: 1rem 0;
-  z-index: 2;
+  z-index: 3;
 }
-
-.heading h4 {
+.patriot-act--intertitle {
   margin: 2rem 0;
 }
 
-.color {
-  color: red;
-  font-weight: bold;
+.privacy--intertitle {
+  color: rgb(0, 128, 0);
+}
+.privacy--endtitle {
+  width: 50%;
+  margin: 0 auto;
+  color: rgb(128, 0, 128);
 }
 
-@media only screen and (max-width: 1200px) {
-  .heading img {
-    width: 250px;
-  }
-}
-@media only screen and (max-width: 992px) {
-  .heading img {
-    width: 200px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .heading img {
-    width: 250px;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .heading img {
-    width: 200px;
-  }
-}
 .loader {
   position: fixed;
   width: 100vw;
@@ -2205,120 +2173,62 @@ main {
   cursor: default;
 }
 
-.inc-report {
-  text-align: left;
-  margin: 0 auto;
-  padding-right: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.inc-report h4 {
-  margin: 1rem 0;
-}
-.inc-report p {
-  font-family: "Times New Roman", Times, serif;
-}
-
-.quote-block {
-  margin: 1rem 0;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-}
-.quote-block .quote {
-  color: rgb(218, 165, 32);
-}
-.quote-block .speaker {
-  color: rgb(0, 128, 0);
-}
-
-.ceo {
-  margin-top: 10vh;
-  text-align: left;
-  border-left: 2px solid rgb(218, 165, 32);
-}
-.ceo h3 {
-  margin: 0.75rem 0;
-}
-.ceo img {
-  width: 110%;
-}
-
-.contact {
-  margin-bottom: 0.75rem;
-  color: rgb(0, 128, 0);
+.report {
   text-align: center;
 }
-
-.role {
-  margin: -0.5rem 0 1.5rem;
+.report .body--statement {
+  margin: 1rem 0;
+}
+.report .body--update {
+  margin: 2rem 0;
+}
+.report .body--link {
+  color: rgb(0, 128, 0);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.report .body--link:hover {
+  color: rgb(218, 165, 32);
+}
+.report .quote-block {
+  width: 80%;
+  margin: 3rem auto;
+}
+.report .quote-block--quote {
+  color: rgb(218, 165, 32);
+}
+.report .quote-block--speaker {
+  color: rgb(0, 128, 0);
+}
+.report .ceo-block img {
+  width: 100%;
+}
+.report .ceo-block .contact {
+  color: rgb(0, 128, 0);
+}
+.report .ceo-block .contact--name {
+  color: rgb(128, 0, 128);
+  margin-top: 1rem;
+}
+.report .ceo-block .contact p:nth-child(even) {
+  margin-bottom: -1.5rem;
+}
+.report .ceo-block .contact p:nth-child(odd) {
+  color: rgb(218, 165, 32);
 }
 
-.dogmo p {
-  font-size: 1.1rem;
-}
-
-@media only screen and (max-width: 1210px) {
-  .content {
-    text-align: center;
+@media only screen and (min-width: 768px) {
+  .report .ceo-block img {
+    width: 30%;
   }
 }
-@media only screen and (max-width: 992px) {
-  .ceo {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .contact {
-    font-size: 3.3rem;
-  }
-
-  .ceo img {
-    width: 70%;
-  }
-
-  .ceo h3 {
-    margin: 1rem 0;
-    font-size: 2.4rem;
-    color: goldenrod;
-  }
-
-  .dogmo p {
-    font-size: 1.3rem;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .contact {
-    font-size: 2.5rem;
-  }
-
-  .ceo img {
-    width: 60%;
-  }
-
-  .ceo h3 {
-    margin: 1rem 0;
+@media only screen and (min-width: 1200px) {
+  .report .ceo-block .contact {
     font-size: 2rem;
-    color: goldenrod;
   }
-
-  .dogmo p {
-    font-size: 1.1rem;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .content {
-    padding-right: 0;
-  }
-
-  .content h2 {
-    font-size: 2.2rem;
-  }
-
-  .quote {
-    font-size: 1.6rem;
+  .report .ceo-block--name {
+    font-size: 2rem;
   }
 }
 .logo {
@@ -2588,6 +2498,8 @@ main {
   text-align: center;
 }
 .page-card--title {
+  max-width: 80%;
+  margin: 0 auto 1rem;
   color: rgb(0, 128, 0);
   text-decoration: underline;
   font-size: 2.5rem;
@@ -2609,6 +2521,18 @@ main {
 .page-card--content > * {
   margin: 2rem 0;
 }
+.page-card--content h2 {
+  font-size: 2.8rem;
+  text-shadow: 0 0 3px black;
+}
+.page-card--content h3 {
+  font-size: 1.7rem;
+  text-shadow: 0 0 3px black;
+}
+.page-card--content p {
+  margin: 2rem 0;
+  font-size: 1.2rem;
+}
 
 @media only screen and (min-width: 776px) {
   .page-card {
@@ -2624,6 +2548,15 @@ main {
   }
   .page-card--subtitle {
     font-size: 2.3rem;
+  }
+  .page-card--content h2 {
+    font-size: 3.2rem;
+  }
+  .page-card--content h3 {
+    font-size: 2rem;
+  }
+  .page-card--content p {
+    font-size: 1.4rem;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -2712,30 +2645,6 @@ main {
   animation: button-gleam 700ms forwards;
 }
 
-.content p {
-  font-size: 1.3rem;
-  padding: 0 1rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-}
-
-.intertitle {
-  width: 75%;
-  margin: 1.5rem auto;
-  font-size: 2.5rem;
-  color: rgb(0, 128, 0);
-  text-align: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-.endtitle {
-  width: 75%;
-  margin: 2rem auto 1rem;
-  font-size: 2.5rem;
-  color: rgb(128, 0, 128);
-  text-align: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-
 .centered {
   text-align: center;
 }
@@ -2749,11 +2658,6 @@ main {
   color: rgb(0, 128, 0);
 }
 
-@media only screen and (max-width: 500px) {
-  .endtitle {
-    font-size: 1.7rem;
-  }
-}
 .legal-banner {
   margin: 4rem auto;
   text-align: center;

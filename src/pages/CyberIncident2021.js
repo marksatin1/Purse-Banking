@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import PageCard from '../components/UI/General/PageCard';
 import IncidentReport from '../components/UI/General/IncidentReport';
 
@@ -53,24 +51,7 @@ const CyberIncident2021 = () => {
               the data was used for fraud or shared by this individual. This
               individual is currently awaiting trial in an undisclosed maximum
               security prison."
-        applicationMessage={
-          <div className='apply'>
-            <h2>
-              Think you have what it takes to be Purse's next{' '}
-              <span className='purple'>
-                <i>
-                  Senior Vice President of Technology, Sustainability, and
-                  Cybersecurity?
-                </i>
-              </span>{' '}
-              Visit our{' '}
-              <Link to='/careers' className='link'>
-                Careers{' '}
-              </Link>
-              page!
-            </h2>
-          </div>
-        }
+        applicationMessage={true}
       />
     </PageCard>
   );
