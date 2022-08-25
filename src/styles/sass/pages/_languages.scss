@@ -9,6 +9,10 @@
     &:nth-child(even) {
       color: $primary-alt-color;
     }
+
+    &:last-child {
+      color: $accent-alt-color;
+    }
   }
 }
 

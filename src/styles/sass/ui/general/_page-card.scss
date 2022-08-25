@@ -1,27 +1,31 @@
 .page-card {
-  width: 80%;
+  max-width: 80vw;
   margin: $page-margin;
   padding: 2rem 0 3rem;
   background-color: beige;
   box-shadow: 2px 2px 5px black;
-  border-radius: 3px 15px 3px 15px;
+  border-radius: 5px;
   text-align: center;
 
   &--title {
     color: $primary-alt-color;
     text-decoration: underline;
+    font-size: 2.5rem;
+    font-weight: bold;
   }
 
   &--subtitle {
     margin-bottom: 2rem;
     color: $accent-color;
+    font-size: 1.9rem;
   }
 
   &--content {
-    margin: 1rem 7rem 0;
-    padding: 4rem 6rem;
+    min-height: 30rem;
+    margin: 0 2rem;
+    padding: 1rem 2rem;
     border: 2px solid $secondary-color;
-    box-shadow: 0 0 13px 3px $secondary-alt-color;
+    box-shadow: 0 0 2px $secondary-alt-color;
     background-color: $page-card-bg-color;
 
     & > * {
@@ -30,36 +34,28 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .page {
-    margin: 2rem auto 5rem;
-  }
-
-  .content {
-    padding: 2rem;
+@media only screen and (min-width: 776px) {
+  .page-card {
+    margin-top: 20rem;
   }
 }
 
-@media only screen and (max-width: 576px) {
-  .page {
-    padding: 2rem;
-  }
+@media only screen and (min-width: 992px) {
+  .page-card {
+    max-width: 70vw;
 
-  .title {
-    margin-top: -0.5rem;
-    font-size: 2.5rem;
-  }
+    &--title {
+      font-size: 3rem;
+    }
 
-  .subtitle {
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
+    &--subtitle {
+      font-size: 2.3rem;
+    }
   }
+}
 
-  .content {
-    padding: 1.5rem;
-  }
-
-  .content p {
-    font-size: 1.1rem;
+@media only screen and (min-width: 1200px) {
+  .page-card {
+    max-width: 60vw;
   }
 }

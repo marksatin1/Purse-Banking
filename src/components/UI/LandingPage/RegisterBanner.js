@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
+
+import RegisterButton from '../General/RegisterButton';
 
 import MoneyMural from '../../../assets/Emojis/MoneyMural.webp';
 import Moneybag from '../../../assets/Emojis/Moneybag.webp';
@@ -71,9 +72,7 @@ const RegisterBanner = () => {
               <h2>Hurry up and</h2>
             </Col>
             <Col xs={12} lg={4}>
-              <Link to='/register'>
-                <button type='button'>REGISTER!!!!</button>
-              </Link>
+              <RegisterButton />
             </Col>
           </Row>
         </Col>

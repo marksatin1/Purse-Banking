@@ -1,4 +1,4 @@
-// EXTENSIBLE STYLES
+// COLORS
 
 $primary-color: rgb(32, 145, 32);
 $primary-alt-color: rgb(0, 128, 0); //green
@@ -10,15 +10,21 @@ $accent-alt-color: rgb(128, 0, 128); //purple
 
 $page-card-bg-color: rgba(240, 248, 255, 0.7);
 
+// FONT FAMILIES
+
 $tnr-family: 'Times New Roman', Times, serif;
 $lucida-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
   'Lucida Sans Unicode', Verdana, sans-serif;
 $courier-family: 'Courier New', Courier, monospace;
 $georgia-family: Georgia, 'Times New Roman', Times, serif;
 
-$page-margin: 20rem auto 10rem;
+// MISC VARS
+
+$page-margin: 15rem auto -12rem;
 
 $border: 2px solid black;
+
+// EXTENSIONS
 
 %form-btn {
   border: 2px solid white;
@@ -54,29 +60,8 @@ body {
   font-family: $georgia-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  //   & > footer {
-  //   position: sticky;
-  //   top: 100vh;
-  // }
 }
 
 main {
   font-family: $lucida-family;
-
-  // h1 {
-  //   font-size: 4rem;
-  // }
-
-  // h2 {
-  //   font-size: 3rem;
-  // }
-
-  // h3 {
-  //   font-size: 2.5rem;
-  // }
-
-  // p {
-  //   font-size: 1.5rem;
-  // }
 }
