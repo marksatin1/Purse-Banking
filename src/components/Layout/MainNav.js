@@ -56,7 +56,7 @@ const MainNav = () => {
             >
               <p>Credit Cards</p>
             </Nav.Link>
-            <Nav.Link className='link no-strike' href='/cyber-incident-2021'>
+            <Nav.Link className='link no-strike' href='/crypto-wallet'>
               <p>Crypto Wallet</p>
             </Nav.Link>
             <Nav.Link className='link strike' href='#'>

@@ -221,7 +221,7 @@ main {
 }
 .main-nav--dropdown-content {
   position: absolute;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem 1rem;
   background-color: beige;
   border-radius: 5px;
   box-shadow: 0 0 4px black;
@@ -235,7 +235,7 @@ main {
   display: block;
 }
 .main-nav--dropdown-content .link p {
-  margin: 0;
+  margin: -0.75rem 0;
   color: black;
 }
 .main-nav--dropdown-content .strike {
