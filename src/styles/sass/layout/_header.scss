@@ -1,8 +1,11 @@
 .header {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: white;
   text-align: center;
-  z-index: 2;
+  z-index: 5;
 
   img {
     width: 40px;
@@ -23,6 +26,7 @@
   .header {
     height: 11rem;
     border-bottom: 3px solid $accent-alt-color;
+    z-index: 2;
   }
 }
 
