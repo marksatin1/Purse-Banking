@@ -3,92 +3,101 @@
   text-align: center;
 
   &--title {
-    margin-bottom: 1rem;
+    max-width: 80%;
+    margin: 0 auto 1rem;
     color: $primary-alt-color;
     text-decoration: underline;
+    font-size: 2.5rem;
+    font-weight: bold;
   }
 
   &--subtitle {
     margin-bottom: 2rem;
     color: $accent-color;
+    font-size: 1.9rem;
   }
 
-  table {
-    width: 80%;
+  &--table {
+    width: 80vw;
     margin: 0 auto;
+    border-radius: 5px;
     box-shadow: 0 0 4px black;
     overflow-x: scroll;
     cursor: default;
-  }
 
-  thead {
-    background-color: gold;
-    font-size: 1.5rem;
+    thead {
+      background-color: $secondary-color;
 
-    th {
-      padding: 1rem;
-    }
-  }
-
-  tbody {
-    background-color: beige;
-    font-size: 1.3rem;
-
-    td {
-      padding: 1rem;
-      padding-left: 1rem;
+      th {
+        padding: 0.5rem;
+      }
     }
 
-    a {
-      text-decoration: none;
-      color: black;
-    }
+    tbody {
+      background-color: beige;
+      font-size: 1.1rem;
 
-    tr:hover {
-      color: gold;
-      background-color: $accent-color;
+      td {
+        padding: 1rem;
+      }
 
       a {
-        color: white;
-        text-decoration: underline;
+        text-decoration: none;
+        color: black;
+      }
+
+      tr:hover {
+        color: gold;
+        background-color: $accent-color;
+
+        a {
+          color: white;
+          text-decoration: underline;
+        }
+      }
+
+      .money {
+        color: $primary-alt-color;
+
+        &:hover {
+          color: gold;
+        }
       }
     }
 
-    .money {
-      color: $primary-alt-color;
+    .tfoot {
+      padding-top: 0.5rem;
+      border-top: 3px solid $accent-alt-color;
+      border-bottom: 3px solid $accent-alt-color;
+      background-color: $secondary-alt-color;
 
-      &:hover {
-        color: gold;
+      h4 {
+        @include text-shadow(white);
+      }
+
+      a {
+        color: black;
+
+        &:hover {
+          color: $primary-alt-color;
+        }
       }
     }
   }
 
-  .tfoot {
-    width: 80%;
-    margin: 2rem auto 0;
-    padding-top: 0.5rem;
-    border-top: 3px solid $accent-alt-color;
-    border-bottom: 3px solid $accent-alt-color;
-    background-color: gold;
-    font-weight: bold;
-
-    h4 {
-      font-size: 1.8rem;
-    }
-
-    a {
-      color: black;
-
-      &:hover {
-        color: $primary-alt-color;
-      }
-    }
+  p {
+    font-size: 1.2rem;
+    margin: 2rem 0;
   }
 
   &--content {
-    width: 75%;
+    width: 80vw;
     margin: 3rem auto 7rem;
-    font-family: $lucida-family;
+
+    h3 {
+      font-size: 2.8rem;
+      @include text-shadow(black);
+    }
   }
 
   &--apiError {
@@ -112,8 +121,47 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 776px) {
   .crypto {
-    margin-top: 2rem;
+    margin-top: 20rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .crypto {
+    &--title {
+      font-size: 3rem;
+    }
+
+    &--subtitle {
+      font-size: 2.3rem;
+    }
+
+    &--table {
+      thead {
+        th {
+          font-size: 1.3rem;
+          padding: 1rem;
+        }
+      }
+
+      tbody {
+        font-size: 1.4rem;
+      }
+    }
+
+    &--content {
+      & h2 {
+        font-size: 3.2rem;
+      }
+
+      & h3 {
+        font-size: 3.4rem;
+      }
+
+      & p {
+        font-size: 1.4rem;
+      }
+    }
   }
 }

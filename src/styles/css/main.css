@@ -619,76 +619,83 @@ main {
   text-align: center;
 }
 .crypto--title {
-  margin-bottom: 1rem;
+  max-width: 80%;
+  margin: 0 auto 1rem;
   color: rgb(0, 128, 0);
   text-decoration: underline;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 .crypto--subtitle {
   margin-bottom: 2rem;
   color: rgb(175, 116, 175);
+  font-size: 1.9rem;
 }
-.crypto table {
-  width: 80%;
+.crypto--table {
+  width: 80vw;
   margin: 0 auto;
+  border-radius: 5px;
   box-shadow: 0 0 4px black;
   overflow-x: scroll;
   cursor: default;
 }
-.crypto thead {
-  background-color: gold;
-  font-size: 1.5rem;
+.crypto--table thead {
+  background-color: rgb(225, 193, 15);
 }
-.crypto thead th {
-  padding: 1rem;
+.crypto--table thead th {
+  padding: 0.5rem;
 }
-.crypto tbody {
+.crypto--table tbody {
   background-color: beige;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
-.crypto tbody td {
+.crypto--table tbody td {
   padding: 1rem;
-  padding-left: 1rem;
 }
-.crypto tbody a {
+.crypto--table tbody a {
   text-decoration: none;
   color: black;
 }
-.crypto tbody tr:hover {
+.crypto--table tbody tr:hover {
   color: gold;
   background-color: rgb(175, 116, 175);
 }
-.crypto tbody tr:hover a {
+.crypto--table tbody tr:hover a {
   color: white;
   text-decoration: underline;
 }
-.crypto tbody .money {
+.crypto--table tbody .money {
   color: rgb(0, 128, 0);
 }
-.crypto tbody .money:hover {
+.crypto--table tbody .money:hover {
   color: gold;
 }
-.crypto .tfoot {
-  width: 80%;
-  margin: 2rem auto 0;
+.crypto--table .tfoot {
   padding-top: 0.5rem;
   border-top: 3px solid rgb(128, 0, 128);
   border-bottom: 3px solid rgb(128, 0, 128);
-  background-color: gold;
-  font-weight: bold;
+  background-color: rgb(218, 165, 32);
 }
-.crypto .tfoot h4 {
-  font-size: 1.8rem;
+.crypto--table .tfoot h4 {
+  text-shadow: 0 0 3px white;
 }
-.crypto .tfoot a {
+.crypto--table .tfoot a {
   color: black;
 }
-.crypto .tfoot a:hover {
+.crypto--table .tfoot a:hover {
   color: rgb(0, 128, 0);
 }
+.crypto p {
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
 .crypto--content {
-  width: 75%;
+  width: 80vw;
   margin: 3rem auto 7rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+}
+.crypto--content h3 {
+  font-size: 2.8rem;
+  text-shadow: 0 0 3px black;
 }
 .crypto--apiError {
   width: 40%;
@@ -708,9 +715,33 @@ main {
   font-size: 1.3rem;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 776px) {
   .crypto {
-    margin-top: 2rem;
+    margin-top: 20rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .crypto--title {
+    font-size: 3rem;
+  }
+  .crypto--subtitle {
+    font-size: 2.3rem;
+  }
+  .crypto--table thead th {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+  .crypto--table tbody {
+    font-size: 1.4rem;
+  }
+  .crypto--content h2 {
+    font-size: 3.2rem;
+  }
+  .crypto--content h3 {
+    font-size: 3.4rem;
+  }
+  .crypto--content p {
+    font-size: 1.4rem;
   }
 }
 .apply {

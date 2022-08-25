@@ -24,12 +24,14 @@ const Crypto = () => {
             rank: data[crypto].rank,
             symbol: data[crypto].symbol,
             name: data[crypto].name,
-            valueUSD: data[crypto].priceUsd,
-            avgValue: data[crypto].vwap24Hr,
-            changeIndex: data[crypto].changePercent24Hr,
-            supply: data[crypto].supply,
-            maxSupply: data[crypto].maxSupply,
-            marketCapUSD: data[crypto].marketCapUsd,
+            valueUSD: usdFormatter.format(data[crypto].priceUsd),
+            avgValue: usdFormatter.format(data[crypto].vwap24Hr),
+            changeIndex: Number(data[crypto].changePercent24Hr).toLocaleString(
+              'en-US'
+            ),
+            supply: Number(data[crypto].supply).toLocaleString('en-US'),
+            maxSupply: Number(data[crypto].maxSupply),
+            marketCapUSD: usdFormatter.format(data[crypto].marketCapUsd),
             url: data[crypto].explorer,
           });
         }
@@ -53,16 +55,16 @@ const Crypto = () => {
           <b>{item.name}</b>
         </a>
       </td>
-      <td className='money'>{usdFormatter.format(item.valueUSD)}</td>
-      <td className='money'>{usdFormatter.format(item.avgValue)}</td>
-      <td>{Number(item.changeIndex).toLocaleString('en-US')}&#37;</td>
-      <td>{Number(item.supply).toLocaleString('en-US')}</td>
+      <td className='money'>{item.valueUSD}</td>
+      <td className='money'>{item.avgValue}</td>
+      <td>{item.changeIndex}&#37;</td>
+      <td>{item.supply}</td>
       <td>
-        {Number(item.maxSupply) === 0
+        {item.maxSupply === 0
           ? 'No Cap'
-          : Number(item.maxSupply).toLocaleString('en-US')}
+          : item.maxSupply.toLocaleString('en-US')}
       </td>
-      <td className='money'>{usdFormatter.format(item.marketCapUSD)}</td>
+      <td className='money'>{item.marketCapUSD}</td>
     </tr>
   ));
 
@@ -73,7 +75,7 @@ const Crypto = () => {
         <i>Bitcoin? More like Shitcoin, am I right?!</i>
       </h3>
       {!errorMessage && (
-        <>
+        <div className='crypto--table'>
           <table>
             <thead>
               <tr>
@@ -115,7 +117,7 @@ const Crypto = () => {
               </h4>
             </a>
           </div>
-        </>
+        </div>
       )}
       {errorMessage && (
         <div className='crypto--apiError'>
@@ -123,7 +125,13 @@ const Crypto = () => {
           <p>{errorMessage}</p>
         </div>
       )}
-      <div className='crypto--content'>{CryptoContent}</div>
+      <div className='crypto--content'>
+        {CryptoContent}
+        <p>What are you waiting for??</p>
+        <a href='/cyber-incident-2021' className='link'>
+          <h3>ACT NOW!!</h3>
+        </a>
+      </div>
     </div>
   );
 };

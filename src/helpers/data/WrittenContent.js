@@ -216,9 +216,5 @@ export const CryptoContent = (
       worry about anyone accessing your valuable coins but us (and you, of
       course!).
     </p>
-    <p>What are you waiting for??</p>
-    <a href='/cyber-incident-2021' className='action'>
-      <h1>ACT NOW!! </h1>
-    </a>
   </>
 );
