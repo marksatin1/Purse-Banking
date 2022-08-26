@@ -1,4 +1,4 @@
-import { useState, useRef, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Form, Nav } from 'react-bootstrap';
 import AuthContext from '../../../context/auth-context';
 
@@ -9,18 +9,13 @@ import PasswordReset from './PasswordReset';
 
 const axios = require('axios');
 
-let idToken, expirationTime;
-
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(true); ///
   const [httpError, setHttpError] = useState(false);
   const [showReset, setShowReset] = useState(false);
   const authCtx = useContext(AuthContext);
-
-  const emailRef = useRef();
-  const passwordRef = useRef();
 
   useEffect(() => {
     if (email.trim() !== '' && password.trim() !== '') {
@@ -33,8 +28,7 @@ const SignIn = () => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const userEmail = emailRef.current.value;
-    const userPassword = passwordRef.current.value;
+    let idToken, expirationTime;
 
     axios
       .post(
@@ -44,8 +38,8 @@ const SignIn = () => {
             key: process.env.REACT_APP_FIREBASE_API_KEY,
           },
           body: JSON.stringify({
-            email: userEmail,
-            password: userPassword,
+            email,
+            password,
             returnSecureToken: true,
           }),
         }
@@ -74,19 +68,18 @@ const SignIn = () => {
               });
             }
 
-            const thisUser = loadedUsers.filter(
-              (user) => user.email === userEmail
-            );
+            const thisUser = loadedUsers.filter((user) => user.email === email);
 
             localStorage.setItem('displayName', thisUser[0].firstName);
-            localStorage.setItem('userPassword', userPassword);
+            localStorage.setItem('userPassword', password);
 
-            if (thisUser[0].password !== userPassword) {
+            // If passwords don't match then user is updating password
+            if (thisUser[0].password !== password) {
               axios.patch(
                 `https://react-http-841ed-default-rtdb.firebaseio.com/users/${thisUser[0].id}.json`,
                 {
                   body: JSON.stringify({
-                    password: userPassword,
+                    password,
                   }),
                 }
               );
@@ -98,7 +91,7 @@ const SignIn = () => {
       .catch(async (error) => {
         setHttpError(true);
         console.error(error.message);
-        await Sleep(1500);
+        await Sleep(2000);
         setHttpError(false);
       });
   };
@@ -108,12 +101,13 @@ const SignIn = () => {
       {!showReset && !httpError && (
         <>
           <h1 className='sign-in--title'>Get In There Already!!</h1>
-          <Form>
+          <Form onSubmit={submitHandler}>
             <Form.Group controlId='formEmail'>
               <Form.Control
                 type='email'
                 placeholder='Email address'
                 autoComplete='email'
+                onChange={(event) => setEmail(event.target.value)}
               />
             </Form.Group>
             <Form.Group controlId='formPassword'>
@@ -121,19 +115,20 @@ const SignIn = () => {
                 type='password'
                 placeholder='Password'
                 autoComplete='password'
+                onChange={(event) => setPassword(event.target.value)}
               />
             </Form.Group>
             <FormButton type='submit' name='Sign In' disabled={isDisabled} />
           </Form>
           <Nav className='d-flex flex-column sign-in--nav'>
             <Nav.Item>
-              <p>New? Don't forget to </p>
+              <p>New? Don't forget to</p>
               <a href='/register' className='sign-in--nav-link'>
                 <p>REGISTER!</p>
               </a>
             </Nav.Item>
             <Nav.Item>
-              <p>Lost credentials? </p>
+              <p>Lost credentials?</p>
               <p
                 className='sign-in--nav-link'
                 onClick={() => setShowReset(true)}
@@ -142,7 +137,7 @@ const SignIn = () => {
               </p>
             </Nav.Item>
             <Nav.Item>
-              <p>Security, privacy, </p>
+              <p>Security, privacy,</p>
               <a href='/privacy' className='sign-in--nav-link'>
                 <p>etc., etc.</p>
               </a>
@@ -154,7 +149,7 @@ const SignIn = () => {
         </>
       )}
       {showReset && <PasswordReset setShowReset={setShowReset} />}
-      {/* {httpError && (
+      {httpError && (
         <div className='error'>
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
@@ -163,12 +158,8 @@ const SignIn = () => {
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
-          <p>USER CREDENTIALS NOT FOUND!!!!!</p>
         </div>
-      )} */}
+      )}
     </div>
   );
 };

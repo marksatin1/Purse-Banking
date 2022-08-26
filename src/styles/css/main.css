@@ -1224,6 +1224,24 @@ main {
   z-index: 3;
 }
 
+.access {
+  margin: -1rem 0 3rem;
+  text-align: center;
+}
+
+.access button {
+  margin: 2rem 0 -1rem;
+  padding: 0.75rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: gold;
+  color: rgb(0, 128, 0);
+  border-radius: 3px;
+  box-shadow: 1px 1px black;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 992px) {
   .register {
     width: 30rem;
@@ -2317,11 +2335,6 @@ main {
   justify-content: center;
 }
 
-@media only screen and (max-width: 500px) {
-  .modal {
-    height: 80vh;
-  }
-}
 .my-purse-btn {
   width: 30vw;
   margin: 0 auto;
@@ -2750,6 +2763,7 @@ main {
 .sign-in {
   position: relative;
   max-width: 22rem;
+  min-height: 33rem;
   padding: 2rem;
   margin: 0 auto;
   background-color: rgb(175, 116, 175);
@@ -2807,11 +2821,12 @@ main {
 
 .error {
   position: absolute;
-  z-index: 3;
+  margin-top: -4rem;
+  z-index: 4;
   overflow: hidden;
 }
 .error p {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   color: rgb(208, 26, 26);
   background-color: lime;

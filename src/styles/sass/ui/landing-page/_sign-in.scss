@@ -1,6 +1,7 @@
 .sign-in {
   position: relative; // for z-index
   max-width: 22rem;
+  min-height: 33rem; // keep for error screen
   padding: 2rem;
   margin: 0 auto;
   background-color: $accent-color;
@@ -56,20 +57,21 @@
   }
 }
 
-// .error {
-//   position: absolute;
-//   z-index: 3;
-//   overflow: hidden;
+.error {
+  position: absolute;
+  margin-top: -4rem;
+  z-index: 4;
+  overflow: hidden;
 
-//   p {
-//     font-size: 2rem;
-//     text-align: center;
-//     color: rgb(208, 26, 26);
-//     background-color: lime;
-//     animation: blink 200ms steps(2, start);
-//     animation-iteration-count: 50;
-//   }
-// }
+  p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: rgb(208, 26, 26);
+    background-color: lime;
+    animation: blink 200ms steps(2, start);
+    animation-iteration-count: 50;
+  }
+}
 
 @media only screen and (min-width: 1400px) {
   .sign-in {
