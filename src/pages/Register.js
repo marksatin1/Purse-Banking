@@ -21,26 +21,29 @@ const axios = require('axios');
 
 let idToken, expirationTime;
 
+const initUser = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  firstborn: 'no',
+  country: 'Country',
+  agree: false,
+};
+
 const isEmpty = (value) => value.trim() === '';
 
 const Register = () => {
   const [formErrors, setFormErrors] = useState({});
-  const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    firstborn: 'no',
-    country: 'Country',
-    agree: false,
-  });
+  const [user, setUser] = useState(initUser);
   const [selected, setSelected] = useState();
   const [isDisabled, setIsDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
   const [showUserAgreement, setShowUserAgreement] = useState(false);
+
   const authCtx = useContext(AuthContext);
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -253,156 +256,131 @@ const Register = () => {
         />
       )}
       {!isLoading && (
-        <Container>
-          <Row>
-            <form onSubmit={submitFormHandler}>
-              <Col xs={10} md={7} lg={5} className='form'>
-                <h1>REGISTER NOW!</h1>
-                <div className='text-fields'>
-                  <input
-                    name='firstName'
-                    type='text'
-                    placeholder='First Name'
-                    autoComplete='new-first-name'
-                    noValidate
-                    onChange={inputChangeHandler}
-                  />
-                  {formErrors.firstName && <p>{formErrors.firstName}</p>}
-                  <input
-                    name='lastName'
-                    type='text'
-                    placeholder='Last Name'
-                    autoComplete='new-last-name'
-                    noValidate
-                    onChange={inputChangeHandler}
-                  />
-                  {formErrors.lastName && <p>{formErrors.lastName}</p>}
-                  <input
-                    name='email'
-                    type='email'
-                    placeholder='Email'
-                    autoComplete='new-email'
-                    onChange={inputChangeHandler}
-                    ref={emailRef}
-                  />
-                  {formErrors.email && <p>{formErrors.email}</p>}
-                  <input
-                    name='password'
-                    type='password'
-                    placeholder='Password'
-                    autoComplete='new-password'
-                    onChange={inputChangeHandler}
-                    ref={passwordRef}
-                  />
-                  {formErrors.password && <p>{formErrors.password}</p>}
-                  <input
-                    name='confirmPassword'
-                    type='password'
-                    placeholder='Confirm Password'
-                    autoComplete='confirm-new-password'
-                    noValidate
-                    onChange={inputChangeHandler}
-                  />
-                  {formErrors.confirmPassword && (
-                    <p>{formErrors.confirmPassword}</p>
-                  )}
-                </div>
-                <Row className='click-fields'>
-                  <Col md={7}>
-                    <span className='text'>Cede rights to your firstborn?</span>
-                  </Col>
-                  <Col md={3} className='radio'>
-                    <div>
-                      <input
-                        name='firstborn'
-                        type='radio'
-                        id='yes'
-                        value='yes'
-                        required
-                        onChange={inputChangeHandler}
-                      />
-                      <label htmlFor='yes'>
-                        <span className='text'>Yes</span>
-                      </label>
-                    </div>
-                    <div>
-                      <input
-                        name='firstborn'
-                        type='radio'
-                        id='no'
-                        value='no'
-                        disabled
-                        onChange={inputChangeHandler}
-                      />
-                      <label htmlFor='no'>
-                        <span className='text'>No</span>
-                      </label>
-                    </div>
-                  </Col>
-                </Row>
-                {formErrors.firstborn && <p>{formErrors.firstborn}</p>}
-                <Row className='country'>
-                  <Col md={4}>
-                    <label htmlFor='country'>
-                      <span className='text'>Country of Origin</span>
-                    </label>
-                  </Col>
-                  <Col md={6}>
-                    <select
-                      name='country'
-                      id='country'
-                      onChange={inputChangeHandler}
-                      defaultValue={selected}
-                    >
-                      <option value='America'>America</option>
-                      <option value='Anywhere Else'>Anywhere Else</option>
-                    </select>
-                  </Col>
-                </Row>
-                {formErrors.country && <p>{formErrors.country}</p>}
-                <Row className='certify'>
-                  <Col xs={{ span: 1, offset: 1 }}>
-                    <input
-                      name='agree'
-                      type='checkbox'
-                      id='agree'
-                      required
-                      onChange={inputChangeHandler}
-                    />
-                  </Col>
-                  <Col>
-                    <span className='text'>
-                      I certify that I am 18 years of age or older, and agree to
-                      the{' '}
-                      <span
-                        className='link'
-                        onClick={() => setShowUserAgreement(true)}
-                      >
-                        User Agreement
-                      </span>{' '}
-                      and{' '}
-                      <span
-                        className='link'
-                        onClick={() => setShowPrivacyPolicy(true)}
-                      >
-                        Privacy Policy
-                      </span>
-                      .
-                    </span>
-                  </Col>
-                </Row>
-                {formErrors.agree && <p>{formErrors.agree}</p>}
-                <div className='button-container'>
-                  <FormButton
-                    type='submit'
-                    name='Register'
-                    disabled={isDisabled}
-                  />
-                </div>
-              </Col>
-            </form>
-          </Row>
-        </Container>
+        <form className='register' onSubmit={submitFormHandler}>
+          <h1 className='register--title'>REGISTER NOW!</h1>
+          <div className='d-flex flex-column register--inputs'>
+            <input
+              name='firstName'
+              type='text'
+              placeholder='First Name'
+              autoComplete='new-first-name'
+              noValidate
+              onChange={inputChangeHandler}
+            />
+            {formErrors.firstName && <p>{formErrors.firstName}</p>}
+            <input
+              name='lastName'
+              type='text'
+              placeholder='Last Name'
+              autoComplete='new-last-name'
+              noValidate
+              onChange={inputChangeHandler}
+            />
+            {formErrors.lastName && <p>{formErrors.lastName}</p>}
+            <input
+              name='email'
+              type='email'
+              placeholder='Email'
+              autoComplete='new-email'
+              onChange={inputChangeHandler}
+              ref={emailRef}
+            />
+            {formErrors.email && <p>{formErrors.email}</p>}
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+              autoComplete='new-password'
+              onChange={inputChangeHandler}
+              ref={passwordRef}
+            />
+            {formErrors.password && <p>{formErrors.password}</p>}
+            <input
+              name='confirmPassword'
+              type='password'
+              placeholder='Confirm Password'
+              autoComplete='confirm-new-password'
+              noValidate
+              onChange={inputChangeHandler}
+            />
+            {formErrors.confirmPassword && <p>{formErrors.confirmPassword}</p>}
+          </div>
+          <div className='options'>
+            <p>Cede rights to your firstborn?</p>
+            <div className='d-flex justify-content-evenly align-items-center options--radio'>
+              <div>
+                <input
+                  name='firstborn'
+                  type='radio'
+                  id='yes'
+                  value='yes'
+                  required
+                  onChange={inputChangeHandler}
+                />
+                <label htmlFor='yes'>
+                  <span>Yes</span>
+                </label>
+              </div>
+              <div>
+                <input
+                  name='firstborn'
+                  type='radio'
+                  id='no'
+                  value='no'
+                  disabled
+                  onChange={inputChangeHandler}
+                />
+                <label htmlFor='no'>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          {formErrors.firstborn && <p>{formErrors.firstborn}</p>}
+          <div className='options--select'>
+            <label htmlFor='country'>
+              <p className='register--text'>Country of Origin</p>
+            </label>
+            <select
+              name='country'
+              id='country'
+              onChange={inputChangeHandler}
+              defaultValue={selected}
+            >
+              <option value='America'>America</option>
+              <option value='Everywhere Else'>Everywhere Else</option>
+            </select>
+          </div>
+          {formErrors.country && <p>{formErrors.country}</p>}
+          <div className='d-flex align-items-start options--checkbox'>
+            <input
+              name='agree'
+              type='checkbox'
+              id='agree'
+              required
+              onChange={inputChangeHandler}
+            />
+            <p>
+              I certify that I am 18 years of age or older, and agree to the{' '}
+              <span
+                className='register--link'
+                onClick={() => setShowUserAgreement(true)}
+              >
+                User Agreement
+              </span>{' '}
+              and{' '}
+              <span
+                className='register--link'
+                onClick={() => setShowPrivacyPolicy(true)}
+              >
+                Privacy Policy
+              </span>
+              .
+            </p>
+          </div>
+          {formErrors.agree && <p>{formErrors.agree}</p>}
+          <FormButton type='submit' name='Register' disabled={isDisabled} />
+        </form>
       )}
     </>
   );

@@ -859,42 +859,11 @@ main {
   }
 }
 .find-branch {
-  margin: 17rem auto 10rem;
-}
-.find-branch .title {
-  color: green;
-  font-size: 4rem;
-  text-decoration: underline;
+  width: 80vw;
+  margin: 15rem auto -12rem;
   text-align: center;
 }
-.find-branch .subtitle {
-  margin-bottom: 3rem;
-  color: rgb(175, 116, 175);
-  text-align: center;
-}
-
-.search {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: center;
-}
-
-.returns {
-  margin: auto 0;
-  max-height: 35rem;
-  overflow: scroll;
-}
-
-.map {
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.loader {
+.find-branch .loader {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -902,19 +871,41 @@ main {
   left: 0;
   z-index: 3;
 }
+.find-branch--title {
+  max-width: 80%;
+  margin: 0 auto 1rem;
+  color: rgb(0, 128, 0);
+  text-decoration: underline;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.find-branch--subtitle {
+  margin-bottom: 2rem;
+  color: rgb(175, 116, 175);
+  font-size: 1.9rem;
+}
+.find-branch--places {
+  max-height: 35rem;
+  overflow: scroll;
+}
+.find-branch--map {
+  margin: 1rem 0;
+}
 
-@media only screen and (max-width: 768px) {
-  .layout {
-    margin-top: 2rem;
+@media only screen and (min-width: 576px) {
+  .find-branch {
+    margin-top: 17rem;
   }
 }
-@media only screen and (max-width: 500px) {
-  .title {
-    font-size: 2.8rem;
+@media only screen and (min-width: 992px) {
+  .find-branch--search-bar {
+    width: 70vw;
+    margin: 0 auto;
   }
-
-  .subtitle {
-    font-size: 2.1rem;
+}
+@media only screen and (min-width: 1200px) {
+  .find-branch--search-bar {
+    width: 50vw;
   }
 }
 .help {
@@ -1185,173 +1176,95 @@ main {
   color: rgb(128, 0, 128);
 }
 
-.loader {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 3;
-}
-
-.form {
+.register {
+  width: 25rem;
   margin: 15rem auto -12rem;
   padding: 2rem 1rem;
   background-color: rgb(175, 116, 175);
   box-shadow: 6px 6px 2px black;
   text-align: center;
-  font-size: 1.3rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
-
-.form h1 {
-  color: gold;
+.register--title {
+  color: rgb(225, 193, 15);
+  font-size: 2.5rem;
+  text-shadow: 0 0 3px white;
 }
-
-.text-fields {
-  margin-bottom: 1rem;
+.register--inputs {
+  margin: 1rem 0;
 }
-
-.text-fields input {
-  margin: 1.5rem auto;
+.register--inputs input {
+  margin: 0.5rem auto;
   border: none;
   border-radius: 12px;
-  padding: 0.5rem 0.7rem;
+  padding: 0.25rem 0.5rem;
   box-shadow: 1px 2px black;
+  font-size: 1.1rem;
+}
+.register--text {
   font-size: 1.2rem;
-  display: block;
 }
-
-.radio {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.register .options {
+  font-size: 1.2rem;
 }
-
-.radio div {
-  margin: 0.25rem 0.5rem;
+.register .options--radio {
+  margin-top: -0.5rem;
 }
-
-.radio input {
+.register .options--radio input {
   margin: 0 0.5rem;
-  transform: scale(1.3);
+  transform: scale(1.5);
 }
-
-.form p {
-  margin: 0.25rem auto;
-  padding: 0.25rem 0;
-  text-align: center;
-  background-color: lime;
-  font-weight: bold;
-  color: red;
-}
-
-.country {
+.register .options--select {
   margin: 2rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-
-.country label {
-  margin: 0.25rem 0;
+.register .options--select label {
+  width: 60%;
 }
-
-.country select {
+.register .options--select select {
+  width: 60%;
+  margin-top: -1rem;
   padding: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  background-color: gold;
+  background-color: rgb(225, 193, 15);
   border-radius: 5px;
   text-align: center;
 }
-
-.certify {
+.register .options--checkbox {
+  padding: 1rem;
+  font-size: 1.2rem;
   text-align: left;
-  margin: 1.5rem 0;
 }
-
-.certify input {
+.register .options--checkbox input {
+  margin-top: 0.5rem;
+  margin-right: 1rem;
   transform: scale(1.3);
 }
 
-.text {
-  font-size: 1.2rem;
-}
-
-.access {
-  margin: -1rem 0 3rem;
-  text-align: center;
-}
-
-.access button {
-  margin: 2rem 0 -1rem;
-  padding: 0.75rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background-color: gold;
-  color: rgb(0, 128, 0);
-  border-radius: 3px;
-  box-shadow: 1px 1px black;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 1200px) {
-  .text-fields input {
-    width: 80%;
+@media only screen and (min-width: 992px) {
+  .register {
+    width: 30rem;
   }
-
-  .form p {
+  .register--title {
+    font-size: 3rem;
+  }
+  .register--text {
+    font-size: 1.4rem;
+  }
+  .register--inputs input {
+    width: 70%;
+    margin: 1rem auto;
+    padding: 0.5rem 0.75rem;
     font-size: 1.2rem;
   }
-
-  .text {
-    font-size: 1.2rem;
+  .register .options {
+    font-size: 1.4rem;
   }
-
-  .country select {
-    padding: 0.5rem;
-    font-size: 1.2rem;
+  .register .options--select select {
+    padding: 0.75rem;
+    font-size: 1.4rem;
   }
-
-  .certify input {
-    transform: scale(1.2);
-  }
-}
-@media only screen and (max-width: 768px) {
-  .form {
-    margin: 4rem auto 5rem;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .form h1 {
-    font-size: 2.8rem;
-  }
-
-  .text-fields input {
-    width: 75%;
-    padding: 0.25rem 0.75rem;
-  }
-
-  .click-fields {
-    width: 90%;
-    margin-bottom: 1rem;
-  }
-
-  .country {
-    margin-bottom: 2rem;
-  }
-
-  .country select {
-    font-size: 1.1rem;
-  }
-
-  .certify input {
-    transform: scale(1.1);
+  .register .options--checkbox {
+    font-size: 1.3rem;
   }
 }
 .layout div {
@@ -2202,6 +2115,14 @@ main {
   cursor: default;
 }
 
+@media only screen and (min-width: 1200px) {
+  .form-btn {
+    font-size: 1.4rem;
+  }
+  .form-btn:disabled {
+    font-size: 1.4rem;
+  }
+}
 .report {
   text-align: center;
 }

@@ -1,171 +1,148 @@
-.loader {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 3;
-}
-
-.form {
+.register {
+  width: 25rem;
   margin: $page-margin;
   padding: 2rem 1rem;
   background-color: $accent-color;
   box-shadow: 6px 6px 2px black;
   text-align: center;
-  font-size: 1.3rem;
-  font-family: $lucida-family;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-.form h1 {
-  color: gold;
-}
-
-.text-fields {
-  margin-bottom: 1rem;
-}
-
-.text-fields input {
-  margin: 1.5rem auto;
-  border: none;
-  border-radius: 12px;
-  padding: 0.5rem 0.7rem;
-  box-shadow: 1px 2px black;
-  font-size: 1.2rem;
-  display: block;
-}
-
-.radio {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.radio div {
-  margin: 0.25rem 0.5rem;
-}
-
-.radio input {
-  margin: 0 0.5rem;
-  transform: scale(1.3);
-}
-
-.form p {
-  margin: 0.25rem auto;
-  padding: 0.25rem 0;
-  text-align: center;
-  background-color: lime;
-  font-weight: bold;
-  color: red;
-}
-
-.country {
-  margin: 2rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.country label {
-  margin: 0.25rem 0;
-}
-
-.country select {
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: gold;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.certify {
-  text-align: left;
-  margin: 1.5rem 0;
-}
-
-.certify input {
-  transform: scale(1.3);
-}
-
-.text {
-  font-size: 1.2rem;
-}
-
-.access {
-  margin: -1rem 0 3rem;
-  text-align: center;
-}
-
-.access button {
-  margin: 2rem 0 -1rem;
-  padding: 0.75rem;
-  font-family: $georgia-family;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background-color: gold;
-  color: $primary-alt-color;
-  border-radius: 3px;
-  box-shadow: 1px 1px black;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 1200px) {
-  .text-fields input {
-    width: 80%;
+  &--title {
+    color: $secondary-color;
+    font-size: 2.5rem;
+    @include text-shadow(white);
   }
 
-  .form p {
+  &--inputs {
+    margin: 1rem 0;
+
+    input {
+      margin: 0.5rem auto;
+      border: none;
+      border-radius: 12px;
+      padding: 0.25rem 0.5rem;
+      box-shadow: 1px 2px black;
+      font-size: 1.1rem;
+    }
+  }
+
+  &--text {
     font-size: 1.2rem;
   }
 
-  .text {
+  .options {
     font-size: 1.2rem;
-  }
 
-  .country select {
-    padding: 0.5rem;
-    font-size: 1.2rem;
-  }
+    &--radio {
+      margin-top: -0.5rem;
 
-  .certify input {
-    transform: scale(1.2);
+      input {
+        margin: 0 0.5rem;
+        transform: scale(1.5);
+      }
+    }
+
+    &--select {
+      margin: 2rem 0;
+
+      label {
+        width: 60%;
+      }
+
+      select {
+        width: 60%;
+        margin-top: -1rem;
+        padding: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        background-color: $secondary-color;
+        border-radius: 5px;
+        text-align: center;
+      }
+    }
+
+    &--checkbox {
+      padding: 1rem;
+      font-size: 1.2rem;
+      text-align: left;
+
+      input {
+        margin-top: 0.5rem;
+        margin-right: 1rem;
+        transform: scale(1.3);
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .form {
-    margin: 4rem auto 5rem;
-  }
-}
+// .loader {
+//   position: fixed;
+//   width: 100vw;
+//   height: 100vh;
+//   overflow: hidden;
+//   z-index: 3;
+// }
 
-@media only screen and (max-width: 500px) {
-  .form h1 {
-    font-size: 2.8rem;
-  }
+// .form p {
+//   margin: 0.25rem auto;
+//   padding: 0.25rem 0;
+//   text-align: center;
+//   background-color: lime;
+//   font-weight: bold;
+//   color: red;
+// }
 
-  .text-fields input {
-    width: 75%;
-    padding: 0.25rem 0.75rem;
-  }
+// .access {
+//   margin: -1rem 0 3rem;
+//   text-align: center;
+// }
 
-  .click-fields {
-    width: 90%;
-    margin-bottom: 1rem;
-  }
+// .access button {
+//   margin: 2rem 0 -1rem;
+//   padding: 0.75rem;
+//   font-family: $georgia-family;
+//   font-size: 1.2rem;
+//   font-weight: bold;
+//   background-color: gold;
+//   color: $primary-alt-color;
+//   border-radius: 3px;
+//   box-shadow: 1px 1px black;
+//   cursor: pointer;
+// }
 
-  .country {
-    margin-bottom: 2rem;
-  }
+@media only screen and (min-width: 992px) {
+  .register {
+    width: 30rem;
 
-  .country select {
-    font-size: 1.1rem;
-  }
+    &--title {
+      font-size: 3rem;
+    }
 
-  .certify input {
-    transform: scale(1.1);
+    &--text {
+      font-size: 1.4rem;
+    }
+
+    &--inputs {
+      input {
+        width: 70%;
+        margin: 1rem auto;
+        padding: 0.5rem 0.75rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    .options {
+      font-size: 1.4rem;
+
+      &--select {
+        select {
+          padding: 0.75rem;
+          font-size: 1.4rem;
+        }
+      }
+
+      &--checkbox {
+        font-size: 1.3rem;
+      }
+    }
   }
 }
