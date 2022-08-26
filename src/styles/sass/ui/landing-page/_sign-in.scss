@@ -25,14 +25,14 @@
   }
 
   &--nav {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 
     p {
       font-size: 1.2rem;
-      margin-bottom: -0.05rem;
+      margin-bottom: -0.2rem;
     }
 
-    .link {
+    &-link {
       @include link;
       padding: 0;
     }
