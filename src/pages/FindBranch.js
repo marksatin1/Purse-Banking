@@ -88,46 +88,50 @@ const FindBranch = () => {
   }
 
   return (
-    <Container className='find-branch'>
-      {isLoading && (
-        <img src={wtf_loader} className='loader' alt='Loading page' />
-      )}
-      <h1 className='title'>Find A Branch Near You</h1>
-      <h2 className='subtitle'>
-        <i>ATMs conveniently located inside of every casino!</i>
-      </h2>
-      <Row>
-        <Col xs={12} className='search'>
-          <Suspense fallback={wtf_loader}>
-            <MapSearchBar panTo={panTo} center={center} />
-          </Suspense>
-        </Col>
-        <Col
-          xs={{ span: 12, order: 3 }}
-          xl={{ span: 5, order: 1 }}
-          className='returns'
-        >
-          {requestedPlaces.map((place) => (
-            <LocationCard
-              key={uuidv4()}
-              name={place.name}
-              status={place.business_status.replace('_', ' ')}
-              icon={place.icon}
-              rating={convertRating(place.rating)}
-              address={place.formatted_address}
-            />
-          ))}
-        </Col>
-        <Col xs={12} xl={{ span: 7, order: 2 }} className='map'>
-          <Suspense fallback={wtf_loader}>
-            <BankMap
-              panTo={panTo}
-              loadPlaces={loadPlaces}
-              requestedPlaces={requestedPlaces}
-            />
-          </Suspense>
-        </Col>
-      </Row>
+    <Container>
+      <div className='find-branch'>
+        {isLoading && (
+          <img src={wtf_loader} className='loader' alt='Loading page' />
+        )}
+        <h1 className='find-branch--title'>Find A Branch Near You</h1>
+        <h2 className='find-branch--subtitle'>
+          <i>ATMs conveniently located inside of every casino!</i>
+        </h2>
+        <Row>
+          <Col xs={12}>
+            <Suspense fallback={wtf_loader}>
+              <div className='find-branch--search-bar'>
+                <MapSearchBar panTo={panTo} center={center} />
+              </div>
+            </Suspense>
+          </Col>
+          <Col
+            xs={{ span: 12, order: 3 }}
+            xl={{ span: 5, order: 1 }}
+            className='find-branch--places'
+          >
+            {requestedPlaces.map((place) => (
+              <LocationCard
+                key={uuidv4()}
+                name={place.name}
+                status={place.business_status.replace('_', ' ')}
+                icon={place.icon}
+                rating={convertRating(place.rating)}
+                address={place.formatted_address}
+              />
+            ))}
+          </Col>
+          <Col xs={12} xl={{ span: 7, order: 2 }} className='find-branch--map'>
+            <Suspense fallback={wtf_loader}>
+              <BankMap
+                panTo={panTo}
+                loadPlaces={loadPlaces}
+                requestedPlaces={requestedPlaces}
+              />
+            </Suspense>
+          </Col>
+        </Row>
+      </div>
     </Container>
   );
 };
