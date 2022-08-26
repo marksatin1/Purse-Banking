@@ -1,5 +1,4 @@
 import { useState, useRef, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Form, Nav } from 'react-bootstrap';
 import AuthContext from '../../../context/auth-context';
 
@@ -129,26 +128,29 @@ const SignIn = () => {
           <Nav className='d-flex flex-column sign-in--nav'>
             <Nav.Item>
               <p>New? Don't forget to </p>
-              <Nav.Link className='link' href='/register'>
+              <a href='/register' className='sign-in--nav-link'>
                 <p>REGISTER!</p>
-              </Nav.Link>
+              </a>
             </Nav.Item>
             <Nav.Item>
               <p>Lost credentials? </p>
-              <p className='link' onClick={() => setShowReset(true)}>
+              <p
+                className='sign-in--nav-link'
+                onClick={() => setShowReset(true)}
+              >
                 Click Here
               </p>
             </Nav.Item>
             <Nav.Item>
               <p>Security, privacy, </p>
-              <Nav.Link className='link' href='/privacy'>
+              <a href='/privacy' className='sign-in--nav-link'>
                 <p>etc., etc.</p>
-              </Nav.Link>
+              </a>
             </Nav.Item>
           </Nav>
-          <Link to='/find-branch'>
+          <a href='/find-branch'>
             <button className='branch-btn'>Find your local branch</button>
-          </Link>
+          </a>
         </>
       )}
       {showReset && <PasswordReset setShowReset={setShowReset} />}
