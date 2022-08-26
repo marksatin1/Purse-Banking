@@ -13,18 +13,11 @@
   }
 
   &--title {
-    max-width: 80%;
-    margin: 0 auto 1rem;
-    color: $primary-alt-color;
-    text-decoration: underline;
-    font-size: 2.5rem;
-    font-weight: bold;
+    @extend %page-title;
   }
 
   &--subtitle {
-    margin-bottom: 2rem;
-    color: $accent-color;
-    font-size: 1.9rem;
+    @extend %page-subtitle;
   }
 
   &--places {
