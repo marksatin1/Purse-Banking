@@ -1,10 +1,10 @@
 const ContactCard = ({ department, data }) => {
   return (
     <div className='contact-card'>
-      <h2 className='department'>{department}</h2>
+      <h2 className='contact-card--department'>{department}</h2>
       <div className='content'>
         {data.map((item) => (
-          <div className='test'>
+          <div className='content--data'>
             <p>
               <b>{item.issue}</b>
             </p>

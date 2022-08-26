@@ -384,53 +384,50 @@ main {
 }
 
 .contact-page {
-  margin: 20rem auto 10rem;
+  width: 80vw;
+  margin: 15rem auto -12rem;
   padding: 2rem 3rem 3rem;
   background-color: beige;
   box-shadow: 2px 2px 5px black;
-  border-radius: 3px 15px 3px 15px;
+  border-radius: 5px;
   text-align: center;
 }
 .contact-page--title {
+  max-width: 80%;
+  margin: 0 auto 1rem;
   color: rgb(0, 128, 0);
   text-decoration: underline;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 .contact-page--subtitle {
-  margin-bottom: 2rem;
+  font-size: 1.9rem;
   color: rgb(175, 116, 175);
 }
-.contact-page--footer h1 {
-  font-size: 3.5rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+.contact-page--footer {
+  margin-top: 3rem;
 }
-.contact-page--footer h2 {
-  margin-top: 2rem;
+.contact-page--footer .link {
+  text-shadow: 0 0 3px black;
+  font-size: 2.5rem;
+  margin: 0;
 }
 
-@media only screen and (max-width: 992px) {
-  .contact .location h2 {
-    font-size: 2.5rem;
+@media only screen and (min-width: 768px) {
+  .contact-page {
+    width: 70vw;
+    margin-top: 20rem;
   }
-  .contact .location h1 {
+}
+@media only screen and (min-width: 992px) {
+  .contact-page--title {
     font-size: 3rem;
   }
-}
-@media only screen and (max-width: 768px) {
-  .contact .page {
-    margin: 2rem auto 5rem;
+  .contact-page--subtitle {
+    font-size: 2.3rem;
   }
-}
-@media only screen and (max-width: 576px) {
-  .contact .page {
-    padding: 2rem;
-  }
-  .contact .title {
-    margin-top: -0.5rem;
-    font-size: 2.5rem;
-  }
-  .contact .subtitle {
-    margin-bottom: 1rem;
-    font-size: 2rem;
+  .contact-page--footer .link {
+    font-size: 4rem;
   }
 }
 .credit-offer {
@@ -2053,40 +2050,39 @@ main {
   background-color: white;
   border-radius: 3px;
   box-shadow: 2px 2px 2px black;
-  font-family: "Times New Roman", Times, serif;
 }
-.contact-card .department {
-  margin-bottom: 1rem;
+.contact-card--department {
+  text-shadow: 0 0 3px black;
   color: rgb(218, 165, 32);
+  font-weight: bold;
 }
 .contact-card .content {
-  min-height: 30rem;
-}
-.contact-card .test {
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  min-height: 20rem;
+  text-align: center;
 }
 
 .wait-time {
   color: rgb(175, 116, 175);
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
-@media only screen and (max-width: 1400px) {
-  .content {
-    min-height: 45vh;
+@media only screen and (min-width: 992px) {
+  .contact-card .content--data {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-@media only screen and (max-width: 1200px) {
-  .content {
-    text-align: center;
+@media only screen and (min-width: 1400px) {
+  .contact-card {
+    padding: 3rem;
   }
-}
-@media only screen and (max-width: 992px) {
-  .content {
-    height: 5vh;
-    overflow-y: scroll;
+  .contact-card .content {
+    min-height: 28rem;
+  }
+  .contact-card .content--data {
+    font-size: 1.3rem;
   }
 }
 .credit-offer-card {
@@ -2105,8 +2101,10 @@ main {
   text-shadow: 0 0 2px white;
 }
 .credit-offer-card img {
+  position: relative;
   max-width: 266px;
   max-height: 200px;
+  z-index: 3;
 }
 .credit-offer-card .link {
   text-decoration: none;
@@ -2882,20 +2880,20 @@ main {
   font-size: 1.1rem;
 }
 .sign-in--nav {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 .sign-in--nav p {
   font-size: 1.2rem;
-  margin-bottom: -0.05rem;
+  margin-bottom: -0.2rem;
 }
-.sign-in--nav .link {
+.sign-in--nav-link {
   color: rgb(0, 128, 0);
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
   padding: 0;
 }
-.sign-in--nav .link:hover {
+.sign-in--nav-link:hover {
   color: rgb(218, 165, 32);
 }
 

@@ -5,44 +5,47 @@
   background-color: white;
   border-radius: 3px;
   box-shadow: 2px 2px 2px black;
-  font-family: $tnr-family;
 
-  .department {
-    margin-bottom: 1rem;
+  &--department {
+    @include text-shadow(black);
     color: $secondary-alt-color;
+    font-weight: bold;
   }
 
   .content {
-    min-height: 30rem;
-  }
-
-  .test {
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
+    min-height: 20rem;
+    text-align: center;
   }
 }
 
 .wait-time {
   color: $accent-color;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
-@media only screen and (max-width: 1400px) {
-  .content {
-    min-height: 45vh;
+@media only screen and (min-width: 992px) {
+  .contact-card {
+    .content {
+      &--data {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  .content {
-    text-align: center;
-  }
-}
+@media only screen and (min-width: 1400px) {
+  .contact-card {
+    padding: 3rem;
 
-@media only screen and (max-width: 992px) {
-  .content {
-    height: 5vh;
-    overflow-y: scroll;
+    .content {
+      min-height: 28rem;
+
+      &--data {
+        font-size: 1.3rem;
+      }
+    }
   }
 }
