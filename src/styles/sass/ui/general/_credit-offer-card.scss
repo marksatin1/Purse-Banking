@@ -16,8 +16,10 @@
   }
 
   img {
+    position: relative;
     max-width: 266px;
     max-height: 200px;
+    z-index: 3;
   }
 
   .link {
