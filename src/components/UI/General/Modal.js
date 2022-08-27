@@ -1,24 +1,33 @@
 import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-const Backdrop = ({ hideModal }) => {
-  return <div className='backdrop' onClick={hideModal}></div>;
+const ModalBackdrop = ({ hideModalHandler }) => {
+  return <div className='backdrop' onClick={hideModalHandler} />;
 };
 
-const ModalOverlay = ({ title, subtitle, content, button }) => {
+const ModalOverlay = ({ title, subtitle, content, btnName, btnHandler }) => {
   return (
-    <div className='modal'>
-      <h1 className='title'>{title}</h1>
-      <h2 className='subtitle'>{subtitle}</h2>
-      <div className='content'>
-        {content}
-        {button}
-      </div>
+    <div className='modal-shell'>
+      <h1 className='modal-shell--title'>{title}</h1>
+      <h2 className='modal-shell--subtitle'>
+        <i>{subtitle}</i>
+      </h2>
+      <div className='modal-shell--content'>{content}</div>
+      <button className='modal-shell--btn' onClick={btnHandler}>
+        {btnName}
+      </button>
     </div>
   );
 };
 
-const Modal = ({ hideModal, title, subtitle, content, button }) => {
+const Modal = ({
+  title,
+  subtitle,
+  content,
+  btnName,
+  btnHandler,
+  hideModalHandler,
+}) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
@@ -28,7 +37,7 @@ const Modal = ({ hideModal, title, subtitle, content, button }) => {
   return (
     <>
       {ReactDOM.createPortal(
-        <Backdrop hideModal={hideModal} />,
+        <ModalBackdrop hideModalHandler={hideModalHandler} />,
         document.getElementById('overlays')
       )}
       {ReactDOM.createPortal(
@@ -36,7 +45,8 @@ const Modal = ({ hideModal, title, subtitle, content, button }) => {
           title={title}
           subtitle={subtitle}
           content={content}
-          button={button}
+          btnName={btnName}
+          btnHandler={btnHandler}
         />,
         document.getElementById('overlays')
       )}
