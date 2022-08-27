@@ -1,5 +1,7 @@
 import zxcvbn from 'zxcvbn';
 
+export const isEmpty = (value) => value.trim() === '';
+
 export const minMaxLength = (text, minLength, maxLength) => {
   let result = !text || text.length < minLength;
   if (maxLength) {
@@ -16,9 +18,9 @@ export const validateEmail = (text) => {
   return !regex.test(text);
 };
 
-let registeredUsers = [];
-
 export const userExists = (email) => {
+  let registeredUsers = [];
+
   return new Promise((resolve) => {
     setTimeout(() => {
       if (registeredUsers.findIndex((u) => u === email) !== -1) {
