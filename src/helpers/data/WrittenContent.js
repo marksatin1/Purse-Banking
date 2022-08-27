@@ -1,17 +1,22 @@
+// User Agreement
+// Privacy Policy
+// Registration Success
+// Crypto Content
+
 export const UserAgreement = {
   title: 'User Agreement',
   subtitle: 'Ready to be a part of something bigger?',
   content: (
-    <div className='content'>
+    <>
       <p>
-        Take a look out that window. See the snow falling? The leaves blowing?
-        The cars driving down the street and that happy couple walking
-        arm-in-arm? We own that. We own all of that. A big, wide world out there
-        and we got our hands in all of it.
+        Take a look out that window. See that snow falling? See those leaves
+        blowing? See the cars driving down the street and that happy couple
+        walking arm-in-arm? We own that. We own all of that. A whole, wide world
+        out there and we got our hands on all of it.
       </p>
-      <h2 className='intertitle'>
+      <h3 className='intertitle'>
         Isn't it about time <b>YOU</b> joined us?
-      </h2>
+      </h3>
       <p>
         By agreeing to our terms you can join the billions of people who have
         cemented their place - however small! - in 6000 years of human history.
@@ -38,17 +43,17 @@ export const UserAgreement = {
         dividends owed to you because there won't ever be any!
       </p>
       <p>
-        <span className='centered'>
-          This decision is so easy it's practically already been made for you:
-        </span>
+        This decision is so easy it's practically already been made for you:
       </p>
-      <h1 className='endtitle'>Just let it all go, guy!!</h1>
-    </div>
+      <h3 className='endtitle'>Just let it all go, guy!!</h3>
+    </>
   ),
 };
 
-export const PrivacyPolicy = () => {
-  return (
+export const PrivacyPolicy = {
+  title: 'Statement On Your Privacy',
+  subtitle: 'Transparency Is Tantamount',
+  content: (
     <div className='privacy-policy'>
       <p>
         At Purse we believe that total transparency is key to the longevity of
@@ -58,8 +63,8 @@ export const PrivacyPolicy = () => {
         your data to all kinds of companies looking for a "competitive edge" in
         the "economic marketplace". Although I guess it's not a secret anymore.
         Whoops! Cat's out of the bag!
-        <br />
-        <br />
+      </p>
+      <p>
         To put it simply: every company lies to you. There's no such thing as 4
         out of 5 certified dentists! There's no hot woman on the other end of
         that 1-900 line! You don't even need to shower every day! That's just
@@ -78,8 +83,8 @@ export const PrivacyPolicy = () => {
         agreements being made, secret wars being waged, and it's all buried
         underneath ten tons of legalese you wouldn't be able to tell which way
         is up even if you <i>did</i> have the time to sift through it all.
-        <br />
-        <br />
+      </p>
+      <p>
         That's where we come in: at Purse we value (y)our money. So we've made
         it our mission to be <i>completely honest</i> about the ways that we lie
         to you. And we hope you'll remember that the next time you see a $8.95
@@ -87,52 +92,50 @@ export const PrivacyPolicy = () => {
         money out some other way. Which we will do. But in general we're trying
         to be less opaque about it. You know, because we're on this transparency
         kick. Hey, we're doing our best, alright!!
-        <br />
-        <br />
-        Think of all the hard work you've done just to scrape by.{' '}
       </p>
+      <p>Think of all the hard work you've done just to scrape by. </p>
       <h2 className='endtitle'>
-        Isn't it about time
-        <br />
-        you got the competitive
-        <br />
-        advantage
+        Isn't it about time you got the competitive advantage
         <b>
-          <i> YOU</i>
+          <i> YOU </i>
         </b>
-        <br />
         deserve?
       </h2>
     </div>
-  );
+  ),
 };
 
-export const RegistrationSuccess = (
-  <div className='content'>
-    <p>
-      Welcome to Purse! You've just made your first foray into the wonderful
-      world of an elite group of banking's most powerful movers and shakers.
-      We're proud to count history's most prominent players as members of our
-      little club. Ever heard of the Borgias? Or the Medici? How about the
-      Freemasons and the Illuminati? Bohemian Grove, anyone? You must be
-      familiar with Q. And now we have you!
-    </p>
-    <p>
-      Without the generous support of plebes like you Purse would not be able to
-      invest in the most exciting plans and technologies that have shaped, are
-      shaping, and will shape the course of human events. After all, money
-      doesn't just grow on trees, dummy! (Trust us: we've tried and failed at
-      that little game).
-    </p>
-    <p>
-      Take some time to get to know us. We have lots of helpful links and
-      information contained within this site. And as always we welcome your{' '}
-      feedback so be to sure to drop us a line with any questions or comments.
-      Otherwise get out there and start depositing that cash. Just remember:
-    </p>
-    <h2 className='endtitle'>Don't break the bank!! Ha ha ha!!</h2>
-  </div>
-);
+export const RegistrationSuccess = {
+  title: 'Welcome To The Fold',
+  subtitle: 'You are now part of 6000 years of human history',
+  content: (
+    <>
+      <p>
+        Welcome to Purse! You've just made your first foray into the wonderful
+        world of an elite group of banking's most powerful movers and shakers.
+        We're proud to count history's most prominent players as members of our
+        little club. Ever heard of the Borgias? Or the Medici? How about the
+        Freemasons and the Illuminati? Bohemian Grove, anyone? You must be
+        familiar with Q. And now we have you!
+      </p>
+      <p>
+        Without the generous support of plebes like you Purse would not be able
+        to invest in the most exciting plans and technologies that have shaped,
+        are shaping, and will shape the course of human events. After all, money
+        doesn't just grow on trees, dummy! (Trust us: we've tried and failed at
+        that little game).
+      </p>
+      <p>
+        Take some time to get to know us. We have lots of helpful links and
+        information contained within this site. And as always we welcome your{' '}
+        feedback so be to sure to drop us a line with any questions or comments.
+        Otherwise get out there and start depositing that cash. Just remember:
+      </p>
+      <h3 className='endtitle'>Don't break the bank!!</h3>
+      <h3 className='endtitle'>Ha ha ha!!</h3>
+    </>
+  ),
+};
 
 export const CryptoContent = (
   <>
