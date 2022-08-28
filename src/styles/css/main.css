@@ -94,7 +94,7 @@
   font-weight: bold;
 }
 
-.page-card--title, .find-branch--title, .crypto--title, .credit-offer--title, .contact-page--title {
+.page-card--title, .modal-shell--title, .find-branch--title, .crypto--title, .credit-offer--title, .contact-page--title {
   max-width: 80%;
   margin: 0 auto 1rem;
   color: rgb(0, 128, 0);
@@ -103,7 +103,7 @@
   font-weight: bold;
 }
 
-.page-card--subtitle, .find-branch--subtitle, .crypto--subtitle, .credit-offer--subtitle, .contact-page--subtitle {
+.page-card--subtitle, .modal-shell--subtitle, .find-branch--subtitle, .crypto--subtitle, .credit-offer--subtitle, .contact-page--subtitle {
   margin-bottom: 2rem;
   color: rgb(175, 116, 175);
   font-size: 1.9rem;
@@ -909,7 +909,7 @@ main {
 .home-header {
   position: relative;
   height: 43rem;
-  margin: 17rem 0 2.5rem;
+  margin: 15rem auto -12rem;
   overflow-x: hidden;
   background-color: rgba(137, 43, 226, 0.788);
   display: flex;
@@ -1215,6 +1215,11 @@ main {
   margin-right: 1rem;
   transform: scale(1.3);
 }
+.register--link {
+  color: rgb(0, 128, 0);
+  font-weight: bold;
+  cursor: pointer;
+}
 
 .loader {
   position: fixed;
@@ -1222,24 +1227,6 @@ main {
   height: 100vh;
   overflow: hidden;
   z-index: 3;
-}
-
-.access {
-  margin: -1rem 0 3rem;
-  text-align: center;
-}
-
-.access button {
-  margin: 2rem 0 -1rem;
-  padding: 0.75rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background-color: gold;
-  color: rgb(0, 128, 0);
-  border-radius: 3px;
-  box-shadow: 1px 1px black;
-  cursor: pointer;
 }
 
 @media only screen and (min-width: 992px) {
@@ -2288,53 +2275,96 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.9);
-  z-index: 3;
+  z-index: 6;
 }
 
-.modal {
+.modal-shell {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 20rem;
-  max-width: 40rem;
+  width: 80vw;
   height: 75vh;
-  background-color: rgb(129, 206, 206);
-  border: 1px solid black;
-  box-shadow: 0 0 2px black;
+  background-color: rgb(225, 193, 15);
+  border: 2px solid rgb(128, 0, 128);
+  border-radius: 5px;
+  box-shadow: 0 0 3px black;
   padding: 2rem;
   text-align: center;
   overflow: scroll;
-  z-index: 5;
+  z-index: 7;
 }
-
-.title {
-  color: green;
-  font-size: 4rem;
-  text-align: center;
-  text-decoration: underline;
+.modal-shell--title {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-shadow: 0 0 3px white;
+}
+.modal-shell--subtitle {
   font-family: "Times New Roman", Times, serif;
 }
-
-.subtitle {
-  color: purple;
-  font-size: 2.5rem;
-  margin: 0.5rem 0 2rem;
-  text-align: center;
-  font-style: italic;
-  font-family: "Times New Roman", Times, serif;
+.modal-shell--content {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 1.1rem;
+}
+.modal-shell--content .intertitle {
+  width: 80%;
+  margin: 2rem auto;
+  color: rgb(128, 0, 128);
+  text-shadow: 0 0 3px black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2rem;
+}
+.modal-shell--content .endtitle {
+  color: rgb(128, 0, 128);
+  text-shadow: 0 0 3px black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2.2rem;
+}
+.modal-shell--btn {
+  margin-top: 2rem;
+  padding: 0.75rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: gold;
+  color: rgb(0, 128, 0);
+  border-radius: 3px;
+  box-shadow: 1px 1px black;
+  cursor: pointer;
 }
 
-.content {
-  min-height: 15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+@media only screen and (min-width: 992px) {
+  .modal-shell {
+    width: 60vw;
+    padding: 3rem;
+  }
+  .modal-shell--title {
+    font-size: 2.8rem;
+  }
+  .modal-shell--subtitle {
+    font-size: 2.2rem;
+  }
+  .modal-shell--content {
+    font-size: 1.3rem;
+  }
+  .modal-shell--content .intertitle {
+    font-size: 2.3rem;
+  }
+  .modal-shell--content .endtitle {
+    font-size: 2.5rem;
+  }
+  .modal-shell--btn {
+    padding: 0.75rem 1.55rem;
+    font-size: 1.4rem;
+  }
 }
-
+@media only screen and (min-width: 1200px) {
+  .modal-shell {
+    width: 50vw;
+  }
+}
 .my-purse-btn {
   width: 30vw;
   margin: 0 auto;
@@ -2357,7 +2387,7 @@ main {
 .my-purse-btn:hover {
   animation: button-gleam-2 700ms forwards;
 }
-.my-purse-btn:hover--content-container {
+.my-purse-btn:hover .my-purse-btn--content-container {
   display: block;
   z-index: 3;
 }
@@ -2577,19 +2607,6 @@ main {
 .register-btn:hover {
   cursor: pointer;
   animation: button-gleam 700ms forwards;
-}
-
-.centered {
-  text-align: center;
-}
-
-.action {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: rgb(128, 0, 128);
-  text-decoration: none;
-}
-.action:hover {
-  color: rgb(0, 128, 0);
 }
 
 .legal-banner {

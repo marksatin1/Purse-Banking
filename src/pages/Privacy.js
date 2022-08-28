@@ -1,5 +1,3 @@
-import { PrivacyPolicy } from '../helpers/data/WrittenContent';
-
 import PageCard from '../components/UI/General/PageCard';
 
 const Privacy = () => {

@@ -12,6 +12,14 @@
     @include text-shadow(white);
   }
 
+  &--error {
+    margin: 0.25rem auto;
+    padding: 0.5rem;
+    background-color: lime;
+    font-weight: bold;
+    color: red;
+  }
+
   &--inputs {
     margin: 1rem 0;
 
@@ -72,42 +80,21 @@
       }
     }
   }
+
+  &--link {
+    color: $primary-alt-color;
+    font-weight: bold;
+    cursor: pointer;
+  }
 }
 
-// .loader {
-//   position: fixed;
-//   width: 100vw;
-//   height: 100vh;
-//   overflow: hidden;
-//   z-index: 3;
-// }
-
-// .form p {
-//   margin: 0.25rem auto;
-//   padding: 0.25rem 0;
-//   text-align: center;
-//   background-color: lime;
-//   font-weight: bold;
-//   color: red;
-// }
-
-// .access {
-//   margin: -1rem 0 3rem;
-//   text-align: center;
-// }
-
-// .access button {
-//   margin: 2rem 0 -1rem;
-//   padding: 0.75rem;
-//   font-family: $georgia-family;
-//   font-size: 1.2rem;
-//   font-weight: bold;
-//   background-color: gold;
-//   color: $primary-alt-color;
-//   border-radius: 3px;
-//   box-shadow: 1px 1px black;
-//   cursor: pointer;
-// }
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+}
 
 @media only screen and (min-width: 992px) {
   .register {
