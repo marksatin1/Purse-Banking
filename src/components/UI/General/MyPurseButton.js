@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { Nav } from 'react-bootstrap';
 
+import Nav from 'react-bootstrap/Nav';
 import AuthContext from '../../../context/auth-context';
 
 const MyPurseButton = () => {

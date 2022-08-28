@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import BlazeCard from '../../../assets/Dummy-Cards/BlazeCard.webp';
 import StarCard from '../../../assets/Dummy-Cards/StarCard.webp';
 import TravelCard from '../../../assets/Dummy-Cards/TravelCard.webp';
@@ -22,7 +20,7 @@ const CreditOfferCard = ({
 
   return (
     <div className='credit-offer-card'>
-      <Link to={pageUrl} className='d-flex flex-column align-items-center link'>
+      <a href={pageUrl} className='d-flex flex-column align-items-center link'>
         <p className='description'>{description}</p>
         <p>
           <img src={cardImage} alt={description} />
@@ -31,7 +29,7 @@ const CreditOfferCard = ({
         <p className='signing-number'>{signingNumber}</p>
         <p className='signing-bonus'>{signingBonus}</p>
         <p className='cashback-offer'>{cashbackOffer}</p>
-      </Link>
+      </a>
     </div>
   );
 };

@@ -1,3 +1,9 @@
+// usdFormatter
+// dateFormatter(value)
+// Sleep(durationMs)
+// convertRating(number)
+// importAll(directory)
+
 import ZeroStars from '../../assets/Star-Ratings/0_stars.png';
 import OneStar from '../../assets/Star-Ratings/1_star.png';
 import TwoStars from '../../assets/Star-Ratings/2_stars.png';
@@ -17,8 +23,8 @@ export const dateFormatter = (value) => {
   return formattedDate;
 };
 
-export const Sleep = (duration) => {
-  return new Promise((resolve) => setTimeout(resolve, duration));
+export const Sleep = (durationMs) => {
+  return new Promise((resolve) => setTimeout(resolve, durationMs));
 };
 
 export const convertRating = (number) => {

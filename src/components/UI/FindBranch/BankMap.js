@@ -1,11 +1,12 @@
 import { useState, memo } from 'react';
-import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+
 import { v4 as uuidv4 } from 'uuid';
 import { convertRating } from '../../../helpers/functions/MiscFunctions';
 
-import Moneybag from '../../../assets/Emojis/Moneybag.webp';
-
+import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import LocateMe from './LocateMe';
+
+import Moneybag from '../../../assets/Emojis/Moneybag.webp';
 
 const mapContainerStyle = {
   width: '100%',

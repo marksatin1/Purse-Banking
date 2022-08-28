@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import AuthContext from '../context/auth-context';
 
 import {
   isEmpty,
@@ -15,7 +16,6 @@ import {
   RegistrationSuccess,
 } from '../helpers/data/WrittenContent';
 
-import AuthContext from '../context/auth-context';
 import Modal from '../components/UI/General/Modal';
 import FormButton from '../components/UI/General/FormButton';
 

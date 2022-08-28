@@ -1,6 +1,9 @@
-import { Container, Row, Col } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 import { usdFormatter } from '../../../helpers/functions/MiscFunctions';
+
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const DepositsActivity = (props) => {
   return (

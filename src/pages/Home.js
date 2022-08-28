@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
 
 import { usdFormatter } from '../helpers/functions/MiscFunctions';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import BannerDetails from '../components/UI/Accounts/BannerDetails';
 import BumpTitle from '../components/UI/General/BumpTitle';
 

@@ -1,6 +1,8 @@
-import { Container, Row, Col } from 'react-bootstrap';
 import { PersonalityCardData } from '../../../helpers/data/PersonalityCardData';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import PersonalityCard from '../General/PersonalityCard';
 
 const PersonalityBanner = () => {

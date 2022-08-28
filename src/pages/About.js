@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import PageCard from '../components/UI/General/PageCard';
 import RegisterButton from '../components/UI/General/RegisterButton';
 

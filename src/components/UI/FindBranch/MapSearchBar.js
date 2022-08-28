@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from 'use-places-autocomplete';
+
 import {
   Combobox,
   ComboboxInput,
@@ -10,7 +12,6 @@ import {
   ComboboxOption,
 } from '@reach/combobox';
 import '@reach/combobox/styles.css';
-import { v4 as uuidv4 } from 'uuid';
 
 const MapSearchBar = ({ center, panTo }) => {
   const {

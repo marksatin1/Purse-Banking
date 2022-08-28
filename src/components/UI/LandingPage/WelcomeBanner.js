@@ -1,10 +1,12 @@
-import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import { CreditCardOffers } from '../../../helpers/data/CreditCardData';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Carousel from 'react-bootstrap/Carousel';
 import SignIn from './SignIn';
 import WelcomeBackplate from './WelcomeBackplate';
 import CreditOfferCard from '../General/CreditOfferCard';
-
-import { CreditCardOffers } from '../../../helpers/data/CreditCardData';
 
 const WelcomeBanner = () => {
   return (

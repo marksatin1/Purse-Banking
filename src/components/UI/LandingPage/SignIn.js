@@ -1,11 +1,12 @@
 import { useState, useContext, useEffect } from 'react';
-import { Form, Nav } from 'react-bootstrap';
 import AuthContext from '../../../context/auth-context';
 
-import { Sleep } from '../../../helpers/functions/MiscFunctions';
-import { fbSignInUrl } from '../../../api/endpoints';
 import { fbGetSecureToken } from '../../../helpers/functions/ApiFunctions';
+import { fbSignInUrl } from '../../../api/endpoints';
+import { Sleep } from '../../../helpers/functions/MiscFunctions';
 
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
 import FormButton from '../General/FormButton';
 import PasswordReset from './PasswordReset';
 

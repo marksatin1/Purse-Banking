@@ -1,8 +1,8 @@
-import { Container, Row, Col } from 'react-bootstrap';
-
-import ContactCard from '../components/UI/General/ContactCard';
-
 import { ContactData } from '../helpers/data/ContactData';
+
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import ContactCard from '../components/UI/General/ContactCard';
 
 const Contact = () => {
   return (

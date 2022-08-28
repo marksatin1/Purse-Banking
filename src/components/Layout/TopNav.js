@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Nav, NavDropdown } from 'react-bootstrap';
+
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import AmericanFlag from '../../assets/Emojis/US_Flag.webp';
 import CaymansFlag from '../../assets/Emojis/CI_Flag.webp';

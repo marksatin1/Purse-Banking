@@ -1,6 +1,7 @@
-import { Container, Nav } from 'react-bootstrap';
-
 import { importAll } from '../../helpers/functions/MiscFunctions';
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
 
 const Footer = () => {
   const images = importAll(require.context('../../assets/Social-Logos'));

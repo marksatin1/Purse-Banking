@@ -1,11 +1,15 @@
 import { useState, useRef, useCallback, lazy, Suspense } from 'react';
-import { useLoadScript } from '@react-google-maps/api';
-import { Container, Row, Col } from 'react-bootstrap';
+
 import { v4 as uuidv4 } from 'uuid';
 import { convertRating } from '../helpers/functions/MiscFunctions';
-import wtf_loader from '../assets/wtf_loader.gif';
+import { useLoadScript } from '@react-google-maps/api';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import LocationCard from '../components/UI/FindBranch/LocationCard';
+
+import wtf_loader from '../assets/wtf_loader.gif';
 
 const MapSearchBar = lazy(() =>
   import('../components/UI/FindBranch/MapSearchBar')

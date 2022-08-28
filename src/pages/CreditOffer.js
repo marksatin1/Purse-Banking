@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 import {
   starCardData,
   travelCardData,
@@ -10,9 +11,9 @@ import {
   convertRating,
 } from '../helpers/functions/MiscFunctions';
 
-import LegalMashup_40 from '../assets/LegalMashup_40.webp';
-
 import CommentCard from '../components/UI/General/CommentCard';
+
+import LegalMashup_40 from '../assets/LegalMashup_40.webp';
 
 const axios = require('axios');
 
@@ -115,9 +116,9 @@ const CreditOffer = () => {
           <i>{catchphrase}</i>
         </h3>
         <p className='body--description'>{description}</p>
-        <Link to='/contact' className='body--link'>
+        <a href='/contact' className='body--link'>
           <h3>Call Now To Enroll!</h3>
-        </Link>
+        </a>
       </div>
       <div className='divider' />
       <div className='legal'>

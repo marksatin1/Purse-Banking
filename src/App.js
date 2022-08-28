@@ -1,7 +1,7 @@
 import { useContext, lazy, Suspense } from 'react';
+import AuthContext from './context/auth-context';
 
 import { Route, Routes } from 'react-router-dom';
-import AuthContext from './context/auth-context';
 import Header from './components/Layout/Header';
 import LandingPage from './pages/LandingPage';
 import Home from './pages/Home';
