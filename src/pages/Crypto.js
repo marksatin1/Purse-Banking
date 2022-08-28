@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+
 import { usdFormatter } from '../helpers/functions/MiscFunctions';
 import { CryptoContent } from '../helpers/data/WrittenContent';
+import { coinCapUrl } from '../api/endpoints';
 
 const axios = require('axios');
 
@@ -10,7 +12,7 @@ const Crypto = () => {
 
   useEffect(() => {
     axios
-      .get('https://api.coincap.io/v2/assets?', {
+      .get(coinCapUrl, {
         params: {
           limit: 10,
         },

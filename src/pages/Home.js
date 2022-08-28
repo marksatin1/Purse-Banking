@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <>
-      <div className='header'>
+      <div className='home-header'>
         <BannerDetails />
       </div>
       <BumpTitle title='Welcome Home!' />

@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
-import { Nav } from 'react-bootstrap';
 
 import AuthContext from '../../../context/auth-context';
+import { Nav } from 'react-bootstrap';
 
 import Handbag_25 from '../../../assets/Emojis/Handbag_25.webp';
 
