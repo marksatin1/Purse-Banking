@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, lazy, Suspense } from 'react';
+import { useState, useRef, useCallback, Suspense } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 import { convertRating } from '../helpers/functions/MiscFunctions';
@@ -8,14 +8,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import LocationCard from '../components/UI/FindBranch/LocationCard';
+import BankMap from '../components/UI/FindBranch/BankMap';
+import MapSearchBar from '../components/UI/FindBranch/MapSearchBar';
 
 import wtf_loader from '../assets/wtf_loader.gif';
-
-const MapSearchBar = lazy(() =>
-  import('../components/UI/FindBranch/MapSearchBar')
-);
-
-const BankMap = lazy(() => import('../components/UI/FindBranch/BankMap'));
 
 const libraries = ['places'];
 const center = {

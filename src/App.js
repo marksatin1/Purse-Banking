@@ -1,9 +1,10 @@
-import { useContext, lazy, Suspense } from 'react';
+import { useContext, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import AuthContext from './context/auth-context';
 
-import { Route, Routes } from 'react-router-dom';
 import Header from './components/Layout/Header';
 import LandingPage from './pages/LandingPage';
+import Register from './pages/Register';
 import Home from './pages/Home';
 import Debits from './pages/Debits';
 import Credits from './pages/Credits';
@@ -26,8 +27,6 @@ import Footer from './components/Layout/Footer';
 import PageNotFound from './pages/PageNotFound';
 
 import wtf_loader from './assets/wtf_loader.gif';
-
-const Register = lazy(() => import('./pages/Register'));
 
 const App = () => {
   const authCtx = useContext(AuthContext);
