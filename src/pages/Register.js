@@ -1,25 +1,23 @@
-import { useState, useEffect, useContext, useRef } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { useState, useEffect, useContext } from 'react';
+
 import {
-  minMaxLength,
-  validateEmail,
-  userExists,
-  passwordStrength,
-  validateConfirmPassword,
+  isEmpty,
+  formErrorValidation,
 } from '../helpers/functions/FormValidationFunctions';
+import { fbSignUpUrl } from '../api/endpoints';
+import {
+  fbGetSecureToken,
+  fbPostUserData,
+} from '../helpers/functions/ApiFunctions';
 import {
   UserAgreement,
   PrivacyPolicy,
   RegistrationSuccess,
 } from '../helpers/data/WrittenContent';
-import AuthContext from '../context/auth-context';
 
+import AuthContext from '../context/auth-context';
 import Modal from '../components/UI/General/Modal';
 import FormButton from '../components/UI/General/FormButton';
-
-const axios = require('axios');
-
-let idToken, expirationTime;
 
 const initUser = {
   firstName: '',
@@ -32,22 +30,22 @@ const initUser = {
   agree: false,
 };
 
-const isEmpty = (value) => value.trim() === '';
-
 const Register = () => {
   const [formErrors, setFormErrors] = useState({});
   const [user, setUser] = useState(initUser);
   const [selected, setSelected] = useState();
   const [isDisabled, setIsDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
-  const [showUserAgreement, setShowUserAgreement] = useState(false);
+
+  const [creds, setCreds] = useState({});
+
+  const [regSuccess, setRegSuccess] = useState(false);
+  const [privacyPolicy, setPrivacyPolicy] = useState(false);
+  const [userAgreement, setUserAgreement] = useState(false);
 
   const authCtx = useContext(AuthContext);
-  const emailRef = useRef();
-  const passwordRef = useRef();
 
+  // Handle Register button 'disabled' attribute
   useEffect(() => {
     if (
       isEmpty(user.firstName) ||
@@ -60,199 +58,92 @@ const Register = () => {
     } else {
       setIsDisabled(false);
     }
-  }, [
-    user.firstName,
-    user.lastName,
-    user.email,
-    user.password,
-    user.confirmPassword,
-  ]);
+  }, [user]);
 
+  // Handle user feedback for form errors
   const inputChangeHandler = (event) => {
-    const timer = setTimeout(async () => {
+    const errTimer = setTimeout(async () => {
       const { name, value } = event.target;
 
-      switch (name) {
-        case 'firstName':
-          if (minMaxLength(value, 3)) {
-            formErrors[name] = 'More than 2 letters, bub!';
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, firstName: value });
-          break;
-        case 'lastName':
-          if (minMaxLength(value, 3)) {
-            formErrors[name] = 'MORE than 2 letters!';
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, lastName: value });
-          break;
-        case 'email':
-          if (!value || validateEmail(value)) {
-            formErrors[name] =
-              'Make it valid, buddy: @ sign, period - the works!';
-          } else {
-            userExists(value).then((result) => {
-              if (result) {
-                formErrors[name] =
-                  'Looks like SOMEBODY already registered with us';
-              } else {
-                delete formErrors[name];
-              }
-            });
-          }
-          setUser({ ...user, email: value });
-          break;
-        case 'password':
-          if (minMaxLength(value, 7)) {
-            formErrors[name] = 'I want a good, clean password here, folks';
-          } else if (passwordStrength(value)) {
-            formErrors[name] = 'WEAK!!';
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, password: value });
-          if (user.confirmPassword) {
-            validateConfirmPassword(value, user.confirmPassword, formErrors);
-          }
-          break;
-        case 'confirmPassword':
-          let valid = validateConfirmPassword(user.password, value, formErrors);
-          if (valid) {
-            setUser({ ...user, confirmPassword: value });
-          }
-          break;
-        case 'firstborn':
-          if (value === 'no') {
-            formErrors[name] = 'MUST CEDE RIGHTS TO FIRSTBORN!';
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, firstborn: value });
-          break;
-        case 'country':
-          setSelected(value);
-          if (value === 'Anywhere Else') {
-            formErrors[name] = "You're not from around here, are you?";
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, country: value });
-          break;
-        case 'agree':
-          if (!event.target.checked) {
-            formErrors[name] =
-              "Best be agreein' to them terms and conditions there, chap";
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, agree: event.target.checked });
-          break;
-        default:
-          break;
-      }
+      formErrorValidation(
+        name,
+        value,
+        formErrors,
+        user,
+        setUser,
+        event,
+        setSelected
+      );
     }, 800);
-    setFormErrors(formErrors);
+
+    setFormErrors((prev) => prev);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(errTimer);
     };
   };
 
   const hideModalHandler = () => {
-    setShowPrivacyPolicy(false);
-    setShowUserAgreement(false);
+    setPrivacyPolicy(false);
+    setUserAgreement(false);
   };
 
   const submitFormHandler = (event) => {
     event.preventDefault();
-
     setIsLoading(true);
 
-    const enteredEmail = emailRef.current.value;
-    const enteredPassword = passwordRef.current.value;
-
-    axios
-      .post('https://identitytoolkit.googleapis.com/v1/accounts:signUp', {
-        params: {
-          key: process.env.REACT_APP_FIREBASE_API_KEY,
-        },
-        body: JSON.stringify({
-          email: enteredEmail,
-          password: enteredPassword,
-          returnSecureToken: true,
-        }),
+    // Register & Authenticate new user in Firebase
+    fbGetSecureToken(fbSignUpUrl, user.email, user.password)
+      .then((signInCreds) => {
+        const { localId } = signInCreds;
+        fbPostUserData(user, localId);
+        setCreds(signInCreds);
       })
-      .then((data) => {
-        localStorage.setItem('displayName', user.firstName);
-        localStorage.setItem('userEmail', enteredEmail);
-        idToken = data.idToken;
-        expirationTime = new Date(
-          new Date().getTime() + +data.expiresIn * 1000
-        );
-
-        axios
-          .post(
-            'https://react-http-841ed-default-rtdb.firebaseio.com/users.json',
-            {
-              body: JSON.stringify({
-                firstName: user.firstName,
-                lastName: user.lastName,
-                email: user.email,
-                password: user.password,
-                firstborn:
-                  user.firstborn === 'yes'
-                    ? 'Ceded firstborn'
-                    : 'Did not cede firstborn',
-                country: user.country,
-                agree: user.agree ? 'Agreed' : 'Did not agree',
-              }),
-            }
-          )
-          .then(() => {
-            setIsLoading(false);
-            setShowModal(true);
-          });
+      .then(() => {
+        setRegSuccess(true);
       })
       .catch((error) => {
         console.error(error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
+  // Sign in to personal account
   const signInHandler = () => {
-    authCtx.signIn(idToken, expirationTime);
+    authCtx.signIn(creds);
   };
 
   return (
     <>
-      {showModal && (
+      {regSuccess && (
         <Modal
-          title='Welcome To The Fold'
-          subtitle='You are now part of 6000 years of human history'
-          content={RegistrationSuccess}
-          button={
-            <div className='access'>
-              <button onClick={signInHandler}>Access MyPurse</button>
-            </div>
-          }
+          title={RegistrationSuccess.title}
+          subtitle={RegistrationSuccess.subtitle}
+          content={RegistrationSuccess.content}
+          btnName='Enter'
+          btnHandler={signInHandler}
         />
       )}
-      {showUserAgreement && (
+      {userAgreement && (
         <Modal
           title={UserAgreement.title}
           subtitle={UserAgreement.subtitle}
           content={UserAgreement.content}
-          hideModal={hideModalHandler}
+          btnName='Exit'
+          btnHandler={hideModalHandler}
+          hideModalHandler={hideModalHandler}
         />
       )}
-      {showPrivacyPolicy && (
+      {privacyPolicy && (
         <Modal
           title={PrivacyPolicy.title}
           subtitle={PrivacyPolicy.subtitle}
           content={PrivacyPolicy.content}
-          hideModal={hideModalHandler}
+          btnName='Exit'
+          btnHandler={hideModalHandler}
+          hideModalHandler={hideModalHandler}
         />
       )}
       {!isLoading && (
@@ -267,7 +158,9 @@ const Register = () => {
               noValidate
               onChange={inputChangeHandler}
             />
-            {formErrors.firstName && <p>{formErrors.firstName}</p>}
+            {formErrors.firstName && (
+              <p className='register--error'>{formErrors.firstName}</p>
+            )}
             <input
               name='lastName'
               type='text'
@@ -276,25 +169,29 @@ const Register = () => {
               noValidate
               onChange={inputChangeHandler}
             />
-            {formErrors.lastName && <p>{formErrors.lastName}</p>}
+            {formErrors.lastName && (
+              <p className='register--error'>{formErrors.lastName}</p>
+            )}
             <input
               name='email'
               type='email'
               placeholder='Email'
               autoComplete='new-email'
               onChange={inputChangeHandler}
-              ref={emailRef}
             />
-            {formErrors.email && <p>{formErrors.email}</p>}
+            {formErrors.email && (
+              <p className='register--error'>{formErrors.email}</p>
+            )}
             <input
               name='password'
               type='password'
               placeholder='Password'
               autoComplete='new-password'
               onChange={inputChangeHandler}
-              ref={passwordRef}
             />
-            {formErrors.password && <p>{formErrors.password}</p>}
+            {formErrors.password && (
+              <p className='register--error'>{formErrors.password}</p>
+            )}
             <input
               name='confirmPassword'
               type='password'
@@ -303,7 +200,9 @@ const Register = () => {
               noValidate
               onChange={inputChangeHandler}
             />
-            {formErrors.confirmPassword && <p>{formErrors.confirmPassword}</p>}
+            {formErrors.confirmPassword && (
+              <p className='register--error'>{formErrors.confirmPassword}</p>
+            )}
           </div>
           <div className='options'>
             <p>Cede rights to your firstborn?</p>
@@ -336,7 +235,9 @@ const Register = () => {
               </div>
             </div>
           </div>
-          {formErrors.firstborn && <p>{formErrors.firstborn}</p>}
+          {formErrors.firstborn && (
+            <p className='register--error'>{formErrors.firstborn}</p>
+          )}
           <div className='options--select'>
             <label htmlFor='country'>
               <p className='register--text'>Country of Origin</p>
@@ -351,7 +252,9 @@ const Register = () => {
               <option value='Everywhere Else'>Everywhere Else</option>
             </select>
           </div>
-          {formErrors.country && <p>{formErrors.country}</p>}
+          {formErrors.country && (
+            <p className='register--error'>{formErrors.country}</p>
+          )}
           <div className='d-flex align-items-start options--checkbox'>
             <input
               name='agree'
@@ -364,21 +267,23 @@ const Register = () => {
               I certify that I am 18 years of age or older, and agree to the{' '}
               <span
                 className='register--link'
-                onClick={() => setShowUserAgreement(true)}
+                onClick={() => setUserAgreement(true)}
               >
                 User Agreement
               </span>{' '}
               and{' '}
               <span
                 className='register--link'
-                onClick={() => setShowPrivacyPolicy(true)}
+                onClick={() => setPrivacyPolicy(true)}
               >
                 Privacy Policy
               </span>
               .
             </p>
           </div>
-          {formErrors.agree && <p>{formErrors.agree}</p>}
+          {formErrors.agree && (
+            <p className='register--error'>{formErrors.agree}</p>
+          )}
           <FormButton type='submit' name='Register' disabled={isDisabled} />
         </form>
       )}
