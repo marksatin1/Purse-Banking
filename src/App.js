@@ -1,9 +1,7 @@
 import { useContext, lazy, Suspense } from 'react';
+
 import { Route, Routes } from 'react-router-dom';
 import AuthContext from './context/auth-context';
-
-import wtf_loader from './assets/wtf_loader.gif';
-
 import Header from './components/Layout/Header';
 import LandingPage from './pages/LandingPage';
 import Home from './pages/Home';
@@ -26,6 +24,8 @@ import Covid19Support from './pages/Covid19Support';
 import PatriotAct from './pages/PatriotAct';
 import Footer from './components/Layout/Footer';
 import PageNotFound from './pages/PageNotFound';
+
+import wtf_loader from './assets/wtf_loader.gif';
 
 const Register = lazy(() => import('./pages/Register'));
 
