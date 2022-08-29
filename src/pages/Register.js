@@ -7,8 +7,8 @@ import {
 } from '../helpers/functions/FormValidationFunctions';
 import { fbSignUpUrl } from '../api/endpoints';
 import {
-  fbGetSecureToken,
-  fbPostUserData,
+  getSecureToken,
+  postUserData,
 } from '../helpers/functions/ApiFunctions';
 import {
   UserAgreement,
@@ -93,10 +93,10 @@ const Register = () => {
     setIsLoading(true);
 
     // Register & Authenticate new user in Firebase
-    fbGetSecureToken(fbSignUpUrl, user.email, user.password)
+    getSecureToken(fbSignUpUrl, user.email, user.password)
       .then((signInCreds) => {
         const { localId } = signInCreds;
-        fbPostUserData(user, localId);
+        postUserData(user, localId);
         setCreds(signInCreds);
       })
       .then(() => {
