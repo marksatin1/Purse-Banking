@@ -1,41 +1,23 @@
 import { useNavigate } from 'react-router-dom';
 
 import { usdFormatter } from '../helpers/functions/MiscFunctions';
+import { accountsSummary } from '../helpers/data/BankingData';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import BannerDetails from '../components/UI/Accounts/BannerDetails';
+import Banner from '../components/UI/Accounts/Banner';
 import BumpTitle from '../components/UI/General/BumpTitle';
-
-const checkingData = {
-  begBalance: '32725.28',
-  pending: '17800.00',
-  availBalance: '14925.28',
-};
-
-const savingsData = {
-  begBalance: '64903.21',
-  pending: '2158.31',
-  availBalance: '62744.90',
-};
-
-const creditData = {
-  curBalance: '362.82',
-  availCredit: '29637.18',
-  paymentDueDate: 'January 9, 2022',
-};
 
 const Home = () => {
   const navigate = useNavigate();
+  const { checkingData, savingsData, creditData } = accountsSummary;
 
   return (
     <>
-      <div className='home-header'>
-        <BannerDetails />
-      </div>
-      <BumpTitle title='Welcome Home!' />
-      <Container className='layout'>
+      <Banner />
+      {/* <BumpTitle title='Welcome Home!' /> */}
+      <div className='home-h'>
         <div className='table-container'>
           <Row>
             <Col xs={10} sm={12} className='main-title'>
@@ -159,7 +141,7 @@ const Home = () => {
             </Col>
           </Row>
         </div>
-      </Container>
+      </div>
     </>
   );
 };

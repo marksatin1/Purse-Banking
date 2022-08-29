@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import BannerDetails from '../components/UI/Accounts/BannerDetails';
+import Banner from '../components/UI/Accounts/Banner';
 import BumpTitle from '../components/UI/General/BumpTitle';
 import CreditsSummary from '../components/UI/Accounts/CreditsSummary';
 import CreditsActivity from '../components/UI/Accounts/CreditsActivity';
@@ -108,7 +108,7 @@ const Credits = () => {
   return (
     <>
       <div className='header'>
-        <BannerDetails />
+        <Banner />
       </div>
       <BumpTitle title='Credit Cards' />
       <div className='layout'>

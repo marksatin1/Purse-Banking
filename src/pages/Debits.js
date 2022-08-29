@@ -1,25 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import BannerDetails from '../components/UI/Accounts/BannerDetails';
+import { accountsSummary } from '../helpers/data/BankingData';
+
+import Banner from '../components/UI/Accounts/Banner';
 import BumpTitle from '../components/UI/General/BumpTitle';
 import DebitsSummary from '../components/UI/Accounts/DebitsSummary';
 import DebitsActivity from '../components/UI/Accounts/DebitsActivity';
 import DebitsDetails from '../components/UI/Accounts/DebitsDetails';
 
-const checkingData = {
-  begBalance: '32725.28',
-  pending: '17800.00',
-  availBalance: '14925.28',
-};
-
-const savingsData = {
-  begBalance: '64903.21',
-  pending: '2158.31',
-  availBalance: '62744.90',
-};
-
 const Debits = () => {
+  const { checkingData, savingsData } = accountsSummary;
+
   const [accountData, setAccountData] = useState(checkingData);
   const [title, setTitle] = useState('');
   const [activity, setActivity] = useState([]);
@@ -177,7 +169,7 @@ const Debits = () => {
           setDetails(savingsDetails[0]);
         });
     }
-  }, [accountParam]);
+  }, [accountParam, checkingData, savingsData]);
 
   const selectHandler = (event) => {
     if (event.target.value === 'checking') {
@@ -214,7 +206,7 @@ const Debits = () => {
   return (
     <>
       <div className={headerClasses}>
-        <BannerDetails />
+        <Banner />
       </div>
       <BumpTitle title={title} />
       <div className='layout'>
