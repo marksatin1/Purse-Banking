@@ -6,116 +6,77 @@ import {
   travelCardData,
   blazeCardData,
 } from '../helpers/data/CreditCardData';
-import {
-  dateFormatter,
-  convertRating,
-} from '../helpers/functions/MiscFunctions';
+import { convertRating } from '../helpers/functions/MiscFunctions';
 
 import CommentCard from '../components/UI/General/CommentCard';
 
 import LegalMashup_40 from '../assets/LegalMashup_40.webp';
-
-const axios = require('axios');
+import { getDateSortedComments } from '../helpers/functions/ApiFunctions';
 
 const CreditOffer = () => {
+  const [cardData, setCardData] = useState({});
   const [comments, setComments] = useState([]);
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
   const cardParam = queryParams.get('card');
 
-  let title, cardImage, about, catchphrase, description;
-
-  switch (cardParam) {
-    case 'star-card':
-      title = starCardData.title;
-      about = starCardData.about;
-      cardImage = starCardData.cardImage;
-      catchphrase = starCardData.catchphrase;
-      description = starCardData.description;
-      break;
-    case 'travel-card':
-      title = travelCardData.title;
-      about = travelCardData.about;
-      cardImage = travelCardData.cardImage;
-      catchphrase = travelCardData.catchphrase;
-      description = travelCardData.description;
-      break;
-    case 'blaze-card':
-      title = blazeCardData.title;
-      about = blazeCardData.about;
-      cardImage = blazeCardData.cardImage;
-      catchphrase = blazeCardData.catchphrase;
-      description = blazeCardData.description;
-  }
-
+  // Load correct CC Offer page
   useEffect(() => {
-    const commentData = [];
+    switch (cardParam) {
+      case 'star-card':
+        setCardData({
+          title: starCardData.title,
+          about: starCardData.about,
+          cardImage: starCardData.cardImage,
+          catchphrase: starCardData.catchphrase,
+          description: starCardData.description,
+        });
+        break;
+      case 'travel-card':
+        setCardData({
+          title: travelCardData.title,
+          about: travelCardData.about,
+          cardImage: travelCardData.cardImage,
+          catchphrase: travelCardData.catchphrase,
+          description: travelCardData.description,
+        });
+        break;
+      default:
+        setCardData({
+          title: blazeCardData.title,
+          about: blazeCardData.about,
+          cardImage: blazeCardData.cardImage,
+          catchphrase: blazeCardData.catchphrase,
+          description: blazeCardData.description,
+        });
+    }
+  }, [cardParam]);
 
-    axios
-      .get('https://react-http-841ed-default-rtdb.firebaseio.com/comments.json')
-      .then((response) => {
-        const { data } = response;
-
-        for (const review in data) {
-          commentData.push({
-            username: data[review].username,
-            age: data[review].age,
-            location: data[review].location,
-            memberDate: data[review].memberDate,
-            overallStars: data[review].overallStars,
-            commentDate: data[review].commentDate,
-            title: data[review].title,
-            content: data[review].content,
-            onlineStars: data[review].onlineStars,
-            customerStars: data[review].customerStars,
-            accountStars: data[review].accountStars,
-            recommend: data[review].recommend,
-          });
-        }
-        commentData.sort(
-          (a, b) => new Date(b.commentDate) - new Date(a.commentDate)
-        );
-        setComments(commentData);
+  // Get user reviews (comments)
+  useEffect(() => {
+    getDateSortedComments()
+      .then((dateSortedComments) => {
+        setComments(dateSortedComments);
       })
       .catch((error) => {
         console.error(error.message);
       });
   }, []);
 
-  let commentCards = comments
-    ? comments.map((item) => (
-        <CommentCard
-          key={item.username}
-          username={item.username}
-          age={item.age}
-          location={item.location}
-          memberDate={item.memberDate}
-          overallStars={convertRating(item.overallStars)}
-          commentDate={dateFormatter(item.commentDate)}
-          title={item.title}
-          content={item.content}
-          onlineStars={convertRating(item.onlineStars)}
-          customerStars={convertRating(item.customerStars)}
-          accountStars={convertRating(item.accountStars)}
-          recommend={item.recommend}
-        />
-      ))
-    : null;
-
   return (
     <div className='credit-offer'>
-      <h1 className='credit-offer--title'>{title}</h1>
+      <h1 className='credit-offer--title'>{cardData.title}</h1>
       <h2 className='credit-offer--subtitle'>
         <i>Our Best Credit Card Bar None!</i>
       </h2>
-      <img src={cardImage} alt='Credit Card' />
+      <img src={cardData.cardImage} alt='Credit Card' />
       <div className='body'>
-        <h2 className='body--about'>{about}</h2>
+        <h2 className='body--about'>{cardData.about}</h2>
         <h3 className='body--catchphrase'>
-          <i>{catchphrase}</i>
+          <i>{cardData.catchphrase}</i>
         </h3>
-        <p className='body--description'>{description}</p>
+        <p className='body--description'>{cardData.description}</p>
         <a href='/contact' className='body--link'>
           <h3>Call Now To Enroll!</h3>
         </a>
@@ -131,7 +92,23 @@ const CreditOffer = () => {
       </div>
       <div className='reviews'>
         <h3 className='reviews--title'>See what the world is saying!</h3>
-        <div>{commentCards}</div>
+        {comments?.map((comment) => (
+          <CommentCard
+            key={comment.username}
+            username={comment.username}
+            age={comment.age}
+            location={comment.location}
+            memberDate={comment.memberDate}
+            overallStars={convertRating(comment.overallStars)}
+            commentDate={comment.commentDate}
+            title={comment.title}
+            content={comment.content}
+            onlineStars={convertRating(comment.onlineStars)}
+            customerStars={convertRating(comment.customerStars)}
+            accountStars={convertRating(comment.accountStars)}
+            recommend={comment.recommend}
+          />
+        ))}
       </div>
     </div>
   );

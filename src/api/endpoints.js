@@ -9,6 +9,9 @@ export const fbSignInUrl =
 export const fbUsersUrl =
   'https://react-http-841ed-default-rtdb.firebaseio.com/users.json';
 
+export const fbCommentsUrl =
+  'https://react-http-841ed-default-rtdb.firebaseio.com/comments.json';
+
 // CoinCap endpoint
 
 export const coinCapUrl = 'https://api.coincap.io/v2/assets';

@@ -5,7 +5,7 @@
 // calculateRemainingTime(expTimeSeconds)
 // retrieveStoredTokenData()
 
-import { fbUsersUrl } from '../../api/endpoints';
+import { fbUsersUrl, fbCommentsUrl } from '../../api/endpoints';
 
 const axios = require('axios');
 
@@ -71,6 +71,35 @@ export const fbGetCurrentUser = (localId) => {
 
     const crntUser = allUsers.filter((user) => user.localId === localId);
     return crntUser[0];
+  });
+};
+
+export const getDateSortedComments = () => {
+  return axios({
+    method: 'get',
+    url: fbCommentsUrl,
+  }).then((response) => {
+    const { data } = response;
+    const comments = [];
+
+    for (const comment in data) {
+      comments.push({
+        username: data[comment].username,
+        age: data[comment].age,
+        location: data[comment].location,
+        memberDate: data[comment].memberDate,
+        overallStars: data[comment].overallStars,
+        commentDate: data[comment].commentDate,
+        title: data[comment].title,
+        content: data[comment].content,
+        onlineStars: data[comment].onlineStars,
+        customerStars: data[comment].customerStars,
+        accountStars: data[comment].accountStars,
+        recommend: data[comment].recommend,
+      });
+    }
+    comments.sort((a, b) => new Date(b.commentDate) - new Date(a.commentDate));
+    return comments;
   });
 };
 
