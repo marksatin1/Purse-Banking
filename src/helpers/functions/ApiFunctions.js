@@ -1,15 +1,26 @@
-// fbGetSecureToken(url, email, password)
-// fbPostUserData(user, localId)
-// fbGetCurrentUserData(localId)
+// getSecureToken(url, email, password)
+// postUserData(user, localId)
+// getCurrentUserData(localId)
+// getDebitsData(url)
+// getCreditsData(url)
 // tokenExpiresAt(expTimeSeconds)
 // calculateRemainingTime(expTimeSeconds)
 // retrieveStoredTokenData()
 
-import { fbUsersUrl, fbCommentsUrl } from '../../api/endpoints';
+import {
+  fbUsersUrl,
+  fbCommentsUrl,
+  fbCheckingActUrl,
+  fbSavingsActUrl,
+  fbCheckingDetUrl,
+  fbSavingsDetUrl,
+  fbCreditsActUrl,
+  fbCreditsDetUrl,
+} from '../../api/endpoints';
 
 const axios = require('axios');
 
-export const fbGetSecureToken = (url, email, password) => {
+export const getSecureToken = (url, email, password) => {
   return axios({
     method: 'post',
     url,
@@ -30,7 +41,7 @@ export const fbGetSecureToken = (url, email, password) => {
   });
 };
 
-export const fbPostUserData = (user, localId) => {
+export const postUserData = (user, localId) => {
   axios({
     method: 'post',
     url: fbUsersUrl,
@@ -48,7 +59,7 @@ export const fbPostUserData = (user, localId) => {
   });
 };
 
-export const fbGetCurrentUser = (localId) => {
+export const getCurrentUser = (localId) => {
   // must return axios (=== returing it as a Promise)
   // in order to chain .then() statements to it
   // outside of fbGetUserData function
@@ -100,6 +111,84 @@ export const getDateSortedComments = () => {
     }
     comments.sort((a, b) => new Date(b.commentDate) - new Date(a.commentDate));
     return comments;
+  });
+};
+
+export const getDebitsData = (url) => {
+  return axios.get(url).then((response) => {
+    const { data } = response;
+    if (url === fbCheckingActUrl || url === fbSavingsActUrl) {
+      const debitsActivity = [];
+
+      for (let transaction in data) {
+        debitsActivity.push({
+          date: data[transaction].date,
+          type: data[transaction].type,
+          description: data[transaction].description,
+          amount: data[transaction].amount,
+          balance: data[transaction].balance,
+        });
+      }
+
+      debitsActivity.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      return debitsActivity;
+    } else if (url === fbCheckingDetUrl || url === fbSavingsDetUrl) {
+      const debitsDetails = [];
+
+      for (let detail in data) {
+        debitsDetails.push({
+          accountName: data[detail].accountName,
+          accountNumber: data[detail].accountNumber,
+          routeNumber: data[detail].routeNumber,
+          interestRate: data[detail].interestRate,
+          accruedInterest: data[detail].accruedInterest,
+          prevStatementDate: data[detail].prevStatementDate,
+          effectiveDate: data[detail].effectiveDate,
+        });
+      }
+
+      return debitsDetails[0];
+    }
+  });
+};
+
+export const getCreditsData = (url) => {
+  return axios.get(url).then((response) => {
+    const { data } = response;
+    if (url === fbCreditsActUrl) {
+      const creditsActivity = [];
+
+      for (let transaction in data) {
+        creditsActivity.push({
+          date: data[transaction].date,
+          description: data[transaction].description,
+          amount: data[transaction].amount,
+        });
+      }
+
+      creditsActivity.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      return creditsActivity;
+    } else if (url === fbCreditsDetUrl) {
+      const creditsDetails = [];
+
+      for (let detail in data) {
+        creditsDetails.push({
+          accountName: data[detail].accountName,
+          accountNumber: data[detail].accountNumber,
+          creditLimit: data[detail].creditLimit,
+          prevStatementBalance: data[detail].prevStatementBalance,
+          prevStatementDate: data[detail].prevStatementDate,
+          lastPaymentAmount: data[detail].lastPaymentAmount,
+          lastPaymentReceived: data[detail].lastPaymentReceived,
+          interestRate: data[detail].interestRate,
+          effectiveDate: data[detail].effectiveDate,
+        });
+      }
+
+      return creditsDetails[0];
+    }
   });
 };
 
