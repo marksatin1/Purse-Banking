@@ -16,10 +16,12 @@ export const usdFormatter = new Intl.NumberFormat('en-US', {
   currency: 'USD',
 });
 
-export const dateFormatter = (value) => {
+export const dateFormatter = (unicodeDate) => {
+  let unformattedDate = unicodeDate ? unicodeDate : new Date();
   const formattedDate = new Intl.DateTimeFormat('en-US', {
     dateStyle: 'long',
-  }).format(new Date(value));
+  }).format(unformattedDate);
+
   return formattedDate;
 };
 
