@@ -5,6 +5,7 @@
   float: right;
   padding: 0.5rem;
   background-color: $ribbon-color;
+  box-shadow: -1px 2px 4px $secondary-alt-color;
   z-index: 2;
 
   &--name {
