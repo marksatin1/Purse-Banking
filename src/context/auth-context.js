@@ -2,7 +2,7 @@ import { createContext, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
-  fbGetCurrentUser,
+  getCurrentUser,
   calculateRemainingTime,
 } from '../helpers/functions/ApiFunctions';
 
@@ -29,7 +29,7 @@ export const AuthContextProvider = ({ children }) => {
     setIdTokenData(signInCreds);
 
     // Get current session user's personal data from fbUsersUrl
-    fbGetCurrentUser(localId).then((crntUser) => {
+    getCurrentUser(localId).then((crntUser) => {
       const userName = crntUser.firstName + ' ' + crntUser.lastName;
       const userEmail = crntUser.email;
       const userPassword = crntUser.password;
@@ -59,7 +59,7 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     navigate('/', { replace: true });
-  }, [navigate]);
+  }, [sessionTimer, navigate]);
 
   const context = {
     idToken: idTokenData.idToken,
