@@ -1,4 +1,4 @@
-// usdFormatter
+// usdFormatter(value)
 // dateFormatter(value)
 // Sleep(durationMs)
 // convertRating(number)
@@ -11,10 +11,11 @@ import ThreeStars from '../../assets/Star-Ratings/3_stars.png';
 import FourStars from '../../assets/Star-Ratings/4_stars.png';
 import FiveStars from '../../assets/Star-Ratings/5_stars.png';
 
-export const usdFormatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-});
+export const usdFormatter = (value) =>
+  new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(value);
 
 export const dateFormatter = (unicodeDate) => {
   let unformattedDate = unicodeDate ? unicodeDate : new Date();
