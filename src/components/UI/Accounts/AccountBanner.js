@@ -1,7 +1,7 @@
 import BannerRibbon from './BannerRibbon';
 
-const Banner = () => {
+const AccountBanner = () => {
   return <div className='banner'>{<BannerRibbon />}</div>;
 };
 
-export default Banner;
+export default AccountBanner;
