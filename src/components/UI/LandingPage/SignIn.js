@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../../context/auth-context';
 
-import { fbGetSecureToken } from '../../../helpers/functions/ApiFunctions';
+import { getSecureToken } from '../../../helpers/functions/ApiFunctions';
 import { fbSignInUrl } from '../../../api/endpoints';
 import { Sleep } from '../../../helpers/functions/MiscFunctions';
 
@@ -42,7 +42,7 @@ const SignIn = () => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    fbGetSecureToken(fbSignInUrl, email, password)
+    getSecureToken(fbSignInUrl, email, password)
       .then((signInCreds) => {
         authCtx.signIn(signInCreds);
       })
