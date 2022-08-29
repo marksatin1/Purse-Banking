@@ -1,0 +1,45 @@
+.banner {
+  position: relative;
+  height: 20rem;
+  margin-top: 12rem;
+  background-color: $accent-color;
+  z-index: -1;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -5rem;
+    right: 0;
+    content: '';
+    background-image: url(../../assets/banners/KKK_Cops.webp);
+    opacity: 0.6;
+    background-size: cover;
+    background-position: top 40% center;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .banner {
+    margin-top: 15rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .banner {
+    height: 30rem;
+    margin-top: 17rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .banner {
+    height: 35rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .banner {
+    height: 40rem;
+  }
+}

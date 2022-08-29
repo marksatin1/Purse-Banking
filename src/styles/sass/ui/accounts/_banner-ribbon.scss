@@ -1,0 +1,49 @@
+.banner-ribbon {
+  position: relative;
+  top: 2.5rem;
+  width: 70vw;
+  float: right;
+  padding: 0.5rem;
+  background-color: $ribbon-color;
+  z-index: 2;
+
+  &--name {
+    margin-bottom: 0.2rem;
+    font-size: 1.8rem;
+    color: gold;
+    @include text-shadow(white);
+  }
+
+  &--date {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .banner-ribbon {
+    top: 3rem;
+    padding: 1rem;
+
+    &--name {
+      font-size: 2.1rem;
+    }
+
+    &--date {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .banner-ribbon {
+    &--name {
+      font-size: 2.3rem;
+    }
+
+    &--date {
+      font-size: 1.7rem;
+    }
+  }
+}
