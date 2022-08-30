@@ -1,56 +1,38 @@
-import { usdFormatter } from '../../../helpers/functions/MiscFunctions';
+import Table from 'react-bootstrap/Table';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-const DepositsDetails = ({ details }) => {
+const DebitsDetails = ({ details }) => {
   return (
-    <Container className='table'>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Account Name</b>
-        </Col>
-        <Col>{details.accountName}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Account Number</b>
-        </Col>
-        <Col>{details.accountNumber}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Routing Number</b>
-        </Col>
-        <Col>{details.routeNumber}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Interest Rate</b>
-        </Col>
-        <Col>{details.interestRate.toFixed(2)}%</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Accrued Interest YTD</b>
-        </Col>
-        <Col>{usdFormatter.format(details.accruedInterest)}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Previous Statement Date</b>
-        </Col>
-        <Col>{details.prevStatementDate}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Effective Date</b>
-        </Col>
-        <Col>{details.effectiveDate}</Col>
-      </Row>
-    </Container>
+    <Table borderless className='credits-details'>
+      <tr>
+        <th>Account Name</th>
+        <td>{details.accountName}</td>
+      </tr>
+      <tr>
+        <th>Account Number</th>
+        <td>{details.accountNumber}</td>
+      </tr>
+      <tr>
+        <th>Routing Number</th>
+        <td>{details.routeNumber}</td>
+      </tr>
+      <tr>
+        <th>Interest Rate</th>
+        <td>{details.interestRate}&#x25;</td>
+      </tr>
+      <tr>
+        <th>Accrued Interest YTD</th>
+        <td>{details.accruedInterest}</td>
+      </tr>
+      <tr>
+        <th>Previous Statement Date</th>
+        <td>{details.prevStatementDate}</td>
+      </tr>
+      <tr>
+        <th>Effective Date</th>
+        <td>{details.effectiveDate}</td>
+      </tr>
+    </Table>
   );
 };
 
-export default DepositsDetails;
+export default DebitsDetails;

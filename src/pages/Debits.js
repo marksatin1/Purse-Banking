@@ -10,26 +10,28 @@ import {
 import { getDebitsData } from '../helpers/functions/ApiFunctions';
 import { accountsSummary } from '../helpers/data/BankingData';
 
+import Container from 'react-bootstrap/Container';
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
 import AccountBanner from '../components/UI/Accounts/AccountBanner';
 import BumpTitle from '../components/UI/General/BumpTitle';
 import DebitsSummary from '../components/UI/Accounts/DebitsSummary';
 import DebitsActivity from '../components/UI/Accounts/DebitsActivity';
 import DebitsDetails from '../components/UI/Accounts/DebitsDetails';
 
-const { checkingData, savingsData } = accountsSummary;
-
 const Debits = () => {
   const [title, setTitle] = useState('');
-  const [accountData, setAccountData] = useState(checkingData);
+  const [accountData, setAccountData] = useState({});
   const [activity, setActivity] = useState([]);
   const [details, setDetails] = useState([]);
-  const [showActivity, setShowActivity] = useState(true);
-  const [showDetails, setShowDetails] = useState(false);
+  const [tabsClass, setTabsClass] = useState('');
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const accountParam = queryParams.get('account');
   const navigate = useNavigate();
+
+  const { checkingData, savingsData } = accountsSummary;
 
   useEffect(() => {
     if (accountParam === 'checking') {
@@ -69,7 +71,7 @@ const Debits = () => {
       // Get savings details
       getDebitsData(fbSavingsDetUrl)
         .then((savingsDetails) => {
-          setDetails(savingsDetails[0]);
+          setDetails(savingsDetails);
         })
         .catch((error) => {
           console.log(error);
@@ -87,63 +89,38 @@ const Debits = () => {
     }
   };
 
-  const activityHandler = () => {
-    if (!showActivity) {
-      setShowDetails(false);
-      setShowActivity(true);
+  // Controlled Tabs component to handle tabs width
+  const tabsClassHandler = (key) => {
+    if (key === 'debit-details') {
+      setTabsClass('tabs-width-short');
+    } else {
+      setTabsClass('');
     }
   };
-
-  const detailsHandler = () => {
-    if (!showDetails) {
-      setShowActivity(false);
-      setShowDetails(true);
-    }
-  };
-
-  const headerClasses =
-    accountParam === 'checking'
-      ? ' header header__checking'
-      : 'header header__savings';
-
-  const activityClasses = showActivity
-    ? 'button selected'
-    : 'button unselected';
-  const detailsClasses = showDetails ? 'button selected' : 'button unselected';
 
   return (
     <>
-      <div className={headerClasses}>
-        <AccountBanner />
-      </div>
-      <BumpTitle title={title} />
-      <div className='layout'>
-        <DebitsSummary
-          accountData={accountData}
-          accountParam={accountParam}
-          selectHandler={selectHandler}
-        />
-        <div className='account-data'>
-          <button
-            type='button'
-            className={activityClasses}
-            onClick={activityHandler}
-          >
-            Activity
-          </button>
-          <button
-            type='button'
-            className={detailsClasses}
-            onClick={detailsHandler}
-          >
-            Details
-          </button>
-          <div className='green-line'>
-            {showActivity && <DebitsActivity activity={activity} />}
-            {showDetails && <DebitsDetails details={details} />}
-          </div>
-        </div>
-      </div>
+      <AccountBanner />
+      {/* <BumpTitle title={title} /> */}
+      <DebitsSummary
+        accountData={accountData}
+        accountParam={accountParam}
+        selectHandler={selectHandler}
+      />
+      <Container className='debits'>
+        <Tabs
+          id='debits-tabs'
+          className={tabsClass}
+          onSelect={tabsClassHandler}
+        >
+          <Tab eventKey='debit-activity' title='Activity'>
+            <DebitsActivity activity={activity} />
+          </Tab>
+          <Tab eventKey='debit-details' title='Details'>
+            <DebitsDetails details={details} />
+          </Tab>
+        </Tabs>
+      </Container>
     </>
   );
 };

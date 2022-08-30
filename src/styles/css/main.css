@@ -109,7 +109,7 @@
   font-size: 1.9rem;
 }
 
-.debits-details.table, .credits-details.table, .credits-activity.table {
+.debits-details.table, .debits-activity.table, .credits-details.table, .credits-activity.table {
   max-width: 80vw;
   margin: 0 auto;
   background-color: gold;
@@ -708,104 +708,54 @@ main {
   color: rgb(128, 0, 128);
 }
 
-.debits-header {
-  position: relative;
-  height: 43rem;
-  margin: 17rem 0 2.5rem;
-  overflow-x: hidden;
-  background-color: rgba(137, 43, 226, 0.788);
-  display: flex;
-  justify-content: flex-end;
-  z-index: -1;
+.debits {
+  margin: 5rem auto -12rem;
 }
-
-.debits-header__checking::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -5rem;
-  overflow: hidden;
-  right: 0;
-  content: "";
-  opacity: 0.75;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 10% 40%;
+.debits .tabs-width-short {
+  max-width: 80vw;
 }
-
-.debits-header__savings::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -5rem;
-  overflow: hidden;
-  right: 0;
-  content: "";
-  opacity: 0.75;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top 30% center;
+.debits .nav-tabs {
+  margin: 0 auto;
+  border-bottom: 3px solid rgb(0, 128, 0);
 }
-
-.layout {
-  overflow: hidden;
-}
-
-.account-data {
-  position: relative;
-  width: 75%;
-  margin: 0 auto -8rem;
-  padding: 1rem;
-}
-
-.button {
-  position: relative;
-  top: 0.25rem;
-  left: 3%;
-  padding: 0.8rem;
-  border: 3px solid purple;
+.debits .nav-tabs .nav-item {
+  padding: 0.25rem;
+  border: 3px solid rgb(0, 128, 0);
   border-bottom: 0;
-  border-radius: 3px;
-  font-size: 2rem;
+  border-radius: 5px 5px 0 0;
+  font-size: 1.1rem;
+}
+.debits .nav-tabs .nav-item:hover {
+  background-color: gold;
   cursor: pointer;
 }
-
-.button:hover {
+.debits .nav-tabs .nav-item:hover button {
   background-color: gold;
-  color: purple;
+  color: white;
 }
-
-.selected {
+.debits .nav-tabs .nav-item button {
+  color: black;
+  border: none;
+}
+.debits .nav-tabs .nav-item .nav-link.active {
+  margin: -0.25rem;
+  border: 0;
   background-color: gold;
-  color: purple;
-  border: 3px solid green;
   border-bottom: 0;
-  z-index: 2;
+  color: rgb(128, 0, 128);
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
-.unselected {
-  background-color: white;
-}
-
-.green-line {
-  position: relative;
-  border-top: 4px solid green;
-  border-radius: 6px;
-  z-index: 1;
-}
-
-@media only screen and (max-width: 1030px) {
-  .debits-header {
-    margin-top: 15.5rem;
+@media only screen and (min-width: 992px) {
+  .debits .nav-tabs {
+    max-width: 60vw;
   }
-
-  .button {
-    font-size: 1.3rem;
+  .debits .nav-tabs .nav-item {
+    font-size: 1.4rem;
   }
-}
-@media only screen and (max-width: 768px) {
-  .debits-header {
-    margin-top: 3rem;
+  .debits .nav-tabs .nav-item .nav-link.active {
+    font-size: 1.8rem;
   }
 }
 .find-branch {
@@ -1353,10 +1303,46 @@ main {
     padding-left: 2.5rem;
   }
 }
-.debits-details td {
-  margin: 0.5rem;
+.debits-activity.table td {
+  padding: 1rem;
 }
 
+@media only screen and (min-width: 768px) {
+  .debits-activity.table th {
+    font-size: 1.4rem;
+  }
+  .debits-activity.table td {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .debits-activity.table {
+    max-width: 60vw;
+  }
+  .debits-activity.table th {
+    font-size: 1.4rem;
+  }
+  .debits-activity.table td {
+    font-size: 1.2rem;
+  }
+}
+.debits-details.table th {
+  padding: 1rem 0 1rem 1rem;
+}
+.debits-details.table td {
+  padding: 1rem 1rem 1rem 0;
+  color: black;
+}
+
+@media only screen and (min-width: 992px) {
+  .debits-details.table {
+    max-width: 60vw;
+    font-size: 1.3rem;
+  }
+  .debits-details.table th {
+    padding-left: 2.5rem;
+  }
+}
 .spotted {
   text-align: center;
   position: relative;

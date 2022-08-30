@@ -9,17 +9,11 @@ export const accountsSummary = {
     pending: '2158.31',
     availBalance: '62744.90',
   },
-  creditData: {
-    curBalance: '362.82',
+  creditsData: {
+    currentBalance: '362.82',
+    rewardsBalance: '4,923',
     availCredit: '29637.18',
+    minAmountDue: '100.00',
     paymentDueDate: 'January 9, 2022',
   },
-};
-
-export const creditsSummary = {
-  currentBalance: '362.82',
-  rewardsBalance: '4,923',
-  availCredit: '29637.18',
-  minAmountDue: '100.00',
-  paymentDueDate: 'January 9, 2022',
 };

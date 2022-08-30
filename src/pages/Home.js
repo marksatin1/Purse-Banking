@@ -6,16 +6,17 @@ import { accountsSummary } from '../helpers/data/BankingData';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Banner from '../components/UI/Accounts/Banner';
+import AccountBanner from '../components/UI/Accounts/AccountBanner';
 import BumpTitle from '../components/UI/General/BumpTitle';
+
+const { checkingData, savingsData, creditsData } = accountsSummary;
 
 const Home = () => {
   const navigate = useNavigate();
-  const { checkingData, savingsData, creditData } = accountsSummary;
 
   return (
     <>
-      <Banner />
+      <AccountBanner />
       {/* <BumpTitle title='Welcome Home!' /> */}
       <div className='home-h'>
         <div className='table-container'>
@@ -44,13 +45,13 @@ const Home = () => {
                   <b className='account'>Purse Convenience Checking</b>
                 </Col>
                 <Col xs={6} md={3} className='green'>
-                  {usdFormatter.format(checkingData.availBalance)}
+                  {usdFormatter(checkingData.availBalance)}
                 </Col>
                 <Col md={3} className='d-none d-md-block'>
-                  {usdFormatter.format(checkingData.begBalance)}
+                  {usdFormatter(checkingData.begBalance)}
                 </Col>
                 <Col md={3} className='d-none d-md-block'>
-                  {usdFormatter.format(checkingData.pending)}
+                  {usdFormatter(checkingData.pending)}
                 </Col>
               </Row>
               <Row
@@ -63,13 +64,13 @@ const Home = () => {
                   <b className='account'>Purse Spectacular Savings</b>
                 </Col>
                 <Col xs={6} md={3} className='green'>
-                  {usdFormatter.format(savingsData.availBalance)}
+                  {usdFormatter(savingsData.availBalance)}
                 </Col>
                 <Col md={3} className='d-none d-md-block'>
-                  {usdFormatter.format(savingsData.begBalance)}
+                  {usdFormatter(savingsData.begBalance)}
                 </Col>
                 <Col md={3} className='d-none d-md-block'>
-                  {usdFormatter.format(savingsData.pending)}
+                  {usdFormatter(savingsData.pending)}
                 </Col>
               </Row>
               <Row>
@@ -82,7 +83,7 @@ const Home = () => {
                   <b className='account'>Total</b>
                 </Col>
                 <Col xs={6} md={3} className='green'>
-                  {usdFormatter.format(
+                  {usdFormatter(
                     +checkingData.availBalance + +savingsData.availBalance
                   )}
                 </Col>
@@ -112,13 +113,13 @@ const Home = () => {
                   <b className='account'>Purse Infinity Cash Card</b>
                 </Col>
                 <Col xs={6} md={3} className='red'>
-                  {usdFormatter.format(creditData.curBalance)}
+                  {usdFormatter(creditsData.curBalance)}
                 </Col>
                 <Col md={3} className='d-none d-md-block'>
-                  {usdFormatter.format(creditData.availCredit)}
+                  {usdFormatter(creditsData.availCredit)}
                 </Col>
                 <Col md={3} className='d-none d-md-block'>
-                  {creditData.paymentDueDate}
+                  {creditsData.paymentDueDate}
                 </Col>
               </Row>
               <Row>
@@ -135,7 +136,7 @@ const Home = () => {
                   <b>Total</b>
                 </Col>
                 <Col xs={6} md={3} className='red'>
-                  {usdFormatter.format(creditData.curBalance)}
+                  {usdFormatter(creditsData.curBalance)}
                 </Col>
               </Row>
             </Col>

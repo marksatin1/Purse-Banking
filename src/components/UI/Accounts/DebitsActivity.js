@@ -1,45 +1,33 @@
 import { v4 as uuidv4 } from 'uuid';
 import { usdFormatter } from '../../../helpers/functions/MiscFunctions';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Table from 'react-bootstrap/Table';
 
-const DepositsActivity = (props) => {
+const DebitsActivity = ({ activity }) => {
+  const debitTransactions = activity.map((transaction) => (
+    <tr key={uuidv4()}>
+      <td>{transaction.date}</td>
+      <td>{transaction.type}</td>
+      <td>{transaction.description}</td>
+      <td>{usdFormatter(transaction.amount)}</td>
+      <td>{usdFormatter(transaction.balance)}</td>
+    </tr>
+  ));
+
   return (
-    <>
-      <Container>
-        {/* <div>
-          <Row>
-            <Col xs={1}>
-              <b>Date</b>
-            </Col>
-            <Col xs={1}>
-              <b>Type</b>
-            </Col>
-            <Col xs={5}>
-              <b>Description</b>
-            </Col>
-            <Col xs={1}>
-              <b>Amount</b>
-            </Col>
-            <Col xs={1}>
-              <b>Balance</b>
-            </Col>
-          </Row>
-          {props.activity.map((item) => (
-            <Row key={uuidv4()}>
-              <Col xs={1}>{item.date}</Col>
-              <Col xs={1}>{item.type}</Col>
-              <Col xs={5}>{item.description}</Col>
-              <Col xs={1}>{usdFormatter.format(item.amount)}</Col>
-              <Col xs={1}>{usdFormatter.format(item.balance)}</Col>
-            </Row>
-          ))}
-        </div> */}
-      </Container>
-    </>
+    <Table responsive borderless striped className='debits-activity'>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody>{debitTransactions}</tbody>
+    </Table>
   );
 };
 
-export default DepositsActivity;
+export default DebitsActivity;

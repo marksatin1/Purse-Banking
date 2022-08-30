@@ -1,0 +1,62 @@
+.debits {
+  margin: 5rem auto -12rem;
+
+  .tabs-width-short {
+    max-width: 80vw;
+  }
+
+  // Target underlying classes that BS uses
+  .nav-tabs {
+    margin: 0 auto;
+    border-bottom: 3px solid $primary-alt-color;
+
+    .nav-item {
+      padding: 0.25rem;
+      border: 3px solid $primary-alt-color;
+      border-bottom: 0;
+      border-radius: 5px 5px 0 0;
+      font-size: 1.1rem;
+
+      &:hover {
+        background-color: gold;
+        cursor: pointer;
+
+        & button {
+          background-color: gold;
+          color: white;
+        }
+      }
+
+      button {
+        color: black;
+        border: none;
+      }
+
+      .nav-link.active {
+        margin: -0.25rem;
+        border: 0;
+        background-color: gold;
+        border-bottom: 0;
+        color: $accent-alt-color;
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .debits {
+    .nav-tabs {
+      max-width: 60vw;
+
+      .nav-item {
+        font-size: 1.4rem;
+
+        .nav-link.active {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}

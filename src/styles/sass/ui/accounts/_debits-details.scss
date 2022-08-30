@@ -1,34 +1,23 @@
-.table {
-  width: 96%;
-  margin-left: 2%;
-  margin-bottom: 18rem;
-  padding: 2rem;
-  background-color: gold;
-  box-shadow: 0 0 5px black;
-  text-align: left;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 1.5rem;
-}
+.debits-details.table {
+  @extend %account-table;
 
-.table * {
-  margin: 0.5rem 0;
-}
+  & th {
+    padding: 1rem 0 1rem 1rem;
+  }
 
-.trow {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-@media only screen and (max-width: 992px) {
-  .table {
-    font-size: 1.2rem;
+  & td {
+    padding: 1rem 1rem 1rem 0;
+    color: black;
   }
 }
 
-@media only screen and (max-width: 576px) {
-  .table {
-    text-align: center;
+@media only screen and (min-width: 992px) {
+  .debits-details.table {
+    max-width: 60vw;
+    font-size: 1.3rem;
+
+    & th {
+      padding-left: 2.5rem;
+    }
   }
 }

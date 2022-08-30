@@ -1,55 +1,32 @@
 import { usdFormatter } from '../../../helpers/functions/MiscFunctions';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import AccountSummary from './AccountSummary';
 
 const DebitsSummary = ({ accountData, accountParam, selectHandler }) => {
+  let selectDefVal = accountParam === 'checking' ? 'checking' : 'savings';
+
   return (
-    <Container>
-      <div className='summary'>
-        <div>
-          <p>Available Balance</p>
-          <h1>{usdFormatter.format(accountData.availBalance)}</h1>
-        </div>
-        {accountParam === 'checking' && (
-          <select
-            name='account'
-            id='account'
-            defaultValue='checking'
-            onChange={selectHandler}
-          >
-            <option value='checking'>Purse Convenience Checking</option>
-            <option value='savings'>Purse Spectacular Savings</option>
-          </select>
-        )}
-        {accountParam === 'savings' && (
-          <select
-            name='account'
-            id='account'
-            defaultValue='savings'
-            onChange={selectHandler}
-          >
-            <option value='checking'>Purse Convenience Checking</option>
-            <option value='savings'>Purse Spectacular Savings</option>
-          </select>
-        )}
-        <Row className='data'>
-          <Col xs={12} sm={6}>
-            <p>Today's Beginning Balance</p>
-          </Col>
-          <Col xs={12} sm={6}>
-            <h5>{usdFormatter.format(accountData.begBalance)}</h5>
-          </Col>
-          <Col xs={12} sm={6}>
-            <p>Pending</p>
-          </Col>
-          <Col xs={12} sm={6}>
-            <h5>{usdFormatter.format(accountData.pending)}</h5>
-          </Col>
-        </Row>
+    <AccountSummary>
+      <p>Available Balance</p>
+      <h1>{usdFormatter(accountData.availBalance)}</h1>
+      <select
+        name='account-type'
+        id='account-select'
+        defaultValue={selectDefVal}
+        onChange={selectHandler}
+      >
+        <option value='checking'>Purse Convenience Checking</option>
+        <option value='savings'>Purse Spectacular Savings</option>
+      </select>
+      <div className='d-flex flex-column flex-md-row align-items-center justify-content-between'>
+        <p>Today's Beginning Balance</p>
+        <h2>{usdFormatter(accountData.begBalance)}</h2>
       </div>
-    </Container>
+      <div className='d-flex flex-column flex-md-row align-items-center justify-content-between'>
+        <p>Pending</p>
+        <h2>{usdFormatter(accountData.pending)}</h2>
+      </div>
+    </AccountSummary>
   );
 };
 
