@@ -1224,7 +1224,7 @@ main {
 .banner-ribbon {
   position: relative;
   top: 2.5rem;
-  width: 70vw;
+  width: 80vw;
   float: right;
   padding: 0.5rem;
   background-color: rgba(165, 42, 42, 0.8);
@@ -1233,16 +1233,24 @@ main {
 }
 .banner-ribbon--name {
   margin-bottom: 0.2rem;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: gold;
   text-shadow: 0 0 3px white;
 }
 .banner-ribbon--date {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
 }
 
+@media only screen and (min-width: 592px) {
+  .banner-ribbon--name {
+    font-size: 1.8rem;
+  }
+  .banner-ribbon--date {
+    font-size: 1.3rem;
+  }
+}
 @media only screen and (min-width: 768px) {
   .banner-ribbon {
     top: 3rem;

@@ -1,7 +1,7 @@
 .banner-ribbon {
   position: relative;
   top: 2.5rem;
-  width: 70vw;
+  width: 80vw;
   float: right;
   padding: 0.5rem;
   background-color: $ribbon-color;
@@ -10,15 +10,27 @@
 
   &--name {
     margin-bottom: 0.2rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: gold;
     @include text-shadow(white);
   }
 
   &--date {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
+  }
+}
+
+@media only screen and (min-width: 592px) {
+  .banner-ribbon {
+    &--name {
+      font-size: 1.8rem;
+    }
+
+    &--date {
+      font-size: 1.3rem;
+    }
   }
 }
 
