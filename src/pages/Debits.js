@@ -14,7 +14,7 @@ import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import AccountBanner from '../components/UI/Accounts/AccountBanner';
-import BumpTitle from '../components/UI/General/BumpTitle';
+import Slidebar from '../components/UI/General/Slidebar';
 import DebitsSummary from '../components/UI/Accounts/DebitsSummary';
 import DebitsActivity from '../components/UI/Accounts/DebitsActivity';
 import DebitsDetails from '../components/UI/Accounts/DebitsDetails';
@@ -101,7 +101,7 @@ const Debits = () => {
   return (
     <>
       <AccountBanner />
-      {/* <BumpTitle title={title} /> */}
+      <Slidebar title={title} />
       <DebitsSummary
         accountData={accountData}
         accountParam={accountParam}

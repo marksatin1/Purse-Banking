@@ -1,0 +1,82 @@
+.slidebar {
+  position: sticky;
+  bottom: 33rem;
+
+  &--bar {
+    margin: 5rem auto -5rem;
+    padding: 0.75rem;
+    background-color: $primary-color;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 1px 2px 4px white;
+    animation: slidebar 1.5s ease-in-out forwards;
+  }
+
+  &--title {
+    margin: 0;
+    margin-right: 0.5rem;
+    color: gold;
+    font-weight: bold;
+    text-shadow: 0 0 8px black;
+    animation: slidebar-title 1.5s ease-in-out forwards;
+  }
+}
+
+@media only screen and (min-width: 570px) {
+  .slidebar {
+    bottom: 29rem;
+    width: 95vw;
+
+    &--bar {
+      padding: 1rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .slidebar {
+    bottom: 28rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .slidebar {
+    bottom: 20rem;
+    width: 90vw;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .slidebar {
+    bottom: 20rem;
+    width: 87vw;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .slidebar {
+    bottom: 20rem;
+    width: 85vw;
+
+    &--bar {
+      padding: 1.25rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .slidebar {
+    bottom: 17rem;
+    width: 84vw;
+
+    &--title {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .slidebar {
+    bottom: 14rem;
+    width: 79vw;
+  }
+}

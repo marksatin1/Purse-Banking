@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AccountBanner from '../components/UI/Accounts/AccountBanner';
-import BumpTitle from '../components/UI/General/BumpTitle';
+import Slidebar from '../components/UI/General/Slidebar';
 
 const { checkingData, savingsData, creditsData } = accountsSummary;
 
@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       <AccountBanner />
-      {/* <BumpTitle title='Welcome Home!' /> */}
+      {/* <Slidebar title='Welcome Home!' /> */}
       <div className='home-h'>
         <div className='table-container'>
           <Row>

@@ -65,25 +65,25 @@
     transform: translateY(-1rem);
   }
 }
-@keyframes slide-in {
+@keyframes slidebar {
+  from {
+    margin-left: -100%;
+    width: 100%;
+  }
+  92% {
+    width: 82%;
+  }
+  to {
+    margin-left: -2rem;
+    width: 75%;
+  }
+}
+@keyframes slidebar-title {
   from {
     transform: translateX(-100%);
   }
   90% {
     transform: translateX(5%);
-  }
-}
-@keyframes slide-in-green {
-  from {
-    margin-left: -100%;
-    width: 100%;
-  }
-  90% {
-    width: 80%;
-  }
-  to {
-    margin-left: -5rem;
-    width: 71%;
   }
 }
 .form-btn:disabled, .form-btn {
@@ -1504,31 +1504,77 @@ main {
     width: 80%;
   }
 }
-.container {
-  border: 1px solid transparent;
-  /* affects sticky pos */
+.slidebar {
   position: sticky;
-  /* affects sticky pos */
+  bottom: 33rem;
 }
-
-.green {
-  height: 5rem;
-  margin: 5rem auto -10rem;
-  background-color: rgb(10, 152, 33);
-  border-radius: 15px;
-  padding: 0.5rem 0;
-  animation: slide-in-green 1.5s ease-in-out forwards;
+.slidebar--bar {
+  margin: 5rem auto -5rem;
+  padding: 0.75rem;
+  background-color: rgb(32, 145, 32);
+  border-radius: 0 20px 20px 0;
+  box-shadow: 1px 2px 4px white;
+  animation: slidebar 1.5s ease-in-out forwards;
 }
-
-.bump-title {
-  margin: 5rem auto -10rem;
-  /*affects sticky pos */
+.slidebar--title {
+  margin: 0;
+  margin-right: 0.5rem;
   color: gold;
-  text-align: center;
-  animation: slide-in 1.5s ease-in-out forwards;
+  font-weight: bold;
+  text-shadow: 0 0 8px black;
+  animation: slidebar-title 1.5s ease-in-out forwards;
 }
 
-/*  HEIGHTS  */
+@media only screen and (min-width: 570px) {
+  .slidebar {
+    bottom: 29rem;
+    width: 95vw;
+  }
+  .slidebar--bar {
+    padding: 1rem;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .slidebar {
+    bottom: 28rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .slidebar {
+    bottom: 20rem;
+    width: 90vw;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .slidebar {
+    bottom: 20rem;
+    width: 87vw;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .slidebar {
+    bottom: 20rem;
+    width: 85vw;
+  }
+  .slidebar--bar {
+    padding: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .slidebar {
+    bottom: 17rem;
+    width: 84vw;
+  }
+  .slidebar--title {
+    font-size: 2.8rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .slidebar {
+    bottom: 14rem;
+    width: 79vw;
+  }
+}
 .comment-card {
   padding: 1rem 0;
   border-top: 2px solid rgb(128, 0, 128);

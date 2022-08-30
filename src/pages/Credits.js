@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import AccountBanner from '../components/UI/Accounts/AccountBanner';
-import BumpTitle from '../components/UI/General/BumpTitle';
+import Slidebar from '../components/UI/General/Slidebar';
 import CreditsSummary from '../components/UI/Accounts/CreditsSummary';
 import CreditsActivity from '../components/UI/Accounts/CreditsActivity';
 import CreditsDetails from '../components/UI/Accounts/CreditsDetails';
@@ -39,7 +39,7 @@ const Credits = () => {
   return (
     <>
       <AccountBanner />
-      {/* <BumpTitle title='Credit Cards' /> */}
+      {/* <Slidebar title='Credit Cards' /> */}
       <CreditsSummary />
       <Container className='credits'>
         <Tabs id='credits-tabs'>
