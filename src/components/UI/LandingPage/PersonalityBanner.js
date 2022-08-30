@@ -3,7 +3,7 @@ import { PersonalityCardData } from '../../../helpers/data/PersonalityCardData';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import PersonalityCard from '../General/PersonalityCard';
+import PersonalityCard from './PersonalityCard';
 
 const PersonalityBanner = () => {
   return (

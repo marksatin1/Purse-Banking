@@ -222,6 +222,108 @@ main {
     height: 12rem;
   }
 }
+.logo {
+  position: fixed;
+  top: 6rem;
+  border-radius: 0 20px 20px 0;
+  background-color: rgb(225, 193, 15);
+  box-shadow: 1px 2px 4px white;
+  z-index: 4;
+  cursor: pointer;
+}
+.logo:hover {
+  background-color: rgb(218, 165, 32);
+}
+.logo--icon {
+  width: 35px;
+  height: 35px;
+}
+.logo--title {
+  margin: 0 0.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: bold;
+  color: rgb(128, 0, 128);
+}
+
+@media only screen and (min-width: 576px) {
+  .logo {
+    top: 9rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .logo {
+    top: 9.6rem;
+  }
+  .logo--icon {
+    width: 45px;
+    height: 45px;
+  }
+  .logo--title {
+    font-size: 2.5rem;
+  }
+
+  .motto {
+    position: fixed;
+    top: 9.8rem;
+    transform: translateX(-78%);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.3rem;
+    font-weight: 600;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  .motto-slide-in {
+    animation: motto-slide-in 2.5s forwards;
+  }
+  @keyframes motto-slide-in {
+    to {
+      transform: translateX(38%);
+    }
+  }
+}
+@media only screen and (min-width: 992px) {
+  .motto {
+    top: 9.7rem;
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .logo {
+    top: 9.3rem;
+  }
+  .logo--icon {
+    width: 50px;
+    height: 50px;
+  }
+  .logo--title {
+    font-size: 3.2rem;
+  }
+
+  .motto {
+    font-size: 1.5rem;
+  }
+
+  @keyframes motto-slide-in {
+    to {
+      transform: translateX(40%);
+    }
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .motto {
+    top: 9.3rem;
+    font-size: 1.8rem;
+  }
+
+  @keyframes motto-slide-in {
+    to {
+      transform: translateX(34%);
+    }
+  }
+}
 .main-nav {
   width: 80vw;
   margin: 0.25rem 0;
@@ -321,6 +423,106 @@ main {
 @media only screen and (min-width: 1400px) {
   .main-nav {
     width: 50vw;
+  }
+}
+.my-purse-btn {
+  width: 30vw;
+  margin: 0 auto;
+  position: relative;
+  top: -0.35rem;
+  border-radius: 25px;
+  border: 0.5px solid black;
+  box-shadow: -1px -1px 4px black;
+  background-color: gold;
+  cursor: pointer;
+}
+.my-purse-btn p {
+  margin: -0.25rem;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+}
+.my-purse-btn:hover {
+  animation: button-gleam-2 700ms forwards;
+}
+.my-purse-btn:hover .my-purse-btn--content-container {
+  display: block;
+  z-index: 3;
+}
+.my-purse-btn--content-container {
+  position: absolute;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background-color: beige;
+  box-shadow: 0 0 5px black;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-weight: bold;
+  text-align: right;
+  display: none;
+}
+.my-purse-btn--content-container .btn--sign-out {
+  margin: 0.75rem;
+  margin-right: 0.25rem;
+  background-color: inherit;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: purple;
+  cursor: pointer;
+}
+.my-purse-btn--content-container .btn--sign-out:hover {
+  animation: button-gleam-2 500ms forwards;
+}
+.my-purse-btn--content-container .link {
+  margin: 0.5rem;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+.my-purse-btn--content-container .link:hover {
+  color: rgb(0, 128, 0);
+  transform: scale(1.02);
+}
+
+@media only screen and (min-width: 576px) {
+  .my-purse-btn {
+    width: 25vw;
+    top: -0.5rem;
+    margin: initial;
+    border-radius: 25px 0 0 25px;
+  }
+  .my-purse-btn p {
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .my-purse-btn {
+    width: 22vw;
+    top: -0.7rem;
+  }
+  .my-purse-btn p {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .my-purse-btn {
+    width: 20vw;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .my-purse-btn p {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .my-purse-btn {
+    width: 17vw;
   }
 }
 .top-nav {
@@ -1779,6 +1981,262 @@ main {
     font-size: 1.3rem;
   }
 }
+.form-btn {
+  margin: 1rem 0;
+  background-color: inherit;
+}
+.form-btn:hover {
+  cursor: pointer;
+  animation: button-gleam-2 700ms forwards;
+}
+.form-btn:disabled {
+  color: black;
+}
+.form-btn:disabled:hover {
+  background-color: rgb(218, 165, 32);
+  animation: none;
+  cursor: default;
+}
+
+@media only screen and (min-width: 1200px) {
+  .form-btn {
+    font-size: 1.4rem;
+  }
+  .form-btn:disabled {
+    font-size: 1.4rem;
+  }
+}
+.report {
+  text-align: center;
+}
+.report .body--statement {
+  margin: 1rem 0;
+}
+.report .body--update {
+  margin: 2rem 0;
+}
+.report .body--link {
+  color: rgb(0, 128, 0);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.report .body--link:hover {
+  color: rgb(218, 165, 32);
+}
+.report .quote-block {
+  width: 80%;
+  margin: 3rem auto;
+}
+.report .quote-block--quote {
+  color: rgb(218, 165, 32);
+}
+.report .quote-block--speaker {
+  color: rgb(0, 128, 0);
+}
+.report .ceo-block img {
+  width: 100%;
+}
+.report .ceo-block .contact {
+  color: rgb(0, 128, 0);
+}
+.report .ceo-block .contact--name {
+  color: rgb(128, 0, 128);
+  margin-top: 1rem;
+}
+.report .ceo-block .contact p:nth-child(even) {
+  margin-bottom: -1.5rem;
+}
+.report .ceo-block .contact p:nth-child(odd) {
+  color: rgb(218, 165, 32);
+}
+
+@media only screen and (min-width: 768px) {
+  .report .ceo-block img {
+    width: 30%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .report .ceo-block .contact {
+    font-size: 2rem;
+  }
+  .report .ceo-block--name {
+    font-size: 2rem;
+  }
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 6;
+}
+
+.modal-shell {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 75vh;
+  background-color: rgb(225, 193, 15);
+  border: 2px solid rgb(128, 0, 128);
+  border-radius: 5px;
+  box-shadow: 0 0 3px black;
+  padding: 2rem;
+  text-align: center;
+  overflow: scroll;
+  z-index: 7;
+}
+.modal-shell--title {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-shadow: 0 0 3px white;
+}
+.modal-shell--subtitle {
+  font-family: "Times New Roman", Times, serif;
+}
+.modal-shell--content {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 1.1rem;
+}
+.modal-shell--content .intertitle {
+  width: 80%;
+  margin: 2rem auto;
+  color: rgb(128, 0, 128);
+  text-shadow: 0 0 3px black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2rem;
+}
+.modal-shell--content .endtitle {
+  color: rgb(128, 0, 128);
+  text-shadow: 0 0 3px black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2.2rem;
+}
+.modal-shell--btn {
+  margin-top: 2rem;
+  padding: 0.75rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: gold;
+  color: rgb(0, 128, 0);
+  border-radius: 3px;
+  box-shadow: 1px 1px black;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 992px) {
+  .modal-shell {
+    width: 60vw;
+    padding: 3rem;
+  }
+  .modal-shell--title {
+    font-size: 2.8rem;
+  }
+  .modal-shell--subtitle {
+    font-size: 2.2rem;
+  }
+  .modal-shell--content {
+    font-size: 1.3rem;
+  }
+  .modal-shell--content .intertitle {
+    font-size: 2.3rem;
+  }
+  .modal-shell--content .endtitle {
+    font-size: 2.5rem;
+  }
+  .modal-shell--btn {
+    padding: 0.75rem 1.55rem;
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .modal-shell {
+    width: 50vw;
+  }
+}
+.page-card {
+  max-width: 80vw;
+  margin: 15rem auto -12rem;
+  padding: 2rem 0 3rem;
+  background-color: beige;
+  box-shadow: 2px 2px 5px black;
+  border-radius: 5px;
+  text-align: center;
+}
+.page-card--content {
+  min-height: 30rem;
+  margin: 0 2rem;
+  padding: 1rem 2rem;
+  border: 2px solid rgb(225, 193, 15);
+  box-shadow: 0 0 2px rgb(218, 165, 32);
+  background-color: rgba(240, 248, 255, 0.7);
+}
+.page-card--content > * {
+  margin: 2rem 0;
+}
+.page-card--content h2 {
+  font-size: 2.8rem;
+  text-shadow: 0 0 3px black;
+}
+.page-card--content h3 {
+  font-size: 1.7rem;
+  text-shadow: 0 0 3px black;
+}
+.page-card--content p {
+  margin: 2rem 0;
+  font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 776px) {
+  .page-card {
+    margin-top: 20rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .page-card {
+    max-width: 70vw;
+  }
+  .page-card--title {
+    font-size: 3rem;
+  }
+  .page-card--subtitle {
+    font-size: 2.3rem;
+  }
+  .page-card--content h2 {
+    font-size: 3.2rem;
+  }
+  .page-card--content h3 {
+    font-size: 2rem;
+  }
+  .page-card--content p {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .page-card {
+    max-width: 60vw;
+  }
+}
+.register-btn {
+  font-size: 10rem;
+  border-radius: 30px;
+  margin: 1rem 0;
+  padding: 0.25rem 1.5rem;
+  color: white;
+  background-color: rgb(32, 145, 32);
+  border: 2px solid rgb(218, 165, 32);
+  font-size: 2rem;
+  z-index: 2;
+}
+.register-btn:hover {
+  cursor: pointer;
+  animation: button-gleam 700ms forwards;
+}
+
 .credit-offer-card {
   max-width: 25rem;
   margin: 0 auto;
@@ -1879,529 +2337,6 @@ main {
     font-size: 1.4rem;
   }
 }
-.form-btn {
-  margin: 1rem 0;
-  background-color: inherit;
-}
-.form-btn:hover {
-  cursor: pointer;
-  animation: button-gleam-2 700ms forwards;
-}
-.form-btn:disabled {
-  color: black;
-}
-.form-btn:disabled:hover {
-  background-color: rgb(218, 165, 32);
-  animation: none;
-  cursor: default;
-}
-
-@media only screen and (min-width: 1200px) {
-  .form-btn {
-    font-size: 1.4rem;
-  }
-  .form-btn:disabled {
-    font-size: 1.4rem;
-  }
-}
-.report {
-  text-align: center;
-}
-.report .body--statement {
-  margin: 1rem 0;
-}
-.report .body--update {
-  margin: 2rem 0;
-}
-.report .body--link {
-  color: rgb(0, 128, 0);
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-}
-.report .body--link:hover {
-  color: rgb(218, 165, 32);
-}
-.report .quote-block {
-  width: 80%;
-  margin: 3rem auto;
-}
-.report .quote-block--quote {
-  color: rgb(218, 165, 32);
-}
-.report .quote-block--speaker {
-  color: rgb(0, 128, 0);
-}
-.report .ceo-block img {
-  width: 100%;
-}
-.report .ceo-block .contact {
-  color: rgb(0, 128, 0);
-}
-.report .ceo-block .contact--name {
-  color: rgb(128, 0, 128);
-  margin-top: 1rem;
-}
-.report .ceo-block .contact p:nth-child(even) {
-  margin-bottom: -1.5rem;
-}
-.report .ceo-block .contact p:nth-child(odd) {
-  color: rgb(218, 165, 32);
-}
-
-@media only screen and (min-width: 768px) {
-  .report .ceo-block img {
-    width: 30%;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .report .ceo-block .contact {
-    font-size: 2rem;
-  }
-  .report .ceo-block--name {
-    font-size: 2rem;
-  }
-}
-.logo {
-  position: fixed;
-  top: 6rem;
-  border-radius: 0 20px 20px 0;
-  background-color: rgb(225, 193, 15);
-  box-shadow: 1px 2px 4px white;
-  z-index: 4;
-  cursor: pointer;
-}
-.logo:hover {
-  background-color: rgb(218, 165, 32);
-}
-.logo--icon {
-  width: 35px;
-  height: 35px;
-}
-.logo--title {
-  margin: 0 0.5rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  font-size: 2rem;
-  font-style: italic;
-  font-weight: bold;
-  color: rgb(128, 0, 128);
-}
-
-@media only screen and (min-width: 576px) {
-  .logo {
-    top: 9rem;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .logo {
-    top: 9.6rem;
-  }
-  .logo--icon {
-    width: 45px;
-    height: 45px;
-  }
-  .logo--title {
-    font-size: 2.5rem;
-  }
-
-  .motto {
-    position: fixed;
-    top: 9.8rem;
-    transform: translateX(-78%);
-    font-family: "Courier New", Courier, monospace;
-    font-size: 1.3rem;
-    font-weight: 600;
-    z-index: 3;
-    cursor: pointer;
-  }
-
-  .motto-slide-in {
-    animation: motto-slide-in 2.5s forwards;
-  }
-  @keyframes motto-slide-in {
-    to {
-      transform: translateX(38%);
-    }
-  }
-}
-@media only screen and (min-width: 992px) {
-  .motto {
-    top: 9.7rem;
-    font-size: 1.4rem;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .logo {
-    top: 9.3rem;
-  }
-  .logo--icon {
-    width: 50px;
-    height: 50px;
-  }
-  .logo--title {
-    font-size: 3.2rem;
-  }
-
-  .motto {
-    font-size: 1.5rem;
-  }
-
-  @keyframes motto-slide-in {
-    to {
-      transform: translateX(40%);
-    }
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .motto {
-    top: 9.3rem;
-    font-size: 1.8rem;
-  }
-
-  @keyframes motto-slide-in {
-    to {
-      transform: translateX(34%);
-    }
-  }
-}
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  z-index: 6;
-}
-
-.modal-shell {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 75vh;
-  background-color: rgb(225, 193, 15);
-  border: 2px solid rgb(128, 0, 128);
-  border-radius: 5px;
-  box-shadow: 0 0 3px black;
-  padding: 2rem;
-  text-align: center;
-  overflow: scroll;
-  z-index: 7;
-}
-.modal-shell--title {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  text-shadow: 0 0 3px white;
-}
-.modal-shell--subtitle {
-  font-family: "Times New Roman", Times, serif;
-}
-.modal-shell--content {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  font-size: 1.1rem;
-}
-.modal-shell--content .intertitle {
-  width: 80%;
-  margin: 2rem auto;
-  color: rgb(128, 0, 128);
-  text-shadow: 0 0 3px black;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 2rem;
-}
-.modal-shell--content .endtitle {
-  color: rgb(128, 0, 128);
-  text-shadow: 0 0 3px black;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 2.2rem;
-}
-.modal-shell--btn {
-  margin-top: 2rem;
-  padding: 0.75rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background-color: gold;
-  color: rgb(0, 128, 0);
-  border-radius: 3px;
-  box-shadow: 1px 1px black;
-  cursor: pointer;
-}
-
-@media only screen and (min-width: 992px) {
-  .modal-shell {
-    width: 60vw;
-    padding: 3rem;
-  }
-  .modal-shell--title {
-    font-size: 2.8rem;
-  }
-  .modal-shell--subtitle {
-    font-size: 2.2rem;
-  }
-  .modal-shell--content {
-    font-size: 1.3rem;
-  }
-  .modal-shell--content .intertitle {
-    font-size: 2.3rem;
-  }
-  .modal-shell--content .endtitle {
-    font-size: 2.5rem;
-  }
-  .modal-shell--btn {
-    padding: 0.75rem 1.55rem;
-    font-size: 1.4rem;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .modal-shell {
-    width: 50vw;
-  }
-}
-.my-purse-btn {
-  width: 30vw;
-  margin: 0 auto;
-  position: relative;
-  top: -0.35rem;
-  border-radius: 25px;
-  border: 0.5px solid black;
-  box-shadow: -1px -1px 4px black;
-  background-color: gold;
-  cursor: pointer;
-}
-.my-purse-btn p {
-  margin: -0.25rem;
-  text-align: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: black;
-}
-.my-purse-btn:hover {
-  animation: button-gleam-2 700ms forwards;
-}
-.my-purse-btn:hover .my-purse-btn--content-container {
-  display: block;
-  z-index: 3;
-}
-.my-purse-btn--content-container {
-  position: absolute;
-  padding: 0.75rem;
-  border-radius: 4px;
-  background-color: beige;
-  box-shadow: 0 0 5px black;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  font-weight: bold;
-  text-align: right;
-  display: none;
-}
-.my-purse-btn--content-container .btn--sign-out {
-  margin: 0.75rem;
-  margin-right: 0.25rem;
-  background-color: inherit;
-  border: 1px solid black;
-  border-radius: 20px;
-  padding: 0.25rem 0.75rem;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: purple;
-  cursor: pointer;
-}
-.my-purse-btn--content-container .btn--sign-out:hover {
-  animation: button-gleam-2 500ms forwards;
-}
-.my-purse-btn--content-container .link {
-  margin: 0.5rem;
-  font-size: 1.3rem;
-  text-decoration: none;
-  color: black;
-  display: block;
-}
-.my-purse-btn--content-container .link:hover {
-  color: rgb(0, 128, 0);
-  transform: scale(1.02);
-}
-
-@media only screen and (min-width: 576px) {
-  .my-purse-btn {
-    width: 25vw;
-    top: -0.5rem;
-    margin: initial;
-    border-radius: 25px 0 0 25px;
-  }
-  .my-purse-btn p {
-    margin-left: 0.5rem;
-    font-size: 1.1rem;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .my-purse-btn {
-    width: 22vw;
-    top: -0.7rem;
-  }
-  .my-purse-btn p {
-    font-size: 1.2rem;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .my-purse-btn {
-    width: 20vw;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .my-purse-btn p {
-    font-size: 1.4rem;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .my-purse-btn {
-    width: 17vw;
-  }
-}
-.page-card {
-  max-width: 80vw;
-  margin: 15rem auto -12rem;
-  padding: 2rem 0 3rem;
-  background-color: beige;
-  box-shadow: 2px 2px 5px black;
-  border-radius: 5px;
-  text-align: center;
-}
-.page-card--content {
-  min-height: 30rem;
-  margin: 0 2rem;
-  padding: 1rem 2rem;
-  border: 2px solid rgb(225, 193, 15);
-  box-shadow: 0 0 2px rgb(218, 165, 32);
-  background-color: rgba(240, 248, 255, 0.7);
-}
-.page-card--content > * {
-  margin: 2rem 0;
-}
-.page-card--content h2 {
-  font-size: 2.8rem;
-  text-shadow: 0 0 3px black;
-}
-.page-card--content h3 {
-  font-size: 1.7rem;
-  text-shadow: 0 0 3px black;
-}
-.page-card--content p {
-  margin: 2rem 0;
-  font-size: 1.2rem;
-}
-
-@media only screen and (min-width: 776px) {
-  .page-card {
-    margin-top: 20rem;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .page-card {
-    max-width: 70vw;
-  }
-  .page-card--title {
-    font-size: 3rem;
-  }
-  .page-card--subtitle {
-    font-size: 2.3rem;
-  }
-  .page-card--content h2 {
-    font-size: 3.2rem;
-  }
-  .page-card--content h3 {
-    font-size: 2rem;
-  }
-  .page-card--content p {
-    font-size: 1.4rem;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .page-card {
-    max-width: 60vw;
-  }
-}
-.personality-card {
-  max-width: 22rem;
-  margin: 1rem auto 2rem;
-  border-radius: 5px;
-  box-shadow: 1px 1px 1px black;
-}
-.personality-card:hover {
-  animation: bump 800ms forwards;
-}
-.personality-card img {
-  position: relative;
-  width: 100%;
-  border-radius: 5px 5px 0 0;
-  z-index: 2;
-}
-.personality-card--content {
-  height: 17rem;
-  padding: 0.5rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.personality-card--title {
-  margin: 0.5rem 0;
-  font-size: 2rem;
-  color: rgb(0, 128, 0);
-}
-.personality-card--btn {
-  position: relative;
-  float: right;
-  margin: 1rem;
-  padding: 0.25rem 1rem;
-  border: none;
-  border-radius: 25px;
-  background-color: rgb(175, 116, 175);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  z-index: 2;
-  cursor: pointer;
-}
-.personality-card--btn:hover {
-  animation: button-gleam-2 700ms forwards;
-}
-
-@media only screen and (min-width: 768px) {
-  .personality-card {
-    max-width: 26rem;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .personality-card--content {
-    height: 20rem;
-  }
-  .personality-card--title {
-    font-size: 2.5rem;
-  }
-  .personality-card--subtitle {
-    font-size: 1.4rem;
-  }
-  .personality-card--btn {
-    font-size: 1.4rem;
-  }
-}
-.register-btn {
-  font-size: 10rem;
-  border-radius: 30px;
-  margin: 1rem 0;
-  padding: 0.25rem 1.5rem;
-  color: white;
-  background-color: rgb(32, 145, 32);
-  border: 2px solid rgb(218, 165, 32);
-  font-size: 2rem;
-  z-index: 2;
-}
-.register-btn:hover {
-  cursor: pointer;
-  animation: button-gleam 700ms forwards;
-}
-
 .legal-banner {
   margin: 4rem auto;
   text-align: center;
@@ -2493,6 +2428,71 @@ main {
   text-decoration: underline;
 }
 
+.personality-card {
+  max-width: 22rem;
+  margin: 1rem auto 2rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+}
+.personality-card:hover {
+  animation: bump 800ms forwards;
+}
+.personality-card img {
+  position: relative;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  z-index: 2;
+}
+.personality-card--content {
+  height: 17rem;
+  padding: 0.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.personality-card--title {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+  color: rgb(0, 128, 0);
+}
+.personality-card--btn {
+  position: relative;
+  float: right;
+  margin: 1rem;
+  padding: 0.25rem 1rem;
+  border: none;
+  border-radius: 25px;
+  background-color: rgb(175, 116, 175);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  z-index: 2;
+  cursor: pointer;
+}
+.personality-card--btn:hover {
+  animation: button-gleam-2 700ms forwards;
+}
+
+@media only screen and (min-width: 768px) {
+  .personality-card {
+    max-width: 26rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .personality-card--content {
+    height: 20rem;
+  }
+  .personality-card--title {
+    font-size: 2.5rem;
+  }
+  .personality-card--subtitle {
+    font-size: 1.4rem;
+  }
+  .personality-card--btn {
+    font-size: 1.4rem;
+  }
+}
 .register-banner {
   position: relative;
   margin: 5rem auto;

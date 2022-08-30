@@ -4,7 +4,9 @@
 
 @import './layout/footer';
 @import './layout/header';
+@import './layout/logo';
 @import './layout/main-nav';
+@import './layout/my-purse-button';
 @import './layout/top-nav';
 
 @import './pages/about';
@@ -42,19 +44,17 @@
 @import './ui/general/slidebar';
 @import './ui/general/comment-card';
 @import './ui/general/contact-card';
-@import './ui/general/credit-offer-card';
 @import './ui/general/form-button';
 @import './ui/general/incident-report';
-@import './ui/general/logo';
 @import './ui/general/modal';
-@import './ui/general/my-purse-button';
 @import './ui/general/page-card';
-@import './ui/general/personality-card';
 @import './ui/general/register-button';
 
+@import './ui/landing-page/credit-offer-card';
 @import './ui/landing-page/legal-banner';
 @import './ui/landing-page/password-reset';
 @import './ui/landing-page/personality-banner';
+@import './ui/landing-page/personality-card';
 @import './ui/landing-page/register-banner';
 @import './ui/landing-page/sign-in';
 @import './ui/landing-page/welcome-banner';

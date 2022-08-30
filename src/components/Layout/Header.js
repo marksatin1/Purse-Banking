@@ -3,8 +3,8 @@ import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import TopNav from './TopNav';
 import MainNav from './MainNav';
-import MyPurseButton from '../UI/General/MyPurseButton';
-import Logo from '../UI/General/Logo';
+import MyPurseButton from './MyPurseButton';
+import Logo from './Logo';
 
 import FlyingMoney from '../../assets/Emojis/FlyingMoney.png';
 

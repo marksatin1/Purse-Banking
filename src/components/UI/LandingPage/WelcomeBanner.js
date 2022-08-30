@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import SignIn from './SignIn';
 import WelcomeBackplate from './WelcomeBackplate';
-import CreditOfferCard from '../General/CreditOfferCard';
+import CreditOfferCard from './CreditOfferCard';
 
 const WelcomeBanner = () => {
   return (

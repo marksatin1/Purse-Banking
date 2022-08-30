@@ -1,6 +1,6 @@
 import { CreditCardOffers } from '../../../helpers/data/CreditCardData';
 
-import CreditOfferCard from '../General/CreditOfferCard';
+import CreditOfferCard from './CreditOfferCard';
 
 const WelcomeBackplate = () => {
   return (

@@ -1,32 +1,33 @@
-import { useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 
 import Nav from 'react-bootstrap/Nav';
-import AuthContext from '../../../context/auth-context';
+import AuthContext from '../../context/auth-context';
 
 const MyPurseButton = () => {
-  const authCtx = useContext(AuthContext);
-  let destLink, destName;
+  const [destination, setDestination] = useState({});
 
-  if (!authCtx.isSignedIn) {
-    destLink = '/register';
-    destName = 'Register';
-  } else {
-    destLink = 'my-purse/accounts';
-    destName = 'My Purse';
-  }
+  const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    if (authCtx.isSignedIn) {
+      setDestination({ destUrl: '/accounts', destName: 'My Purse' });
+    } else if (!authCtx.isSignedIn) {
+      setDestination({ destUrl: '/register', destName: 'Register' });
+    }
+  }, [authCtx]);
 
   return (
     <div className='d-flex justify-content-end'>
       <Nav className='my-purse-btn'>
-        <Nav.Link href={destLink}>
-          <p>{destName}</p>
+        <Nav.Link href={destination.destUrl}>
+          <p>{destination.destName}</p>
         </Nav.Link>
         {authCtx.isSignedIn && (
           <div className='my-purse-btn--content-container'>
-            <Nav.Link href='my-purse/accounts' className='link'>
+            <Nav.Link href='accounts' className='link'>
               My Accounts
             </Nav.Link>
-            <Nav.Link href='my-purse/user-settings' className='link'>
+            <Nav.Link href='user-settings' className='link'>
               User Settings
             </Nav.Link>
             <button className='btn--sign-out' onClick={authCtx.signOut}>
