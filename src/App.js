@@ -5,7 +5,7 @@ import AuthContext from './context/auth-context';
 import Header from './components/Layout/Header';
 import LandingPage from './pages/LandingPage';
 import Register from './pages/Register';
-import Home from './pages/Home';
+import Homepage from './pages/Homepage';
 import Debits from './pages/Debits';
 import Credits from './pages/Credits';
 import UserSettings from './pages/UserSettings';
@@ -47,8 +47,8 @@ const App = () => {
             )}
             {authCtx.isSignedIn && (
               <>
-                <Route path='/' element={<Home />} />
-                <Route path='/my-purse/accounts' element={<Home />} />
+                <Route path='/' element={<Homepage />} />
+                <Route path='/my-purse/accounts' element={<Homepage />} />
                 <Route path='/my-purse/debit-accounts' element={<Debits />} />
                 <Route
                   path='/my-purse/credit-card-accounts'

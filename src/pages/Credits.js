@@ -39,7 +39,7 @@ const Credits = () => {
   return (
     <>
       <AccountBanner />
-      {/* <Slidebar title='Credit Cards' /> */}
+      <Slidebar title='Credit Cards' />
       <CreditsSummary />
       <Container className='credits'>
         <Tabs id='credits-tabs'>

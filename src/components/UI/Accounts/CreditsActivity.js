@@ -8,7 +8,9 @@ const CreditsActivity = ({ activity }) => {
     <tr key={uuidv4()}>
       <td>{transaction.date}</td>
       <td>{transaction.description}</td>
-      <td>{usdFormatter(transaction.amount)}</td>
+      <td>
+        <b>{usdFormatter(transaction.amount)}</b>
+      </td>
     </tr>
   ));
 

@@ -9,7 +9,9 @@ const DebitsActivity = ({ activity }) => {
       <td>{transaction.date}</td>
       <td>{transaction.type}</td>
       <td>{transaction.description}</td>
-      <td>{usdFormatter(transaction.amount)}</td>
+      <td>
+        <b>{usdFormatter(transaction.amount)}</b>
+      </td>
       <td>{usdFormatter(transaction.balance)}</td>
     </tr>
   ));
