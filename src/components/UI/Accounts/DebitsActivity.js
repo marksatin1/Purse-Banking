@@ -8,9 +8,9 @@ import Col from 'react-bootstrap/Col';
 const DepositsActivity = (props) => {
   return (
     <>
-      <Container className='table'>
-        <div className='layout'>
-          <Row className='trow'>
+      <Container>
+        {/* <div>
+          <Row>
             <Col xs={1}>
               <b>Date</b>
             </Col>
@@ -28,15 +28,15 @@ const DepositsActivity = (props) => {
             </Col>
           </Row>
           {props.activity.map((item) => (
-            <Row key={uuidv4()} className='trow'>
+            <Row key={uuidv4()}>
               <Col xs={1}>{item.date}</Col>
-              <Col xs={1}>{item.type.toUpperCase()}</Col>
+              <Col xs={1}>{item.type}</Col>
               <Col xs={5}>{item.description}</Col>
               <Col xs={1}>{usdFormatter.format(item.amount)}</Col>
               <Col xs={1}>{usdFormatter.format(item.balance)}</Col>
             </Row>
           ))}
-        </div>
+        </div> */}
       </Container>
     </>
   );

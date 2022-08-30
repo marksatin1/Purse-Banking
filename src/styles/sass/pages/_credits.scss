@@ -1,94 +1,59 @@
-.credits-header {
-  position: relative;
-  background-color: rgba(137, 43, 226, 0.788);
-  height: 43rem;
-  margin: 17rem 0 2.5rem;
-  overflow-x: hidden;
-  display: flex;
-  justify-content: flex-end;
-  z-index: -1;
-}
+.credits {
+  margin: 5rem auto -12rem;
 
-.credits-header::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -5rem;
-  overflow: hidden;
-  right: 0;
-  content: '';
-  // background-image: url(../../../assets/banners/Funeral_Parking_1000w.jpg);
-  opacity: 0.75;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top 40% center;
-}
+  // Target underlying classes that BS uses
+  .nav-tabs {
+    max-width: 80vw;
+    margin: 0 auto;
+    border-bottom: 3px solid $primary-alt-color;
 
-.layout {
-  overflow: hidden;
-}
+    .nav-item {
+      padding: 0.25rem;
+      border: 3px solid $primary-alt-color;
+      border-bottom: 0;
+      border-radius: 5px 5px 0 0;
+      font-size: 1.1rem;
 
-.account-data {
-  position: relative;
-  width: 75%;
-  margin: 0 auto -8rem;
-  padding: 1rem;
-}
+      &:hover {
+        background-color: gold;
+        cursor: pointer;
 
-.button {
-  position: relative;
-  top: 0.25rem;
-  left: 3%;
-  padding: 0.8rem;
-  border: 3px solid purple;
-  border-bottom: 0;
-  border-radius: 3px;
-  font-size: 2rem;
-  cursor: pointer;
-}
+        & button {
+          background-color: gold;
+          color: white;
+        }
+      }
 
-.button:hover {
-  background-color: gold;
-  color: purple;
-}
+      button {
+        color: black;
+        border: none;
+      }
 
-.selected {
-  background-color: gold;
-  color: purple;
-  border: 3px solid green;
-  border-bottom: 0;
-  z-index: 2;
-}
-
-.unselected {
-  background-color: white;
-}
-
-.green-line {
-  position: relative;
-  border-top: 4px solid green;
-  border-radius: 6px;
-  z-index: 1;
-}
-
-@media only screen and (max-width: 1030px) {
-  .credits-header {
-    margin-top: 15.5rem;
-  }
-
-  .button {
-    font-size: 1.3rem;
+      .nav-link.active {
+        margin: -0.25rem;
+        border: 0;
+        background-color: gold;
+        border-bottom: 0;
+        color: $accent-alt-color;
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 992px) {
-  .button {
-    font-size: 1.5rem;
-  }
-}
+@media only screen and (min-width: 992px) {
+  .credits {
+    .nav-tabs {
+      max-width: 60vw;
 
-@media only screen and (max-width: 768px) {
-  .credits-header {
-    margin-top: 3rem;
+      .nav-item {
+        font-size: 1.4rem;
+
+        .nav-link.active {
+          font-size: 1.8rem;
+        }
+      }
+    }
   }
 }

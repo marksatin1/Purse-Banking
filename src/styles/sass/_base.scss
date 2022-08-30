@@ -11,6 +11,7 @@ $accent-alt-color: rgb(128, 0, 128); //purple
 $page-card-bg-color: rgba(240, 248, 255, 0.7);
 
 $ribbon-color: rgba(165, 42, 42, 0.8);
+$account-sum-color: rgba(9, 189, 189, 0.9);
 
 // FONT FAMILIES
 
@@ -49,6 +50,17 @@ $border: 2px solid black;
   margin-bottom: 2rem;
   color: $accent-color;
   font-size: 1.9rem;
+}
+
+%account-table {
+  max-width: 80vw;
+  margin: 0 auto;
+  background-color: gold;
+  border: 3px solid $primary-alt-color;
+  border-top: none;
+  font-size: 1.1rem;
+  color: $accent-alt-color;
+  border-radius: 0 0 15px 15px;
 }
 
 @mixin link($color: $primary-alt-color, $color-hov: $secondary-alt-color) {

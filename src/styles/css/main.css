@@ -109,6 +109,17 @@
   font-size: 1.9rem;
 }
 
+.debits-details.table, .credits-details.table, .credits-activity.table {
+  max-width: 80vw;
+  margin: 0 auto;
+  background-color: gold;
+  border: 3px solid rgb(0, 128, 0);
+  border-top: none;
+  font-size: 1.1rem;
+  color: rgb(128, 0, 128);
+  border-radius: 0 0 15px 15px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -521,95 +532,52 @@ main {
     width: 70vw;
   }
 }
-.credits-header {
-  position: relative;
-  background-color: rgba(137, 43, 226, 0.788);
-  height: 43rem;
-  margin: 17rem 0 2.5rem;
-  overflow-x: hidden;
-  display: flex;
-  justify-content: flex-end;
-  z-index: -1;
+.credits {
+  margin: 5rem auto -12rem;
 }
-
-.credits-header::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -5rem;
-  overflow: hidden;
-  right: 0;
-  content: "";
-  opacity: 0.75;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top 40% center;
+.credits .nav-tabs {
+  max-width: 80vw;
+  margin: 0 auto;
+  border-bottom: 3px solid rgb(0, 128, 0);
 }
-
-.layout {
-  overflow: hidden;
-}
-
-.account-data {
-  position: relative;
-  width: 75%;
-  margin: 0 auto -8rem;
-  padding: 1rem;
-}
-
-.button {
-  position: relative;
-  top: 0.25rem;
-  left: 3%;
-  padding: 0.8rem;
-  border: 3px solid purple;
+.credits .nav-tabs .nav-item {
+  padding: 0.25rem;
+  border: 3px solid rgb(0, 128, 0);
   border-bottom: 0;
-  border-radius: 3px;
-  font-size: 2rem;
+  border-radius: 5px 5px 0 0;
+  font-size: 1.1rem;
+}
+.credits .nav-tabs .nav-item:hover {
+  background-color: gold;
   cursor: pointer;
 }
-
-.button:hover {
+.credits .nav-tabs .nav-item:hover button {
   background-color: gold;
-  color: purple;
+  color: white;
 }
-
-.selected {
+.credits .nav-tabs .nav-item button {
+  color: black;
+  border: none;
+}
+.credits .nav-tabs .nav-item .nav-link.active {
+  margin: -0.25rem;
+  border: 0;
   background-color: gold;
-  color: purple;
-  border: 3px solid green;
   border-bottom: 0;
-  z-index: 2;
+  color: rgb(128, 0, 128);
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
-.unselected {
-  background-color: white;
-}
-
-.green-line {
-  position: relative;
-  border-top: 4px solid green;
-  border-radius: 6px;
-  z-index: 1;
-}
-
-@media only screen and (max-width: 1030px) {
-  .credits-header {
-    margin-top: 15.5rem;
+@media only screen and (min-width: 992px) {
+  .credits .nav-tabs {
+    max-width: 60vw;
   }
-
-  .button {
-    font-size: 1.3rem;
+  .credits .nav-tabs .nav-item {
+    font-size: 1.4rem;
   }
-}
-@media only screen and (max-width: 992px) {
-  .button {
-    font-size: 1.5rem;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .credits-header {
-    margin-top: 3rem;
+  .credits .nav-tabs .nav-item .nav-link.active {
+    font-size: 1.8rem;
   }
 }
 .crypto {
@@ -906,87 +874,6 @@ main {
     font-size: 1.6rem;
   }
 }
-.home-h {
-  margin: 0 auto;
-  padding: 8rem 0;
-  overflow-x: hidden;
-}
-
-.table-container {
-  margin: 5rem 0 10rem;
-}
-
-.main-title {
-  margin: 0 auto;
-  color: purple;
-  border-bottom: 4px solid purple;
-  border-radius: 5px;
-  z-index: 2;
-}
-
-.main-title h1 {
-  font-size: 3.5rem;
-}
-
-.table {
-  margin: 0 auto;
-  padding-top: 1rem;
-  background-color: gold;
-  box-shadow: 0 0 5px black;
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-.table * {
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.thead {
-  margin: 1.5rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.line-item {
-  margin: 1rem 0;
-  display: flex;
-  align-items: center;
-}
-
-.line-item:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-}
-
-.advert {
-  margin-bottom: 1rem;
-  padding: 1rem 0;
-  background-color: white;
-  text-align: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-weight: bold;
-  border-top: 2px solid red;
-  border-bottom: 2px solid red;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.advert:hover {
-  border-top: 2px solid lime;
-  border-bottom: 2px solid lime;
-  background-color: red;
-  color: white;
-}
-
-.green {
-  color: green;
-}
-
-.red {
-  color: red;
-}
-
 .landing-page {
   position: relative;
   width: 90vw;
@@ -1336,6 +1223,54 @@ main {
     height: 40rem;
   }
 }
+.account-summary {
+  width: 350px;
+  margin: 8rem auto 0;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-color: rgba(9, 189, 189, 0.9);
+  box-shadow: 2px 2px 4px black;
+  text-align: center;
+}
+.account-summary h1 {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: rgb(0, 128, 0);
+}
+.account-summary h2 {
+  font-size: 1.3rem;
+  color: rgb(0, 128, 0);
+}
+.account-summary p {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.account-summary select {
+  margin: 0.5rem 0 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: gold;
+  font-weight: bold;
+}
+.account-summary .test {
+  border: 2px solid black;
+}
+
+@media only screen and (min-width: 768px) {
+  .account-summary {
+    width: 450px;
+  }
+  .account-summary h1 {
+    font-size: 2.5rem;
+  }
+  .account-summary p {
+    font-size: 1.3rem;
+  }
+  .account-summary select {
+    margin: 1rem 0 1.5rem;
+    font-size: 1.2rem;
+  }
+}
 .banner-ribbon {
   position: relative;
   top: 2.5rem;
@@ -1378,305 +1313,50 @@ main {
     font-size: 1.7rem;
   }
 }
-.table {
-  width: 96%;
-  margin-left: 2%;
-  margin-bottom: 18rem;
-  padding: 2rem;
-  background-color: gold;
-  box-shadow: 0 0 5px black;
-  text-align: left;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 1.5rem;
-  overflow-x: scroll;
-}
-
-.table * {
-  margin: 0.5rem 0;
-}
-
-.trow {
-  display: flex;
-  align-items: baseline;
-}
-
-.trow > * {
-  margin: 0.5rem 2rem;
-}
-
-.layout {
-  width: 60rem;
-  margin: 0 auto;
-}
-
-@media only screen and (max-width: 992px) {
-  .table {
-    font-size: 1.2rem;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .trow {
-    margin-right: -15rem;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .layout {
-    width: 45rem;
-  }
-}
-.table {
-  width: 96%;
-  margin-left: 2%;
-  margin-bottom: 18rem;
-  padding: 2rem;
-  background-color: gold;
-  box-shadow: 0 0 5px black;
-  text-align: left;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 1.5rem;
-}
-
-.table * {
-  margin: 0.5rem 0;
-}
-
-.trow {
-  display: flex;
-  align-items: center;
-}
-
-@media only screen and (max-width: 992px) {
-  .table {
-    font-size: 1.2rem;
-  }
-}
-@media only screen and (max-width: 576px) {
-  .table {
-    text-align: center;
-  }
-}
-.summary {
-  margin: 14rem auto 5rem;
-  padding: 1.5rem 1rem 1rem;
-  max-width: 35rem;
-  border-radius: 2px;
-  background-color: rgba(9, 189, 189, 0.9);
-  box-shadow: 2px 2px 4px black;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.summary h1 {
-  margin-top: -1rem;
-  color: green;
-  font-weight: bold;
-}
-
-.summary select {
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  border-radius: 6px;
-  background-color: gold;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.data {
-  margin: 0;
-  margin-top: 0.5rem;
-  display: flex;
-  align-items: baseline;
-}
-
-.data h5 {
-  color: green;
-  margin: -0.5rem 0 1rem;
-}
-
-@media only screen and (max-width: 992px) {
-  .summary p {
-    font-size: 1.3rem;
-  }
-
-  .summary h1 {
-    font-size: 3.5rem;
-  }
-
-  .summary select {
-    margin: 0.5rem 0 1.5rem;
-    font-size: 1.2rem;
-  }
-}
-@media only screen and (max-width: 576px) {
-  .summary {
-    max-width: 23rem;
-    text-align: center;
-  }
-
-  .summary select {
-    font-size: 1.3rem;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .summary {
-    max-width: 20rem;
-    text-align: center;
-  }
-
-  .summary h1 {
-    font-size: 3rem;
-  }
-
-  .summary select {
-    font-size: 1.2rem;
-  }
-
-  .data h5 {
-    font-weight: bold;
-  }
-}
-.table {
-  width: 96%;
-  margin-left: 2%;
-  margin-bottom: 18rem;
+.credits-activity.table td {
   padding: 1rem;
-  background-color: gold;
-  box-shadow: 0 0 5px black;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 1.5rem;
-  overflow-x: scroll;
 }
 
-.trow {
-  display: flex;
-  align-items: baseline;
-}
-
-.trow > * {
-  margin: 0.5rem 2rem;
-}
-
-.layout {
-  width: 90rem;
-  margin: 0 auto;
-}
-
-@media only screen and (max-width: 992px) {
-  .table {
+@media only screen and (min-width: 768px) {
+  .credits-activity.table th {
+    font-size: 1.4rem;
+  }
+  .credits-activity.table td {
     font-size: 1.2rem;
   }
 }
-.table {
-  width: 96%;
-  margin-left: 2%;
-  margin-bottom: 18rem;
-  padding: 2rem;
-  background-color: gold;
-  box-shadow: 0 0 5px black;
-  text-align: left;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 1.5rem;
-}
-
-.table * {
-  margin: 0.5rem 0;
-}
-
-.trow {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-@media only screen and (max-width: 992px) {
-  .table {
+@media only screen and (min-width: 992px) {
+  .credits-activity.table {
+    max-width: 60vw;
+  }
+  .credits-activity.table th {
+    font-size: 1.4rem;
+  }
+  .credits-activity.table td {
     font-size: 1.2rem;
   }
 }
-@media only screen and (max-width: 576px) {
-  .table {
-    text-align: center;
-  }
+.credits-details.table th {
+  padding: 1rem 0 1rem 1rem;
 }
-.summary {
-  margin: 14rem auto 5rem;
-  padding: 1.5rem 1rem 1rem;
-  max-width: 35rem;
-  border-radius: 2px;
-  background-color: rgba(9, 189, 189, 0.9);
-  box-shadow: 2px 2px 4px black;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+.credits-details.table td {
+  padding: 1rem 1rem 1rem 0;
+  color: black;
 }
 
-.summary h1 {
-  margin-top: -1rem;
-  color: green;
-  font-weight: bold;
-}
-
-.summary select {
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  border-radius: 6px;
-  background-color: gold;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.data {
-  margin: 0;
-  margin-top: 0.5rem;
-  display: flex;
-  align-items: baseline;
-}
-
-.data h5 {
-  color: green;
-  margin: -0.5rem 0 1rem;
-}
-
-@media only screen and (max-width: 992px) {
-  .summary p {
+@media only screen and (min-width: 992px) {
+  .credits-details.table {
+    max-width: 60vw;
     font-size: 1.3rem;
   }
-
-  .summary h1 {
-    font-size: 3.5rem;
-  }
-
-  .summary select {
-    margin: 0.5rem 0 1.5rem;
-    font-size: 1.2rem;
+  .credits-details.table th {
+    padding-left: 2.5rem;
   }
 }
-@media only screen and (max-width: 576px) {
-  .summary {
-    max-width: 23rem;
-    text-align: center;
-  }
-
-  .summary select {
-    font-size: 1.3rem;
-  }
+.debits-details td {
+  margin: 0.5rem;
 }
-@media only screen and (max-width: 500px) {
-  .summary {
-    max-width: 20rem;
-    text-align: center;
-  }
 
-  .summary h1 {
-    font-size: 3rem;
-  }
-
-  .summary select {
-    /* padding: 0.25rem 0; */
-    font-size: 1rem;
-  }
-
-  .data h5 {
-    font-weight: bold;
-  }
-}
 .spotted {
   text-align: center;
   position: relative;

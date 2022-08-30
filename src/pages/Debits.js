@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import {
+  fbCheckingActUrl,
+  fbCheckingDetUrl,
+  fbSavingsActUrl,
+  fbSavingsDetUrl,
+} from '../api/endpoints';
+import { getDebitsData } from '../helpers/functions/ApiFunctions';
 import { accountsSummary } from '../helpers/data/BankingData';
 
-import Banner from '../components/UI/Accounts/Banner';
+import AccountBanner from '../components/UI/Accounts/AccountBanner';
 import BumpTitle from '../components/UI/General/BumpTitle';
 import DebitsSummary from '../components/UI/Accounts/DebitsSummary';
 import DebitsActivity from '../components/UI/Accounts/DebitsActivity';
 import DebitsDetails from '../components/UI/Accounts/DebitsDetails';
 
-const Debits = () => {
-  const { checkingData, savingsData } = accountsSummary;
+const { checkingData, savingsData } = accountsSummary;
 
-  const [accountData, setAccountData] = useState(checkingData);
+const Debits = () => {
   const [title, setTitle] = useState('');
+  const [accountData, setAccountData] = useState(checkingData);
   const [activity, setActivity] = useState([]);
   const [details, setDetails] = useState([]);
   const [showActivity, setShowActivity] = useState(true);
@@ -29,152 +36,53 @@ const Debits = () => {
       setTitle('Checking');
       setAccountData(checkingData);
 
-      fetch(
-        'https://react-http-841ed-default-rtdb.firebaseio.com/accounts/checking_account/activity.json',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-        .then(async (response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            const data = await response.json();
-            if (data.error.message) {
-              throw new Error(data.error.message);
-            }
-          }
-        })
-        .then((responseData) => {
-          const checkingActivity = [];
-          for (const key in responseData) {
-            checkingActivity.push({
-              date: responseData[key].date,
-              type: responseData[key].type,
-              description: responseData[key].description,
-              amount: responseData[key].amount,
-              balance: responseData[key].balance,
-            });
-          }
-          checkingActivity.sort((a, b) => new Date(b.date) - new Date(a.date));
+      // Get checking activity
+      getDebitsData(fbCheckingActUrl)
+        .then((checkingActivity) => {
           setActivity(checkingActivity);
         })
         .catch((error) => {
           console.log(error);
         });
 
-      fetch(
-        'https://react-http-841ed-default-rtdb.firebaseio.com/accounts/checking_account/details.json',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-        .then(async (response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            const data = await response.json();
-            if (data.error.message) {
-              throw new Error(data.error.message);
-            }
-          }
+      // Get checking details
+      getDebitsData(fbCheckingDetUrl)
+        .then((checkingDetails) => {
+          setDetails(checkingDetails);
         })
-        .then((responseData) => {
-          const checkingDetails = [];
-          for (const key in responseData) {
-            checkingDetails.push({
-              accountName: responseData[key].accountName,
-              accountNumber: responseData[key].accountNumber,
-              routeNumber: responseData[key].routeNumber,
-              interestRate: responseData[key].interestRate,
-              accruedInterest: responseData[key].accruedInterest,
-              prevStatementDate: responseData[key].prevStatementDate,
-              effectiveDate: responseData[key].effectiveDate,
-            });
-          }
-          setDetails(checkingDetails[0]);
+        .catch((error) => {
+          console.log(error);
         });
     } else if (accountParam === 'savings') {
       setTitle('Savings');
       setAccountData(savingsData);
 
-      fetch(
-        'https://react-http-841ed-default-rtdb.firebaseio.com/accounts/savings_account/activity.json',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-        .then(async (response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            const data = await response.json();
-            if (data.error.message) {
-              throw new Error(data.error.message);
-            }
-          }
-        })
-        .then((responseData) => {
-          const savingsActivity = [];
-          for (const key in responseData) {
-            savingsActivity.push({
-              date: responseData[key].date,
-              type: responseData[key].type,
-              description: responseData[key].description,
-              amount: responseData[key].amount,
-              balance: responseData[key].balance,
-            });
-          }
-          savingsActivity.sort((a, b) => new Date(b.date) - new Date(a.date));
+      // Get savings activity
+      getDebitsData(fbSavingsActUrl)
+        .then((savingsActivity) => {
           setActivity(savingsActivity);
+        })
+        .catch((error) => {
+          console.log(error);
         });
 
-      fetch(
-        'https://react-http-841ed-default-rtdb.firebaseio.com/accounts/savings_account/details.json',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-        .then(async (response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            const data = await response.json();
-            if (data.error.message) {
-              throw new Error(data.error.message);
-            }
-          }
-        })
-        .then((responseData) => {
-          const savingsDetails = [];
-          for (const key in responseData) {
-            savingsDetails.push({
-              accountName: responseData[key].accountName,
-              accountNumber: responseData[key].accountNumber,
-              routeNumber: responseData[key].routeNumber,
-              interestRate: responseData[key].interestRate,
-              accruedInterest: responseData[key].accruedInterest,
-              prevStatementDate: responseData[key].prevStatementDate,
-              effectiveDate: responseData[key].effectiveDate,
-            });
-          }
+      // Get savings details
+      getDebitsData(fbSavingsDetUrl)
+        .then((savingsDetails) => {
           setDetails(savingsDetails[0]);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     }
-  }, [accountParam, checkingData, savingsData]);
+  }, [accountParam]);
 
   const selectHandler = (event) => {
-    if (event.target.value === 'checking') {
+    const { value } = event.target;
+
+    if (value === 'checking') {
       navigate('/my-purse/debit-accounts?account=checking');
-    } else if (event.target.value === 'savings') {
+    } else if (value === 'savings') {
       navigate('/my-purse/debit-accounts?account=savings');
     }
   };
@@ -206,7 +114,7 @@ const Debits = () => {
   return (
     <>
       <div className={headerClasses}>
-        <Banner />
+        <AccountBanner />
       </div>
       <BumpTitle title={title} />
       <div className='layout'>

@@ -1,67 +1,39 @@
 import { usdFormatter } from '../../../helpers/functions/MiscFunctions';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Table from 'react-bootstrap/Table';
 
 const CreditsDetails = ({ details }) => {
   return (
-    <Container className='table'>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Account Name</b>
-        </Col>
-        <Col>{details.accountName}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Account Number</b>
-        </Col>
-        <Col>{details.accountNumber}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Credit Limit</b>
-        </Col>
-        <Col>{details.creditLimit}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Previous Statement Balance</b>
-        </Col>
-        <Col>{usdFormatter.format(details.prevStatementBalance)}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Previous Statement Date</b>
-        </Col>
-        <Col>{details.prevStatementDate}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Last Payment Amount</b>
-        </Col>
-        <Col>{usdFormatter.format(details.lastPaymentAmount)}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Last Payment Received</b>
-        </Col>
-        <Col>{details.lastPaymentReceived}</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Interest Rate</b>
-        </Col>
-        <Col>{details.interestRate}%</Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='trow'>
-        <Col>
-          <b>Account Opened</b>
-        </Col>
-        <Col>{details.effectiveDate}</Col>
-      </Row>
-    </Container>
+    <Table borderless className='credits-details'>
+      <tr>
+        <th>Account Name</th>
+        <td>{details.accountName}</td>
+      </tr>
+      <tr>
+        <th>Account Number</th>
+        <td>{details.accountNumber}</td>
+      </tr>
+      <tr>
+        <th>Credit Limit</th>
+        <td>{details.creditLimit}</td>
+      </tr>
+      <tr>
+        <th>Previous Statement Balance</th>
+        <td>{usdFormatter(details.prevStatementBalance)}</td>
+      </tr>
+      <tr>
+        <th>Previous Statement Date</th>
+        <td>{details.prevStatementDate}</td>
+      </tr>
+      <tr>
+        <th>Last Payment Amount</th>
+        <td>{usdFormatter(details.lastPaymentAmount)}</td>
+      </tr>
+      <tr>
+        <th>Last Payment Received</th>
+        <td>{details.lastPaymentReceived}</td>
+      </tr>
+    </Table>
   );
 };
 
