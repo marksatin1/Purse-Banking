@@ -1,3 +1,9 @@
+.bg-img--cops {
+  &::before {
+    background-image: url(../../assets/banners/KKK_Cops.webp);
+  }
+}
+
 .homepage {
   margin: 10rem auto -12rem;
 

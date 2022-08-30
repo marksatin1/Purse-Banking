@@ -38,7 +38,7 @@ const Credits = () => {
 
   return (
     <>
-      <AccountBanner />
+      <AccountBanner className='bg-img--funeral' />
       <Slidebar title='Credit Cards' />
       <CreditsSummary />
       <Container className='credits'>

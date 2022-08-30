@@ -16,7 +16,7 @@ const Homepage = () => {
 
   return (
     <>
-      <AccountBanner />
+      <AccountBanner className='bg-img--cops' />
       <Slidebar title='Welcome Home!' />
       <Container className='homepage'>
         <div className='homepage--table'>

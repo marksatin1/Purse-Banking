@@ -532,6 +532,10 @@ main {
     width: 70vw;
   }
 }
+.bg-img--funeral::before {
+  background-image: url(../../assets/banners/Funeral_Parking_1000w.jpg);
+}
+
 .credits {
   margin: 5rem auto -12rem;
 }
@@ -708,6 +712,14 @@ main {
   color: rgb(128, 0, 128);
 }
 
+.bg-img--loot-1::before {
+  background-image: url(../../assets/banners/Loot_1.webp);
+}
+
+.bg-img--loot-2::before {
+  background-image: url(../../assets/banners/Loot_2.webp);
+}
+
 .debits {
   margin: 5rem auto -12rem;
 }
@@ -824,6 +836,10 @@ main {
     font-size: 1.6rem;
   }
 }
+.bg-img--cops::before {
+  background-image: url(../../assets/banners/KKK_Cops.webp);
+}
+
 .homepage {
   margin: 10rem auto -12rem;
 }
@@ -1213,44 +1229,43 @@ main {
     width: 50%;
   }
 }
-.banner {
+.account-banner {
   position: relative;
   height: 20rem;
   margin-top: 12rem;
   background-color: rgb(175, 116, 175);
   z-index: -1;
 }
-.banner::before {
+.account-banner::before {
   position: absolute;
   top: 0;
   bottom: 0;
   left: -5rem;
   right: 0;
   content: "";
-  background-image: url(../../assets/banners/KKK_Cops.webp);
   opacity: 0.6;
   background-size: cover;
   background-position: top 40% center;
 }
 
 @media only screen and (min-width: 576px) {
-  .banner {
+  .account-banner {
     margin-top: 15rem;
   }
 }
 @media only screen and (min-width: 768px) {
-  .banner {
+  .account-banner {
     height: 30rem;
     margin-top: 17rem;
   }
 }
 @media only screen and (min-width: 1200px) {
-  .banner {
+  .account-banner {
     height: 35rem;
   }
 }
 @media only screen and (min-width: 1400px) {
-  .banner {
+  .account-banner {
     height: 40rem;
   }
 }

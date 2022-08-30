@@ -25,6 +25,7 @@ const Debits = () => {
   const [activity, setActivity] = useState([]);
   const [details, setDetails] = useState([]);
   const [tabsClass, setTabsClass] = useState('');
+  const [bannerImgClass, setBannerImgClass] = useState('');
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -37,6 +38,7 @@ const Debits = () => {
     if (accountParam === 'checking') {
       setTitle('Checking');
       setAccountData(checkingData);
+      setBannerImgClass('bg-img--loot-1');
 
       // Get checking activity
       getDebitsData(fbCheckingActUrl)
@@ -58,6 +60,7 @@ const Debits = () => {
     } else if (accountParam === 'savings') {
       setTitle('Savings');
       setAccountData(savingsData);
+      setBannerImgClass('bg-img--loot-2');
 
       // Get savings activity
       getDebitsData(fbSavingsActUrl)
@@ -100,7 +103,7 @@ const Debits = () => {
 
   return (
     <>
-      <AccountBanner />
+      <AccountBanner className={bannerImgClass} />
       <Slidebar title={title} />
       <DebitsSummary
         accountData={accountData}
