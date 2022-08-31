@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { usdFormatter } from '../helpers/functions/MiscFunctions';
 import { CryptoContent } from '../helpers/data/WrittenContent';
-import { coinCapUrl } from '../api/endpoints';
+import { coinCapUrl } from '../helpers/data/ApiEndpoints';
 
 const axios = require('axios');
 

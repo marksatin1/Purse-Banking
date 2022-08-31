@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../../context/auth-context';
 
 import { getSecureToken } from '../../../helpers/functions/ApiFunctions';
-import { fbSignInUrl } from '../../../api/endpoints';
+import { fbSignInUrl } from '../../../helpers/data/ApiEndpoints';
 import { Sleep } from '../../../helpers/functions/MiscFunctions';
 
 import Form from 'react-bootstrap/Form';

@@ -5,7 +5,7 @@ import {
   isEmpty,
   formErrorValidation,
 } from '../helpers/functions/FormValidationFunctions';
-import { fbSignUpUrl } from '../api/endpoints';
+import { fbSignUpUrl } from '../helpers/data/ApiEndpoints';
 import {
   getSecureToken,
   postUserData,
