@@ -13,8 +13,8 @@ const Contact = () => {
       </h2>
       <Row>
         {ContactData.map((item) => (
-          <Col xs={12} lg={6} key={item.department}>
-            <ContactCard department={item.department} data={item.data} />
+          <Col key={item.department} xs={12} lg={6}>
+            <ContactCard department={item.department} contactData={item.data} />
           </Col>
         ))}
       </Row>

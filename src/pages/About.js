@@ -5,8 +5,10 @@ const About = () => {
   return (
     <PageCard title='About Us' subtitle='Get in the bag today!'>
       <div className='about'>
-        <h3>You know us!</h3>
-        <h3>You love us!</h3>
+        <div className='d-flex justify-content-between'>
+          <h3>You know us!</h3>
+          <h3>You love us!</h3>
+        </div>
         <p>
           We're in your pocket, on your cellphone, in your thoughts, and on your
           mind! We're Planet Earth's Number One Supplier:
@@ -22,7 +24,7 @@ const About = () => {
         <h3>YOUR</h3>
         <h3>ASSETS</h3>
         <p>and managing your</p>
-        <h3>WEALTH!</h3>
+        <h2>WEALTH!</h2>
         <p>
           If you're on your way back home you know what to do: Sign In button's
           on the home page, dummy! And if this is your first trip around this

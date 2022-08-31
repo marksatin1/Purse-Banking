@@ -33,16 +33,16 @@ const Covid19Support = () => {
       </p>
       <p>
         For additional information about COVID-19 please visit the Centers for
-        Disease Control website at{' '}
-        <a
-          href='https://www.cdc.gov/coronavirus/2019-ncov/index.html'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='link'
-        >
-          <h2>www.cdc.gov</h2>
-        </a>
+        Disease Control website at
       </p>
+      <a
+        href='https://www.cdc.gov/coronavirus/2019-ncov/index.html'
+        target='_blank'
+        rel='noopener noreferrer'
+        className='link'
+      >
+        <h2>www.cdc.gov</h2>
+      </a>
     </PageCard>
   );
 };

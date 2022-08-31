@@ -12,12 +12,10 @@ const Advertising = () => {
         monitoring your browsing habits and cleansing the data and sending it to
         as many marketing firms as we possibly can. Duh.
       </p>
-      <p>
-        For more information see our statement on
-        <a href='/privacy' className='link'>
-          <h3>YOUR PRIVACY</h3>
-        </a>
-      </p>
+      <p>For more information see our statement on</p>
+      <a href='/privacy' className='link'>
+        <h3>YOUR PRIVACY</h3>
+      </a>
     </PageCard>
   );
 };

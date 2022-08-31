@@ -87,10 +87,12 @@ const PatriotAct = () => {
         </p>
         <p>
           If you are a representative of a foreign bank that wishes to establish
-          a professional working relationship with Purse do not hesitate to{' '}
-          <a to='/contact' className='link'>
-            <h3 className='patriot-act--intertitle'>Contact Us</h3>
-          </a>
+          a professional working relationship with Purse do not hesitate to
+        </p>
+        <a to='/contact' className='link'>
+          <h3 className='patriot-act--intertitle'>Contact Us</h3>
+        </a>
+        <p>
           We will be happy to supply you with the necessary paperwork to
           complete the certification process.
         </p>
@@ -103,16 +105,16 @@ const PatriotAct = () => {
           <span className='red'>E</span>nsuring <span className='red'>E</span>
           ffective <span className='red'>D</span>iscipline{' '}
           <span className='red'>O</span>ver <span className='red'>M</span>
-          onitoring (<span className='red'>USA FREEDOM</span>) Act{' '}
-          <a
-            href='https://en.wikipedia.org/wiki/USA_Freedom_Act'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='link'
-          >
-            <h2 className='patriot-act--endtitle'>click here</h2>
-          </a>
+          onitoring (<span className='red'>USA FREEDOM</span>) Act
         </p>
+        <a
+          href='https://en.wikipedia.org/wiki/USA_Freedom_Act'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='link'
+        >
+          <h2 className='patriot-act--endtitle'>click here</h2>
+        </a>
       </Container>
     </PageCard>
   );

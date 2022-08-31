@@ -76,7 +76,7 @@ const CreditOffer = () => {
         <h3 className='body--catchphrase'>
           <i>{cardData.catchphrase}</i>
         </h3>
-        <p className='body--description'>{cardData.description}</p>
+        <h5 className='body--description'>{cardData.description}</h5>
         <a href='/contact' className='body--link'>
           <h3>Call Now To Enroll!</h3>
         </a>
