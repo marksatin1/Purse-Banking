@@ -7,6 +7,7 @@
 // calculateRemainingTime(expTimeSeconds)
 // retrieveStoredTokenData()
 
+import axios from 'axios';
 import {
   fbUsersUrl,
   fbCommentsUrl,
@@ -17,8 +18,6 @@ import {
   fbCreditsActUrl,
   fbCreditsDetUrl,
 } from '../../api/endpoints';
-
-const axios = require('axios');
 
 export const getSecureToken = (url, email, password) => {
   return axios({
