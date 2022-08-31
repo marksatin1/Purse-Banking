@@ -1,13 +1,17 @@
 const LocationCard = ({ name, icon, status, rating, address }) => {
   return (
-    <div className='card'>
-      <h3 className='name'>{name}</h3>
+    <div className='loc-card'>
+      <h3 className='loc-card--name'>{name}</h3>
       <div className='status-container'>
-        <img className='icon' src={icon} alt='Location icon' />
-        <h5 className='status'>{status}</h5>
+        <img
+          className='status-container--icon'
+          src={icon}
+          alt='Location icon'
+        />
+        <h5 className='status-container--status'>{status}</h5>
       </div>
-      <img className='rating' src={rating} alt='Business rating' />
-      <p className='address'>{address}</p>
+      <img className='loc-card--rating' src={rating} alt='Business rating' />
+      <p className='loc-card--address'>{address}</p>
     </div>
   );
 };
