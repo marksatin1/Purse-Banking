@@ -1,6 +1,6 @@
 import Compass from '../../../assets/Emojis/Compass.webp';
 
-const LocateMe = ({ setIsGeoLocating, panTo }) => {
+const LocateMe = ({ panTo, setIsGeoLocating }) => {
   return (
     <button
       className='locate-icon'
@@ -8,10 +8,7 @@ const LocateMe = ({ setIsGeoLocating, panTo }) => {
         setIsGeoLocating(true);
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            panTo({
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            });
+            panTo(position.coords.latitude, position.coords.longitude);
             setIsGeoLocating(false);
           },
           () => null

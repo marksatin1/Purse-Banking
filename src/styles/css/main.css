@@ -191,8 +191,10 @@ main {
   top: 0;
   left: 0;
   right: 0;
+  padding-bottom: 1rem;
   background-color: white;
   text-align: center;
+  box-shadow: 0 5px 10px white;
   z-index: 5;
 }
 .header img {
@@ -972,18 +974,19 @@ main {
     font-size: 1.8rem;
   }
 }
-.find-branch {
-  width: 80vw;
-  margin: 15rem auto -12rem;
-  text-align: center;
-}
-.find-branch .loader {
+.wtf-loader {
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   z-index: 3;
+}
+
+.find-branch {
+  width: 80vw;
+  margin: 15rem auto -12rem;
+  text-align: center;
 }
 .find-branch--places {
   max-height: 35rem;
@@ -1650,7 +1653,22 @@ main {
     padding-left: 2.5rem;
   }
 }
-.spotted {
+.bank-map--alert {
+  position: absolute;
+  width: 120%;
+  height: 100%;
+  left: -3vw;
+  white-space: nowrap;
+  z-index: 3;
+}
+.bank-map--alert h1 {
+  font-size: 3rem;
+  color: red;
+  background-color: lime;
+  animation: blink 200ms steps(2, start);
+  animation-iteration-count: 50;
+}
+.bank-map .info-window--alert {
   text-align: center;
   position: relative;
   margin: 0.5rem 0 1rem;
@@ -1662,57 +1680,34 @@ main {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   background-color: lime;
-  color: rgb(208, 26, 26);
+  color: red;
   left: -1rem;
   text-decoration: underline;
 }
-
-.status-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+.bank-map .info-window--location {
+  color: rgb(0, 128, 0);
+  margin: 0 1rem 0 0;
+  font-size: 1.8rem;
 }
-
-.icon {
+.bank-map .info-window .status-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.bank-map .info-window .status-container--icon {
   width: 50px;
   margin-right: 1rem;
   padding: 0.25rem;
 }
-
-.status {
+.bank-map .info-window .status-container--status {
   margin: 0.25rem 0;
 }
-
-.name {
-  color: green;
-  margin: 0 1rem 0 0;
-  font-size: 1.8rem;
-}
-
-.rating {
+.bank-map .info-window .status-container--rating {
   width: 100px;
   margin: 0.5rem 0;
 }
-
-.address {
+.bank-map .info-window .status-container--address {
   margin: 0.5rem 0;
-}
-
-.wait {
-  position: absolute;
-  width: 120%;
-  height: 100%;
-  left: -3vw;
-  white-space: nowrap;
-  z-index: 3;
-}
-
-.wait h1 {
-  font-size: 3rem;
-  color: rgb(208, 26, 26);
-  background-color: lime;
-  animation: blink 200ms steps(2, start);
-  animation-iteration-count: 50;
 }
 
 .locate-icon {
@@ -1731,7 +1726,7 @@ main {
   width: 50px;
 }
 
-.card {
+.loc-card {
   margin: 0.5rem 1rem 1rem;
   padding: 0.5rem 1rem;
   border: 2px solid black;
@@ -1740,33 +1735,27 @@ main {
   background-color: white;
   z-index: 2;
 }
-
-.name {
+.loc-card--name {
   color: green;
   margin: 0.5rem 0;
 }
-
-.status-container {
+.loc-card .status-container {
   display: flex;
   align-items: center;
 }
-
-.icon {
+.loc-card .status-container--icon {
   width: 50px;
   margin-right: 1rem;
   padding: 0.25rem;
 }
-
-.status {
+.loc-card .status-container--status {
   margin: 0.25rem 0;
 }
-
-.rating {
+.loc-card--rating {
   width: 100px;
   margin: 0.5rem 0;
 }
-
-.address {
+.loc-card--address {
   margin: 0.5rem 0;
 }
 
@@ -1784,8 +1773,7 @@ main {
   background-color: rgb(245, 245, 220);
   border-radius: 4px;
   box-shadow: -1px 1px 4px black;
-  font-size: 1.1rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1.8rem;
   z-index: 2;
 }
 
@@ -1795,22 +1783,17 @@ main {
 
 .option:hover {
   background-color: none;
-  color: green;
+  color: rgb(0, 128, 0);
   transform: scale(1.02);
 }
 
 .results-message {
   margin: 1.5rem auto;
-  color: goldenrod;
-  font-family: "Times New Roman", Times, serif;
+  color: rgb(218, 165, 32);
+  text-shadow: 0 0 1px black;
   text-align: center;
 }
 
-@media only screen and (max-width: 768px) {
-  .results-message {
-    width: 80%;
-  }
-}
 .slidebar {
   position: sticky;
   bottom: 33rem;
@@ -2583,7 +2566,6 @@ main {
   z-index: 3;
 }
 .sign-in--title {
-  width: 100vw;
   color: rgb(225, 193, 15);
   font-size: 1.7rem;
   text-shadow: 0 0 2px white;

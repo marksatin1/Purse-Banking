@@ -1,8 +1,11 @@
-import { useState, useRef, useCallback, Suspense } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
-import { v4 as uuidv4 } from 'uuid';
 import { convertRating } from '../helpers/functions/MiscFunctions';
 import { useLoadScript } from '@react-google-maps/api';
+import {
+  newCoordsReq,
+  gMapsService,
+} from '../helpers/functions/GMapsFunctions';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -13,8 +16,10 @@ import MapSearchBar from '../components/UI/FindBranch/MapSearchBar';
 
 import wtf_loader from '../assets/wtf_loader.gif';
 
+// must be named 'libraries'
 const libraries = ['places'];
-const center = {
+
+const initCenter = {
   lat: 36.114647,
   lng: -115.172813,
 };
@@ -22,6 +27,7 @@ const center = {
 const FindBranch = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [requestedPlaces, setRequestedPlaces] = useState([]);
+
   const mapRef = useRef();
 
   const { isLoaded, loadError } = useLoadScript({
@@ -32,51 +38,21 @@ const FindBranch = () => {
   const loadPlaces = useCallback((map) => {
     mapRef.current = map;
 
-    const bankRequest = {
-      location: center,
-      radius: '8000',
-      query: 'bank',
-      fields: ['name', 'geometry'],
-    };
+    const initLocReq = newCoordsReq(initCenter.lat, initCenter.lng);
+    const locMarkers = gMapsService(map, initLocReq);
 
-    const markers = [];
-    const service = new window.google.maps.places.PlacesService(map);
-    service.textSearch(bankRequest, (results, status) => {
-      if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-        for (const key in results) {
-          markers.push(results[key]);
-        }
-        setRequestedPlaces(markers);
-        setIsLoading(false);
-      } else {
-        console.log('Error with google maps service');
-      }
-    });
+    setRequestedPlaces(locMarkers);
+    setIsLoading(false);
   }, []);
 
-  const panTo = useCallback(({ lat, lng }) => {
+  const panTo = useCallback((lat, lng) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(11);
 
-    const newCoordsRequest = {
-      location: { lat, lng },
-      radius: '8000',
-      query: 'ATM',
-      fields: ['name', 'geometry'],
-    };
+    const searchReq = newCoordsReq(lat, lng);
+    const locMarkers = gMapsService(mapRef.current, searchReq);
 
-    const markers = [];
-    const service = new window.google.maps.places.PlacesService(mapRef.current);
-    service.textSearch(newCoordsRequest, (results, status) => {
-      if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-        for (const key in results) {
-          markers.push(results[key]);
-        }
-        setRequestedPlaces(markers);
-      } else {
-        console.log('Error with google maps service');
-      }
-    });
+    setRequestedPlaces(locMarkers);
   }, []);
 
   if (!isLoaded) {
@@ -99,11 +75,9 @@ const FindBranch = () => {
         </h2>
         <Row>
           <Col xs={12}>
-            <Suspense fallback={wtf_loader}>
-              <div className='find-branch--search-bar'>
-                <MapSearchBar panTo={panTo} center={center} />
-              </div>
-            </Suspense>
+            <div className='find-branch--search-bar'>
+              <MapSearchBar panTo={panTo} center={initCenter} />
+            </div>
           </Col>
           <Col
             xs={{ span: 12, order: 3 }}
@@ -112,7 +86,7 @@ const FindBranch = () => {
           >
             {requestedPlaces.map((place) => (
               <LocationCard
-                key={uuidv4()}
+                key={place.place_id}
                 name={place.name}
                 status={place.business_status.replace('_', ' ')}
                 icon={place.icon}
@@ -122,13 +96,12 @@ const FindBranch = () => {
             ))}
           </Col>
           <Col xs={12} xl={{ span: 7, order: 2 }} className='find-branch--map'>
-            <Suspense fallback={wtf_loader}>
-              <BankMap
-                panTo={panTo}
-                loadPlaces={loadPlaces}
-                requestedPlaces={requestedPlaces}
-              />
-            </Suspense>
+            <BankMap
+              initCenter={initCenter}
+              panTo={panTo}
+              loadPlaces={loadPlaces}
+              requestedPlaces={requestedPlaces}
+            />
           </Col>
         </Row>
       </div>

@@ -12,9 +12,7 @@
   background-color: rgb(245, 245, 220);
   border-radius: 4px;
   box-shadow: -1px 1px 4px black;
-  font-size: 1.1rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.8rem;
   z-index: 2;
 }
 
@@ -24,19 +22,13 @@
 
 .option:hover {
   background-color: none;
-  color: green;
+  color: $primary-alt-color;
   transform: scale(1.02);
 }
 
 .results-message {
   margin: 1.5rem auto;
-  color: goldenrod;
-  font-family: 'Times New Roman', Times, serif;
+  color: $secondary-alt-color;
+  text-shadow: 0 0 1px black;
   text-align: center;
-}
-
-@media only screen and (max-width: 768px) {
-  .results-message {
-    width: 80%;
-  }
 }
