@@ -80,7 +80,7 @@ const Debits = () => {
           console.log(error);
         });
     }
-  }, [accountParam]);
+  }, [accountParam, checkingData, savingsData]);
 
   const selectHandler = (event) => {
     const { value } = event.target;
