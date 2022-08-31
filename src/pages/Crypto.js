@@ -8,7 +8,7 @@ const axios = require('axios');
 
 const Crypto = () => {
   const [cryptoData, setCryptoData] = useState([]);
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     axios
@@ -26,14 +26,14 @@ const Crypto = () => {
             rank: data[crypto].rank,
             symbol: data[crypto].symbol,
             name: data[crypto].name,
-            valueUSD: usdFormatter.format(data[crypto].priceUsd),
-            avgValue: usdFormatter.format(data[crypto].vwap24Hr),
+            valueUSD: usdFormatter(data[crypto].priceUsd),
+            avgValue: usdFormatter(data[crypto].vwap24Hr),
             changeIndex: Number(data[crypto].changePercent24Hr).toLocaleString(
               'en-US'
             ),
             supply: Number(data[crypto].supply).toLocaleString('en-US'),
             maxSupply: Number(data[crypto].maxSupply),
-            marketCapUSD: usdFormatter.format(data[crypto].marketCapUsd),
+            marketCapUSD: usdFormatter(data[crypto].marketCapUsd),
             url: data[crypto].explorer,
           });
         }
