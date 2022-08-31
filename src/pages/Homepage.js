@@ -11,8 +11,9 @@ import Slidebar from '../components/UI/General/Slidebar';
 const Homepage = () => {
   const navigate = useNavigate();
 
-  const { checkingData, savingsData, creditsData } = accountsSummary;
-  const debitBalTotal = +checkingData.availBalance + +savingsData.availBalance;
+  const { checkingSummary, savingsSummary, creditsSummary } = accountsSummary;
+  const debitBalTotal =
+    +checkingSummary.availBalance + +savingsSummary.availBalance;
 
   return (
     <>
@@ -41,13 +42,13 @@ const Homepage = () => {
               >
                 <th>Purse Convenience Checking</th>
                 <td className='d-none d-md-table-cell'>
-                  {usdFormatter(checkingData.begBalance)}
+                  {usdFormatter(checkingSummary.begBalance)}
                 </td>
                 <td className='d-none d-md-table-cell'>
-                  {usdFormatter(checkingData.pending)}
+                  {usdFormatter(checkingSummary.pending)}
                 </td>
                 <td className='green'>
-                  {usdFormatter(checkingData.availBalance)}
+                  {usdFormatter(checkingSummary.availBalance)}
                 </td>
               </tr>
               <tr
@@ -58,13 +59,13 @@ const Homepage = () => {
               >
                 <th>Purse Spectacular Savings</th>
                 <td className='d-none d-md-table-cell'>
-                  {usdFormatter(savingsData.begBalance)}
+                  {usdFormatter(savingsSummary.begBalance)}
                 </td>
                 <td className='d-none d-md-table-cell'>
-                  {usdFormatter(savingsData.pending)}
+                  {usdFormatter(savingsSummary.pending)}
                 </td>
                 <td className='green'>
-                  {usdFormatter(savingsData.availBalance)}
+                  {usdFormatter(savingsSummary.availBalance)}
                 </td>
               </tr>
               <tr>
@@ -103,13 +104,13 @@ const Homepage = () => {
               >
                 <th>Purse Infinity Cash Card</th>
                 <td className='d-none d-md-table-cell'>
-                  {usdFormatter(creditsData.currentBalance)}
+                  {usdFormatter(creditsSummary.currentBalance)}
                 </td>
                 <td className='d-none d-md-table-cell'>
-                  {creditsData.paymentDueDate}
+                  {creditsSummary.paymentDueDate}
                 </td>
                 <td className='green'>
-                  {usdFormatter(creditsData.availCredit)}
+                  {usdFormatter(creditsSummary.availCredit)}
                 </td>
               </tr>
               <tr>
@@ -125,7 +126,7 @@ const Homepage = () => {
               <tr>
                 <th>Total</th>
                 <td colSpan={3} className='green'>
-                  {usdFormatter(creditsData.availCredit)}
+                  {usdFormatter(creditsSummary.availCredit)}
                 </td>
               </tr>
             </tbody>
