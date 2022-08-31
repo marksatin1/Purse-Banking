@@ -89,7 +89,7 @@ const PatriotAct = () => {
           If you are a representative of a foreign bank that wishes to establish
           a professional working relationship with Purse do not hesitate to
         </p>
-        <a to='/contact' className='link'>
+        <a href='/contact' className='link'>
           <h3 className='patriot-act--intertitle'>Contact Us</h3>
         </a>
         <p>
