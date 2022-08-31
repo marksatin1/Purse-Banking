@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { getCreditsData } from '../helpers/functions/ApiFunctions';
-import { fbCreditsActUrl, fbCreditsDetUrl } from '../api/endpoints';
+import { fbCreditsActUrl, fbCreditsDetUrl } from '../helpers/data/ApiEndpoints';
 
 import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
@@ -16,24 +16,17 @@ const Credits = () => {
   const [activity, setActivity] = useState([]);
   const [details, setDetails] = useState([]);
 
-  useEffect(() => {
-    // Get credits activity
-    getCreditsData(fbCreditsActUrl)
-      .then((creditsActivity) => {
-        setActivity(creditsActivity);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  // getCreditsData() MUST be wrapped in an async func to access Promise results
+  const loadCreditsData = async (endpoints) => {
+    const [creditsActivity, creditsDetails] = await getCreditsData(endpoints);
 
-    // get credits details
-    getCreditsData(fbCreditsDetUrl)
-      .then((creditsDetails) => {
-        setDetails(creditsDetails);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    setActivity(creditsActivity);
+    setDetails(creditsDetails);
+  };
+
+  useEffect(() => {
+    const creditsEndpoints = [fbCreditsActUrl, fbCreditsDetUrl];
+    loadCreditsData(creditsEndpoints);
   }, []);
 
   return (

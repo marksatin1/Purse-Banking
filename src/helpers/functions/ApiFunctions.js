@@ -8,16 +8,7 @@
 // retrieveStoredTokenData()
 
 import axios from 'axios';
-import {
-  fbUsersUrl,
-  fbCommentsUrl,
-  fbCheckingActUrl,
-  fbSavingsActUrl,
-  fbCheckingDetUrl,
-  fbSavingsDetUrl,
-  fbCreditsActUrl,
-  fbCreditsDetUrl,
-} from '../../api/endpoints';
+import { fbUsersUrl, fbCommentsUrl } from '../data/ApiEndpoints';
 
 export const getSecureToken = (url, email, password) => {
   return axios({
@@ -59,9 +50,6 @@ export const postUserData = (user, localId) => {
 };
 
 export const getCurrentUser = (localId) => {
-  // must return axios (=== returing it as a Promise)
-  // in order to chain .then() statements to it
-  // outside of fbGetUserData function
   return axios({
     method: 'get',
     url: fbUsersUrl,
@@ -113,82 +101,78 @@ export const getDateSortedComments = () => {
   });
 };
 
-export const getDebitsData = (url) => {
-  return axios.get(url).then((response) => {
-    const { data } = response;
-    if (url === fbCheckingActUrl || url === fbSavingsActUrl) {
+//// Test with Promise.all()
+
+export const getDebitsData = (endpoints) => {
+  return Promise.all(endpoints.map((endpoint) => axios.get(endpoint)))
+    .then((debitsData) => {
+      const [{ data: actData }, { data: detData }] = debitsData;
       const debitsActivity = [];
-
-      for (let transaction in data) {
-        debitsActivity.push({
-          date: data[transaction].date,
-          type: data[transaction].type,
-          description: data[transaction].description,
-          amount: data[transaction].amount,
-          balance: data[transaction].balance,
-        });
-      }
-
-      debitsActivity.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      return debitsActivity;
-    } else if (url === fbCheckingDetUrl || url === fbSavingsDetUrl) {
       const debitsDetails = [];
 
-      for (let detail in data) {
+      for (let activity in actData) {
+        debitsActivity.push({
+          date: actData[activity].date,
+          type: actData[activity].type,
+          description: actData[activity].description,
+          amount: actData[activity].amount,
+          balance: actData[activity].balance,
+        });
+      }
+      debitsActivity.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      for (let detail in detData) {
         debitsDetails.push({
-          accountName: data[detail].accountName,
-          accountNumber: data[detail].accountNumber,
-          routeNumber: data[detail].routeNumber,
-          interestRate: data[detail].interestRate,
-          accruedInterest: data[detail].accruedInterest,
-          prevStatementDate: data[detail].prevStatementDate,
-          effectiveDate: data[detail].effectiveDate,
+          accountName: detData[detail].accountName,
+          accountNumber: detData[detail].accountNumber,
+          routeNumber: detData[detail].routeNumber,
+          interestRate: detData[detail].interestRate,
+          accruedInterest: detData[detail].accruedInterest,
+          prevStatementDate: detData[detail].prevStatementDate,
+          effectiveDate: detData[detail].effectiveDate,
         });
       }
 
-      return debitsDetails[0];
-    }
-  });
+      return [debitsActivity, debitsDetails[0]];
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
-export const getCreditsData = (url) => {
-  return axios.get(url).then((response) => {
-    const { data } = response;
-    if (url === fbCreditsActUrl) {
+export const getCreditsData = (endpoints) => {
+  return Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then(
+    (creditsData) => {
+      const [{ data: actData }, { data: detData }] = creditsData;
       const creditsActivity = [];
-
-      for (let transaction in data) {
-        creditsActivity.push({
-          date: data[transaction].date,
-          description: data[transaction].description,
-          amount: data[transaction].amount,
-        });
-      }
-
-      creditsActivity.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      return creditsActivity;
-    } else if (url === fbCreditsDetUrl) {
       const creditsDetails = [];
 
-      for (let detail in data) {
+      for (let activity in actData) {
+        creditsActivity.push({
+          date: actData[activity].date,
+          description: actData[activity].description,
+          amount: actData[activity].amount,
+        });
+      }
+      creditsActivity.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      for (let detail in detData) {
         creditsDetails.push({
-          accountName: data[detail].accountName,
-          accountNumber: data[detail].accountNumber,
-          creditLimit: data[detail].creditLimit,
-          prevStatementBalance: data[detail].prevStatementBalance,
-          prevStatementDate: data[detail].prevStatementDate,
-          lastPaymentAmount: data[detail].lastPaymentAmount,
-          lastPaymentReceived: data[detail].lastPaymentReceived,
-          interestRate: data[detail].interestRate,
-          effectiveDate: data[detail].effectiveDate,
+          accountName: detData[detail].accountName,
+          accountNumber: detData[detail].accountNumber,
+          creditLimit: detData[detail].creditLimit,
+          prevStatementBalance: detData[detail].prevStatementBalance,
+          prevStatementDate: detData[detail].prevStatementDate,
+          lastPaymentAmount: detData[detail].lastPaymentAmount,
+          lastPaymentReceived: detData[detail].lastPaymentReceived,
+          interestRate: detData[detail].interestRate,
+          effectiveDate: detData[detail].effectiveDate,
         });
       }
 
-      return creditsDetails[0];
+      return [creditsActivity, creditsDetails[0]];
     }
-  });
+  );
 };
 
 // Convert expiresIn to ms and add to current time

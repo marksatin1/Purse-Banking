@@ -6,7 +6,7 @@ import {
   fbCheckingDetUrl,
   fbSavingsActUrl,
   fbSavingsDetUrl,
-} from '../api/endpoints';
+} from '../helpers/data/ApiEndpoints';
 import { getDebitsData } from '../helpers/functions/ApiFunctions';
 import { accountsSummary } from '../helpers/data/BankingData';
 
@@ -29,58 +29,37 @@ const Debits = () => {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const accountParam = queryParams.get('account');
+  const accountType = queryParams.get('account');
   const navigate = useNavigate();
 
-  const { checkingData, savingsData } = accountsSummary;
+  const { checkingSummary, savingsSummary } = accountsSummary;
+
+  // getDebitsData() MUST be wrapped in an async func to access Promise results
+  const loadDebitsData = async (endpoints) => {
+    const [debitsActivity, debitsDetails] = await getDebitsData(endpoints);
+
+    setActivity(debitsActivity);
+    setDetails(debitsDetails);
+  };
 
   useEffect(() => {
-    if (accountParam === 'checking') {
+    const checkingEndpoints = [fbCheckingActUrl, fbCheckingDetUrl];
+    const savingsEndpoints = [fbSavingsActUrl, fbSavingsDetUrl];
+
+    if (accountType === 'checking') {
       setTitle('Checking');
-      setAccountData(checkingData);
+      setAccountData(checkingSummary);
       setBannerImgClass('bg-img--loot-1');
 
-      // Get checking activity
-      getDebitsData(fbCheckingActUrl)
-        .then((checkingActivity) => {
-          setActivity(checkingActivity);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-
-      // Get checking details
-      getDebitsData(fbCheckingDetUrl)
-        .then((checkingDetails) => {
-          setDetails(checkingDetails);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } else if (accountParam === 'savings') {
+      loadDebitsData(checkingEndpoints);
+    } else if (accountType === 'savings') {
       setTitle('Savings');
-      setAccountData(savingsData);
+      setAccountData(savingsSummary);
       setBannerImgClass('bg-img--loot-2');
 
-      // Get savings activity
-      getDebitsData(fbSavingsActUrl)
-        .then((savingsActivity) => {
-          setActivity(savingsActivity);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-
-      // Get savings details
-      getDebitsData(fbSavingsDetUrl)
-        .then((savingsDetails) => {
-          setDetails(savingsDetails);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      loadDebitsData(savingsEndpoints);
     }
-  }, [accountParam, checkingData, savingsData]);
+  }, [accountType, checkingSummary, savingsSummary]);
 
   const selectHandler = (event) => {
     const { value } = event.target;
@@ -107,7 +86,7 @@ const Debits = () => {
       <Slidebar title={title} />
       <DebitsSummary
         accountData={accountData}
-        accountParam={accountParam}
+        accountType={accountType}
         selectHandler={selectHandler}
       />
       <Container className='debits'>
