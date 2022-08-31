@@ -2,8 +2,8 @@ import { usdFormatter } from '../../../helpers/functions/MiscFunctions';
 
 import AccountSummary from './AccountSummary';
 
-const DebitsSummary = ({ accountData, accountParam, selectHandler }) => {
-  let selectDefVal = accountParam === 'checking' ? 'checking' : 'savings';
+const DebitsSummary = ({ accountData, accountType, selectHandler }) => {
+  let selectDefVal = accountType === 'checking' ? 'checking' : 'savings';
 
   return (
     <AccountSummary>
