@@ -11,7 +11,7 @@
   }
 
   &--table {
-    width: 80vw;
+    width: $page-width;
     margin: 0 auto;
     border-radius: 5px;
     box-shadow: 0 0 4px black;
@@ -19,7 +19,7 @@
     cursor: default;
 
     thead {
-      background-color: $secondary-color;
+      background-color: $secondary-theme;
 
       th {
         padding: 0.5rem;
@@ -27,7 +27,7 @@
     }
 
     tbody {
-      background-color: beige;
+      background-color: $page-card-bg-main;
       font-size: 1.1rem;
 
       td {
@@ -40,8 +40,8 @@
       }
 
       tr:hover {
-        color: gold;
-        background-color: $accent-color;
+        color: $secondary-theme-alt-alt;
+        background-color: $tertiary-theme;
 
         a {
           color: white;
@@ -50,19 +50,19 @@
       }
 
       .money {
-        color: $primary-alt-color;
+        color: $primary-theme-alt;
 
         &:hover {
-          color: gold;
+          color: $secondary-theme-alt-alt;
         }
       }
     }
 
     .tfoot {
       padding-top: 0.5rem;
-      border-top: 3px solid $accent-alt-color;
-      border-bottom: 3px solid $accent-alt-color;
-      background-color: $secondary-alt-color;
+      border-top: 3px solid $tertiary-theme-alt;
+      border-bottom: 3px solid $tertiary-theme-alt;
+      background-color: $secondary-theme-alt;
 
       h4 {
         @include text-shadow(white);
@@ -72,7 +72,7 @@
         color: black;
 
         &:hover {
-          color: $primary-alt-color;
+          color: $primary-theme-alt;
         }
       }
     }
@@ -97,7 +97,7 @@
     width: 40%;
     margin: 5rem auto 6rem;
     padding: 1rem 0;
-    background-color: red;
+    background-color: $primary-alert;
     box-shadow: 10px 10px black;
 
     h1 {

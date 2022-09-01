@@ -4,14 +4,13 @@
   min-height: 33rem; // keep for error screen
   padding: 2rem;
   margin: 0 auto;
-  background-color: $accent-color;
+  background-color: $tertiary-theme;
   box-shadow: 6px 6px 2px black;
-  font-family: $lucida-family;
   text-align: center;
   z-index: 3;
 
   &--title {
-    color: $secondary-color;
+    color: $secondary-theme;
     font-size: 1.7rem;
     text-shadow: 0 0 2px white;
   }
@@ -51,7 +50,7 @@
   cursor: pointer;
 
   &:hover {
-    color: gold;
+    color: $secondary-theme-alt-alt;
     transform: scale(1.02);
   }
 }
@@ -65,8 +64,8 @@
   p {
     font-size: 1.5rem;
     text-align: center;
-    color: rgb(208, 26, 26);
-    background-color: lime;
+    color: $primary-alert;
+    background-color: $secondary-alert;
     animation: blink 200ms steps(2, start);
     animation-iteration-count: 50;
   }

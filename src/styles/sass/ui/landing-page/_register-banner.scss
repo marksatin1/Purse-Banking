@@ -2,15 +2,15 @@
   position: relative; // for z-index of below imgs
   margin: 5rem auto;
   padding: 1.5rem;
-  border: 2px solid $accent-alt-color;
+  border: 2px solid $tertiary-theme-alt;
   border-radius: 5px;
-  box-shadow: 2px 2px 4px $accent-alt-color;
+  box-shadow: 2px 2px 4px $tertiary-theme-alt;
 
   .section {
     text-align: center;
 
     &--title {
-      color: $primary-alt-color;
+      color: $primary-theme-alt;
       font-size: 2.5rem;
       font-weight: bold;
     }

@@ -2,12 +2,12 @@
   width: 25rem;
   margin: $page-margin;
   padding: 2rem 1rem;
-  background-color: $accent-color;
+  background-color: $tertiary-theme;
   box-shadow: 6px 6px 2px black;
   text-align: center;
 
   &--title {
-    color: $secondary-color;
+    color: $secondary-theme;
     font-size: 2.5rem;
     @include text-shadow(white);
   }
@@ -15,9 +15,9 @@
   &--error {
     margin: 0.25rem auto;
     padding: 0.5rem;
-    background-color: lime;
+    background-color: $secondary-alert;
     font-weight: bold;
-    color: red;
+    color: $primary-alert;
   }
 
   &--inputs {
@@ -62,7 +62,7 @@
         padding: 0.5rem;
         font-size: 1.1rem;
         font-weight: bold;
-        background-color: $secondary-color;
+        background-color: $secondary-theme;
         border-radius: 5px;
         text-align: center;
       }
@@ -82,7 +82,7 @@
   }
 
   &--link {
-    color: $primary-alt-color;
+    color: $primary-theme-alt;
     font-weight: bold;
     cursor: pointer;
   }

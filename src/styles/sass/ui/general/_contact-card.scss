@@ -8,7 +8,7 @@
 
   &--department {
     @include text-shadow(black);
-    color: $secondary-alt-color;
+    color: $secondary-theme-alt;
     font-weight: bold;
   }
 
@@ -20,7 +20,7 @@
 }
 
 .wait-time {
-  color: $accent-color;
+  color: $tertiary-theme;
   font-size: 1.2rem;
   font-weight: bold;
 }

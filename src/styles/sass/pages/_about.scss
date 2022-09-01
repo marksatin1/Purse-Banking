@@ -1,6 +1,6 @@
 .about {
   h2 {
-    color: $primary-alt-color;
+    color: $primary-theme-alt;
     font-weight: bold;
   }
 
@@ -8,11 +8,11 @@
     font-style: italic;
 
     &:nth-child(odd) {
-      color: $accent-alt-color;
+      color: $tertiary-theme-alt;
     }
 
     &:nth-child(even) {
-      color: $secondary-alt-color;
+      color: $secondary-theme-alt;
     }
   }
 }

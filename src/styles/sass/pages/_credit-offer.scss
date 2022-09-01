@@ -1,5 +1,5 @@
 .credit-offer {
-  width: 80vw;
+  width: $page-width;
   margin: $page-margin;
   text-align: center;
 
@@ -22,14 +22,14 @@
 
     &--about {
       text-align: left;
-      color: $secondary-alt-color;
-      border-bottom: 2px solid $accent-alt-color;
+      color: $secondary-theme-alt;
+      border-bottom: 2px solid $tertiary-theme-alt;
       padding-bottom: 0.5rem;
     }
 
     &--catchphrase {
       margin-bottom: 2rem;
-      color: $primary-alt-color;
+      color: $primary-theme-alt;
       text-align: right;
     }
 
@@ -39,7 +39,7 @@
 
     &--link {
       @include link;
-      color: $accent-color;
+      color: $tertiary-theme;
       margin: 3rem auto;
       text-decoration: none;
 
@@ -52,14 +52,14 @@
   .divider {
     width: 70vw;
     margin: 2rem auto;
-    border-top: 2px solid $primary-alt-color;
+    border-top: 2px solid $primary-theme-alt;
   }
 
   .legal {
     margin: 2rem 0 0;
 
     h3 {
-      color: $secondary-alt-color;
+      color: $secondary-theme-alt;
       font-weight: bold;
       font-size: 1.7rem;
     }

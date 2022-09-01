@@ -14,27 +14,27 @@
   margin: 5rem auto -12rem;
 
   .tabs-width-short {
-    max-width: 80vw;
+    max-width: $page-width;
   }
 
   // Target underlying classes that BS uses
   .nav-tabs {
     margin: 0 auto;
-    border-bottom: 3px solid $primary-alt-color;
+    border-bottom: 3px solid $primary-theme-alt;
 
     .nav-item {
       padding: 0.25rem;
-      border: 3px solid $primary-alt-color;
+      border: 3px solid $primary-theme-alt;
       border-bottom: 0;
       border-radius: 5px 5px 0 0;
       font-size: 1.1rem;
 
       &:hover {
-        background-color: gold;
+        background-color: $secondary-theme-alt-alt;
         cursor: pointer;
 
         & button {
-          background-color: gold;
+          background-color: $secondary-theme-alt-alt;
           color: white;
         }
       }
@@ -47,9 +47,9 @@
       .nav-link.active {
         margin: -0.25rem;
         border: 0;
-        background-color: gold;
+        background-color: $secondary-theme-alt-alt;
         border-bottom: 0;
-        color: $accent-alt-color;
+        color: $tertiary-theme-alt;
         font-size: 1.6rem;
         font-weight: bold;
       }

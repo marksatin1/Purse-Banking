@@ -1,8 +1,8 @@
 .page-card {
-  max-width: 80vw;
+  max-width: $page-width;
   margin: $page-margin;
   padding: 2rem 0 3rem;
-  background-color: beige;
+  background-color: $page-card-bg-main;
   box-shadow: 2px 2px 5px black;
   border-radius: 5px;
   text-align: center;
@@ -19,9 +19,9 @@
     min-height: 30rem;
     margin: 0 2rem;
     padding: 1rem 2rem;
-    border: 2px solid $secondary-color;
-    box-shadow: 0 0 2px $secondary-alt-color;
-    background-color: $page-card-bg-color;
+    border: 2px solid $secondary-theme;
+    box-shadow: 0 0 2px $secondary-theme-alt;
+    background-color: $page-card-bg-content;
 
     & > * {
       margin: 2rem 0;

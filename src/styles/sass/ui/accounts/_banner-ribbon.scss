@@ -1,17 +1,17 @@
 .banner-ribbon {
   position: relative;
   top: 2.5rem;
-  width: 80vw;
+  width: $page-width;
   float: right;
   padding: 0.5rem;
   background-color: $ribbon-color;
-  box-shadow: -1px 2px 4px $secondary-alt-color;
+  box-shadow: -1px 2px 4px $secondary-theme-alt;
   z-index: 2;
 
   &--name {
     margin-bottom: 0.2rem;
     font-size: 1.6rem;
-    color: gold;
+    color: $secondary-theme-alt-alt;
     @include text-shadow(white);
   }
 

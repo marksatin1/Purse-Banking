@@ -20,11 +20,11 @@
     margin: 3rem auto;
 
     &--quote {
-      color: $secondary-alt-color;
+      color: $secondary-theme-alt;
     }
 
     &--speaker {
-      color: $primary-alt-color;
+      color: $primary-theme-alt;
     }
   }
 
@@ -34,10 +34,10 @@
     }
 
     .contact {
-      color: $primary-alt-color;
+      color: $primary-theme-alt;
 
       &--name {
-        color: $accent-alt-color;
+        color: $tertiary-theme-alt;
         margin-top: 1rem;
       }
 
@@ -46,7 +46,7 @@
       }
 
       & p:nth-child(odd) {
-        color: $secondary-alt-color;
+        color: $secondary-theme-alt;
       }
     }
   }

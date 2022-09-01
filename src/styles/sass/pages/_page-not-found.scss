@@ -1,16 +1,15 @@
 .not-found {
   &--layout {
-    width: 80vw;
+    width: $page-width;
     margin: $page-margin;
     padding: 3rem;
-    border: 15px solid goldenrod;
-    background-color: rgba(165, 42, 42, 0.9);
-    box-shadow: -30px 20px 10px black, 30px -20px 10px green;
+    border: 15px solid $secondary-theme-alt;
+    background-color: $ribbon-color;
+    box-shadow: -30px 20px 10px black, 30px -20px 10px $primary-theme-alt;
     text-align: center;
-    font-family: $lucida-family;
 
     h1 {
-      color: gold;
+      color: $secondary-theme-alt-alt;
     }
 
     h2 {
@@ -18,7 +17,7 @@
     }
 
     p {
-      color: gold;
+      color: $secondary-theme-alt-alt;
       font-weight: bold;
     }
   }

@@ -15,8 +15,8 @@
   transform: translate(-50%, -50%);
   width: 80vw;
   height: 75vh;
-  background-color: $secondary-color;
-  border: 2px solid $accent-alt-color;
+  background-color: $secondary-theme;
+  border: 2px solid $tertiary-theme-alt;
   border-radius: 5px;
   box-shadow: 0 0 3px black;
   padding: 2rem;
@@ -42,14 +42,14 @@
     .intertitle {
       width: 80%;
       margin: 2rem auto;
-      color: $accent-alt-color;
+      color: $tertiary-theme-alt;
       @include text-shadow(black);
       font-family: $georgia-family;
       font-size: 2rem;
     }
 
     .endtitle {
-      color: $accent-alt-color;
+      color: $tertiary-theme-alt;
       @include text-shadow(black);
       font-family: $georgia-family;
       font-size: 2.2rem;
@@ -62,8 +62,8 @@
     font-family: $georgia-family;
     font-size: 1.2rem;
     font-weight: bold;
-    background-color: gold;
-    color: $primary-alt-color;
+    background-color: $secondary-theme-alt-alt;
+    color: $primary-theme-alt;
     border-radius: 3px;
     box-shadow: 1px 1px black;
     cursor: pointer;

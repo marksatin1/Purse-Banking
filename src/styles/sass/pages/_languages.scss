@@ -3,15 +3,15 @@
     margin: 2rem 0;
 
     &:nth-child(odd) {
-      color: $secondary-alt-color;
+      color: $secondary-theme-alt;
     }
 
     &:nth-child(even) {
-      color: $primary-alt-color;
+      color: $primary-theme-alt;
     }
 
     &:last-child {
-      color: $accent-alt-color;
+      color: $tertiary-theme-alt;
     }
   }
 }

@@ -47,17 +47,17 @@
   font-family: $tnr-family;
   font-size: 5rem;
   font-weight: bold;
-  color: purple;
+  color: $tertiary-theme-alt;
 }
 
 .signing-bonus {
-  color: purple;
+  color: $tertiary-theme-alt;
   font-size: 1.3rem;
 }
 
 .cashback-offer {
   margin-top: 1rem;
-  color: $primary-alt-color;
+  color: $primary-theme-alt;
   font-weight: bold;
   font-size: 1.3rem;
 }

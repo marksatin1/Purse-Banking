@@ -1,5 +1,5 @@
 .input {
-  width: 80%;
+  width: $page-width;
   padding: 0.25rem 1rem;
   font-size: 1.3rem;
   border-radius: 5px;
@@ -9,7 +9,7 @@
 
 .popover {
   padding: 0.5rem;
-  background-color: rgb(245, 245, 220);
+  background-color: rgb(245, 245, 220); // update to reflect userSettings
   border-radius: 4px;
   box-shadow: -1px 1px 4px black;
   font-size: 1.8rem;
@@ -22,13 +22,13 @@
 
 .option:hover {
   background-color: none;
-  color: $primary-alt-color;
+  color: $primary-theme-alt;
   transform: scale(1.02);
 }
 
 .results-message {
   margin: 1.5rem auto;
-  color: $secondary-alt-color;
+  color: $secondary-theme-alt;
   text-shadow: 0 0 1px black;
   text-align: center;
 }

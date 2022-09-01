@@ -1,20 +1,23 @@
 // COLORS
 
-$primary-color: rgb(32, 145, 32);
-$primary-alt-color: rgb(0, 128, 0); //green
-$secondary-color: rgb(225, 193, 15);
-$secondary-alt-color: rgb(218, 165, 32); //goldenrod
+$primary-theme: rgb(32, 145, 32);
+$primary-theme-alt: rgb(0, 128, 0); //green
 
-$accent-color: rgb(175, 116, 175);
-$accent-alt-color: rgb(128, 0, 128); //purple
+$secondary-theme: rgb(225, 193, 15);
+$secondary-theme-alt: rgb(218, 165, 32); //goldenrod
+$secondary-theme-alt-alt: rgb(255, 215, 0); //gold
 
-$page-card-bg-color: rgba(240, 248, 255, 0.7);
+$tertiary-theme: rgb(175, 116, 175);
+$tertiary-theme-alt: rgb(128, 0, 128); //purple
+
+$primary-alert: red;
+$secondary-alert: lime;
+
+$page-card-bg-main: rgb(245, 245, 220); //beige
+$page-card-bg-content: rgba(240, 248, 255, 0.7);
 
 $ribbon-color: rgba(165, 42, 42, 0.8);
 $account-sum-color: rgba(9, 189, 189, 0.9);
-
-$primary-alert-color: red;
-$secondary-alert-color: lime;
 
 // FONT FAMILIES
 
@@ -23,10 +26,14 @@ $lucida-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
   'Lucida Sans Unicode', Verdana, sans-serif;
 $courier-family: 'Courier New', Courier, monospace;
 $georgia-family: Georgia, 'Times New Roman', Times, serif;
+$source-code-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
 
 // MISC VARS
 
 $page-margin: 15rem auto -12rem;
+
+$page-width: 80vw;
 
 $border: 2px solid black;
 
@@ -43,7 +50,7 @@ $border: 2px solid black;
 %page-title {
   max-width: 80%;
   margin: 0 auto 1rem;
-  color: $primary-alt-color;
+  color: $primary-theme-alt;
   text-decoration: underline;
   font-size: 2.5rem;
   font-weight: bold;
@@ -51,22 +58,24 @@ $border: 2px solid black;
 
 %page-subtitle {
   margin-bottom: 2rem;
-  color: $accent-color;
+  color: $tertiary-theme;
   font-size: 1.9rem;
 }
 
 %account-table {
   max-width: 80vw;
   margin: 0 auto;
-  background-color: gold;
-  border: 3px solid $primary-alt-color;
+  background-color: $secondary-theme-alt-alt;
+  border: 3px solid $primary-theme-alt;
   border-top: none;
   font-size: 1.1rem;
-  color: $accent-alt-color;
+  color: $tertiary-theme-alt;
   border-radius: 0 0 15px 15px;
 }
 
-@mixin link($color: $primary-alt-color, $color-hov: $secondary-alt-color) {
+// MIXINS
+
+@mixin link($color: $primary-theme-alt, $color-hov: $secondary-theme-alt) {
   color: $color;
   font-weight: bold;
   text-decoration: none;
@@ -88,21 +97,14 @@ $border: 2px solid black;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: $source-code-family;
 }
 
 body {
-  font-family: $georgia-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 main {
   font-family: $lucida-family;
-}
-
-.red {
-  color: red;
-  font-weight: bold;
 }

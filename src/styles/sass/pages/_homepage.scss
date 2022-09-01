@@ -6,6 +6,7 @@
 
 .homepage {
   margin: 10rem auto -12rem;
+  font-family: $georgia-family;
 
   &--table {
     width: 70vw;
@@ -14,16 +15,14 @@
 
   &--title {
     margin: 0;
-    font-family: $georgia-family;
     font-size: 2.3rem;
-    color: $accent-alt-color;
-    border-bottom: 2px solid $accent-alt-color;
+    color: $tertiary-theme-alt;
+    border-bottom: 2px solid $tertiary-theme-alt;
   }
 
   .account-table {
-    background-color: gold;
-    font-family: $georgia-family;
-    border: 2px solid $accent-alt-color;
+    background-color: $secondary-theme-alt-alt;
+    border: 2px solid $tertiary-theme-alt;
 
     & * {
       font-size: 1.3rem;
@@ -42,22 +41,22 @@
       text-align: center;
       font-family: $lucida-family;
       font-size: 1.3rem;
-      border-top: 2px solid $primary-alert-color;
-      border-bottom: 2px solid $primary-alert-color;
+      border-top: 2px solid $primary-alert;
+      border-bottom: 2px solid $primary-alert;
       cursor: pointer;
 
       &:hover {
         font-weight: bold;
-        border-top: 2px solid $secondary-alert-color;
-        border-bottom: 2px solid $secondary-alert-color;
-        background-color: $primary-alert-color;
+        border-top: 2px solid $secondary-alert;
+        border-bottom: 2px solid $secondary-alert;
+        background-color: $primary-alert;
         color: white;
       }
     }
   }
 
   .green {
-    color: $primary-alt-color;
+    color: $primary-theme-alt;
     font-weight: bold;
   }
 }

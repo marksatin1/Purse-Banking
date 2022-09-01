@@ -19,15 +19,12 @@
     height: 17rem;
     padding: 0.5rem;
     font-family: $lucida-family;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 
   &--title {
     margin: 0.5rem 0;
     font-size: 2rem;
-    color: $primary-alt-color;
+    color: $primary-theme-alt;
   }
 
   &--btn {
@@ -37,7 +34,7 @@
     padding: 0.25rem 1rem;
     border: none;
     border-radius: 25px;
-    background-color: $accent-color;
+    background-color: $tertiary-theme;
     font-family: $lucida-family;
     font-size: 1.2rem;
     font-weight: bold;

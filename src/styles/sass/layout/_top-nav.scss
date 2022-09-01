@@ -9,7 +9,7 @@
     color: black;
 
     &:hover {
-      color: $accent-alt-color;
+      color: $tertiary-theme-alt;
       text-shadow: 0 0 1px black;
     }
   }
@@ -25,7 +25,7 @@
   right: 0.5rem;
   padding: 0.75rem;
   border-radius: 4px;
-  background-color: beige;
+  background-color: $page-card-bg-main;
   box-shadow: 0 0 5px black;
   font-size: 1.2rem;
   font-family: $lucida-family;
@@ -42,7 +42,7 @@
   }
 
   div:hover {
-    color: $primary-alt-color;
+    color: $primary-theme-alt;
     transform: scale(1.03);
   }
 }

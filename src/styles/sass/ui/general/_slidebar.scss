@@ -3,9 +3,9 @@
   bottom: 33rem;
 
   &--bar {
-    margin: 5rem auto -5rem;
+    margin: 5rem auto -7rem;
     padding: 0.75rem;
-    background-color: $primary-color;
+    background-color: $primary-theme;
     border-radius: 0 20px 20px 0;
     box-shadow: 1px 2px 4px white;
     animation: slidebar 1.5s ease-in-out forwards;
@@ -14,7 +14,7 @@
   &--title {
     margin: 0;
     margin-right: 0.5rem;
-    color: gold;
+    color: $secondary-theme-alt-alt;
     font-weight: bold;
     text-shadow: 0 0 8px black;
     animation: slidebar-title 1.5s ease-in-out forwards;

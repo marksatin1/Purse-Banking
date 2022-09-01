@@ -1,8 +1,8 @@
 .contact-page {
-  width: 80vw;
+  width: $page-width;
   margin: $page-margin;
   padding: 2rem 3rem 3rem;
-  background-color: beige;
+  background-color: $page-card-bg-main;
   box-shadow: 2px 2px 5px black;
   border-radius: 5px;
   text-align: center;

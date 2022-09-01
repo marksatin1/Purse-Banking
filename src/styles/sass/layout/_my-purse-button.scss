@@ -6,7 +6,7 @@
   border-radius: 25px;
   border: 0.5px solid black;
   box-shadow: -1px -1px 4px black;
-  background-color: gold;
+  background-color: $secondary-theme-alt-alt;
   cursor: pointer;
 
   p {
@@ -31,7 +31,7 @@
     position: absolute;
     padding: 0.75rem;
     border-radius: 4px;
-    background-color: beige;
+    background-color: $page-card-bg-main;
     box-shadow: 0 0 5px black;
     font-family: $lucida-family;
     font-weight: bold;
@@ -47,7 +47,7 @@
       padding: 0.25rem 0.75rem;
       font-size: 1.3rem;
       font-weight: bold;
-      color: purple;
+      color: $tertiary-theme-alt;
       cursor: pointer;
 
       &:hover {
@@ -63,7 +63,7 @@
       display: block;
 
       &:hover {
-        color: $primary-alt-color;
+        color: $primary-theme-alt;
         transform: scale(1.02);
       }
     }
