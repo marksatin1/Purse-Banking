@@ -9,7 +9,7 @@ const PersonalityCard = ({ name, title, subtitle, href }) => {
   return (
     <div className='personality-card'>
       <img src={cardImage} alt={title} />
-      <div className='personality-card--content'>
+      <div className='d-flex flex-column justify-content-between personality-card--content'>
         <div>
           <h1 className='personality-card--title'>{title}</h1>
           <p className='personality-card--subtitle'>{subtitle}</p>
