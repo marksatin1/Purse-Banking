@@ -1,20 +1,25 @@
+import zxcvbn from 'zxcvbn';
+
 // isEmpty(value)
 // minMaxLength(text, minLength, maxLength)
 // validateEmail(text)
 // userExists(email)
-// passwordStrength(text)
-// validateConfirmPassword(password, confirmPassword, formErrors)
-// formErrorValidation(errField, errValue, errArray, user, setUser, event, setSelected)
-
-import zxcvbn from 'zxcvbn';
+// testPasswordStrength(text, rating)
+// errorMessages
+// validateFormInputs(event, setFormErrors, user, setUser)
 
 export const isEmpty = (value) => value.trim() === '';
 
 export const minMaxLength = (text, minLength, maxLength) => {
-  let result = !text || text.length < minLength;
+  let result;
+
   if (maxLength) {
     result = result || text.length < minLength;
+  } else {
+    result = !text || text.length < minLength;
   }
+  console.log(result);
+
   return result;
 };
 
@@ -22,131 +27,154 @@ export const validateEmail = (text) => {
   const regex = RegExp(
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
   );
-
-  return !regex.test(text);
+  return regex.test(text);
 };
 
 export const userExists = (email) => {
   let registeredUsers = [];
 
   return new Promise((resolve) => {
-    setTimeout(() => {
-      if (registeredUsers.findIndex((u) => u === email) !== -1) {
-        resolve(true);
-      } else {
-        resolve(false);
-      }
-    });
+    if (registeredUsers.findIndex((u) => u === email) !== -1) {
+      resolve(true);
+      console.log(true);
+    } else {
+      resolve(false);
+      console.log(false);
+    }
   });
 };
 
-export const passwordStrength = (text) => {
-  let result = zxcvbn(text);
-  return result.score < 3;
+export const testPasswordStrength = (text, rating) => {
+  const result = zxcvbn(text);
+  return result.score < rating;
 };
 
-export const validateConfirmPassword = (
-  password,
-  confirmPassword,
-  formErrors
-) => {
-  if (password !== confirmPassword) {
-    formErrors.confirmPassword =
-      'It would be in your best interest if you matched them passwords there, pardner';
-    return false;
-  } else {
-    delete formErrors.confirmPassword;
-    return true;
-  }
+const errorMessages = {
+  firstName: 'More than 2 letters, bub!',
+  lastName: 'MORE than 2 letters!',
+  email_valid: 'Make it valid, buddy: @ sign, period - the works!',
+  account_exists: 'Looks like SOMEBODY already registered with us',
+  password_length: 'I want a good, clean password here, folks',
+  password_weak: 'WEAK!!',
+  password_confirm:
+    'It would be in your best interest if you matched them passwords there, pardner',
+  firstborn: 'MUST CEDE RIGHTS TO FIRSTBORN!',
+  country: "You're not from around here, are you?",
+  agree: "Best be agreein' to them terms and conditions there, chap",
 };
 
-export const formErrorValidation = (
-  errField,
-  errValue,
-  errArray,
-  user,
-  setUser,
-  event,
-  setSelected
-) => {
-  switch (errField) {
+export const validateFormInputs = (event, setFormErrors, user, setUser) => {
+  const { name: inputName, value: inputValue } = event.target;
+
+  switch (inputName) {
     case 'firstName':
-      if (minMaxLength(errValue, 3)) {
-        errArray[errField] = 'More than 2 letters, bub!';
+      if (minMaxLength(inputValue, 3)) {
+        setFormErrors((prev) => {
+          return { ...prev, firstName: errorMessages.firstName };
+        });
       } else {
-        delete errArray[errField];
-      }
-      setUser({ ...user, firstName: errValue });
-      break;
-    case 'lastName':
-      if (minMaxLength(errValue, 3)) {
-        errArray[errField] = 'MORE than 2 letters!';
-      } else {
-        delete errArray[errField];
-      }
-      setUser({ ...user, lastName: errValue });
-      break;
-    case 'email':
-      if (!errValue || validateEmail(errValue)) {
-        errArray[errField] =
-          'Make it valid, buddy: @ sign, period - the works!';
-      } else {
-        userExists(errValue).then((result) => {
-          if (result) {
-            errArray[errField] =
-              'Looks like SOMEBODY already registered with us';
-          } else {
-            delete errArray[errField];
-          }
+        setFormErrors((prev) => {
+          return { ...prev, firstName: null };
         });
       }
-      setUser({ ...user, email: errValue });
+      setUser({ ...user, firstName: inputValue });
       break;
+
+    case 'lastName':
+      if (minMaxLength(inputValue, 3)) {
+        setFormErrors((prev) => {
+          return { ...prev, lastName: errorMessages.lastName };
+        });
+      } else {
+        setFormErrors((prev) => {
+          return { ...prev, lastName: null };
+        });
+      }
+      setUser({ ...user, lastName: inputValue });
+      break;
+
+    case 'email':
+      if (!validateEmail(inputValue)) {
+        setFormErrors((prev) => {
+          return { ...prev, email: errorMessages.email_valid };
+        });
+      } else {
+        setFormErrors((prev) => {
+          return { ...prev, email: null };
+        });
+      }
+      setUser({ ...user, email: inputValue });
+      break;
+
     case 'password':
-      if (minMaxLength(errValue, 7)) {
-        errArray[errField] = 'I want a good, clean password here, folks';
-      } else if (passwordStrength(errValue)) {
-        errArray[errField] = 'WEAK!!';
+      if (minMaxLength(inputValue, 7)) {
+        setFormErrors((prev) => {
+          return { ...prev, password: errorMessages.password_length };
+        });
+      } else if (testPasswordStrength(inputValue, 3)) {
+        setFormErrors((prev) => {
+          return { ...prev, password: errorMessages.password_weak };
+        });
       } else {
-        delete errArray[errField];
+        setFormErrors((prev) => {
+          return { ...prev, password: null };
+        });
       }
-      setUser({ ...user, password: errValue });
-      if (user.confirmPassword) {
-        validateConfirmPassword(errValue, user.confirmPassword, errArray);
-      }
+      setUser({ ...user, password: inputValue });
       break;
+
     case 'confirmPassword':
-      let valid = validateConfirmPassword(user.password, errValue, errArray);
-      if (valid) {
-        setUser({ ...user, confirmPassword: errValue });
+      if (inputValue !== user.password) {
+        setFormErrors((prev) => {
+          return { ...prev, confirmPassword: errorMessages.password_confirm };
+        });
+      } else {
+        setFormErrors((prev) => {
+          return { ...prev, confirmPassword: null };
+        });
       }
+      setUser({ ...user, confirmPassword: inputValue });
       break;
+
     case 'firstborn':
-      if (errValue === 'no') {
-        errArray[errField] = 'MUST CEDE RIGHTS TO FIRSTBORN!';
+      if (inputValue !== 'yes') {
+        setFormErrors((prev) => {
+          return { ...prev, firstborn: errorMessages.firstborn };
+        });
       } else {
-        delete errArray[errField];
+        setFormErrors((prev) => {
+          return { ...prev, firstborn: null };
+        });
       }
-      setUser({ ...user, firstborn: errValue });
+      setUser({ ...user, firstborn: inputValue });
       break;
+
     case 'country':
-      setSelected(errValue);
-      if (errValue === 'Anywhere Else') {
-        errArray[errField] = "You're not from around here, are you?";
+      if (inputValue !== 'America') {
+        setFormErrors((prev) => {
+          return { ...prev, country: errorMessages.country };
+        });
       } else {
-        delete errArray[errField];
+        setFormErrors((prev) => {
+          return { ...prev, country: null };
+        });
       }
-      setUser({ ...user, country: errValue });
+      setUser({ ...user, country: inputValue });
       break;
+
     case 'agree':
       if (!event.target.checked) {
-        errArray[errField] =
-          "Best be agreein' to them terms and conditions there, chap";
+        setFormErrors((prev) => {
+          return { ...prev, agree: errorMessages.agree };
+        });
       } else {
-        delete errArray[errField];
+        setFormErrors((prev) => {
+          return { ...prev, agree: null };
+        });
       }
       setUser({ ...user, agree: event.target.checked });
       break;
+
     default:
       break;
   }

@@ -3,7 +3,7 @@ import AuthContext from '../context/auth-context';
 
 import {
   isEmpty,
-  formErrorValidation,
+  validateFormInputs,
 } from '../helpers/functions/FormValidationFunctions';
 import { fbSignUpUrl } from '../helpers/data/ApiEndpoints';
 import {
@@ -30,15 +30,34 @@ const initUser = {
   agree: false,
 };
 
+const initCreds = {
+  idToken: '',
+  remainingTime: null,
+  localId: '',
+};
+
+const initFormErrors = {
+  firstName: null,
+  lastName: null,
+  email: null,
+  password: null,
+  confirmPassword: null,
+  firstborn: null,
+  country: null,
+  agree: null,
+};
+
 const Register = () => {
-  const [formErrors, setFormErrors] = useState({});
+  // DATA OBJ STATES
   const [user, setUser] = useState(initUser);
-  const [selected, setSelected] = useState();
+  const [creds, setCreds] = useState(initCreds);
+
+  // USER FEEDBACK STATES
   const [isDisabled, setIsDisabled] = useState(true);
+  const [formErrors, setFormErrors] = useState(initFormErrors);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [creds, setCreds] = useState({});
-
+  // MODAL STATES
   const [regSuccess, setRegSuccess] = useState(false);
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
   const [userAgreement, setUserAgreement] = useState(false);
@@ -62,21 +81,9 @@ const Register = () => {
 
   // Handle user feedback for form errors
   const inputChangeHandler = (event) => {
-    const errTimer = setTimeout(async () => {
-      const { name, value } = event.target;
-
-      formErrorValidation(
-        name,
-        value,
-        formErrors,
-        user,
-        setUser,
-        event,
-        setSelected
-      );
-    }, 800);
-
-    setFormErrors((prev) => prev);
+    const errTimer = setTimeout(() => {
+      validateFormInputs(event, setFormErrors, user, setUser);
+    }, 500);
 
     return () => {
       clearTimeout(errTimer);
@@ -93,21 +100,12 @@ const Register = () => {
     setIsLoading(true);
 
     // Register & Authenticate new user in Firebase
-    getSecureToken(fbSignUpUrl, user.email, user.password)
-      .then((signInCreds) => {
-        const { localId } = signInCreds;
-        postUserData(user, localId);
-        setCreds(signInCreds);
-      })
-      .then(() => {
-        setRegSuccess(true);
-      })
-      .catch((error) => {
-        console.error(error.message);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    const signInCreds = getSecureToken(fbSignUpUrl, user.email, user.password);
+    postUserData(user, signInCreds.localId);
+
+    setCreds(signInCreds);
+    setRegSuccess(true);
+    setIsLoading(false);
   };
 
   // Sign in to personal account
@@ -246,7 +244,7 @@ const Register = () => {
               name='country'
               id='country'
               onChange={inputChangeHandler}
-              defaultValue={selected}
+              defaultValue='America'
             >
               <option value='America'>America</option>
               <option value='Everywhere Else'>Everywhere Else</option>
