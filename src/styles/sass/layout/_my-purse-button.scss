@@ -1,116 +1,133 @@
 .my-purse-btn {
-  width: 30vw;
-  margin: 0 auto;
-  position: relative;
-  top: -0.35rem;
-  border-radius: 25px;
-  border: 0.5px solid black;
-  box-shadow: -1px -1px 4px black;
-  background-color: $secondary-theme-alt-alt;
-  cursor: pointer;
+  width: 100%;
 
-  p {
-    margin: -0.25rem;
-    text-align: center;
-    font-family: $lucida-family;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: black;
+  &:hover &--dropdown-content {
+    display: block;
   }
 
-  &:hover {
-    animation: button-gleam-2 700ms forwards;
+  &--btn {
+    width: 30vw;
+    margin: auto;
+    position: relative;
+    top: -0.35rem;
+    border-radius: 25px;
+    border: 0.5px solid black;
+    box-shadow: -1px -1px 4px black;
+    background-color: $secondary-theme-alt-alt;
+    cursor: pointer;
 
-    .my-purse-btn--content-container {
-      display: block;
-      z-index: 3;
+    &:hover {
+      animation: button-gleam-2 700ms forwards;
     }
-  }
 
-  &--content-container {
-    position: absolute;
-    padding: 0.75rem;
-    border-radius: 4px;
-    background-color: $page-card-bg-main;
-    box-shadow: 0 0 5px black;
-    font-family: $lucida-family;
-    font-weight: bold;
-    text-align: right;
-    display: none;
-
-    .btn--sign-out {
-      margin: 0.75rem;
-      margin-right: 0.25rem;
-      background-color: inherit;
-      border: 1px solid black;
-      border-radius: 20px;
-      padding: 0.25rem 0.75rem;
-      font-size: 1.3rem;
+    p {
+      margin: -0.25rem;
+      text-align: center;
+      font-family: $lucida-family;
+      font-size: 1.2rem;
       font-weight: bold;
-      color: $tertiary-theme-alt;
-      cursor: pointer;
-
-      &:hover {
-        animation: button-gleam-2 500ms forwards;
-      }
-    }
-
-    .link {
-      margin: 0.5rem;
-      font-size: 1.3rem;
-      text-decoration: none;
       color: black;
-      display: block;
+    }
+  }
+
+  &--dropdown-content {
+    display: none;
+    position: relative;
+    margin: 0 auto;
+    font-family: $lucida-family;
+    border-radius: 10px;
+    border: 2px solid $tertiary-theme;
+    box-shadow: inset 0 0 500px $secondary-theme, 3px 3px black;
+    background-color: $page-card-bg-main;
+    z-index: 3;
+
+    p {
+      margin: 0.25rem;
+      color: $tertiary-theme-alt;
+      font-size: 1.3rem;
+      @include text-shadow(white);
 
       &:hover {
         color: $primary-theme-alt;
         transform: scale(1.02);
       }
     }
+
+    .sign-out {
+      font-weight: bold;
+      font-weight: 1.1rem;
+      text-shadow: 1px 1px black;
+    }
   }
 }
 
 @media only screen and (min-width: 576px) {
   .my-purse-btn {
-    width: 25vw;
-    top: -0.5rem;
-    margin: initial;
-    border-radius: 25px 0 0 25px;
+    display: flex;
+    justify-content: flex-end;
 
-    p {
-      margin-left: 0.5rem;
-      font-size: 1.1rem;
+    &--btn {
+      width: 25vw;
+      top: -0.5rem;
+      margin: initial;
+      border-radius: 25px 0 0 25px;
+
+      p {
+        text-align: left;
+        margin-left: 0.5rem;
+        font-size: 1.1rem;
+      }
+    }
+
+    &--dropdown-content {
+      position: absolute;
+      margin: 2.5rem 1rem;
+      text-align: right;
     }
   }
 }
 
 @media only screen and (min-width: 768px) {
   .my-purse-btn {
-    width: 22vw;
-    top: -0.7rem;
+    &--btn {
+      width: 22vw;
+      top: -0.7rem;
 
-    p {
-      font-size: 1.2rem;
+      p {
+        font-size: 1.2rem;
+      }
     }
   }
 }
 
 @media only screen and (min-width: 992px) {
   .my-purse-btn {
-    width: 20vw;
+    &--btn {
+      width: 20vw;
+    }
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .my-purse-btn {
-    p {
-      font-size: 1.4rem;
+    &--btn {
+      p {
+        font-size: 1.4rem;
+      }
+    }
+
+    &--dropdown-content {
+      p {
+        font-size: 1.4rem;
+      }
     }
   }
 }
 
 @media only screen and (min-width: 1400px) {
   .my-purse-btn {
-    width: 17vw;
+    &--btn {
+      width: 17vw;
+    }
   }
 }
