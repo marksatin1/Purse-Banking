@@ -5,7 +5,7 @@ const About = () => {
   return (
     <PageCard title='About Us' subtitle='Get in the bag today!'>
       <div className='about'>
-        <div className='d-flex justify-content-between'>
+        <div className='d-flex justify-content-around'>
           <h3>You know us!</h3>
           <h3>You love us!</h3>
         </div>
