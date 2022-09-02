@@ -1,51 +1,38 @@
 import { useState, useContext } from 'react';
 import AuthContext from '../context/auth-context';
 
-import PageCard from '../components/UI/General/PageCard';
+import axios from 'axios';
+import { fbResetPasswordUrl } from '../helpers/data/ApiEndpoints';
+
+import Table from 'react-bootstrap/Table';
+import AccountBanner from '../components/UI/Accounts/AccountBanner';
+import Slidebar from '../components/UI/General/Slidebar';
 import Modal from '../components/UI/General/Modal';
 
 const UserSettings = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const authCtx = useContext(AuthContext);
 
-  const username = localStorage.getItem('userName');
-  const email = localStorage.getItem('userEmail');
-  const password = showPassword
-    ? localStorage.getItem('userPassword')
-    : 'Hidden';
+  const userName = localStorage.getItem('userName');
+  const userEmail = localStorage.getItem('userEmail');
+  const password = localStorage.getItem('userPassword');
+  let userPassword = showPassword ? password : <i>Hidden</i>;
   const country = localStorage.getItem('country');
+  let userCountry = country === 'America' ? "'MERICA!" : 'FOREIGNER!!';
 
   const resetPasswordHandler = () => {
-    fetch(
-      `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Firebase-Locale': 'en-US',
-        },
-        body: JSON.stringify({
-          requestType: 'PASSWORD_RESET',
-          email: email,
-        }),
-      }
-    )
-      .then(async (response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          const data = await response.json();
-          if (data.error.message) {
-            throw new Error(data.error.message);
-          }
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    setShowSuccess(true);
+    axios({
+      method: 'post',
+      url: fbResetPasswordUrl,
+      data: { requestType: 'PASSWORD_RESET', email: userEmail },
+    }).catch((error) => {
+      console.error(error);
+    });
+
+    setSuccess(true);
     setTimeout(() => {
       authCtx.signOut();
     }, 5000);
@@ -54,8 +41,8 @@ const UserSettings = () => {
   const showHide = showPassword ? 'Hide Password' : 'Show Password';
 
   return (
-    <div>
-      {showModal && !showSuccess && (
+    <>
+      {/* {modal && !success && (
         <Modal
           title='Reset Password'
           subtitle='Are you sure you want to reset your password?'
@@ -72,10 +59,10 @@ const UserSettings = () => {
               </button>
             </div>
           }
-          hideModal={() => setShowModal(false)}
+          hideModal={() => setModal(false)}
         />
       )}
-      {showModal && showSuccess && (
+      {modal && success && (
         <Modal
           title='Success'
           content={
@@ -90,47 +77,51 @@ const UserSettings = () => {
             </>
           }
         />
-      )}
-      <PageCard
-        title='User Settings'
-        subtitle='Who do you think you are anyway?'
-      >
-        <div className='layout'>
-          <div>
-            <h3>Name</h3>
-            <p>{username}</p>
-          </div>
-          <div>
-            <h3>Country</h3>
-            <p>{country}</p>
-          </div>
-          <div>
-            <h3>Email</h3>
-            <p>{email}</p>
-          </div>
-          <div>
-            <h3>Password</h3>
-            <p>{password}</p>
-          </div>
-          <div className='buttons'>
-            <button
-              type='button'
-              className='purple'
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showHide}
-            </button>
-            <button
-              type='button'
-              className='gold'
-              onClick={() => setShowModal(true)}
-            >
-              Reset Password
-            </button>
-          </div>
+      )} */}
+      <AccountBanner className='bg-img--cops' />
+      <Slidebar title='My Account' />
+      <div className='user-settings'>
+        <Table>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <td>{userName}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{userEmail}</td>
+            </tr>
+            <tr>
+              <th>Password</th>
+              <td>{userPassword}</td>
+            </tr>
+            <tr>
+              <th>Rights</th>
+              <td>Ceded</td>
+            </tr>
+            <tr>
+              <th>Firstborn?</th>
+              <td>OURS NOW *evil laugh*</td>
+            </tr>
+            <tr>
+              <th>Country</th>
+              <td>{userCountry}</td>
+            </tr>
+          </tbody>
+        </Table>
+        <div className='d-flex flex-column align-items-center'>
+          <button
+            className='show-password'
+            onClick={() => setShowPassword(() => !showPassword)}
+          >
+            {showHide}
+          </button>
+          <button className='reset-password' onClick={() => setModal(true)}>
+            Reset Password
+          </button>
         </div>
-      </PageCard>
-    </div>
+      </div>
+    </>
   );
 };
 
