@@ -30,6 +30,9 @@ export const fbCreditsActUrl =
 export const fbCreditsDetUrl =
   'https://react-http-841ed-default-rtdb.firebaseio.com/accounts/credit_account/details.json';
 
+export const fbResetPasswordUrl =
+  'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode';
+
 // CoinCap endpoint
 
 export const coinCapUrl = 'https://api.coincap.io/v2/assets';
