@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { fbUsersUrl, fbCommentsUrl } from '../data/ApiEndpoints';
+
 // getSecureToken(url, email, password)
 // postUserData(user, localId)
 // getCurrentUser(localId)
@@ -8,28 +11,28 @@
 // calculateRemainingTime(expTimeSeconds)
 // retrieveStoredTokenData()
 
-import axios from 'axios';
-import { fbUsersUrl, fbCommentsUrl } from '../data/ApiEndpoints';
-
 export const getSecureToken = async (url, email, password) => {
-  const { data } = await axios({
-    method: 'post',
-    url,
-    params: {
-      key: process.env.REACT_APP_FIREBASE_API_KEY,
-    },
-    data: {
-      email,
-      password,
-      returnSecureToken: true,
-    },
-  });
+  try {
+    const { data } = await axios({
+      method: 'post',
+      url,
+      params: {
+        key: process.env.REACT_APP_FIREBASE_API_KEY,
+      },
+      data: {
+        email,
+        password,
+        returnSecureToken: true,
+      },
+    });
 
-  const { idToken, expiresIn, localId } = data;
-  const expirationTime = tokenExpiresAt(expiresIn);
-  const signInCreds = { idToken, expirationTime, localId };
+    const { idToken, expiresIn, localId } = data;
+    const expirationTime = tokenExpiresAt(expiresIn);
 
-  return signInCreds;
+    return { idToken, expirationTime, localId };
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 
 export const postUserData = (user, localId) => {
@@ -51,46 +54,55 @@ export const postUserData = (user, localId) => {
 };
 
 export const getCurrentUser = async (localId) => {
-  const { data } = await axios.get(fbUsersUrl);
   const allUsers = [];
 
-  for (const user in data) {
-    allUsers.push({
-      firstName: data[user].firstName,
-      lastName: data[user].lastName,
-      email: data[user].email,
-      password: data[user].password,
-      localId: data[user].localId,
-    });
-  }
-  const crntUser = allUsers.filter((user) => user.localId === localId);
+  try {
+    const { data } = await axios.get(fbUsersUrl);
 
-  return crntUser[0];
+    for (const user in data) {
+      allUsers.push({
+        firstName: data[user].firstName,
+        lastName: data[user].lastName,
+        email: data[user].email,
+        password: data[user].password,
+        localId: data[user].localId,
+      });
+    }
+    const crntUser = allUsers.filter((user) => user.localId === localId);
+    return crntUser[0];
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const getDateSortedComments = async () => {
-  const { data } = await axios.get(fbCommentsUrl);
   const comments = [];
 
-  for (const comment in data) {
-    comments.push({
-      username: data[comment].username,
-      age: data[comment].age,
-      location: data[comment].location,
-      memberDate: data[comment].memberDate,
-      overallStars: data[comment].overallStars,
-      commentDate: data[comment].commentDate,
-      title: data[comment].title,
-      content: data[comment].content,
-      onlineStars: data[comment].onlineStars,
-      customerStars: data[comment].customerStars,
-      accountStars: data[comment].accountStars,
-      recommend: data[comment].recommend,
-    });
-  }
-  comments.sort((a, b) => new Date(b.commentDate) - new Date(a.commentDate));
+  try {
+    const { data } = await axios.get(fbCommentsUrl);
 
-  return comments;
+    for (let comment in data) {
+      comments.push({
+        username: data[comment].username,
+        age: data[comment].age,
+        location: data[comment].location,
+        memberDate: data[comment].memberDate,
+        overallStars: data[comment].overallStars,
+        commentDate: data[comment].commentDate,
+        title: data[comment].title,
+        content: data[comment].content,
+        onlineStars: data[comment].onlineStars,
+        customerStars: data[comment].customerStars,
+        accountStars: data[comment].accountStars,
+        recommend: data[comment].recommend,
+      });
+    }
+    return comments.sort(
+      (a, b) => new Date(b.commentDate) - new Date(a.commentDate)
+    );
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const getDebitsData = async (endpoints) => {
@@ -188,17 +200,5 @@ export const retrieveStoredTokenData = () => {
   const storedExpirationTime = localStorage.getItem('idTokenExpirationTime');
   const remainingTime = calculateRemainingTime(storedExpirationTime);
 
-  const storedTokenData = {
-    storedToken,
-    remainingTime,
-  };
-
-  // if token expires in < 1 min, clear localStorage credentials
-  if (remainingTime <= 60000) {
-    localStorage.clear();
-    return null;
-    // otherwise return tokenData in localStorage
-  } else {
-    return storedTokenData;
-  }
+  return { storedToken, remainingTime };
 };
