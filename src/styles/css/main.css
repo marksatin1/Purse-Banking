@@ -4,19 +4,13 @@
   }
 }
 @keyframes bump {
-  from {
-    transform: scale(1);
-  }
-  100% {
+  to {
     transform: scale(1.03);
     box-shadow: 3px 3px 5px black;
   }
 }
 @keyframes bump-2 {
-  from {
-    transform: scale(1);
-  }
-  100% {
+  to {
     transform: scale(1.03);
   }
 }
@@ -66,16 +60,12 @@
   }
 }
 @keyframes slidebar {
-  from {
-    margin-left: -100%;
-    width: 100%;
-  }
-  92% {
-    width: 82%;
+  90% {
+    width: 88%;
   }
   to {
     margin-left: -2rem;
-    width: 75%;
+    width: 83%;
   }
 }
 @keyframes slidebar-title {
@@ -217,6 +207,11 @@ main {
     height: 12rem;
   }
 }
+@media only screen and (min-width: 1200px) {
+  .header {
+    height: 13rem;
+  }
+}
 .logo {
   position: fixed;
   top: 6rem;
@@ -288,7 +283,7 @@ main {
 }
 @media only screen and (min-width: 1200px) {
   .logo {
-    top: 9.3rem;
+    top: 10.2rem;
   }
   .logo--icon {
     width: 50px;
@@ -424,7 +419,7 @@ main {
 .my-purse-btn {
   width: 100%;
 }
-.my-purse-btn:hover .my-purse-btn--dropdown-content {
+.my-purse-btn:hover .my-purse-btn--dropdown {
   display: block;
 }
 .my-purse-btn--btn {
@@ -449,28 +444,28 @@ main {
   font-weight: bold;
   color: black;
 }
-.my-purse-btn--dropdown-content {
+.my-purse-btn--dropdown {
   display: none;
   position: relative;
   margin: 0 auto;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
   border-radius: 10px;
-  border: 2px solid rgb(175, 116, 175);
+  border: 2px solid rgb(0, 128, 0);
   box-shadow: inset 0 0 500px rgb(225, 193, 15), 3px 3px black;
   background-color: rgb(245, 245, 220);
   z-index: 3;
 }
-.my-purse-btn--dropdown-content p {
+.my-purse-btn--dropdown p {
   margin: 0.25rem;
   color: rgb(128, 0, 128);
   font-size: 1.3rem;
   text-shadow: 0 0 3px white;
 }
-.my-purse-btn--dropdown-content p:hover {
+.my-purse-btn--dropdown p:hover {
   color: rgb(0, 128, 0);
   transform: scale(1.02);
 }
-.my-purse-btn--dropdown-content .sign-out {
+.my-purse-btn--dropdown .sign-out {
   font-weight: bold;
   font-weight: 1.1rem;
   text-shadow: 1px 1px black;
@@ -492,7 +487,7 @@ main {
     margin-left: 0.5rem;
     font-size: 1.1rem;
   }
-  .my-purse-btn--dropdown-content {
+  .my-purse-btn--dropdown {
     position: absolute;
     margin: 2.5rem 1rem;
     text-align: right;
@@ -511,12 +506,15 @@ main {
   .my-purse-btn--btn {
     width: 20vw;
   }
+  .my-purse-btn--dropdown {
+    padding: 0 0.5rem;
+  }
 }
 @media only screen and (min-width: 1200px) {
   .my-purse-btn--btn p {
     font-size: 1.4rem;
   }
-  .my-purse-btn--dropdown-content p {
+  .my-purse-btn--dropdown p {
     font-size: 1.4rem;
   }
 }
@@ -539,35 +537,29 @@ main {
   color: rgb(128, 0, 128);
   text-shadow: 0 0 1px black;
 }
-
-.dropdown-icon {
+.top-nav .dropdown-icon {
   width: 30px;
-  height: 30px;
+  height: auto;
+  margin: 0 0.5rem;
 }
-
-.dropdown-container {
-  position: absolute;
-  right: 0.5rem;
-  padding: 0.75rem;
-  border-radius: 4px;
-  background-color: rgb(245, 245, 220);
-  box-shadow: 0 0 5px black;
-  font-size: 1.2rem;
+.top-nav--dropdown .dropdown-menu {
+  min-width: 200px;
+  margin-right: 0.5rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  color: white;
-  font-weight: bold;
-  text-align: right;
-  z-index: 7;
+  border-radius: 10px;
+  border: 2px solid rgb(175, 116, 175);
+  box-shadow: inset 0 0 500px rgb(225, 193, 15), 2px 2px 5px white;
+  background-color: rgb(245, 245, 220);
 }
-.dropdown-container img {
-  width: 30px;
-  height: 30px;
-  margin: 0.25rem;
-  margin-left: 0.5rem;
-}
-.dropdown-container div:hover {
+.top-nav--dropdown .dropdown-menu a:hover {
   color: rgb(0, 128, 0);
+  text-shadow: 1px 1px black;
   transform: scale(1.03);
+}
+.top-nav--dropdown .dropdown-menu a > p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 576px) {
@@ -579,10 +571,22 @@ main {
   .top-nav h5 {
     font-size: 1.2rem;
   }
+  .top-nav--dropdown {
+    margin-right: 0.5rem;
+  }
+  .top-nav .dropdown-icon {
+    margin: 0;
+  }
 }
 @media only screen and (min-width: 992px) {
   .top-nav h5 {
     font-size: 1.3rem;
+  }
+  .top-nav--dropdown .dropdown-menu a > p {
+    font-size: 1.2rem;
+  }
+  .top-nav .dropdown-icon {
+    width: 35px;
   }
 }
 .about h2 {
@@ -734,10 +738,6 @@ main {
     width: 70vw;
   }
 }
-.bg-img--funeral::before {
-  background-image: url(../../assets/banners/Funeral_Parking_1000w.jpg);
-}
-
 .credits {
   margin: 5rem auto -12rem;
 }
@@ -776,13 +776,13 @@ main {
 }
 
 @media only screen and (min-width: 992px) {
-  .credits .nav-tabs {
+  .debits .nav-tabs {
     max-width: 60vw;
   }
-  .credits .nav-tabs .nav-item {
+  .debits .nav-tabs .nav-item {
     font-size: 1.4rem;
   }
-  .credits .nav-tabs .nav-item .nav-link.active {
+  .debits .nav-tabs .nav-item .nav-link.active {
     font-size: 1.8rem;
   }
 }
@@ -914,14 +914,6 @@ main {
   color: rgb(128, 0, 128);
 }
 
-.bg-img--loot-1::before {
-  background-image: url(../../assets/banners/Loot_1.webp);
-}
-
-.bg-img--loot-2::before {
-  background-image: url(../../assets/banners/Loot_2.webp);
-}
-
 .debits {
   margin: 5rem auto -12rem;
 }
@@ -1039,16 +1031,11 @@ main {
     font-size: 1.6rem;
   }
 }
-.bg-img--cops::before {
-  background-image: url(../../assets/banners/KKK_Cops.webp);
-}
-
 .homepage {
   margin: 10rem auto -12rem;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .homepage--table {
-  width: 70vw;
   margin: 8rem auto;
 }
 .homepage--title {
@@ -1091,9 +1078,6 @@ main {
 }
 
 @media only screen and (min-width: 768px) {
-  .homepage--table {
-    width: 80vw;
-  }
   .homepage--title {
     font-size: 2.6rem;
   }
@@ -1328,8 +1312,7 @@ main {
   }
 }
 .user-settings {
-  width: 80vw;
-  margin: 10rem auto -12rem;
+  margin: 8rem auto -14rem;
   padding: 1rem;
   border-radius: 10px;
   border: 2px solid rgb(255, 215, 0);
@@ -1407,6 +1390,22 @@ main {
   background-position: top 40% center;
 }
 
+.bg-img--cops::before {
+  background-image: url(../../assets/banners/KKK_Cops.webp);
+}
+
+.bg-img--loot-1::before {
+  background-image: url(../../assets/banners/Loot_1.webp);
+}
+
+.bg-img--loot-2::before {
+  background-image: url(../../assets/banners/Loot_2.webp);
+}
+
+.bg-img--funeral::before {
+  background-image: url(../../assets/banners/Funeral_Parking_1000w.jpg);
+}
+
 @media only screen and (min-width: 576px) {
   .account-banner {
     margin-top: 15rem;
@@ -1428,9 +1427,14 @@ main {
     height: 40rem;
   }
 }
+.account-page {
+  width: 80vw;
+  margin: 0 auto;
+}
+
 .account-summary {
   width: 350px;
-  margin: 10rem auto 0;
+  margin: 9rem auto 0;
   padding: 1.5rem;
   border-radius: 5px;
   background-color: rgba(9, 189, 189, 0.9);
@@ -1748,12 +1752,29 @@ main {
   text-align: center;
 }
 
-.slidebar {
-  position: sticky;
+.slidebar-pos--homepage {
   bottom: 33rem;
 }
+.slidebar-pos--credits {
+  bottom: 34rem;
+  width: 90vw;
+}
+.slidebar-pos--debits {
+  bottom: 34rem;
+  width: 90vw;
+}
+.slidebar-pos--user-settings {
+  bottom: 34rem;
+  width: 96vw;
+}
+
+.slidebar {
+  position: sticky;
+}
 .slidebar--bar {
-  margin: 5rem auto -7rem;
+  margin: 3rem auto -5rem;
+  margin-left: -100%;
+  width: 100%;
   padding: 0.75rem;
   background-color: rgb(32, 145, 32);
   border-radius: 0 20px 20px 0;
@@ -1770,53 +1791,119 @@ main {
 }
 
 @media only screen and (min-width: 570px) {
-  .slidebar {
+  .slidebar-pos--homepage {
     bottom: 29rem;
     width: 95vw;
   }
+  .slidebar-pos--credits {
+    bottom: 30rem;
+    width: 87vw;
+  }
+  .slidebar-pos--debits {
+    bottom: 30rem;
+    width: 91vw;
+  }
+  .slidebar-pos--user-settings {
+    bottom: 30rem;
+    width: 90vw;
+  }
+
   .slidebar--bar {
     padding: 1rem;
   }
 }
 @media only screen and (min-width: 700px) {
-  .slidebar {
+  .slidebar-pos--homepage {
     bottom: 28rem;
   }
 }
 @media only screen and (min-width: 768px) {
-  .slidebar {
+  .slidebar-pos--homepage {
     bottom: 20rem;
     width: 90vw;
   }
-}
-@media only screen and (min-width: 900px) {
-  .slidebar {
-    bottom: 20rem;
-    width: 87vw;
+  .slidebar-pos--credits {
+    bottom: 22rem;
+    width: 82vw;
+  }
+  .slidebar-pos--debits {
+    bottom: 22rem;
+    width: 85vw;
+  }
+  .slidebar-pos--user-settings {
+    bottom: 22rem;
+    width: 84vw;
   }
 }
-@media only screen and (min-width: 1100px) {
-  .slidebar {
+@media only screen and (min-width: 900px) {
+  .slidebar-pos--homepage {
     bottom: 20rem;
     width: 85vw;
   }
+  .slidebar-pos--credits {
+    width: 79vw;
+  }
+  .slidebar-pos--debits {
+    width: 80vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .slidebar-pos--user-settings {
+    width: 80vw;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .slidebar-pos--homepage {
+    bottom: 20rem;
+    width: 82vw;
+  }
+  .slidebar-pos--credits {
+    width: 76vw;
+  }
+
   .slidebar--bar {
     padding: 1.25rem;
   }
 }
 @media only screen and (min-width: 1200px) {
-  .slidebar {
-    bottom: 17rem;
-    width: 84vw;
+  .slidebar-pos--homepage {
+    bottom: 15rem;
+    width: 80vw;
   }
+  .slidebar-pos--credits {
+    bottom: 18rem;
+  }
+  .slidebar-pos--debits {
+    bottom: 18rem;
+  }
+  .slidebar-pos--user-settings {
+    bottom: 19rem;
+  }
+
   .slidebar--title {
     font-size: 2.8rem;
   }
 }
-@media only screen and (min-width: 1200px) {
-  .slidebar {
-    bottom: 14rem;
-    width: 79vw;
+@media only screen and (min-width: 1400px) {
+  .slidebar-pos--homepage {
+    width: 78vw;
+  }
+  .slidebar-pos--credits {
+    bottom: 16rem;
+    width: 72vw;
+  }
+  .slidebar-pos--debits {
+    bottom: 16rem;
+    width: 75vw;
+  }
+  .slidebar-pos--user-settings {
+    bottom: 16rem;
+    width: 77vw;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .slidebar-pos--user-settings {
+    width: 74vw;
   }
 }
 .comment-card {
