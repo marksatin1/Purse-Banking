@@ -1,9 +1,31 @@
+.slidebar-pos {
+  &--homepage {
+    bottom: 33rem;
+  }
+
+  &--credits {
+    bottom: 34rem;
+    width: 90vw;
+  }
+
+  &--debits {
+    bottom: 34rem;
+    width: 90vw;
+  }
+
+  &--user-settings {
+    bottom: 34rem;
+    width: 96vw;
+  }
+}
+
 .slidebar {
-  position: sticky;
-  bottom: 33rem;
+  position: sticky; // 'bottom' value set on parent comps that use Slidebar
 
   &--bar {
-    margin: 5rem auto -7rem;
+    margin: 3rem auto -5rem;
+    margin-left: -100%; // affects slidebar animation
+    width: 100%; // affects slidebar animation
     padding: 0.75rem;
     background-color: $primary-theme;
     border-radius: 0 20px 20px 0;
@@ -22,10 +44,29 @@
 }
 
 @media only screen and (min-width: 570px) {
-  .slidebar {
-    bottom: 29rem;
-    width: 95vw;
+  .slidebar-pos {
+    &--homepage {
+      bottom: 29rem;
+      width: 95vw;
+    }
 
+    &--credits {
+      bottom: 30rem;
+      width: 87vw;
+    }
+
+    &--debits {
+      bottom: 30rem;
+      width: 91vw;
+    }
+
+    &--user-settings {
+      bottom: 30rem;
+      width: 90vw;
+    }
+  }
+
+  .slidebar {
     &--bar {
       padding: 1rem;
     }
@@ -33,30 +74,75 @@
 }
 
 @media only screen and (min-width: 700px) {
-  .slidebar {
-    bottom: 28rem;
+  .slidebar-pos {
+    &--homepage {
+      bottom: 28rem;
+    }
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .slidebar {
-    bottom: 20rem;
-    width: 90vw;
+  .slidebar-pos {
+    &--homepage {
+      bottom: 20rem;
+      width: 90vw;
+    }
+
+    &--credits {
+      bottom: 22rem;
+      width: 82vw;
+    }
+
+    &--debits {
+      bottom: 22rem;
+      width: 85vw;
+    }
+
+    &--user-settings {
+      bottom: 22rem;
+      width: 84vw;
+    }
   }
 }
 
 @media only screen and (min-width: 900px) {
-  .slidebar {
-    bottom: 20rem;
-    width: 87vw;
+  .slidebar-pos {
+    &--homepage {
+      bottom: 20rem;
+      width: 85vw;
+    }
+
+    &--credits {
+      width: 79vw;
+    }
+
+    &--debits {
+      width: 80vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .slidebar-pos {
+    &--user-settings {
+      width: 80vw;
+    }
   }
 }
 
 @media only screen and (min-width: 1100px) {
-  .slidebar {
-    bottom: 20rem;
-    width: 85vw;
+  .slidebar-pos {
+    &--homepage {
+      bottom: 20rem;
+      width: 82vw;
+    }
 
+    &--credits {
+      width: 76vw;
+    }
+  }
+
+  .slidebar {
     &--bar {
       padding: 1.25rem;
     }
@@ -64,19 +150,59 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .slidebar {
-    bottom: 17rem;
-    width: 84vw;
+  .slidebar-pos {
+    &--homepage {
+      bottom: 15rem;
+      width: 80vw;
+    }
 
+    &--credits {
+      bottom: 18rem;
+    }
+
+    &--debits {
+      bottom: 18rem;
+    }
+
+    &--user-settings {
+      bottom: 19rem;
+    }
+  }
+
+  .slidebar {
     &--title {
       font-size: 2.8rem;
     }
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  .slidebar {
-    bottom: 14rem;
-    width: 79vw;
+@media only screen and (min-width: 1400px) {
+  .slidebar-pos {
+    &--homepage {
+      width: 78vw;
+    }
+
+    &--credits {
+      bottom: 16rem;
+      width: 72vw;
+    }
+
+    &--debits {
+      bottom: 16rem;
+      width: 75vw;
+    }
+
+    &--user-settings {
+      bottom: 16rem;
+      width: 77vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .slidebar-pos {
+    &--user-settings {
+      width: 74vw;
+    }
   }
 }
