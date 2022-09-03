@@ -1,9 +1,3 @@
-.bg-img--funeral {
-  &::before {
-    background-image: url(../../assets/banners/Funeral_Parking_1000w.jpg);
-  }
-}
-
 .credits {
   margin: 5rem auto -12rem;
 
@@ -49,7 +43,7 @@
 }
 
 @media only screen and (min-width: 992px) {
-  .credits {
+  .debits {
     .nav-tabs {
       max-width: 60vw;
 

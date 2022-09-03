@@ -18,6 +18,34 @@
   }
 }
 
+// Homepage & User Settings
+.bg-img--cops {
+  &::before {
+    background-image: url(../../assets/banners/KKK_Cops.webp);
+  }
+}
+
+// Debits - Checking
+.bg-img--loot-1 {
+  &::before {
+    background-image: url(../../assets/banners/Loot_1.webp);
+  }
+}
+
+// Debits -- Savings
+.bg-img--loot-2 {
+  &::before {
+    background-image: url(../../assets/banners/Loot_2.webp);
+  }
+}
+
+// Credits
+.bg-img--funeral {
+  &::before {
+    background-image: url(../../assets/banners/Funeral_Parking_1000w.jpg);
+  }
+}
+
 @media only screen and (min-width: 576px) {
   .account-banner {
     margin-top: 15rem;

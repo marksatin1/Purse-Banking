@@ -10,11 +10,10 @@ import {
 import { getDebitsData } from '../helpers/functions/ApiFunctions';
 import { accountsSummary } from '../helpers/data/BankingData';
 
+import AccountPage from '../components/UI/Accounts/AccountPage';
 import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import AccountBanner from '../components/UI/Accounts/AccountBanner';
-import Slidebar from '../components/UI/General/Slidebar';
 import DebitsSummary from '../components/UI/Accounts/DebitsSummary';
 import DebitsActivity from '../components/UI/Accounts/DebitsActivity';
 import DebitsDetails from '../components/UI/Accounts/DebitsDetails';
@@ -81,9 +80,11 @@ const Debits = () => {
   };
 
   return (
-    <>
-      <AccountBanner className={bannerImgClass} />
-      <Slidebar title={title} />
+    <AccountPage
+      bannerImgName={bannerImgClass}
+      pageTitle={title}
+      slidebarPos='slidebar-pos--debits'
+    >
       <DebitsSummary
         accountData={accountData}
         accountType={accountType}
@@ -103,7 +104,7 @@ const Debits = () => {
           </Tab>
         </Tabs>
       </Container>
-    </>
+    </AccountPage>
   );
 };
 

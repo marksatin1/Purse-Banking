@@ -1,8 +1,8 @@
 import BannerRibbon from './BannerRibbon';
 
-const AccountBanner = ({ className }) => {
+const AccountBanner = ({ bannerImgName }) => {
   return (
-    <div className={`account-banner ${className}`}>{<BannerRibbon />}</div>
+    <div className={`account-banner ${bannerImgName}`}>{<BannerRibbon />}</div>
   );
 };
 

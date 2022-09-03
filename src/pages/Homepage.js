@@ -3,10 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { usdFormatter } from '../helpers/functions/MiscFunctions';
 import { accountsSummary } from '../helpers/data/BankingData';
 
-import Container from 'react-bootstrap/Container';
+import AccountPage from '../components/UI/Accounts/AccountPage';
 import Table from 'react-bootstrap/Table';
-import AccountBanner from '../components/UI/Accounts/AccountBanner';
-import Slidebar from '../components/UI/General/Slidebar';
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -16,10 +14,12 @@ const Homepage = () => {
     +checkingSummary.availBalance + +savingsSummary.availBalance;
 
   return (
-    <>
-      <AccountBanner className='bg-img--cops' />
-      <Slidebar title='Welcome Home!' />
-      <Container className='homepage'>
+    <AccountPage
+      bannerImgName='bg-img--cops'
+      pageTitle='Welcome Home!'
+      slidebarPos='slidebar-pos--homepage'
+    >
+      <div className='homepage'>
         <div className='homepage--table'>
           <h1 className='homepage--title'>Debit Accounts</h1>
           <Table borderless className='account-table'>
@@ -132,8 +132,8 @@ const Homepage = () => {
             </tbody>
           </Table>
         </div>
-      </Container>
-    </>
+      </div>
+    </AccountPage>
   );
 };
 

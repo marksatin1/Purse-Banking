@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getCreditsData } from '../helpers/functions/ApiFunctions';
 import { fbCreditsActUrl, fbCreditsDetUrl } from '../helpers/data/ApiEndpoints';
 
+import AccountPage from '../components/UI/Accounts/AccountPage';
 import Container from 'react-bootstrap/Container';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
@@ -30,9 +31,11 @@ const Credits = () => {
   }, []);
 
   return (
-    <>
-      <AccountBanner className='bg-img--funeral' />
-      <Slidebar title='Credit Cards' />
+    <AccountPage
+      bannerImgName='bg-img--funeral'
+      pageTitle='Credit Cards'
+      slidebarPos='slidebar-pos--credits'
+    >
       <CreditsSummary />
       <Container className='credits'>
         <Tabs id='credits-tabs'>
@@ -44,7 +47,7 @@ const Credits = () => {
           </Tab>
         </Tabs>
       </Container>
-    </>
+    </AccountPage>
   );
 };
 

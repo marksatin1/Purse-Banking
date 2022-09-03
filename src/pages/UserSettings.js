@@ -4,9 +4,8 @@ import AuthContext from '../context/auth-context';
 import axios from 'axios';
 import { fbResetPasswordUrl } from '../helpers/data/ApiEndpoints';
 
+import AccountPage from '../components/UI/Accounts/AccountPage';
 import Table from 'react-bootstrap/Table';
-import AccountBanner from '../components/UI/Accounts/AccountBanner';
-import Slidebar from '../components/UI/General/Slidebar';
 import Modal from '../components/UI/General/Modal';
 
 const UserSettings = () => {
@@ -78,49 +77,53 @@ const UserSettings = () => {
           }
         />
       )} */}
-      <AccountBanner className='bg-img--cops' />
-      <Slidebar title='My Account' />
-      <div className='user-settings'>
-        <Table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <td>{userName}</td>
-            </tr>
-            <tr>
-              <th>Email</th>
-              <td>{userEmail}</td>
-            </tr>
-            <tr>
-              <th>Password</th>
-              <td>{userPassword}</td>
-            </tr>
-            <tr>
-              <th>Rights</th>
-              <td>Ceded</td>
-            </tr>
-            <tr>
-              <th>Firstborn?</th>
-              <td>OURS NOW *evil laugh*</td>
-            </tr>
-            <tr>
-              <th>Country</th>
-              <td>{userCountry}</td>
-            </tr>
-          </tbody>
-        </Table>
-        <div className='d-flex flex-column align-items-center'>
-          <button
-            className='show-password'
-            onClick={() => setShowPassword(() => !showPassword)}
-          >
-            {showHide}
-          </button>
-          <button className='reset-password' onClick={() => setModal(true)}>
-            Reset Password
-          </button>
+      <AccountPage
+        bannerImgName='bg-img--cops'
+        pageTitle='Settings'
+        slidebarPos='slidebar-pos--user-settings'
+      >
+        <div className='user-settings'>
+          <Table>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <td>{userName}</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>{userEmail}</td>
+              </tr>
+              <tr>
+                <th>Password</th>
+                <td>{userPassword}</td>
+              </tr>
+              <tr>
+                <th>Rights</th>
+                <td>Ceded</td>
+              </tr>
+              <tr>
+                <th>Firstborn?</th>
+                <td>OURS NOW *evil laugh*</td>
+              </tr>
+              <tr>
+                <th>Country</th>
+                <td>{userCountry}</td>
+              </tr>
+            </tbody>
+          </Table>
+          <div className='d-flex flex-column align-items-center'>
+            <button
+              className='show-password'
+              onClick={() => setShowPassword(() => !showPassword)}
+            >
+              {showHide}
+            </button>
+            <button className='reset-password' onClick={() => setModal(true)}>
+              Reset Password
+            </button>
+          </div>
         </div>
-      </div>
+      </AccountPage>
     </>
   );
 };
