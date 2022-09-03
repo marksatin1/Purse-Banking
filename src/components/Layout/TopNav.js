@@ -10,11 +10,20 @@ import SwissFlag from '../../assets/Emojis/SwissFlag.webp';
 
 const TopNav = () => {
   const [flag, setFlag] = useState(AmericanFlag);
-  const [isOpen, setIsOpen] = useState(false);
 
   const selectFlagHandler = (event) => {
-    setFlag(event.target.children[0].src);
-    setIsOpen(false);
+    const { nodeName, nextElementSibling, children } = event.target;
+
+    let { src: flagImg } =
+      nodeName === 'P'
+        ? nextElementSibling
+        : nodeName === 'IMG'
+        ? event.target
+        : nodeName === 'A'
+        ? children[1]
+        : null;
+
+    setFlag(flagImg);
   };
 
   return (
@@ -34,37 +43,61 @@ const TopNav = () => {
       <Nav.Link href='/help'>
         <h5>Help</h5>
       </Nav.Link>
-      {/* <span>|</span>
+      <span>|</span>
       <Nav.Link>
         <img src={flag} className='dropdown-icon' alt='Country flag' />
       </Nav.Link>
-      <NavDropdown
-        className='top-nav--dropdown'
-        show={isOpen}
-        onMouseEnter={() => setIsOpen(true)}
-      >
-        <NavDropdown.Item onClick={selectFlagHandler}>
-          America <img src={AmericanFlag} alt='American Flag' />
+      <NavDropdown className='d-none d-sm-block top-nav--dropdown' align='end'>
+        <NavDropdown.Item
+          className='d-flex align-items-center justify-content-between'
+          onClick={selectFlagHandler}
+        >
+          <p>America</p>
+          <img src={AmericanFlag} alt='American Flag' />
         </NavDropdown.Item>
-        <NavDropdown.Item onClick={selectFlagHandler}>
-          Canada <img src={AmericanFlag} alt='American Flag' />
+        <NavDropdown.Item
+          className='d-flex align-items-center justify-content-between'
+          onClick={selectFlagHandler}
+        >
+          <p>Canada</p>
+          <img src={AmericanFlag} alt='American Flag' />
         </NavDropdown.Item>
-        <NavDropdown.Item onClick={selectFlagHandler}>
-          Cayman Islands <img src={CaymansFlag} alt='Cayman Islands Flag' />
+        <NavDropdown.Item
+          className='d-flex align-items-center justify-content-between'
+          onClick={selectFlagHandler}
+        >
+          <p>Caymans</p>
+          <img src={CaymansFlag} alt='Cayman Islands Flag' />
         </NavDropdown.Item>
-        <NavDropdown.Item onClick={selectFlagHandler}>
-          Guatemala <img src={AmericanFlag} alt='American Flag' />
+        <NavDropdown.Item
+          className='d-flex align-items-center justify-content-between'
+          onClick={selectFlagHandler}
+        >
+          <p>Guatemala</p>
+          <img src={AmericanFlag} alt='American Flag' />
         </NavDropdown.Item>
-        <NavDropdown.Item onClick={selectFlagHandler}>
-          Singapore <img src={SingaporeFlag} alt='Sigaporean Flag' />
+        <NavDropdown.Item
+          className='d-flex align-items-center justify-content-between'
+          onClick={selectFlagHandler}
+        >
+          <p>Singapore</p>
+          <img src={SingaporeFlag} alt='Sigaporean Flag' />
         </NavDropdown.Item>
-        <NavDropdown.Item onClick={selectFlagHandler}>
-          Switzerland <img src={SwissFlag} alt='Swiss Flag' />
+        <NavDropdown.Item
+          className='d-flex align-items-center justify-content-between'
+          onClick={selectFlagHandler}
+        >
+          <p>Switzerland</p>
+          <img src={SwissFlag} alt='Swiss Flag' />
         </NavDropdown.Item>
-        <NavDropdown.Item onClick={selectFlagHandler}>
-          Venezuela <img src={AmericanFlag} alt='American Flag' />
+        <NavDropdown.Item
+          className='d-flex align-items-center justify-content-between'
+          onClick={selectFlagHandler}
+        >
+          <p>Venezuela</p>
+          <img src={AmericanFlag} alt='American Flag' />
         </NavDropdown.Item>
-      </NavDropdown> */}
+      </NavDropdown>
     </Nav>
   );
 };
