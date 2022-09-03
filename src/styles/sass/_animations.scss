@@ -5,20 +5,14 @@
 }
 
 @keyframes bump {
-  from {
-    transform: scale(1);
-  }
-  100% {
+  to {
     transform: scale(1.03);
     box-shadow: 3px 3px 5px black;
   }
 }
 
 @keyframes bump-2 {
-  from {
-    transform: scale(1);
-  }
-  100% {
+  to {
     transform: scale(1.03);
   }
 }
@@ -81,16 +75,12 @@
 }
 
 @keyframes slidebar {
-  from {
-    margin-left: -100%;
-    width: 100%;
-  }
-  92% {
-    width: 82%;
+  90% {
+    width: 88%;
   }
   to {
     margin-left: -2rem;
-    width: 75%;
+    width: 83%;
   }
 }
 
