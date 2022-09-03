@@ -25,12 +25,18 @@ const MyPurseButton = () => {
         </Nav.Link>
       </button>
       {authCtx.isSignedIn && (
-        <div className='my-purse-btn--dropdown-content'>
-          <Nav.Link href='accounts'>
-            <p>My Accounts</p>
+        <div className='my-purse-btn--dropdown'>
+          <Nav.Link href='debit-accounts?account=checking'>
+            <p>Checking</p>
+          </Nav.Link>
+          <Nav.Link href='debit-accounts?account=savings'>
+            <p>Savings</p>
+          </Nav.Link>
+          <Nav.Link href='credit-card-accounts'>
+            <p>Credit Cards</p>
           </Nav.Link>
           <Nav.Link href='user-settings'>
-            <p>User Settings</p>
+            <p>Settings</p>
           </Nav.Link>
           <NavDropdown.Divider />
           <Nav.Link onClick={authCtx.signOut}>
