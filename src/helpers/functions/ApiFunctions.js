@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { fbUsersUrl, fbCommentsUrl } from '../data/ApiEndpoints';
+import {
+  fbUsersUrl,
+  fbCommentsUrl,
+  fbResetPasswordUrl,
+} from '../data/ApiEndpoints';
 
 /*   HELPERS   */
 // getExpDateMs(expDurationSec)
@@ -14,6 +18,8 @@ import { fbUsersUrl, fbCommentsUrl } from '../data/ApiEndpoints';
 // getDateSortedComments()
 // getDebitsData(endpointsArr)
 // getCreditsData(endpointsArr)
+
+//resetPassword(email)
 
 /*   HELPERS   */
 export const getExpDateMs = (expDurationSec) => {
@@ -210,4 +216,17 @@ export const getCreditsData = async (endpointsArr) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const resetPassword = async (email) => {
+  await axios({
+    method: 'post',
+    url: fbResetPasswordUrl,
+    params: {
+      key: process.env.REACT_APP_FIREBASE_API_KEY,
+    },
+    data: { requestType: 'PASSWORD_RESET', email },
+  }).catch((error) => {
+    console.error(error);
+  });
 };
