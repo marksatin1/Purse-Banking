@@ -1,0 +1,89 @@
+.top-nav {
+  margin-top: -0.25rem;
+  justify-content: center;
+  font-family: $tnr-family;
+  cursor: pointer;
+
+  h5 {
+    margin: 0 0.5rem;
+    color: black;
+
+    &:hover {
+      color: $tertiary-theme-alt;
+      text-shadow: 0 0 1px black;
+    }
+  }
+
+  .dropdown-icon {
+    width: 30px;
+    height: auto;
+    margin: 0 0.5rem;
+  }
+
+  &--dropdown {
+    // target underlying BS class
+    .dropdown-menu {
+      min-width: 200px;
+      margin-right: 0.5rem;
+      font-family: $lucida-family;
+      border-radius: 10px;
+      border: 2px solid $tertiary-theme;
+      box-shadow: inset 0 0 500px $secondary-theme, 2px 2px 5px white;
+      background-color: $page-card-bg-main;
+
+      a {
+        &:hover {
+          color: $primary-theme-alt;
+          text-shadow: 1px 1px black;
+          transform: scale(1.03);
+        }
+
+        & > p {
+          margin: 0;
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .top-nav {
+    width: 100vw;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+
+    h5 {
+      font-size: 1.2rem;
+    }
+
+    &--dropdown {
+      margin-right: 0.5rem;
+    }
+
+    .dropdown-icon {
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .top-nav {
+    h5 {
+      font-size: 1.3rem;
+    }
+
+    &--dropdown {
+      .dropdown-menu {
+        a > p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .dropdown-icon {
+      width: 35px;
+    }
+  }
+}

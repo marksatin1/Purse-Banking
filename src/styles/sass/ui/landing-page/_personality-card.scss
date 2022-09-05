@@ -1,0 +1,74 @@
+.personality-card {
+  max-width: 22rem;
+  margin: 1rem auto 2rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+
+  &:hover {
+    animation: bump 800ms forwards;
+  }
+
+  & img {
+    position: relative; // for z-index
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    z-index: 2;
+  }
+
+  &--content {
+    height: 17rem;
+    padding: 0.5rem;
+    font-family: $lucida-family;
+  }
+
+  &--title {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    color: $primary-theme-alt;
+  }
+
+  &--btn {
+    position: relative; // for z-index
+    float: right;
+    margin: 1rem;
+    padding: 0.25rem 1rem;
+    border: none;
+    border-radius: 25px;
+    background-color: $tertiary-theme;
+    font-family: $lucida-family;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 2;
+    cursor: pointer;
+
+    &:hover {
+      animation: button-gleam-2 700ms forwards;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .personality-card {
+    max-width: 26rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .personality-card {
+    &--content {
+      height: 20rem;
+    }
+
+    &--title {
+      font-size: 2.5rem;
+    }
+
+    &--subtitle {
+      font-size: 1.4rem;
+    }
+
+    &--btn {
+      font-size: 1.4rem;
+    }
+  }
+}

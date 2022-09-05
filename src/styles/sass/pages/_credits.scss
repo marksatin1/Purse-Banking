@@ -1,0 +1,59 @@
+.credits {
+  margin: 5rem auto -12rem;
+
+  // Target underlying classes that BS uses
+  .nav-tabs {
+    max-width: $page-width;
+    margin: 0 auto;
+    border-bottom: 3px solid $primary-theme-alt;
+
+    .nav-item {
+      padding: 0.25rem;
+      border: 3px solid $primary-theme-alt;
+      border-bottom: 0;
+      border-radius: 5px 5px 0 0;
+      font-size: 1.1rem;
+
+      &:hover {
+        background-color: $secondary-theme-alt-alt;
+        cursor: pointer;
+
+        & button {
+          background-color: $secondary-theme-alt-alt;
+          color: white;
+        }
+      }
+
+      button {
+        color: black;
+        border: none;
+      }
+
+      .nav-link.active {
+        margin: -0.25rem;
+        border: 0;
+        background-color: $secondary-theme-alt-alt;
+        border-bottom: 0;
+        color: $tertiary-theme-alt;
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .debits {
+    .nav-tabs {
+      max-width: 60vw;
+
+      .nav-item {
+        font-size: 1.4rem;
+
+        .nav-link.active {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}

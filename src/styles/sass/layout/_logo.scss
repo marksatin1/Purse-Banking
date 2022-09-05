@@ -1,0 +1,106 @@
+.logo {
+  position: fixed;
+  top: 6rem;
+  border-radius: 0 20px 20px 0;
+  background-color: $secondary-theme;
+  box-shadow: 1px 2px 4px white;
+  z-index: 2;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $secondary-theme-alt;
+  }
+
+  &--icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  &--title {
+    margin: 0 0.5rem;
+    font-family: $lucida-family;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+    color: $tertiary-theme-alt;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .logo {
+    top: 9rem;
+    z-index: 6; // important
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .logo {
+    top: 9.6rem;
+
+    &--icon {
+      width: 45px;
+      height: 45px;
+    }
+
+    &--title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .motto {
+    position: fixed;
+    top: 9.8rem;
+    transform: translateX(-78%);
+    font-family: $courier-family;
+    font-size: 1.3rem;
+    font-weight: 600;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  .motto-slide-in {
+    @include motto-anim(38%);
+    animation: motto-slide-in 2.5s forwards;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .motto {
+    top: 9.7rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .logo {
+    top: 10.2rem;
+
+    &--icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    &--title {
+      font-size: 3.2rem;
+    }
+  }
+
+  .motto {
+    font-size: 1.5rem;
+  }
+
+  .motto-slide-in {
+    @include motto-anim(40%);
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .motto {
+    top: 9.3rem;
+    font-size: 1.8rem;
+  }
+
+  .motto-slide-in {
+    @include motto-anim(34%);
+  }
+}

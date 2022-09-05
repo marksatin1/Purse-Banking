@@ -1,0 +1,51 @@
+.contact-card {
+  margin: 1rem 0;
+  padding: 2rem 0;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px black;
+
+  &--department {
+    @include text-shadow(black);
+    color: $secondary-theme-alt;
+    font-weight: bold;
+  }
+
+  .content {
+    width: 100%;
+    min-height: 20rem;
+    text-align: center;
+  }
+}
+
+.wait-time {
+  color: $tertiary-theme;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 992px) {
+  .contact-card {
+    .content {
+      &--data {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .contact-card {
+    padding: 3rem;
+
+    .content {
+      min-height: 28rem;
+
+      &--data {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

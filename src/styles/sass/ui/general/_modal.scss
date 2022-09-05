@@ -1,0 +1,107 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  z-index: 7; // to cover Header completely
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $page-width;
+  background-color: $secondary-theme;
+  border: 2px solid $tertiary-theme-alt;
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
+  padding: 2rem;
+  text-align: center;
+  z-index: 8;
+
+  &--title {
+    @extend %page-title;
+    font-family: $georgia-family;
+    @include text-shadow(black);
+  }
+
+  &--subtitle {
+    @extend %page-subtitle;
+  }
+
+  &--content {
+    border: 5px dotted $tertiary-theme;
+    box-shadow: inset 0 0 50px $secondary-theme-alt-alt;
+    max-height: 20rem;
+    overflow-y: scroll;
+    padding: 1rem;
+    font-family: $lucida-family;
+    font-size: 1.2rem;
+
+    .intertitle {
+      width: 80%;
+      margin: 2rem auto;
+      color: $tertiary-theme-alt;
+      @include text-shadow(black);
+      font-family: $georgia-family;
+      font-size: 2rem;
+    }
+
+    .endtitle {
+      color: $tertiary-theme-alt;
+      @include text-shadow(black);
+      font-family: $georgia-family;
+      font-size: 2.2rem;
+    }
+  }
+
+  &--btn {
+    margin-top: 2rem;
+    padding: 0.75rem;
+    font-family: $georgia-family;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: $secondary-theme-alt-alt;
+    color: $primary-theme-alt;
+    border-radius: 3px;
+    box-shadow: 1px 1px black;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .modal-overlay {
+    max-width: 50rem;
+    padding: 3rem;
+
+    &--title {
+      font-size: 2.8rem;
+    }
+
+    &--subtitle {
+      font-size: 2.2rem;
+    }
+
+    &--content {
+      padding: 1.5rem;
+      font-size: 1.4rem;
+
+      .intertitle {
+        font-size: 2.3rem;
+      }
+
+      .endtitle {
+        font-size: 2.5rem;
+      }
+    }
+
+    &--btn {
+      padding: 0.75rem 1.55rem;
+      font-size: 1.4rem;
+    }
+  }
+}

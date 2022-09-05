@@ -1,0 +1,57 @@
+.account-summary {
+  width: 350px;
+  margin: 9rem auto 0;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-color: $account-sum-color;
+  box-shadow: 2px 2px 4px black;
+  text-align: center;
+
+  h1 {
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: $primary-theme-alt;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    color: $primary-theme-alt;
+    font-weight: bold;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  select {
+    margin: 0.5rem 0 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: $secondary-theme-alt-alt;
+    font-weight: bold;
+  }
+
+  .test {
+    border: $border;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .account-summary {
+    width: 450px;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+
+    select {
+      margin: 1rem 0 1.5rem;
+      font-size: 1.2rem;
+    }
+  }
+}

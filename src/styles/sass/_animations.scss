@@ -1,0 +1,94 @@
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes bump {
+  to {
+    transform: scale(1.03);
+    box-shadow: 3px 3px 5px black;
+  }
+}
+
+@keyframes bump-2 {
+  to {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes button-gleam {
+  from {
+    box-shadow: none;
+  }
+  25% {
+    box-shadow: -2px 1px 3px white;
+  }
+  to {
+    box-shadow: 0 2px 3px black;
+    transform: translate(1px, -1px);
+    color: gold;
+    border: 2px solid gold;
+  }
+}
+
+@keyframes button-gleam-2 {
+  from {
+    box-shadow: none;
+  }
+  25% {
+    box-shadow: -1px 0 3px white;
+  }
+  to {
+    box-shadow: 0 2px 3px black;
+    transform: translate(1px, -1px);
+    color: white;
+  }
+}
+
+@keyframes collapse-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateY(1rem);
+    opacity: 1;
+  }
+}
+
+@keyframes collapse-disappear {
+  from {
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+}
+
+@mixin motto-anim($percent) {
+  @keyframes motto-slide-in {
+    to {
+      transform: translateX($percent);
+    }
+  }
+}
+
+@keyframes slidebar {
+  90% {
+    width: 88%;
+  }
+  to {
+    margin-left: -2rem;
+    width: 83%;
+  }
+}
+
+@keyframes slidebar-title {
+  from {
+    transform: translateX(-100%);
+  }
+  90% {
+    transform: translateX(5%);
+  }
+}

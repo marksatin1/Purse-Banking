@@ -1,0 +1,52 @@
+.welcome-banner {
+  &--title {
+    margin: 4rem auto 1.5rem;
+    color: $primary-theme-alt;
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  &--carousel {
+    max-width: 26rem;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    background-color: $secondary-theme-alt;
+    border-radius: 5px;
+    box-shadow: 0 0 7px black;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .welcome-banner {
+    &--title {
+      font-size: 1.9rem;
+      margin-top: 3rem;
+    }
+
+    &--carousel {
+      margin: 0 auto;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .welcome-banner {
+    &--title {
+      width: 80%;
+      font-size: 2.2rem;
+    }
+    &--carousel {
+      max-width: 30rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .welcome-banner {
+    &--title {
+      font-size: 2.4rem;
+    }
+  }
+}

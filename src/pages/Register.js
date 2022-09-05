@@ -1,53 +1,70 @@
-import { Fragment, useState, useEffect, useContext, useRef } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { useState, useEffect, useContext } from 'react';
+import AuthContext from '../context/AuthContext';
+
 import {
-  minMaxLength,
-  validateEmail,
-  userExists,
-  passwordStrength,
-  validateConfirmPassword,
-} from '../helpers/FormValidation';
+  isEmpty,
+  validateFormInputs,
+} from '../helpers/functions/FormValidationFunctions';
+import { fbSignUpUrl } from '../helpers/data/ApiEndpoints';
+import {
+  getNewTokenData,
+  postUserToDb,
+} from '../helpers/functions/ApiFunctions';
 import {
   UserAgreement,
   PrivacyPolicy,
   RegistrationSuccess,
-} from '../helpers/WrittenContent';
-import AuthContext from '../context/auth-context';
+} from '../helpers/data/WrittenContent';
 
-import Modal from '../components/UI/Modal';
-import FormButton from '../components/UI/FormButton';
-import classes from './Register.module.css';
+import Modal from '../components/UI/General/Modal';
+import FormButton from '../components/UI/General/FormButton';
 
-let idToken, expirationTime;
+const initUser = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  firstborn: 'no',
+  country: 'Country',
+  agree: false,
+};
 
-const isEmpty = (value) => value.trim() === '';
+const initCreds = {
+  idToken: '',
+  remainingTime: null,
+  localId: '',
+};
+
+const initFormErrors = {
+  firstName: null,
+  lastName: null,
+  email: null,
+  password: null,
+  confirmPassword: null,
+  firstborn: null,
+  country: null,
+  agree: null,
+};
 
 const Register = () => {
-  const [formErrors, setFormErrors] = useState({});
-  const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    firstborn: 'no',
-    country: 'Country',
-    agree: false,
-  });
-  const [selected, setSelected] = useState();
+  // DATA OBJ STATES
+  const [user, setUser] = useState(initUser);
+  const [creds, setCreds] = useState(initCreds);
+
+  // USER FEEDBACK STATES
   const [isDisabled, setIsDisabled] = useState(true);
+  const [formErrors, setFormErrors] = useState(initFormErrors);
   const [isLoading, setIsLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
-  const [showUserAgreement, setShowUserAgreement] = useState(false);
+
+  // MODAL STATES
+  const [regSuccess, setRegSuccess] = useState(false);
+  const [privacyPolicy, setPrivacyPolicy] = useState(false);
+  const [userAgreement, setUserAgreement] = useState(false);
+
   const authCtx = useContext(AuthContext);
-  const emailRef = useRef();
-  const passwordRef = useRef();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
+  // Handle Register button 'disabled' attribute
   useEffect(() => {
     if (
       isEmpty(user.firstName) ||
@@ -60,377 +77,219 @@ const Register = () => {
     } else {
       setIsDisabled(false);
     }
-  }, [
-    user.firstName,
-    user.lastName,
-    user.email,
-    user.password,
-    user.confirmPassword,
-  ]);
+  }, [user]);
 
+  // Handle user feedback for form errors
   const inputChangeHandler = (event) => {
-    const timer = setTimeout(async () => {
-      const { name, value } = event.target;
-
-      switch (name) {
-        case 'firstName':
-          if (minMaxLength(value, 3)) {
-            formErrors[name] = 'More than 2 letters, bub!';
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, firstName: value });
-          break;
-        case 'lastName':
-          if (minMaxLength(value, 3)) {
-            formErrors[name] = 'MORE than 2 letters!';
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, lastName: value });
-          break;
-        case 'email':
-          if (!value || validateEmail(value)) {
-            formErrors[name] =
-              'Make it valid, buddy: @ sign, period - the works!';
-          } else {
-            userExists(value).then((result) => {
-              if (result) {
-                formErrors[name] =
-                  'Looks like SOMEBODY already registered with us';
-              } else {
-                delete formErrors[name];
-              }
-            });
-          }
-          setUser({ ...user, email: value });
-          break;
-        case 'password':
-          if (minMaxLength(value, 7)) {
-            formErrors[name] = 'I want a good, clean password here, folks';
-          } else if (passwordStrength(value)) {
-            formErrors[name] = 'WEAK!!';
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, password: value });
-          if (user.confirmPassword) {
-            validateConfirmPassword(value, user.confirmPassword, formErrors);
-          }
-          break;
-        case 'confirmPassword':
-          let valid = validateConfirmPassword(user.password, value, formErrors);
-          if (valid) {
-            setUser({ ...user, confirmPassword: value });
-          }
-          break;
-        case 'firstborn':
-          if (value === 'no') {
-            formErrors[name] = 'MUST CEDE RIGHTS TO FIRSTBORN!';
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, firstborn: value });
-          break;
-        case 'country':
-          setSelected(value);
-          if (value === 'Anywhere Else') {
-            formErrors[name] = "You're not from around here, are you?";
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, country: value });
-          break;
-        case 'agree':
-          if (!event.target.checked) {
-            formErrors[name] =
-              "Best be agreein' to them terms and conditions there, chap";
-          } else {
-            delete formErrors[name];
-          }
-          setUser({ ...user, agree: event.target.checked });
-          break;
-        default:
-          break;
-      }
-    }, 800);
-    setFormErrors(formErrors);
+    const errTimer = setTimeout(() => {
+      validateFormInputs(event, setFormErrors, user, setUser);
+    }, 500);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(errTimer);
     };
   };
 
   const hideModalHandler = () => {
-    setShowPrivacyPolicy(false);
-    setShowUserAgreement(false);
+    setPrivacyPolicy(false);
+    setUserAgreement(false);
   };
 
-  const submitFormHandler = (event) => {
+  // Register new user in Firebase
+  const submitFormHandler = async (event) => {
     event.preventDefault();
     setIsLoading(true);
 
-    const enteredEmail = emailRef.current.value;
-    const enteredPassword = passwordRef.current.value;
+    const signInCreds = await getNewTokenData(
+      fbSignUpUrl,
+      user.email,
+      user.password
+    );
+    setCreds(signInCreds);
 
-    fetch(
-      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: enteredEmail,
-          password: enteredPassword,
-          returnSecureToken: true,
-        }),
-      }
-    )
-      .then(async (response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          const data = await response.json();
-          if (data.error.message) {
-            throw new Error(data.error.message);
-          }
-        }
-      })
-      .then((data) => {
-        localStorage.setItem('displayName', user.firstName);
-        localStorage.setItem('userEmail', enteredEmail);
-        idToken = data.idToken;
-        expirationTime = new Date(
-          new Date().getTime() + +data.expiresIn * 1000
-        );
-
-        fetch(
-          `https://react-http-841ed-default-rtdb.firebaseio.com/users.json`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              firstName: user.firstName,
-              lastName: user.lastName,
-              email: user.email,
-              password: user.password,
-              firstborn:
-                user.firstborn === 'yes'
-                  ? 'Ceded firstborn'
-                  : 'Did not cede firstborn',
-              country: user.country,
-              agree: user.agree ? 'Agreed' : 'Did not agree',
-            }),
-          }
-        ).then(async (response) => {
-          if (response.ok) {
-            setIsLoading(false);
-            setShowModal(true);
-            return response.json();
-          } else {
-            const data = await response.json();
-            if (data.error.message) {
-              throw new Error(data.error.message);
-            }
-          }
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    await postUserToDb(user, signInCreds.localId);
+    setRegSuccess(true);
+    setIsLoading(false);
   };
+
+  // Sign in to new user account
   const signInHandler = () => {
-    authCtx.signIn(idToken, expirationTime);
+    authCtx.signIn(creds);
   };
 
   return (
-    <Fragment>
-      {showModal && (
-        <Modal
-          title='Welcome To The Fold'
-          subtitle='You are now part of 6000 years of human history'
-          content={RegistrationSuccess}
-          button={
-            <div className={classes['access']}>
-              <button onClick={signInHandler}>Access MyPurse</button>
+    <>
+      {!isLoading && (
+        <form className='register' onSubmit={submitFormHandler}>
+          <h1 className='register--title'>REGISTER NOW!</h1>
+          <div className='d-flex flex-column register--inputs'>
+            <input
+              name='firstName'
+              type='text'
+              placeholder='First Name'
+              autoComplete='new-first-name'
+              noValidate
+              onChange={inputChangeHandler}
+            />
+            {formErrors.firstName && (
+              <p className='register--error'>{formErrors.firstName}</p>
+            )}
+            <input
+              name='lastName'
+              type='text'
+              placeholder='Last Name'
+              autoComplete='new-last-name'
+              noValidate
+              onChange={inputChangeHandler}
+            />
+            {formErrors.lastName && (
+              <p className='register--error'>{formErrors.lastName}</p>
+            )}
+            <input
+              name='email'
+              type='email'
+              placeholder='Email'
+              autoComplete='new-email'
+              onChange={inputChangeHandler}
+            />
+            {formErrors.email && (
+              <p className='register--error'>{formErrors.email}</p>
+            )}
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+              autoComplete='new-password'
+              onChange={inputChangeHandler}
+            />
+            {formErrors.password && (
+              <p className='register--error'>{formErrors.password}</p>
+            )}
+            <input
+              name='confirmPassword'
+              type='password'
+              placeholder='Confirm Password'
+              autoComplete='confirm-new-password'
+              noValidate
+              onChange={inputChangeHandler}
+            />
+            {formErrors.confirmPassword && (
+              <p className='register--error'>{formErrors.confirmPassword}</p>
+            )}
+          </div>
+          <div className='options'>
+            <p>Cede rights to your firstborn?</p>
+            <div className='d-flex justify-content-evenly align-items-center options--radio'>
+              <div>
+                <input
+                  name='firstborn'
+                  type='radio'
+                  id='yes'
+                  value='yes'
+                  required
+                  onChange={inputChangeHandler}
+                />
+                <label htmlFor='yes'>
+                  <span>Yes</span>
+                </label>
+              </div>
+              <div>
+                <input
+                  name='firstborn'
+                  type='radio'
+                  id='no'
+                  value='no'
+                  disabled
+                  onChange={inputChangeHandler}
+                />
+                <label htmlFor='no'>
+                  <span>No</span>
+                </label>
+              </div>
             </div>
-          }
+          </div>
+          {formErrors.firstborn && (
+            <p className='register--error'>{formErrors.firstborn}</p>
+          )}
+          <div className='options--select'>
+            <label htmlFor='country'>
+              <p className='register--text'>Country of Origin</p>
+            </label>
+            <select
+              name='country'
+              id='country'
+              onChange={inputChangeHandler}
+              defaultValue='America'
+            >
+              <option value='America'>America</option>
+              <option value='Everywhere Else'>Everywhere Else</option>
+            </select>
+          </div>
+          {formErrors.country && (
+            <p className='register--error'>{formErrors.country}</p>
+          )}
+          <div className='d-flex align-items-start options--checkbox'>
+            <input
+              name='agree'
+              type='checkbox'
+              id='agree'
+              required
+              onChange={inputChangeHandler}
+            />
+            <p>
+              I certify that I am 18 years of age or older, and agree to the{' '}
+              <span
+                className='register--link'
+                onClick={() => setUserAgreement(true)}
+              >
+                User Agreement
+              </span>{' '}
+              and{' '}
+              <span
+                className='register--link'
+                onClick={() => setPrivacyPolicy(true)}
+              >
+                Privacy Policy
+              </span>
+              .
+            </p>
+          </div>
+          {formErrors.agree && (
+            <p className='register--error'>{formErrors.agree}</p>
+          )}
+          <FormButton type='submit' name='Register' disabled={isDisabled} />
+        </form>
+      )}
+      {regSuccess && (
+        <Modal
+          title={RegistrationSuccess.title}
+          subtitle={RegistrationSuccess.subtitle}
+          content={RegistrationSuccess.content}
+          btnHandler={signInHandler}
+          btnName='Enter'
         />
       )}
-      {showUserAgreement && (
+      {userAgreement && (
         <Modal
           title={UserAgreement.title}
           subtitle={UserAgreement.subtitle}
           content={UserAgreement.content}
-          hideModal={hideModalHandler}
+          btnName='Exit'
+          btnHandler={hideModalHandler}
+          hideModalHandler={hideModalHandler}
         />
       )}
-      {showPrivacyPolicy && (
+      {privacyPolicy && (
         <Modal
           title={PrivacyPolicy.title}
           subtitle={PrivacyPolicy.subtitle}
           content={PrivacyPolicy.content}
-          hideModal={hideModalHandler}
+          btnName='Exit'
+          btnHandler={hideModalHandler}
+          hideModalHandler={hideModalHandler}
         />
       )}
-      {!isLoading && (
-        <Container>
-          <Row>
-            <form onSubmit={submitFormHandler}>
-              <Col xs={10} md={7} lg={5} className={classes.form}>
-                <h1>REGISTER NOW!</h1>
-                <div className={classes['text-fields']}>
-                  <input
-                    name='firstName'
-                    type='text'
-                    placeholder='First Name'
-                    autoComplete='new-first-name'
-                    noValidate
-                    onChange={inputChangeHandler}
-                  />
-                  {formErrors.firstName && <p>{formErrors.firstName}</p>}
-                  <input
-                    name='lastName'
-                    type='text'
-                    placeholder='Last Name'
-                    autoComplete='new-last-name'
-                    noValidate
-                    onChange={inputChangeHandler}
-                  />
-                  {formErrors.lastName && <p>{formErrors.lastName}</p>}
-                  <input
-                    name='email'
-                    type='email'
-                    placeholder='Email'
-                    autoComplete='new-email'
-                    onChange={inputChangeHandler}
-                    ref={emailRef}
-                  />
-                  {formErrors.email && <p>{formErrors.email}</p>}
-                  <input
-                    name='password'
-                    type='password'
-                    placeholder='Password'
-                    autoComplete='new-password'
-                    onChange={inputChangeHandler}
-                    ref={passwordRef}
-                  />
-                  {formErrors.password && <p>{formErrors.password}</p>}
-                  <input
-                    name='confirmPassword'
-                    type='password'
-                    placeholder='Confirm Password'
-                    autoComplete='confirm-new-password'
-                    noValidate
-                    onChange={inputChangeHandler}
-                  />
-                  {formErrors.confirmPassword && (
-                    <p>{formErrors.confirmPassword}</p>
-                  )}
-                </div>
-                <Row className={classes['click-fields']}>
-                  <Col md={7}>
-                    <span className={classes.text}>
-                      Cede rights to your firstborn?
-                    </span>
-                  </Col>
-                  <Col md={3} className={classes.radio}>
-                    <div>
-                      <input
-                        name='firstborn'
-                        type='radio'
-                        id='yes'
-                        value='yes'
-                        required
-                        onChange={inputChangeHandler}
-                      />
-                      <label htmlFor='yes'>
-                        <span className={classes.text}>Yes</span>
-                      </label>
-                    </div>
-                    <div>
-                      <input
-                        name='firstborn'
-                        type='radio'
-                        id='no'
-                        value='no'
-                        disabled
-                        onChange={inputChangeHandler}
-                      />
-                      <label htmlFor='no'>
-                        <span className={classes.text}>No</span>
-                      </label>
-                    </div>
-                  </Col>
-                </Row>
-                {formErrors.firstborn && <p>{formErrors.firstborn}</p>}
-                <Row className={classes.country}>
-                  <Col md={4}>
-                    <label htmlFor='country'>
-                      <span className={classes.text}>Country of Origin</span>
-                    </label>
-                  </Col>
-                  <Col md={6}>
-                    <select
-                      name='country'
-                      id='country'
-                      onChange={inputChangeHandler}
-                      defaultValue={selected}
-                    >
-                      <option value='America'>America</option>
-                      <option value='Anywhere Else'>Anywhere Else</option>
-                    </select>
-                  </Col>
-                </Row>
-                {formErrors.country && <p>{formErrors.country}</p>}
-                <Row className={classes.certify}>
-                  <Col xs={{ span: 1, offset: 1 }}>
-                    <input
-                      name='agree'
-                      type='checkbox'
-                      id='agree'
-                      required
-                      onChange={inputChangeHandler}
-                    />
-                  </Col>
-                  <Col>
-                    <span className={classes.text}>
-                      I certify that I am 18 years of age or older, and agree to
-                      the{' '}
-                      <span
-                        className='link'
-                        onClick={() => setShowUserAgreement(true)}
-                      >
-                        User Agreement
-                      </span>{' '}
-                      and{' '}
-                      <span
-                        className='link'
-                        onClick={() => setShowPrivacyPolicy(true)}
-                      >
-                        Privacy Policy
-                      </span>
-                      .
-                    </span>
-                  </Col>
-                </Row>
-                {formErrors.agree && <p>{formErrors.agree}</p>}
-                <div className={classes['button-container']}>
-                  <FormButton
-                    type='submit'
-                    name='Register'
-                    disabled={isDisabled}
-                  />
-                </div>
-              </Col>
-            </form>
-          </Row>
-        </Container>
-      )}
-    </Fragment>
+    </>
   );
 };
 

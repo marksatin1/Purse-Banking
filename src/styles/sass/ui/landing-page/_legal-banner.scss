@@ -1,0 +1,67 @@
+.legal-banner {
+  margin: 4rem auto;
+  text-align: center;
+
+  &--title {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: $primary-theme;
+    text-decoration: underline;
+  }
+
+  &--body {
+    font-size: 1.3rem;
+    font-family: $tnr-family;
+    background-color: $secondary-theme-alt;
+    opacity: 0.8;
+    height: 80rem;
+
+    p {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  .first-p {
+    padding: 1rem 1.5rem;
+  }
+
+  .second-p {
+    margin-top: -2.5rem;
+    margin-left: -2rem;
+  }
+
+  .third-p {
+    margin-top: -1.5rem;
+    width: 110%;
+    text-align: right;
+  }
+
+  .fourth-p {
+    margin-top: -1rem;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .legal-banner {
+    &--body {
+      height: 120rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .legal-banner {
+    &--body {
+      height: 100rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .legal-banner {
+    &--body {
+      height: 60rem;
+    }
+  }
+}

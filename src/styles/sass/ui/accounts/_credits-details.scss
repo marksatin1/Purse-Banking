@@ -1,0 +1,23 @@
+.credits-details.table {
+  @extend %account-table;
+
+  & th {
+    padding: 1rem 0 1rem 1rem;
+  }
+
+  & td {
+    padding: 1rem 1rem 1rem 0;
+    color: black;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .credits-details.table {
+    max-width: 60vw;
+    font-size: 1.3rem;
+
+    & th {
+      padding-left: 2.5rem;
+    }
+  }
+}

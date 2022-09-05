@@ -1,0 +1,109 @@
+.register-banner {
+  position: relative; // for z-index of below imgs
+  margin: 5rem auto;
+  padding: 1.5rem;
+  border: 2px solid $tertiary-theme-alt;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px $tertiary-theme-alt;
+
+  .section {
+    text-align: center;
+
+    &--title {
+      color: $primary-theme-alt;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    &--body {
+      margin: 1rem auto 0;
+      font-size: 1.2rem;
+    }
+
+    &--money-mural {
+      width: 350px;
+      z-index: 3;
+    }
+
+    .moneybags {
+      margin: 1rem auto;
+      z-index: 3;
+
+      img {
+        width: 80px;
+      }
+    }
+  }
+
+  .register-container {
+    margin: 1rem auto;
+    text-align: center;
+
+    h2 {
+      font-size: 2.3rem;
+      font-style: italic;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .register-banner {
+    .section {
+      &--title {
+        font-size: 3rem;
+      }
+
+      &--body {
+        font-size: 1.3rem;
+      }
+
+      &--money-mural {
+        width: 400px;
+      }
+    }
+
+    .register-container {
+      h2 {
+        font-size: 2.6rem;
+      }
+
+      button {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .register-banner {
+    .section {
+      &--title {
+        font-size: 3.3rem;
+      }
+
+      &--body {
+        font-size: 1.4rem;
+      }
+
+      &--money-mural {
+        width: 500px;
+      }
+
+      .moneybags {
+        img {
+          width: 90px;
+        }
+      }
+    }
+
+    .register-container {
+      h2 {
+        font-size: 3rem;
+      }
+
+      button {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}

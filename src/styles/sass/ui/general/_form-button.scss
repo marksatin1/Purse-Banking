@@ -1,0 +1,31 @@
+.form-btn {
+  @extend %form-btn;
+  margin: 1rem 0;
+  background-color: inherit;
+
+  &:hover {
+    cursor: pointer;
+    animation: button-gleam-2 700ms forwards;
+  }
+
+  &:disabled {
+    @extend %form-btn;
+    color: black;
+
+    &:hover {
+      background-color: $secondary-theme-alt;
+      animation: none;
+      cursor: default;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .form-btn {
+    font-size: 1.4rem;
+
+    &:disabled {
+      font-size: 1.4rem;
+    }
+  }
+}

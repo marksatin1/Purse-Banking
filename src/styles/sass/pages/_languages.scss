@@ -1,0 +1,23 @@
+.languages {
+  h2 {
+    margin: 2rem 0;
+
+    &:nth-child(odd) {
+      color: $secondary-theme-alt;
+    }
+
+    &:nth-child(even) {
+      color: $primary-theme-alt;
+    }
+
+    &:last-child {
+      color: $tertiary-theme-alt;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .languages h2 {
+    font-size: 2rem;
+  }
+}

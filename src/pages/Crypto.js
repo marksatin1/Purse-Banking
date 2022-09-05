@@ -1,150 +1,139 @@
-import { useState, useEffect, Fragment } from 'react';
-import { usdFormatter } from '../helpers/Helpers';
-import { CryptoContent } from '../helpers/WrittenContent';
-import { v4 as uuidv4 } from 'uuid';
+import { useState, useEffect } from 'react';
 
-import classes from './Crypto.module.css';
+import { usdFormatter } from '../helpers/functions/MiscFunctions';
+import { CryptoContent } from '../helpers/data/WrittenContent';
+import { coinCapUrl } from '../helpers/data/ApiEndpoints';
+
+const axios = require('axios');
 
 const Crypto = () => {
   const [cryptoData, setCryptoData] = useState([]);
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
-    fetch('https://api.coincap.io/v2/assets?limit=10', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(async (response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          const data = await response.json();
-          if (data.error.message) {
-            throw new Error(data.error.message);
-          }
-        }
+    axios
+      .get(coinCapUrl, {
+        params: {
+          limit: 10,
+        },
       })
-      .then((responseData) => {
+      .then((response) => {
+        const { data } = response.data;
         const coincapData = [];
 
-        for (const crypto in responseData.data) {
+        for (const crypto in data) {
           coincapData.push({
-            id: responseData.data[crypto].symbol,
-            rank: responseData.data[crypto].rank,
-            symbol: responseData.data[crypto].symbol,
-            name: responseData.data[crypto].name,
-            valueUSD: responseData.data[crypto].priceUsd,
-            avgValue: responseData.data[crypto].vwap24Hr,
-            changeIndex: responseData.data[crypto].changePercent24Hr,
-            supply: responseData.data[crypto].supply,
-            maxSupply: responseData.data[crypto].maxSupply,
-            marketCapUSD: responseData.data[crypto].marketCapUsd,
-            url: responseData.data[crypto].explorer,
+            rank: data[crypto].rank,
+            symbol: data[crypto].symbol,
+            name: data[crypto].name,
+            valueUSD: usdFormatter(data[crypto].priceUsd),
+            avgValue: usdFormatter(data[crypto].vwap24Hr),
+            changeIndex: Number(data[crypto].changePercent24Hr).toLocaleString(
+              'en-US'
+            ),
+            supply: Number(data[crypto].supply).toLocaleString('en-US'),
+            maxSupply: Number(data[crypto].maxSupply),
+            marketCapUSD: usdFormatter(data[crypto].marketCapUsd),
+            url: data[crypto].explorer,
           });
         }
-        const tableData = coincapData.map((item) => (
-          <tr key={uuidv4()} className={classes.row}>
-            <td>{item.rank}</td>
-            <td>{item.symbol}</td>
-            <td>
-              <a href={item.url} target='_blank' rel='noopener noreferrer'>
-                <b>{item.name}</b>
-              </a>
-            </td>
-            <td className={classes.money}>
-              {usdFormatter.format(item.valueUSD)}
-            </td>
-            <td className={classes.money}>
-              {usdFormatter.format(item.avgValue)}
-            </td>
-            <td>{Number(item.changeIndex).toLocaleString('en-US')}%</td>
-            <td>{Number(item.supply).toLocaleString('en-US')}</td>
-            <td>
-              {Number(item.maxSupply) === 0
-                ? 'No Cap'
-                : Number(item.maxSupply).toLocaleString('en-US')}
-            </td>
-            <td className={classes.money}>
-              {usdFormatter.format(item.marketCapUSD)}
-            </td>
-          </tr>
-        ));
 
-        setCryptoData(tableData);
+        setCryptoData(coincapData);
       })
       .catch((error) => {
-        console.log(error.message);
+        console.error(error.message);
         setErrorMessage(
           'There was a problem retrieving your cryptocurrency data from the CoinCap API. Please wait a moment and refresh the page.'
         );
       });
   }, []);
 
+  const tableData = cryptoData.map((item) => (
+    <tr key={item.symbol}>
+      <td>{item.rank}</td>
+      <td>{item.symbol}</td>
+      <td>
+        <a href={item.url} target='_blank' rel='noopener noreferrer'>
+          <b>{item.name}</b>
+        </a>
+      </td>
+      <td className='money'>{item.valueUSD}</td>
+      <td className='money'>{item.avgValue}</td>
+      <td>{item.changeIndex}&#37;</td>
+      <td>{item.supply}</td>
+      <td>
+        {item.maxSupply === 0
+          ? 'No Cap'
+          : item.maxSupply.toLocaleString('en-US')}
+      </td>
+      <td className='money'>{item.marketCapUSD}</td>
+    </tr>
+  ));
+
   return (
-    <div className={classes.crypto}>
-      <h1 className={classes.title}>Cryptocurrency</h1>
-      <h2 className={classes.subtitle}>
-        <i>Bitcoin? More like Shitcoin, am I right!?</i>
-      </h2>
+    <div className='crypto'>
+      <h1 className='crypto--title'>Cryptocurrency</h1>
+      <h3 className='crypto--subtitle'>
+        <i>Bitcoin? More like Shitcoin, am I right?!</i>
+      </h3>
       {!errorMessage && (
-        <Fragment>
-          <div className={classes['crypto-table']}>
-            <table>
-              <thead className={classes.thead}>
-                <tr>
-                  <th title='Cryptocurrency ranks are determined by Market Cap and listed in descending order'>
-                    Rank
-                  </th>
-                  <th title='Cryptocurrency symbol'>Symbol</th>
-                  <th title='Cryptocurrency name'>Name</th>
-                  <th title='Cryptocurrency value in USD as of the most recent page load'>
-                    Current Value
-                  </th>
-                  <th title='Cryptocurrency value in USD averaged over the 24 hour period preceding the most recent page load'>
-                    Average Value
-                  </th>
-                  <th title='Percent rise or fall of cryptocurrency value over the 24 hour period preceding the most recent page load'>
-                    Change Index
-                  </th>
-                  <th title="The amount of the given cryptocurrency's coins currently in circulation">
-                    Current Supply
-                  </th>
-                  <th title="The maximum amount of the given cryptocurrency's coins that can be issued in perpetuity">
-                    Max Supply
-                  </th>
-                  <th title="The maximum value in USD of the given cryptocurrency's generative value determined by Current Value x Current Supply">
-                    Market Cap
-                  </th>
-                </tr>
-              </thead>
-              <tbody className={classes.tbody}>{cryptoData}</tbody>
-            </table>
-          </div>
-          <div className={classes.footer}>
+        <div className='crypto--table'>
+          <table>
+            <thead>
+              <tr>
+                <th title='Cryptocurrency ranks are determined by Market Cap and listed in descending order'>
+                  Rank
+                </th>
+                <th title='Cryptocurrency symbol'>Symbol</th>
+                <th title='Cryptocurrency name'>Name</th>
+                <th title='Cryptocurrency value in USD as of the most recent page load'>
+                  Current Value
+                </th>
+                <th title='Cryptocurrency value in USD averaged over the 24 hour period preceding the most recent page load'>
+                  Average Value
+                </th>
+                <th title='Percent rise or fall of cryptocurrency value over the 24 hour period preceding the most recent page load'>
+                  Change Index
+                </th>
+                <th title="The amount of the given cryptocurrency's coins currently in circulation">
+                  Current Supply
+                </th>
+                <th title="The maximum amount of the given cryptocurrency's coins that can be issued in perpetuity">
+                  Max Supply
+                </th>
+                <th title="The maximum value in USD of the given cryptocurrency's generative value determined by Current Value x Current Supply">
+                  Market Cap
+                </th>
+              </tr>
+            </thead>
+            <tbody>{tableData}</tbody>
+          </table>
+          <div className='tfoot'>
             <a
               href='https://docs.coincap.io/#ee0c0be6-513f-4466-bbb0-2016add462e9'
               target='_blank'
               rel='noopener noreferrer'
             >
               <h4>
-                <i>Data Provided by the CoinCap API</i>
+                <i>Data Provided by CoinCap</i>
               </h4>
             </a>
           </div>
-        </Fragment>
+        </div>
       )}
       {errorMessage && (
-        <div className={classes.apiError}>
+        <div className='crypto--apiError'>
           <h1>Error</h1>
           <p>{errorMessage}</p>
         </div>
       )}
-      <div className={classes.content}>{CryptoContent}</div>
+      <div className='crypto--content'>
+        {CryptoContent}
+        <p>What are you waiting for??</p>
+        <a href='/cyber-incident-2021' className='link'>
+          <h3>ACT NOW!!</h3>
+        </a>
+      </div>
     </div>
   );
 };

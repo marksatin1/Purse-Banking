@@ -1,0 +1,27 @@
+.help {
+  font-size: 1.3rem;
+
+  .link {
+    @include link;
+  }
+
+  .small {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .help {
+    font-size: 1.4rem;
+
+    .small {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .help {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,52 @@
+.contact-page {
+  width: $page-width;
+  margin: $page-margin;
+  padding: 2rem 3rem 3rem;
+  background-color: $page-card-bg-main;
+  box-shadow: 2px 2px 5px black;
+  border-radius: 5px;
+  text-align: center;
+
+  &--title {
+    @extend %page-title;
+  }
+
+  &--subtitle {
+    @extend %page-subtitle;
+  }
+
+  &--footer {
+    margin-top: 3rem;
+
+    .link {
+      @include text-shadow(black);
+      font-size: 2.5rem;
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .contact-page {
+    width: 70vw;
+    margin-top: 20rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .contact-page {
+    &--title {
+      font-size: 3rem;
+    }
+
+    &--subtitle {
+      font-size: 2.3rem;
+    }
+
+    &--footer {
+      .link {
+        font-size: 4rem;
+      }
+    }
+  }
+}

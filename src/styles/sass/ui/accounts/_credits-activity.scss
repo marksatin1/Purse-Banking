@@ -1,0 +1,33 @@
+.credits-activity.table {
+  @extend %account-table;
+
+  & td {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .credits-activity.table {
+    & th {
+      font-size: 1.4rem;
+    }
+
+    & td {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .credits-activity.table {
+    max-width: 60vw;
+
+    & th {
+      font-size: 1.4rem;
+    }
+
+    & td {
+      font-size: 1.2rem;
+    }
+  }
+}

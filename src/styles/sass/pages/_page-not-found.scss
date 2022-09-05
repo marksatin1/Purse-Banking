@@ -1,0 +1,49 @@
+.not-found {
+  &--layout {
+    width: $page-width;
+    margin: $page-margin;
+    padding: 3rem;
+    border: 15px solid $secondary-theme-alt;
+    background-color: $ribbon-color;
+    box-shadow: -30px 20px 10px black, 30px -20px 10px $primary-theme-alt;
+    text-align: center;
+
+    h1 {
+      color: $secondary-theme-alt-alt;
+    }
+
+    h2 {
+      color: white;
+    }
+
+    p {
+      color: $secondary-theme-alt-alt;
+      font-weight: bold;
+    }
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .not-found {
+    &--layout {
+      margin-top: 18rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .not-found {
+    &--layout {
+      max-width: 60vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .not-found {
+    &--layout {
+      max-width: 50vw;
+      height: 40vh;
+    }
+  }
+}

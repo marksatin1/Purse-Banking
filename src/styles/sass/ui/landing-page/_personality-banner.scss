@@ -1,0 +1,11 @@
+.personality-banner {
+  position: relative;
+  margin: 5rem auto;
+
+  &--title {
+    margin-bottom: 1rem;
+    color: $secondary-theme-alt;
+    text-align: center;
+    text-decoration: underline;
+  }
+}

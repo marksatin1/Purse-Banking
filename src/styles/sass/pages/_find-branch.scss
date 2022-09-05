@@ -1,0 +1,54 @@
+.wtf-loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.find-branch {
+  width: $page-width;
+  margin: $page-margin;
+  text-align: center;
+
+  &--title {
+    @extend %page-title;
+  }
+
+  &--subtitle {
+    @extend %page-subtitle;
+  }
+
+  &--places {
+    max-height: 35rem;
+    overflow: scroll;
+  }
+
+  &--map {
+    margin: 1rem 0;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .find-branch {
+    margin-top: 17rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .find-branch {
+    &--search-bar {
+      width: 70vw;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .find-branch {
+    &--search-bar {
+      width: 50vw;
+    }
+  }
+}

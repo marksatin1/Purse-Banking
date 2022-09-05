@@ -1,0 +1,160 @@
+.crypto {
+  margin: $page-margin;
+  text-align: center;
+
+  &--title {
+    @extend %page-title;
+  }
+
+  &--subtitle {
+    @extend %page-subtitle;
+  }
+
+  &--table {
+    width: $page-width;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 0 4px black;
+    overflow-x: scroll;
+    cursor: default;
+
+    thead {
+      background-color: $secondary-theme;
+
+      th {
+        padding: 0.5rem;
+      }
+    }
+
+    tbody {
+      background-color: $page-card-bg-main;
+      font-size: 1.1rem;
+
+      td {
+        padding: 1rem;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      tr:hover {
+        color: $secondary-theme-alt-alt;
+        background-color: $tertiary-theme;
+
+        a {
+          color: white;
+          text-decoration: underline;
+        }
+      }
+
+      .money {
+        color: $primary-theme-alt;
+
+        &:hover {
+          color: $secondary-theme-alt-alt;
+        }
+      }
+    }
+
+    .tfoot {
+      padding-top: 0.5rem;
+      border-top: 3px solid $tertiary-theme-alt;
+      border-bottom: 3px solid $tertiary-theme-alt;
+      background-color: $secondary-theme-alt;
+
+      h4 {
+        @include text-shadow(white);
+      }
+
+      a {
+        color: black;
+
+        &:hover {
+          color: $primary-theme-alt;
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+  }
+
+  &--content {
+    width: 80vw;
+    margin: 3rem auto 7rem;
+
+    h3 {
+      font-size: 2.8rem;
+      @include text-shadow(black);
+    }
+  }
+
+  &--apiError {
+    width: 40%;
+    margin: 5rem auto 6rem;
+    padding: 1rem 0;
+    background-color: $primary-alert;
+    box-shadow: 10px 10px black;
+
+    h1 {
+      position: relative;
+      color: white;
+      font-size: 3rem;
+      margin: 1rem 0;
+    }
+
+    p {
+      position: relative;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 776px) {
+  .crypto {
+    margin-top: 20rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .crypto {
+    &--title {
+      font-size: 3rem;
+    }
+
+    &--subtitle {
+      font-size: 2.3rem;
+    }
+
+    &--table {
+      thead {
+        th {
+          font-size: 1.3rem;
+          padding: 1rem;
+        }
+      }
+
+      tbody {
+        font-size: 1.4rem;
+      }
+    }
+
+    &--content {
+      & h2 {
+        font-size: 3.2rem;
+      }
+
+      & h3 {
+        font-size: 3.4rem;
+      }
+
+      & p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

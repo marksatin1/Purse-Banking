@@ -1,0 +1,109 @@
+// COLORS
+
+$primary-theme: rgb(32, 145, 32);
+$primary-theme-alt: rgb(0, 128, 0); //green
+
+$secondary-theme: rgb(225, 193, 15);
+$secondary-theme-alt: rgb(218, 165, 32); //goldenrod
+$secondary-theme-alt-alt: rgb(255, 215, 0); //gold
+
+$tertiary-theme: rgb(175, 116, 175);
+$tertiary-theme-alt: rgb(128, 0, 128); //purple
+
+$primary-alert: red;
+$secondary-alert: lime;
+
+$page-card-bg-main: rgb(245, 245, 220); //beige
+$page-card-bg-content: rgba(240, 248, 255, 0.7);
+
+$ribbon-color: rgba(165, 42, 42, 0.8);
+$account-sum-color: rgba(9, 189, 189, 0.9);
+
+// FONT FAMILIES
+
+$tnr-family: 'Times New Roman', Times, serif;
+$lucida-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+  'Lucida Sans Unicode', Verdana, sans-serif;
+$courier-family: 'Courier New', Courier, monospace;
+$georgia-family: Georgia, 'Times New Roman', Times, serif;
+$source-code-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+
+// MISC VARS
+
+$page-width: 80vw;
+$page-margin: 15rem auto -12rem;
+
+$border: 2px solid black;
+
+// EXTENSIONS
+
+%form-btn {
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 0.25rem 1.25rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+%page-title {
+  max-width: 80%;
+  margin: 0 auto 1rem;
+  color: $primary-theme-alt;
+  text-decoration: underline;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+%page-subtitle {
+  margin-bottom: 2rem;
+  color: $tertiary-theme;
+  font-size: 1.9rem;
+}
+
+%account-table {
+  max-width: 80vw;
+  margin: 0 auto;
+  background-color: $secondary-theme-alt-alt;
+  border: 3px solid $primary-theme-alt;
+  border-top: none;
+  font-size: 1.1rem;
+  color: $tertiary-theme-alt;
+  border-radius: 0 0 15px 15px;
+}
+
+// MIXINS
+
+@mixin link($color: $primary-theme-alt, $color-hov: $secondary-theme-alt) {
+  color: $color;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-hov;
+  }
+}
+
+@mixin text-shadow($color) {
+  text-shadow: 0 0 3px $color;
+}
+
+// GENERAL STYLES
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: $source-code-family;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  font-family: $lucida-family;
+}

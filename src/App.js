@@ -1,55 +1,54 @@
-import { Fragment, useContext, lazy, Suspense } from 'react';
+import { useContext, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import AuthContext from './context/auth-context';
+import AuthContext from './context/AuthContext';
+
+import Header from './components/Layout/Header';
+import LandingPage from './pages/LandingPage';
+import Register from './pages/Register';
+import Homepage from './pages/Homepage';
+import Debits from './pages/Debits';
+import Credits from './pages/Credits';
+import UserSettings from './pages/UserSettings';
+import FindBranch from './pages/FindBranch';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Languages from './pages/Languages';
+import Help from './pages/Help';
+import Crypto from './pages/Crypto';
+import Privacy from './pages/Privacy';
+import CreditOffer from './pages/CreditOffer';
+import Careers from './pages/Careers';
+import Advertising from './pages/Advertising';
+import CyberIncident2021 from './pages/CyberIncident2021';
+import CyberIncident2019 from './pages/CyberIncident2019';
+import Covid19Support from './pages/Covid19Support';
+import PatriotAct from './pages/PatriotAct';
+import Footer from './components/Layout/Footer';
+import PageNotFound from './pages/PageNotFound';
 
 import wtf_loader from './assets/wtf_loader.gif';
-
-import Header from './components/Layout/Header/Header';
-import LandingPage from './pages/LandingPage';
-import MyPurseHome from './pages/MyPurseHome';
-import Debits from './components/Accounts/Debits/Debits';
-import Credits from './components/Accounts/Credits/Credits';
-import UserSettings from './components/Accounts/UserSettings/UserSettings';
-import FindBranch from './pages/FindBranch';
-import About from './pages/NavPages/About';
-import Contact from './pages/NavPages/Contact';
-import Languages from './pages/NavPages/Languages';
-import Help from './pages/NavPages/Help';
-import Crypto from './pages/Crypto';
-import Privacy from './pages/NavPages/Privacy';
-import CreditOffer from './pages/CreditOffer';
-import Careers from './pages/NavPages/Careers';
-import Advertising from './pages/NavPages/Advertising';
-import CyberIncident2021 from './pages/NavPages/CyberIncident2021';
-import CyberIncident2019 from './pages/NavPages/CyberIncident2019';
-import Covid19Support from './pages/NavPages/Covid19Support';
-import PatriotAct from './pages/NavPages/PatriotAct';
-import Footer from './components/Layout/Footer/Footer';
-import NotFound404 from './pages/NotFound404';
-
-const Register = lazy(() => import('./pages/Register'));
 
 const App = () => {
   const authCtx = useContext(AuthContext);
 
   return (
-    <Fragment>
+    <>
       <header>
         <Header />
       </header>
       <main>
         <Suspense fallback={wtf_loader}>
           <Routes>
-            {!authCtx.isSignedIn && (
-              <Fragment>
+            {!authCtx.signedIn && (
+              <>
                 <Route path='/' element={<LandingPage />} />
                 <Route path='/register' element={<Register />} />
-              </Fragment>
+              </>
             )}
-            {authCtx.isSignedIn && (
-              <Fragment>
-                <Route path='/' element={<MyPurseHome />} />
-                <Route path='/my-purse/accounts' element={<MyPurseHome />} />
+            {authCtx.signedIn && (
+              <>
+                <Route path='/' element={<Homepage />} />
+                <Route path='/my-purse/accounts' element={<Homepage />} />
                 <Route path='/my-purse/debit-accounts' element={<Debits />} />
                 <Route
                   path='/my-purse/credit-card-accounts'
@@ -59,7 +58,7 @@ const App = () => {
                   path='/my-purse/user-settings'
                   element={<UserSettings />}
                 />
-              </Fragment>
+              </>
             )}
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
@@ -81,14 +80,14 @@ const App = () => {
             />
             <Route path='/covid-19-support' element={<Covid19Support />} />
             <Route path='/patriot-act-certification' element={<PatriotAct />} />
-            <Route path='*' element={<NotFound404 />} />
+            <Route path='*' element={<PageNotFound />} />
           </Routes>
         </Suspense>
       </main>
       <footer>
         <Footer />
       </footer>
-    </Fragment>
+    </>
   );
 };
 export default App;

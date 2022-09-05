@@ -1,0 +1,140 @@
+.register {
+  width: 25rem;
+  margin: $page-margin;
+  padding: 2rem 1rem;
+  background-color: $tertiary-theme;
+  box-shadow: 6px 6px 2px black;
+  text-align: center;
+
+  &--title {
+    color: $secondary-theme;
+    font-size: 2.5rem;
+    @include text-shadow(white);
+  }
+
+  &--error {
+    margin: 0.25rem auto;
+    padding: 0.5rem;
+    background-color: $secondary-alert;
+    font-weight: bold;
+    color: $primary-alert;
+  }
+
+  &--inputs {
+    margin: 1rem 0;
+
+    input {
+      margin: 0.5rem auto;
+      border: none;
+      border-radius: 12px;
+      padding: 0.25rem 0.5rem;
+      box-shadow: 1px 2px black;
+      font-size: 1.1rem;
+    }
+  }
+
+  &--text {
+    font-size: 1.2rem;
+  }
+
+  .options {
+    font-size: 1.2rem;
+
+    &--radio {
+      margin-top: -0.5rem;
+
+      input {
+        margin: 0 0.5rem;
+        transform: scale(1.5);
+      }
+    }
+
+    &--select {
+      margin: 2rem 0;
+
+      label {
+        width: 60%;
+      }
+
+      select {
+        width: 60%;
+        margin-top: -1rem;
+        padding: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        background-color: $secondary-theme;
+        border-radius: 5px;
+        text-align: center;
+      }
+    }
+
+    &--checkbox {
+      padding: 1rem;
+      font-size: 1.2rem;
+      text-align: left;
+
+      input {
+        margin-top: 0.5rem;
+        margin-right: 1rem;
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &--link {
+    color: $primary-theme-alt;
+    text-shadow: 0 0 2px white;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      text-shadow: 0 0 2px black;
+    }
+  }
+}
+
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+}
+
+@media only screen and (min-width: 992px) {
+  .register {
+    width: 30rem;
+
+    &--title {
+      font-size: 3rem;
+    }
+
+    &--text {
+      font-size: 1.4rem;
+    }
+
+    &--inputs {
+      input {
+        width: 70%;
+        margin: 1rem auto;
+        padding: 0.5rem 0.75rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    .options {
+      font-size: 1.4rem;
+
+      &--select {
+        select {
+          padding: 0.75rem;
+          font-size: 1.4rem;
+        }
+      }
+
+      &--checkbox {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

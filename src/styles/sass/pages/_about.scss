@@ -1,0 +1,18 @@
+.about {
+  h2 {
+    color: $primary-theme-alt;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-style: italic;
+
+    &:nth-child(odd) {
+      color: $tertiary-theme-alt;
+    }
+
+    &:nth-child(even) {
+      color: $secondary-theme-alt;
+    }
+  }
+}

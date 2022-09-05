@@ -1,0 +1,99 @@
+.sign-in {
+  position: relative; // for z-index
+  max-width: 22rem;
+  min-height: 33rem; // keep for error screen
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: $tertiary-theme;
+  box-shadow: 6px 6px 2px black;
+  text-align: center;
+  z-index: 3;
+
+  &--title {
+    color: $secondary-theme;
+    font-size: 1.7rem;
+    text-shadow: 0 0 2px white;
+  }
+
+  input {
+    margin: 1rem auto;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 1px 2px black;
+    font-size: 1.1rem;
+  }
+
+  &--nav {
+    margin: 0.5rem 0;
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: -0.2rem;
+    }
+
+    &-link {
+      @include link;
+      padding: 0;
+      text-shadow: 0 0 1px white;
+    }
+  }
+}
+
+.branch-btn {
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(83, 192, 204);
+  box-shadow: 2px 2px 4px black;
+  font-size: 1.3rem;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    color: $secondary-theme-alt-alt;
+    transform: scale(1.02);
+  }
+}
+
+.error {
+  position: absolute;
+  margin-top: -4rem;
+  z-index: 4;
+  overflow: hidden;
+
+  p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: $primary-alert;
+    background-color: $secondary-alert;
+    animation: blink 200ms steps(2, start);
+    animation-iteration-count: 50;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .sign-in {
+    &--title {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .sign-in {
+    &--title {
+      font-size: 2.3rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .sign-in {
+    max-width: 25rem;
+
+    input {
+      font-size: 1.3rem;
+    }
+  }
+}

@@ -1,0 +1,138 @@
+.my-purse-nav {
+  width: auto;
+
+  &:hover .my-purse-nav--dropdown {
+    display: block;
+  }
+
+  &--btn {
+    width: 30vw;
+    margin: auto;
+    position: relative;
+    top: -0.35rem;
+    border-radius: 25px;
+    border: 0.5px solid black;
+    box-shadow: -1px -1px 4px black;
+    background-color: $secondary-theme-alt-alt;
+    cursor: pointer;
+
+    &:hover {
+      animation: button-gleam-2 700ms forwards;
+    }
+
+    p {
+      margin: -0.25rem;
+      text-align: center;
+      font-family: $lucida-family;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: black;
+    }
+  }
+
+  &--dropdown {
+    display: none;
+    position: relative;
+    margin: 0 auto;
+    font-family: $lucida-family;
+    border-radius: 10px;
+    border: 2px solid $primary-theme-alt;
+    box-shadow: inset 0 0 500px $secondary-theme, 3px 3px black;
+    background-color: $page-card-bg-main;
+    z-index: 3;
+
+    p {
+      margin: 0.25rem;
+      color: $tertiary-theme-alt;
+      font-size: 1.3rem;
+      @include text-shadow(white);
+
+      &:hover {
+        color: $primary-theme-alt;
+        transform: scale(1.02);
+      }
+    }
+
+    .sign-out {
+      font-weight: bold;
+      font-weight: 1.1rem;
+      text-shadow: 1px 1px black;
+    }
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .my-purse-nav {
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+
+    &--btn {
+      width: 25vw;
+      top: -0.5rem;
+      margin: initial;
+      border-radius: 25px 0 0 25px;
+
+      p {
+        text-align: left;
+        margin-left: 0.5rem;
+        font-size: 1.1rem;
+      }
+    }
+
+    &--dropdown {
+      position: absolute;
+      margin: 2.5rem 1rem;
+      text-align: right;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .my-purse-nav {
+    &--btn {
+      width: 22vw;
+      top: -0.7rem;
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .my-purse-nav {
+    &--btn {
+      width: 20vw;
+    }
+
+    &--dropdown {
+      padding: 0 0.5rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .my-purse-nav {
+    &--btn {
+      p {
+        font-size: 1.4rem;
+      }
+    }
+
+    &--dropdown {
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .my-purse-nav {
+    &--btn {
+      width: 17vw;
+    }
+  }
+}

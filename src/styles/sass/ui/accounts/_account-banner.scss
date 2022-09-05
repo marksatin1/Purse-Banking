@@ -1,0 +1,72 @@
+.account-banner {
+  position: relative;
+  height: 20rem;
+  margin-top: 12rem;
+  background-color: $tertiary-theme;
+  z-index: -1;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -5rem;
+    right: 0;
+    content: '';
+    opacity: 0.6;
+    background-size: cover;
+    background-position: top 40% center;
+  }
+}
+
+// Homepage & User Settings
+.bg-img--cops {
+  &::before {
+    background-image: url(../../assets/banners/KKK_Cops.webp);
+  }
+}
+
+// Debits - Checking
+.bg-img--loot-1 {
+  &::before {
+    background-image: url(../../assets/banners/Loot_1.webp);
+  }
+}
+
+// Debits -- Savings
+.bg-img--loot-2 {
+  &::before {
+    background-image: url(../../assets/banners/Loot_2.webp);
+  }
+}
+
+// Credits
+.bg-img--funeral {
+  &::before {
+    background-image: url(../../assets/banners/Funeral_Parking_1000w.jpg);
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .account-banner {
+    margin-top: 15rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .account-banner {
+    height: 30rem;
+    margin-top: 17rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .account-banner {
+    height: 35rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .account-banner {
+    height: 40rem;
+  }
+}

@@ -1,0 +1,109 @@
+.credit-offer {
+  width: $page-width;
+  margin: $page-margin;
+  text-align: center;
+
+  &--title {
+    @extend %page-title;
+    max-width: 100%;
+  }
+
+  &--subtitle {
+    @extend %page-subtitle;
+  }
+
+  img {
+    width: 70vw;
+  }
+
+  .body {
+    width: 75vw;
+    margin: 0 auto;
+
+    &--about {
+      text-align: left;
+      color: $secondary-theme-alt;
+      border-bottom: 2px solid $tertiary-theme-alt;
+      padding-bottom: 0.5rem;
+    }
+
+    &--catchphrase {
+      margin-bottom: 2rem;
+      color: $primary-theme-alt;
+      text-align: right;
+    }
+
+    &--description {
+      font-size: 1.2rem;
+    }
+
+    &--link {
+      @include link;
+      color: $tertiary-theme;
+      margin: 3rem auto;
+      text-decoration: none;
+
+      h3 {
+        font-size: 2.8rem;
+      }
+    }
+  }
+
+  .divider {
+    width: 70vw;
+    margin: 2rem auto;
+    border-top: 2px solid $primary-theme-alt;
+  }
+
+  .legal {
+    margin: 2rem 0 0;
+
+    h3 {
+      color: $secondary-theme-alt;
+      font-weight: bold;
+      font-size: 1.7rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    img {
+      width: 80vw;
+      box-shadow: 0 0 5px black;
+      border-radius: 5px;
+    }
+  }
+
+  .reviews {
+    margin: 3rem auto 10rem;
+
+    &--title {
+      font-size: 2rem;
+      margin: 3rem 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .credit-offer {
+    img {
+      width: 30vw;
+    }
+  }
+
+  .legal {
+    img {
+      width: 100vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .legal {
+    img {
+      width: 70vw;
+    }
+  }
+}

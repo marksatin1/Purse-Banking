@@ -1,0 +1,77 @@
+.report {
+  text-align: center;
+
+  .body {
+    &--statement {
+      margin: 1rem 0;
+    }
+
+    &--update {
+      margin: 2rem 0;
+    }
+
+    &--link {
+      @include link;
+    }
+  }
+
+  .quote-block {
+    width: 80%;
+    margin: 3rem auto;
+
+    &--quote {
+      color: $secondary-theme-alt;
+    }
+
+    &--speaker {
+      color: $primary-theme-alt;
+    }
+  }
+
+  .ceo-block {
+    img {
+      width: 100%;
+    }
+
+    .contact {
+      color: $primary-theme-alt;
+
+      &--name {
+        color: $tertiary-theme-alt;
+        margin-top: 1rem;
+      }
+
+      & p:nth-child(even) {
+        margin-bottom: -1.5rem;
+      }
+
+      & p:nth-child(odd) {
+        color: $secondary-theme-alt;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .report {
+    .ceo-block {
+      img {
+        width: 30%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .report {
+    .ceo-block {
+      .contact {
+        font-size: 2rem;
+      }
+
+      &--name {
+        font-size: 2rem;
+      }
+    }
+  }
+}

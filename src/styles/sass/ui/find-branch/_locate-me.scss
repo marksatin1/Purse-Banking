@@ -1,0 +1,15 @@
+.locate-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem;
+  width: 4rem;
+  background-color: $tertiary-theme;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.compass {
+  width: 50px;
+}

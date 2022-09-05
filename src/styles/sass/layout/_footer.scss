@@ -1,0 +1,50 @@
+.footer {
+  position: relative;
+  margin-bottom: 2rem;
+  margin-top: 22rem;
+  padding: 1rem 0;
+  background-color: $primary-theme;
+  font-family: $tnr-family;
+  z-index: 3;
+
+  &--title {
+    margin: 0.5rem 0 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &--subtitle {
+    color: $secondary-theme;
+    text-shadow: 0 0 2px white;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &--logos {
+    cursor: pointer;
+
+    img {
+      width: 30px;
+      height: 30px;
+
+      &:hover {
+        background-color: $secondary-theme;
+      }
+    }
+  }
+
+  &--nav-bar {
+    margin-top: 0.75rem;
+
+    h5 {
+      margin: 0;
+      color: black;
+      cursor: pointer;
+
+      &:hover {
+        color: $secondary-theme;
+        text-shadow: 0 0 2px white;
+      }
+    }
+  }
+}

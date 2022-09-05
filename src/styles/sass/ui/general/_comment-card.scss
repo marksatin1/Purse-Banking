@@ -1,0 +1,68 @@
+.comment-card {
+  padding: 1rem 0;
+  border-top: 2px solid $tertiary-theme-alt;
+  border-bottom: 2px solid $tertiary-theme-alt;
+
+  .user {
+    border: 1px solid $secondary-theme-alt;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+
+    &--username {
+      color: $primary-theme-alt;
+      font-size: 1.4rem;
+    }
+
+    p {
+      margin: 0.25rem 0;
+    }
+  }
+
+  .comment {
+    font-size: 1.2rem;
+
+    &--title {
+      color: $tertiary-theme;
+      font-size: 2rem;
+    }
+
+    img {
+      width: 200px;
+    }
+
+    &--date {
+      margin: 0.5rem 0;
+    }
+
+    &--review {
+      margin-top: 1rem;
+    }
+
+    &--rating {
+      color: $primary-theme-alt;
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 100px;
+      }
+    }
+
+    &--recommendation {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 30px;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
