@@ -83,8 +83,13 @@
 
   &--link {
     color: $primary-theme-alt;
+    text-shadow: 0 0 2px white;
     font-weight: bold;
     cursor: pointer;
+
+    &:hover {
+      text-shadow: 0 0 2px black;
+    }
   }
 }
 
