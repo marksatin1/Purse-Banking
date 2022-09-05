@@ -30,7 +30,7 @@ const AuthContextProvider = ({ children }) => {
 
     return () => {
       clearTimeout(logoutTimer);
-      navigate('/', { replace: true });
+      navigate('/', { replace: true }); // must be in return statement
     };
   }, [navigate]);
 
