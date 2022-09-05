@@ -1,7 +1,7 @@
 import { dateFormatter } from '../../../helpers/functions/MiscFunctions';
 
 const BannerRibbon = () => {
-  const userName = localStorage.getItem('displayName');
+  const userName = localStorage.getItem('userName');
   const crntDate = dateFormatter();
 
   const crntHour = new Date().getHours();

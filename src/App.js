@@ -1,6 +1,6 @@
 import { useContext, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import AuthContext from './context/auth-context';
+import AuthContext from './context/AuthContext';
 
 import Header from './components/Layout/Header';
 import LandingPage from './pages/LandingPage';
@@ -39,13 +39,13 @@ const App = () => {
       <main>
         <Suspense fallback={wtf_loader}>
           <Routes>
-            {!authCtx.isSignedIn && (
+            {!authCtx.signedIn && (
               <>
                 <Route path='/' element={<LandingPage />} />
                 <Route path='/register' element={<Register />} />
               </>
             )}
-            {authCtx.isSignedIn && (
+            {authCtx.signedIn && (
               <>
                 <Route path='/' element={<Homepage />} />
                 <Route path='/my-purse/accounts' element={<Homepage />} />

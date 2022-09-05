@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import AuthContext from '../context/auth-context';
+import AuthContext from '../context/AuthContext';
 
 import {
   isEmpty,
@@ -7,8 +7,8 @@ import {
 } from '../helpers/functions/FormValidationFunctions';
 import { fbSignUpUrl } from '../helpers/data/ApiEndpoints';
 import {
-  getSecureToken,
-  postUserData,
+  getNewTokenData,
+  postUserToDb,
 } from '../helpers/functions/ApiFunctions';
 import {
   UserAgreement,
@@ -95,20 +95,24 @@ const Register = () => {
     setUserAgreement(false);
   };
 
-  const submitFormHandler = (event) => {
+  // Register new user in Firebase
+  const submitFormHandler = async (event) => {
     event.preventDefault();
     setIsLoading(true);
 
-    // Register & Authenticate new user in Firebase
-    const signInCreds = getSecureToken(fbSignUpUrl, user.email, user.password);
-    postUserData(user, signInCreds.localId);
-
+    const signInCreds = await getNewTokenData(
+      fbSignUpUrl,
+      user.email,
+      user.password
+    );
     setCreds(signInCreds);
+
+    await postUserToDb(user, signInCreds.localId);
     setRegSuccess(true);
     setIsLoading(false);
   };
 
-  // Sign in to personal account
+  // Sign in to new user account
   const signInHandler = () => {
     authCtx.signIn(creds);
   };

@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect } from 'react';
-import AuthContext from '../../../context/auth-context';
+import AuthContext from '../../../context/AuthContext';
 
-import { getSecureToken } from '../../../helpers/functions/ApiFunctions';
 import { fbSignInUrl } from '../../../helpers/data/ApiEndpoints';
+import { getNewTokenData } from '../../../helpers/functions/ApiFunctions';
 import { Sleep } from '../../../helpers/functions/MiscFunctions';
 
 import Form from 'react-bootstrap/Form';
@@ -27,7 +27,7 @@ const SignIn = () => {
   const [httpError, setHttpError] = useState(false);
   const [showReset, setShowReset] = useState(false);
 
-  const authCtx = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   // Handle Sign In button 'disabled' attribute
   useEffect(() => {
@@ -39,19 +39,18 @@ const SignIn = () => {
   }, [email, password]);
 
   // Authenticate user and sign in to personal account
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
 
-    getSecureToken(fbSignInUrl, email, password)
-      .then((signInCreds) => {
-        authCtx.signIn(signInCreds);
-      })
-      .catch(async (error) => {
-        setHttpError(true);
-        console.error(error.message);
-        await Sleep(2000);
-        setHttpError(false);
-      });
+    const signInCreds = await getNewTokenData(fbSignInUrl, email, password);
+
+    if (signInCreds === null) {
+      setHttpError(true);
+      await Sleep(2000);
+      setHttpError(false);
+    } else {
+      signIn(signInCreds);
+    }
   };
 
   return (

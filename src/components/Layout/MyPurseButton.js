@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import AuthContext from '../../context/auth-context';
+import AuthContext from '../../context/AuthContext';
 
 const MyPurseButton = () => {
   const [destination, setDestination] = useState({});
@@ -10,12 +10,12 @@ const MyPurseButton = () => {
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
-    if (authCtx.isSignedIn) {
+    if (authCtx.signedIn) {
       setDestination({ destUrl: '/my-purse/accounts', destName: 'My Purse' });
-    } else if (!authCtx.isSignedIn) {
+    } else if (!authCtx.signedIn) {
       setDestination({ destUrl: '/register', destName: 'Register' });
     }
-  }, [authCtx]);
+  }, [authCtx.signedIn]);
 
   return (
     <Nav className='my-purse-btn'>
@@ -24,18 +24,18 @@ const MyPurseButton = () => {
           <p>{destination.destName}</p>
         </Nav.Link>
       </button>
-      {authCtx.isSignedIn && (
+      {authCtx.signedIn && (
         <div className='my-purse-btn--dropdown'>
-          <Nav.Link href='debit-accounts?account=checking'>
+          <Nav.Link href='/my-purse/debit-accounts?account=checking'>
             <p>Checking</p>
           </Nav.Link>
-          <Nav.Link href='debit-accounts?account=savings'>
+          <Nav.Link href='/my-purse/debit-accounts?account=savings'>
             <p>Savings</p>
           </Nav.Link>
-          <Nav.Link href='credit-card-accounts'>
+          <Nav.Link href='/my-purse/credit-card-accounts'>
             <p>Credit Cards</p>
           </Nav.Link>
-          <Nav.Link href='user-settings'>
+          <Nav.Link href='/my-purse/user-settings'>
             <p>Settings</p>
           </Nav.Link>
           <NavDropdown.Divider />

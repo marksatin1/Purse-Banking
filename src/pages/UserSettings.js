@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import AuthContext from '../context/auth-context';
+import AuthContext from '../context/AuthContext';
 
 import axios from 'axios';
 import { fbResetPasswordUrl } from '../helpers/data/ApiEndpoints';
@@ -13,14 +13,14 @@ const UserSettings = () => {
   const [modal, setModal] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const authCtx = useContext(AuthContext);
+  const { signOut } = useContext(AuthContext);
 
-  const userName = localStorage.getItem('userName');
-  const userEmail = localStorage.getItem('userEmail');
-  const password = localStorage.getItem('userPassword');
-  let userPassword = showPassword ? password : <i>Hidden</i>;
+  const userName = localStorage.getItem('name');
+  const userEmail = localStorage.getItem('email');
+  const password = localStorage.getItem('password');
   const country = localStorage.getItem('country');
-  let userCountry = country === 'America' ? "'MERICA!" : 'FOREIGNER!!';
+  let displayPass = showPassword ? password : 'Hidden';
+  let displayCountry = country === 'America' ? "'MERICA!" : 'FOREIGNER!!';
 
   const resetPasswordHandler = () => {
     axios({
@@ -33,50 +33,33 @@ const UserSettings = () => {
 
     setSuccess(true);
     setTimeout(() => {
-      authCtx.signOut();
+      signOut();
     }, 5000);
   };
 
-  const showHide = showPassword ? 'Hide Password' : 'Show Password';
+  let showHide = showPassword ? 'Hide Password' : 'Show Password';
 
   return (
     <>
-      {/* {modal && !success && (
-        <Modal
-          title='Reset Password'
-          subtitle='Are you sure you want to reset your password?'
-          content={
-            <p className='content'>
-              Click <b>Yes</b> to send a password reset link to your email
-              account.
+      {modal && !success && (
+        <Modal title='Reset Password' hideModalHandler={() => setModal(false)}>
+          <div className='reset-password--content'>
+            <p>
+              If you would like to reset your password click the button below.
             </p>
-          }
-          button={
-            <div className='yes'>
-              <button type='button' onClick={resetPasswordHandler}>
-                Yes
-              </button>
-            </div>
-          }
-          hideModal={() => setModal(false)}
-        />
+            <button onClick={resetPasswordHandler}>Yes</button>
+          </div>
+        </Modal>
       )}
       {modal && success && (
-        <Modal
-          title='Success'
-          content={
-            <>
-              <p className='content'>
-                If you have previously registered with Purse a password reset
-                link will appear in your inbox shortly.
-                <br />
-                <br />
-                You will be redirected momentarily.
-              </p>
-            </>
-          }
-        />
-      )} */}
+        <Modal title='Success'>
+          <p>
+            If you have previously registered with Purse a password reset link
+            will appear in your inbox shortly.
+          </p>
+          <p>You will be redirected momentarily.</p>
+        </Modal>
+      )}
       <AccountPage
         bannerImgName='bg-img--cops'
         pageTitle='Settings'
@@ -95,7 +78,7 @@ const UserSettings = () => {
               </tr>
               <tr>
                 <th>Password</th>
-                <td>{userPassword}</td>
+                <td>{displayPass}</td>
               </tr>
               <tr>
                 <th>Rights</th>
@@ -107,14 +90,14 @@ const UserSettings = () => {
               </tr>
               <tr>
                 <th>Country</th>
-                <td>{userCountry}</td>
+                <td>{displayCountry}</td>
               </tr>
             </tbody>
           </Table>
           <div className='d-flex flex-column align-items-center'>
             <button
               className='show-password'
-              onClick={() => setShowPassword(() => !showPassword)}
+              onClick={() => setShowPassword((prev) => !prev)}
             >
               {showHide}
             </button>

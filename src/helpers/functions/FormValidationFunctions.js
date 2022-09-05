@@ -5,7 +5,7 @@ import zxcvbn from 'zxcvbn';
 // validateEmail(text)
 // userExists(email)
 // testPasswordStrength(text, rating)
-// errorMessages
+// errorMessages - obj
 // validateFormInputs(event, setFormErrors, user, setUser)
 
 export const isEmpty = (value) => value.trim() === '';
@@ -18,7 +18,6 @@ export const minMaxLength = (text, minLength, maxLength) => {
   } else {
     result = !text || text.length < minLength;
   }
-  console.log(result);
 
   return result;
 };
