@@ -1,6 +1,6 @@
 {
   "name": "purse-banking",
-  "version": "1.0",
+  "version": "2.0",
   "private": true,
   "dependencies": {
     "@reach/combobox": "^0.16.5",
