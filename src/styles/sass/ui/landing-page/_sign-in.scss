@@ -34,6 +34,7 @@
     &-link {
       @include link;
       padding: 0;
+      text-shadow: 0 0 1px white;
     }
   }
 }
@@ -71,13 +72,25 @@
   }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 768px) {
   .sign-in {
-    max-width: 25rem;
-
     &--title {
       font-size: 2rem;
     }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .sign-in {
+    &--title {
+      font-size: 2.3rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .sign-in {
+    max-width: 25rem;
 
     input {
       font-size: 1.3rem;

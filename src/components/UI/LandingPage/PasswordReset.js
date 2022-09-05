@@ -1,57 +1,32 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import { validateEmail } from '../../../helpers/functions/FormValidationFunctions';
+import { resetPassword } from '../../../helpers/functions/ApiFunctions';
 
 import FormButton from '../General/FormButton';
 
-const axios = require('axios');
-
 const PasswordReset = ({ setShowReset }) => {
-  const [email, setEmail] = useState('');
-  const [formErrors, setFormErrors] = useState({});
-  const [isDisabled, setIsDisabled] = useState(true);
   const [showSuccess, setShowSuccess] = useState(false);
-
-  const resetInputChangeHandler = (event) => {
-    const timer = setTimeout(async () => {
-      const { name, value } = event.target;
-
-      if (!value || validateEmail(value)) {
-        formErrors[name] = "We're gonna need a valid email here, bud";
-      } else {
-        delete formErrors[name];
-        setIsDisabled(false);
-      }
-
-      setEmail(value);
-      setFormErrors(formErrors);
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  };
+  const [disabledBtn, setDisabledBtn] = useState(true);
+  const emailRef = useRef();
 
   const passwordResetHandler = (event) => {
     event.preventDefault();
 
-    axios
-      .post('https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode', {
-        params: {
-          key: process.env.REACT_APP_FIREBASE_API_KEY,
-        },
-        headers: {
-          'X-Firebase-Locale': 'en-US',
-        },
-        body: JSON.stringify({
-          requestType: 'PASSWORD_RESET',
-          email: email,
-        }),
-      })
-      .catch((error) => {
-        console.error(error.message);
-      });
+    const email = emailRef.current.value;
+    resetPassword(email);
     setShowSuccess(true);
+  };
+
+  const emailValidationHandler = (event) => {
+    const { value } = event.target;
+    const validStatus = validateEmail(value);
+
+    if (validStatus === true) {
+      setDisabledBtn(false);
+    } else {
+      setDisabledBtn(true);
+    }
   };
 
   return (
@@ -63,30 +38,27 @@ const PasswordReset = ({ setShowReset }) => {
             Please enter your email below to reset your password.
           </p>
           <input
-            placeholder='Enter email'
+            placeholder='Email address'
             name='resetInput'
             type='email'
             autoComplete='email'
-            noValidate
-            onChange={resetInputChangeHandler}
+            onChange={emailValidationHandler}
+            ref={emailRef}
           />
-          {formErrors.resetInput && (
-            <p className='error'>{formErrors.resetInput}</p>
-          )}
-          <FormButton type='submit' name='Reset' disabled={isDisabled} />
-          <p className='link' onClick={() => setShowReset(false)}>
+          <FormButton type='submit' name='Reset' disabled={disabledBtn} />
+          <p className='pass-reset--link' onClick={() => setShowReset(false)}>
             Return to Sign In
           </p>
         </>
       )}
       {showSuccess && (
         <>
-          <h2 className='title'>Success</h2>
-          <p className='body'>
+          <h2 className='pass-reset--title'>Success</h2>
+          <p className='pass-reset--body'>
             If you have previously registered with Purse a password reset link
             will appear in your inbox shortly.
           </p>
-          <p className='return' onClick={() => setShowReset(false)}>
+          <p className='pass-reset--link' onClick={() => setShowReset(false)}>
             Return to Sign In
           </p>
         </>

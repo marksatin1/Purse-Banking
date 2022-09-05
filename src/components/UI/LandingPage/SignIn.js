@@ -10,22 +10,13 @@ import Nav from 'react-bootstrap/Nav';
 import FormButton from '../General/FormButton';
 import PasswordReset from './PasswordReset';
 
-// If passwords don't match then user is updating password
-// if (thisUser[0].password !== password) {
-//   axios.patch(fbUsersUrl + thisUser[0].id + '.json', {
-//     body: JSON.stringify({
-//       password,
-//     }),
-//   });
-// }
-
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const [isDisabled, setIsDisabled] = useState(true);
   const [httpError, setHttpError] = useState(false);
-  const [showReset, setShowReset] = useState(false);
+  const [passReset, setPassReset] = useState(false);
 
   const { signIn } = useContext(AuthContext);
 
@@ -55,7 +46,7 @@ const SignIn = () => {
 
   return (
     <div className='d-flex flex-column align-items-center sign-in'>
-      {!showReset && !httpError && (
+      {!passReset && !httpError && (
         <>
           <h1 className='sign-in--title'>Get In There Already!!</h1>
           <Form onSubmit={submitHandler}>
@@ -88,7 +79,7 @@ const SignIn = () => {
               <p>Lost credentials?</p>
               <p
                 className='sign-in--nav-link'
-                onClick={() => setShowReset(true)}
+                onClick={() => setPassReset(true)}
               >
                 Click Here
               </p>
@@ -105,7 +96,7 @@ const SignIn = () => {
           </a>
         </>
       )}
-      {showReset && <PasswordReset setShowReset={setShowReset} />}
+      {passReset && <PasswordReset setShowReset={setPassReset} />}
       {httpError && (
         <div className='error'>
           <p>USER CREDENTIALS NOT FOUND!!!!!</p>
