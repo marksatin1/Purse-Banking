@@ -29,7 +29,7 @@ import PageNotFound from './pages/PageNotFound';
 import wtf_loader from './assets/wtf_loader.gif';
 
 const App = () => {
-  const authCtx = useContext(AuthContext);
+  const { signedIn } = useContext(AuthContext);
 
   return (
     <>
@@ -39,13 +39,13 @@ const App = () => {
       <main>
         <Suspense fallback={wtf_loader}>
           <Routes>
-            {!authCtx.signedIn && (
+            {!signedIn && (
               <>
                 <Route path='/' element={<LandingPage />} />
                 <Route path='/register' element={<Register />} />
               </>
             )}
-            {authCtx.signedIn && (
+            {signedIn && (
               <>
                 <Route path='/' element={<Homepage />} />
                 <Route path='/my-purse/accounts' element={<Homepage />} />
