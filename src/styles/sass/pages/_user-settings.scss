@@ -34,29 +34,27 @@
   }
 }
 
-.border1 {
-  border: $border;
+.reset-password--content {
+  margin: 3rem 0;
+  border: 3px dotted $tertiary-theme;
+  border-radius: 10px;
+
+  * {
+    margin: 1rem 0 2rem;
+  }
+
+  button {
+    padding: 0.75rem;
+    font-family: $georgia-family;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: $tertiary-theme;
+    color: $secondary-theme-alt-alt;
+    border-radius: 5px;
+    box-shadow: 1px 1px black;
+    cursor: pointer;
+  }
 }
-
-// .content {
-//   margin: 0 auto 1.5rem;
-//   width: 60%;
-//   font-size: 1.1rem;
-//   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-//     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-// }
-
-// .yes button {
-//   padding: 0.75rem;
-//   font-family: Georgia, 'Times New Roman', Times, serif;
-//   font-size: 1.2rem;
-//   font-weight: bold;
-//   background-color: $secondary-theme-alt-alt;
-//   color: green;
-//   border-radius: 3px;
-//   box-shadow: 1px 1px black;
-//   cursor: pointer;
-// }
 
 @media only screen and (min-width: 592px) {
   .user-settings {

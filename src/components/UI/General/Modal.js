@@ -5,15 +5,13 @@ const ModalBackdrop = ({ hideModalHandler }) => {
   return <div className='backdrop' onClick={hideModalHandler} />;
 };
 
-const ModalOverlay = ({ title, subtitle, content, btnName, btnHandler }) => {
+const ModalOverlay = ({ title, subtitle, content, btnHandler, btnName }) => {
   return (
-    <div className='modal-shell'>
-      <h1 className='modal-shell--title'>{title}</h1>
-      <h2 className='modal-shell--subtitle'>
-        <i>{subtitle}</i>
-      </h2>
-      <div className='modal-shell--content'>{content}</div>
-      <button className='modal-shell--btn' onClick={btnHandler}>
+    <div className='modal-overlay'>
+      <h1 className='modal-overlay--title'>{title}</h1>
+      <h2 className='modal-overlay--subtitle'>{subtitle}</h2>
+      <div className='modal-overlay--content'>{content}</div>
+      <button className='modal-overlay--btn' onClick={btnHandler}>
         {btnName}
       </button>
     </div>
@@ -24,8 +22,8 @@ const Modal = ({
   title,
   subtitle,
   content,
-  btnName,
   btnHandler,
+  btnName,
   hideModalHandler,
 }) => {
   useEffect(() => {
@@ -45,8 +43,8 @@ const Modal = ({
           title={title}
           subtitle={subtitle}
           content={content}
-          btnName={btnName}
           btnHandler={btnHandler}
+          btnName={btnName}
         />,
         document.getElementById('overlays')
       )}

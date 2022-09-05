@@ -84,7 +84,7 @@
   font-weight: bold;
 }
 
-.page-card--title, .modal-shell--title, .find-branch--title, .crypto--title, .credit-offer--title, .contact-page--title {
+.page-card--title, .modal-overlay--title, .find-branch--title, .crypto--title, .credit-offer--title, .contact-page--title {
   max-width: 80%;
   margin: 0 auto 1rem;
   color: rgb(0, 128, 0);
@@ -93,7 +93,7 @@
   font-weight: bold;
 }
 
-.page-card--subtitle, .modal-shell--subtitle, .find-branch--subtitle, .crypto--subtitle, .credit-offer--subtitle, .contact-page--subtitle {
+.page-card--subtitle, .modal-overlay--subtitle, .find-branch--subtitle, .crypto--subtitle, .credit-offer--subtitle, .contact-page--subtitle {
   margin-bottom: 2rem;
   color: rgb(175, 116, 175);
   font-size: 1.9rem;
@@ -416,13 +416,13 @@ main {
     width: 50vw;
   }
 }
-.my-purse-btn {
-  width: 100%;
+.my-purse-nav {
+  width: auto;
 }
-.my-purse-btn:hover .my-purse-btn--dropdown {
+.my-purse-nav:hover .my-purse-nav--dropdown {
   display: block;
 }
-.my-purse-btn--btn {
+.my-purse-nav--btn {
   width: 30vw;
   margin: auto;
   position: relative;
@@ -433,10 +433,10 @@ main {
   background-color: rgb(255, 215, 0);
   cursor: pointer;
 }
-.my-purse-btn--btn:hover {
+.my-purse-nav--btn:hover {
   animation: button-gleam-2 700ms forwards;
 }
-.my-purse-btn--btn p {
+.my-purse-nav--btn p {
   margin: -0.25rem;
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
@@ -444,7 +444,7 @@ main {
   font-weight: bold;
   color: black;
 }
-.my-purse-btn--dropdown {
+.my-purse-nav--dropdown {
   display: none;
   position: relative;
   margin: 0 auto;
@@ -455,71 +455,72 @@ main {
   background-color: rgb(245, 245, 220);
   z-index: 3;
 }
-.my-purse-btn--dropdown p {
+.my-purse-nav--dropdown p {
   margin: 0.25rem;
   color: rgb(128, 0, 128);
   font-size: 1.3rem;
   text-shadow: 0 0 3px white;
 }
-.my-purse-btn--dropdown p:hover {
+.my-purse-nav--dropdown p:hover {
   color: rgb(0, 128, 0);
   transform: scale(1.02);
 }
-.my-purse-btn--dropdown .sign-out {
+.my-purse-nav--dropdown .sign-out {
   font-weight: bold;
   font-weight: 1.1rem;
   text-shadow: 1px 1px black;
 }
 
 @media only screen and (min-width: 576px) {
-  .my-purse-btn {
+  .my-purse-nav {
+    float: right;
     display: flex;
     justify-content: flex-end;
   }
-  .my-purse-btn--btn {
+  .my-purse-nav--btn {
     width: 25vw;
     top: -0.5rem;
     margin: initial;
     border-radius: 25px 0 0 25px;
   }
-  .my-purse-btn--btn p {
+  .my-purse-nav--btn p {
     text-align: left;
     margin-left: 0.5rem;
     font-size: 1.1rem;
   }
-  .my-purse-btn--dropdown {
+  .my-purse-nav--dropdown {
     position: absolute;
     margin: 2.5rem 1rem;
     text-align: right;
   }
 }
 @media only screen and (min-width: 768px) {
-  .my-purse-btn--btn {
+  .my-purse-nav--btn {
     width: 22vw;
     top: -0.7rem;
   }
-  .my-purse-btn--btn p {
+  .my-purse-nav--btn p {
     font-size: 1.2rem;
   }
 }
 @media only screen and (min-width: 992px) {
-  .my-purse-btn--btn {
+  .my-purse-nav--btn {
     width: 20vw;
   }
-  .my-purse-btn--dropdown {
+  .my-purse-nav--dropdown {
     padding: 0 0.5rem;
   }
 }
 @media only screen and (min-width: 1200px) {
-  .my-purse-btn--btn p {
+  .my-purse-nav--btn p {
     font-size: 1.4rem;
   }
-  .my-purse-btn--dropdown p {
+  .my-purse-nav--dropdown p {
     font-size: 1.4rem;
   }
 }
 @media only screen and (min-width: 1400px) {
-  .my-purse-btn--btn {
+  .my-purse-nav--btn {
     width: 17vw;
   }
 }
@@ -1191,15 +1192,6 @@ main {
   margin: 2rem 0;
 }
 
-.privacy--intertitle {
-  color: rgb(0, 128, 0);
-}
-.privacy--endtitle {
-  width: 50%;
-  margin: 0 auto;
-  color: rgb(128, 0, 128);
-}
-
 .register {
   width: 25rem;
   margin: 15rem auto -12rem;
@@ -1272,8 +1264,12 @@ main {
 }
 .register--link {
   color: rgb(0, 128, 0);
+  text-shadow: 0 0 2px white;
   font-weight: bold;
   cursor: pointer;
+}
+.register--link:hover {
+  text-shadow: 0 0 2px black;
 }
 
 .loader {
@@ -1342,8 +1338,24 @@ main {
   background-color: rgb(255, 215, 0);
 }
 
-.border1 {
-  border: 2px solid black;
+.reset-password--content {
+  margin: 3rem 0;
+  border: 3px dotted rgb(175, 116, 175);
+  border-radius: 10px;
+}
+.reset-password--content * {
+  margin: 1rem 0 2rem;
+}
+.reset-password--content button {
+  padding: 0.75rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: rgb(175, 116, 175);
+  color: rgb(255, 215, 0);
+  border-radius: 5px;
+  box-shadow: 1px 1px black;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 592px) {
@@ -2095,37 +2107,38 @@ main {
   width: 100vw;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.9);
-  z-index: 6;
+  overflow: hidden;
+  z-index: 7;
 }
 
-.modal-shell {
+.modal-overlay {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80vw;
-  height: 75vh;
   background-color: rgb(225, 193, 15);
   border: 2px solid rgb(128, 0, 128);
-  border-radius: 5px;
-  box-shadow: 0 0 3px black;
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
   padding: 2rem;
   text-align: center;
-  overflow: scroll;
-  z-index: 7;
+  z-index: 8;
 }
-.modal-shell--title {
+.modal-overlay--title {
   font-family: Georgia, "Times New Roman", Times, serif;
-  text-shadow: 0 0 3px white;
+  text-shadow: 0 0 3px black;
 }
-.modal-shell--subtitle {
-  font-family: "Times New Roman", Times, serif;
-}
-.modal-shell--content {
+.modal-overlay--content {
+  border: 5px dotted rgb(175, 116, 175);
+  box-shadow: inset 0 0 50px rgb(255, 215, 0);
+  max-height: 20rem;
+  overflow-y: scroll;
+  padding: 1rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
-.modal-shell--content .intertitle {
+.modal-overlay--content .intertitle {
   width: 80%;
   margin: 2rem auto;
   color: rgb(128, 0, 128);
@@ -2133,13 +2146,13 @@ main {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 2rem;
 }
-.modal-shell--content .endtitle {
+.modal-overlay--content .endtitle {
   color: rgb(128, 0, 128);
   text-shadow: 0 0 3px black;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 2.2rem;
 }
-.modal-shell--btn {
+.modal-overlay--btn {
   margin-top: 2rem;
   padding: 0.75rem;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -2153,33 +2166,29 @@ main {
 }
 
 @media only screen and (min-width: 992px) {
-  .modal-shell {
-    width: 60vw;
+  .modal-overlay {
+    max-width: 50rem;
     padding: 3rem;
   }
-  .modal-shell--title {
+  .modal-overlay--title {
     font-size: 2.8rem;
   }
-  .modal-shell--subtitle {
+  .modal-overlay--subtitle {
     font-size: 2.2rem;
   }
-  .modal-shell--content {
-    font-size: 1.3rem;
-  }
-  .modal-shell--content .intertitle {
-    font-size: 2.3rem;
-  }
-  .modal-shell--content .endtitle {
-    font-size: 2.5rem;
-  }
-  .modal-shell--btn {
-    padding: 0.75rem 1.55rem;
+  .modal-overlay--content {
+    padding: 1.5rem;
     font-size: 1.4rem;
   }
-}
-@media only screen and (min-width: 1200px) {
-  .modal-shell {
-    width: 50vw;
+  .modal-overlay--content .intertitle {
+    font-size: 2.3rem;
+  }
+  .modal-overlay--content .endtitle {
+    font-size: 2.5rem;
+  }
+  .modal-overlay--btn {
+    padding: 0.75rem 1.55rem;
+    font-size: 1.4rem;
   }
 }
 .page-card {
@@ -2198,6 +2207,14 @@ main {
   border: 2px solid rgb(225, 193, 15);
   box-shadow: 0 0 2px rgb(218, 165, 32);
   background-color: rgba(240, 248, 255, 0.7);
+}
+.page-card--content .intertitle {
+  margin: 0 auto;
+  color: rgb(128, 0, 128);
+}
+.page-card--content .endtitle {
+  margin: 0 auto;
+  color: rgb(128, 0, 128);
 }
 .page-card--content > * {
   margin: 2rem 0;
@@ -2218,6 +2235,9 @@ main {
 @media only screen and (min-width: 776px) {
   .page-card {
     margin-top: 20rem;
+  }
+  .page-card--content .endtitle {
+    width: 60%;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -2415,12 +2435,12 @@ main {
 }
 .pass-reset--title {
   color: rgb(225, 193, 15);
-  font-size: 1.7rem;
+  font-size: 2rem;
   text-shadow: 0 0 2px white;
 }
 .pass-reset--body {
   margin: 2rem 0 1rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 .pass-reset input {
   margin: 0 auto;
@@ -2430,18 +2450,35 @@ main {
   box-shadow: 1px 2px black;
   font-size: 1.1rem;
 }
-.pass-reset .link {
+.pass-reset--link {
+  color: rgb(0, 128, 0);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
   margin: 1rem auto 0;
   font-size: 1.4rem;
+  text-shadow: 0 0 2px white;
 }
-.pass-reset .error {
-  padding: 0.25rem 0;
-  text-align: center;
-  background-color: lime;
-  font-weight: bold;
-  color: red;
+.pass-reset--link:hover {
+  color: rgb(218, 165, 32);
 }
 
+@media only screen and (min-width: 592px) {
+  .pass-reset--link {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .pass-reset--title {
+    font-size: 2.3rem;
+  }
+  .pass-reset--body {
+    font-size: 1.3rem;
+  }
+  .pass-reset--link {
+    font-size: 1.7rem;
+  }
+}
 .personality-banner {
   position: relative;
   margin: 5rem auto;
@@ -2628,6 +2665,7 @@ main {
   text-decoration: none;
   cursor: pointer;
   padding: 0;
+  text-shadow: 0 0 1px white;
 }
 .sign-in--nav-link:hover {
   color: rgb(218, 165, 32);
@@ -2664,12 +2702,19 @@ main {
   animation-iteration-count: 50;
 }
 
+@media only screen and (min-width: 768px) {
+  .sign-in--title {
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .sign-in--title {
+    font-size: 2.3rem;
+  }
+}
 @media only screen and (min-width: 1400px) {
   .sign-in {
     max-width: 25rem;
-  }
-  .sign-in--title {
-    font-size: 2rem;
   }
   .sign-in input {
     font-size: 1.3rem;

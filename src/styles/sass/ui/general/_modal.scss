@@ -5,39 +5,42 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.9);
-  z-index: 6; // to cover Header completely
+  overflow: hidden;
+  z-index: 7; // to cover Header completely
 }
 
-.modal-shell {
+.modal-overlay {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 75vh;
+  width: $page-width;
   background-color: $secondary-theme;
   border: 2px solid $tertiary-theme-alt;
-  border-radius: 5px;
-  box-shadow: 0 0 3px black;
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
   padding: 2rem;
   text-align: center;
-  overflow: scroll;
-  z-index: 7;
+  z-index: 8;
 
   &--title {
     @extend %page-title;
     font-family: $georgia-family;
-    @include text-shadow(white);
+    @include text-shadow(black);
   }
 
   &--subtitle {
     @extend %page-subtitle;
-    font-family: $tnr-family;
   }
 
   &--content {
+    border: 5px dotted $tertiary-theme;
+    box-shadow: inset 0 0 50px $secondary-theme-alt-alt;
+    max-height: 20rem;
+    overflow-y: scroll;
+    padding: 1rem;
     font-family: $lucida-family;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 
     .intertitle {
       width: 80%;
@@ -71,8 +74,8 @@
 }
 
 @media only screen and (min-width: 992px) {
-  .modal-shell {
-    width: 60vw;
+  .modal-overlay {
+    max-width: 50rem;
     padding: 3rem;
 
     &--title {
@@ -84,7 +87,8 @@
     }
 
     &--content {
-      font-size: 1.3rem;
+      padding: 1.5rem;
+      font-size: 1.4rem;
 
       .intertitle {
         font-size: 2.3rem;
@@ -99,11 +103,5 @@
       padding: 0.75rem 1.55rem;
       font-size: 1.4rem;
     }
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .modal-shell {
-    width: 50vw;
   }
 }

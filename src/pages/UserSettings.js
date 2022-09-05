@@ -1,68 +1,27 @@
-import { useState, useContext } from 'react';
-import AuthContext from '../context/AuthContext';
-
-import axios from 'axios';
-import { fbResetPasswordUrl } from '../helpers/data/ApiEndpoints';
+import { useState } from 'react';
 
 import AccountPage from '../components/UI/Accounts/AccountPage';
 import Table from 'react-bootstrap/Table';
-import Modal from '../components/UI/General/Modal';
+import ResetPassModal from '../components/UI/General/ResetPassModal';
 
 const UserSettings = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [modal, setModal] = useState(false);
-  const [success, setSuccess] = useState(false);
-
-  const { signOut } = useContext(AuthContext);
+  const [resetModal, setResetModal] = useState(false);
 
   const userName = localStorage.getItem('name');
   const userEmail = localStorage.getItem('email');
   const password = localStorage.getItem('password');
   const country = localStorage.getItem('country');
-  let displayPass = showPassword ? password : 'Hidden';
+  let displayPass = showPassword ? <i>{password}</i> : 'Hidden';
   let displayCountry = country === 'America' ? "'MERICA!" : 'FOREIGNER!!';
-
-  const resetPasswordHandler = () => {
-    axios({
-      method: 'post',
-      url: fbResetPasswordUrl,
-      data: { requestType: 'PASSWORD_RESET', email: userEmail },
-    }).catch((error) => {
-      console.error(error);
-    });
-
-    setSuccess(true);
-    setTimeout(() => {
-      signOut();
-    }, 5000);
-  };
 
   let showHide = showPassword ? 'Hide Password' : 'Show Password';
 
   return (
     <>
-      {modal && !success && (
-        <Modal title='Reset Password' hideModalHandler={() => setModal(false)}>
-          <div className='reset-password--content'>
-            <p>
-              If you would like to reset your password click the button below.
-            </p>
-            <button onClick={resetPasswordHandler}>Yes</button>
-          </div>
-        </Modal>
-      )}
-      {modal && success && (
-        <Modal title='Success'>
-          <p>
-            If you have previously registered with Purse a password reset link
-            will appear in your inbox shortly.
-          </p>
-          <p>You will be redirected momentarily.</p>
-        </Modal>
-      )}
       <AccountPage
         bannerImgName='bg-img--cops'
-        pageTitle='Settings'
+        pageTitle='My Settings'
         slidebarPos='slidebar-pos--user-settings'
       >
         <div className='user-settings'>
@@ -101,12 +60,21 @@ const UserSettings = () => {
             >
               {showHide}
             </button>
-            <button className='reset-password' onClick={() => setModal(true)}>
+            <button
+              className='reset-password'
+              onClick={() => setResetModal(true)}
+            >
               Reset Password
             </button>
           </div>
         </div>
       </AccountPage>
+      {resetModal && (
+        <ResetPassModal
+          hideModalHandler={() => setResetModal(false)}
+          email={userEmail}
+        />
+      )}
     </>
   );
 };

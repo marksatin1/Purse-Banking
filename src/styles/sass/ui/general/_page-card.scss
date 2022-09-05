@@ -23,6 +23,16 @@
     box-shadow: 0 0 2px $secondary-theme-alt;
     background-color: $page-card-bg-content;
 
+    .intertitle {
+      margin: 0 auto;
+      color: $tertiary-theme-alt;
+    }
+
+    .endtitle {
+      margin: 0 auto;
+      color: $tertiary-theme-alt;
+    }
+
     & > * {
       margin: 2rem 0;
     }
@@ -47,6 +57,12 @@
 @media only screen and (min-width: 776px) {
   .page-card {
     margin-top: 20rem;
+
+    &--content {
+      .endtitle {
+        width: 60%;
+      }
+    }
   }
 }
 
