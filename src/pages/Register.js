@@ -119,35 +119,6 @@ const Register = () => {
 
   return (
     <>
-      {regSuccess && (
-        <Modal
-          title={RegistrationSuccess.title}
-          subtitle={RegistrationSuccess.subtitle}
-          content={RegistrationSuccess.content}
-          btnName='Enter'
-          btnHandler={signInHandler}
-        />
-      )}
-      {userAgreement && (
-        <Modal
-          title={UserAgreement.title}
-          subtitle={UserAgreement.subtitle}
-          content={UserAgreement.content}
-          btnName='Exit'
-          btnHandler={hideModalHandler}
-          hideModalHandler={hideModalHandler}
-        />
-      )}
-      {privacyPolicy && (
-        <Modal
-          title={PrivacyPolicy.title}
-          subtitle={PrivacyPolicy.subtitle}
-          content={PrivacyPolicy.content}
-          btnName='Exit'
-          btnHandler={hideModalHandler}
-          hideModalHandler={hideModalHandler}
-        />
-      )}
       {!isLoading && (
         <form className='register' onSubmit={submitFormHandler}>
           <h1 className='register--title'>REGISTER NOW!</h1>
@@ -288,6 +259,35 @@ const Register = () => {
           )}
           <FormButton type='submit' name='Register' disabled={isDisabled} />
         </form>
+      )}
+      {regSuccess && (
+        <Modal
+          title={RegistrationSuccess.title}
+          subtitle={RegistrationSuccess.subtitle}
+          content={RegistrationSuccess.content}
+          btnHandler={signInHandler}
+          btnName='Enter'
+        />
+      )}
+      {userAgreement && (
+        <Modal
+          title={UserAgreement.title}
+          subtitle={UserAgreement.subtitle}
+          content={UserAgreement.content}
+          btnName='Exit'
+          btnHandler={hideModalHandler}
+          hideModalHandler={hideModalHandler}
+        />
+      )}
+      {privacyPolicy && (
+        <Modal
+          title={PrivacyPolicy.title}
+          subtitle={PrivacyPolicy.subtitle}
+          content={PrivacyPolicy.content}
+          btnName='Exit'
+          btnHandler={hideModalHandler}
+          hideModalHandler={hideModalHandler}
+        />
       )}
     </>
   );
