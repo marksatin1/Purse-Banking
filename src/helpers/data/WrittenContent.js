@@ -1,7 +1,9 @@
-// User Agreement
-// Privacy Policy
-// Registration Success
-// Crypto Content
+// UserAgreement
+// PrivacyPolicy
+// RegistrationSuccess
+// CryptoContent
+// ResetPasswordContent
+// SuccessResetPasswordContent
 
 export const UserAgreement = {
   title: 'User Agreement',
@@ -107,16 +109,17 @@ export const PrivacyPolicy = {
 
 export const RegistrationSuccess = {
   title: 'Welcome To The Fold',
-  subtitle: 'You are now part of 6000 years of human history',
+  subtitle: 'You are now part of 6000 years of human history!',
   content: (
     <>
+      <p>Welcome to Purse.</p>
       <p>
-        Welcome to Purse! You've just made your first foray into the wonderful
-        world of an elite group of banking's most powerful movers and shakers.
-        We're proud to count history's most prominent players as members of our
-        little club. Ever heard of the Borgias? Or the Medici? How about the
-        Freemasons and the Illuminati? Bohemian Grove, anyone? You must be
-        familiar with Q. And now we have you!
+        You've just made your first foray into the wonderful world of an elite
+        group of banking's most powerful movers and shakers. We're proud to
+        count history's most prominent players as members of our little club.
+        Ever heard of the Borgias? Or the Medici? How about the Freemasons and
+        the Illuminati? Bohemian Grove, anyone? You must be familiar with Q. And
+        now we have you!
       </p>
       <p>
         Without the generous support of plebes like you Purse would not be able
@@ -220,4 +223,15 @@ export const CryptoContent = (
       course!).
     </p>
   </>
+);
+
+export const ResetPasswordContent = (
+  <p>If you would like to reset your password click the button below.</p>
+);
+
+export const SuccessResetPasswordContent = (
+  <p>
+    If you have previously registered with Purse a password reset link will
+    appear in your inbox shortly.
+  </p>
 );
