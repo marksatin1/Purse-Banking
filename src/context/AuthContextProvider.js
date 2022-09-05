@@ -14,25 +14,30 @@ const AuthContextProvider = ({ children }) => {
   const [signedIn, setSignedIn] = useState(false);
   const navigate = useNavigate();
 
-  const signIn = (signInCreds) => {
-    postUserToLocalStorage(signInCreds);
-    setSignedIn(true);
-
-    const remainSessDurMs = getRemainSessionDurationMs(signInCreds.expDateMs);
-    logoutTimer = setTimeout(signOut, remainSessDurMs);
-
-    navigate('/', { replace: true });
-  };
-
   const signOut = useCallback(() => {
     localStorage.clear();
     setSignedIn(false);
 
     return () => {
       clearTimeout(logoutTimer);
-      navigate('/', { replace: true }); // must be in return statement
+      navigate('/', { replace: true }); // must  be in return statement
     };
   }, [navigate]);
+
+  const signIn = useCallback(
+    (signInCreds) => {
+      postUserToLocalStorage(signInCreds);
+      setSignedIn(true);
+
+      const remainSessDurMs = getRemainSessionDurationMs(signInCreds.expDateMs);
+      logoutTimer = setTimeout(signOut, remainSessDurMs);
+
+      return () => {
+        navigate('/my-purse/accounts', { replace: true }); // must  be in return statement
+      };
+    },
+    [signOut, navigate]
+  );
 
   useEffect(() => {
     const tokenExpDateMs = localStorage.getItem('tokenExpDateMs');
