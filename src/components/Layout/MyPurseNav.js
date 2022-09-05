@@ -36,7 +36,7 @@ const MyPurseNav = () => {
             <p>Credit Cards</p>
           </Nav.Link>
           <Nav.Link href='/my-purse/user-settings'>
-            <p>Settings</p>
+            <p>My Settings</p>
           </Nav.Link>
           <NavDropdown.Divider />
           <Nav.Link onClick={authCtx.signOut}>
