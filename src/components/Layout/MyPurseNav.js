@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import AuthContext from '../../context/AuthContext';
 
-const MyPurseButton = () => {
+const MyPurseNav = () => {
   const [destination, setDestination] = useState({});
 
   const authCtx = useContext(AuthContext);
@@ -18,14 +18,14 @@ const MyPurseButton = () => {
   }, [authCtx.signedIn]);
 
   return (
-    <Nav className='my-purse-btn'>
-      <button className='my-purse-btn--btn'>
+    <Nav className='my-purse-nav'>
+      <button className='my-purse-nav--btn'>
         <Nav.Link href={destination.destUrl}>
           <p>{destination.destName}</p>
         </Nav.Link>
       </button>
       {authCtx.signedIn && (
-        <div className='my-purse-btn--dropdown'>
+        <div className='my-purse-nav--dropdown'>
           <Nav.Link href='/my-purse/debit-accounts?account=checking'>
             <p>Checking</p>
           </Nav.Link>
@@ -48,4 +48,4 @@ const MyPurseButton = () => {
   );
 };
 
-export default MyPurseButton;
+export default MyPurseNav;

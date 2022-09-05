@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import TopNav from './TopNav';
 import MainNav from './MainNav';
-import MyPurseButton from './MyPurseButton';
+import MyPurseNav from './MyPurseNav';
 import Logo from './Logo';
 
 import FlyingMoney from '../../assets/Emojis/FlyingMoney.png';
@@ -29,13 +29,13 @@ const Header = () => {
             <Navbar.Collapse className={collapseAnim}>
               <TopNav />
               <MainNav />
-              <MyPurseButton />
+              <MyPurseNav />
             </Navbar.Collapse>
           </div>
           <div className='d-none d-sm-block'>
             <TopNav />
             <MainNav />
-            <MyPurseButton />
+            <MyPurseNav />
           </div>
         </Navbar>
       </div>

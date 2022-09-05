@@ -1,7 +1,8 @@
-.my-purse-btn {
-  width: 100%;
+.my-purse-nav {
+  width: auto;
+  float: right;
 
-  &:hover &--dropdown {
+  &:hover .my-purse-nav--dropdown {
     display: block;
   }
 
@@ -62,7 +63,7 @@
 }
 
 @media only screen and (min-width: 576px) {
-  .my-purse-btn {
+  .my-purse-nav {
     display: flex;
     justify-content: flex-end;
 
@@ -88,7 +89,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .my-purse-btn {
+  .my-purse-nav {
     &--btn {
       width: 22vw;
       top: -0.7rem;
@@ -101,7 +102,7 @@
 }
 
 @media only screen and (min-width: 992px) {
-  .my-purse-btn {
+  .my-purse-nav {
     &--btn {
       width: 20vw;
     }
@@ -113,7 +114,7 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .my-purse-btn {
+  .my-purse-nav {
     &--btn {
       p {
         font-size: 1.4rem;
@@ -129,7 +130,7 @@
 }
 
 @media only screen and (min-width: 1400px) {
-  .my-purse-btn {
+  .my-purse-nav {
     &--btn {
       width: 17vw;
     }
