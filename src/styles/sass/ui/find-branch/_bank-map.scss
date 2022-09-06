@@ -17,6 +17,11 @@
   }
 
   .info-window {
+    border-radius: 10px;
+    border: 2px solid $tertiary-theme;
+    box-shadow: inset 0 0 500px $secondary-theme, 3px 3px black;
+    background-color: $page-card-bg-main;
+
     &--alert {
       text-align: center;
       position: relative;

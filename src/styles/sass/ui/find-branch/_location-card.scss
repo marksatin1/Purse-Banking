@@ -1,20 +1,22 @@
 .loc-card {
   margin: 0.5rem 1rem 1rem;
   padding: 0.5rem 1rem;
-  border: 2px solid black;
-  border-radius: 5px;
-  box-shadow: 1px 1px 1px black;
-  background-color: white;
+  font-family: $lucida-family;
+  border-radius: 10px;
+  border: 3px solid $tertiary-theme;
+  box-shadow: inset 0 0 500px $secondary-theme, 3px 3px black;
+  background-color: $page-card-bg-main;
   z-index: 2;
 
   &--name {
-    color: $primary-theme-alt;
     margin: 0.5rem 0;
+    color: $primary-theme-alt;
+    text-decoration: underline;
+    text-shadow: 0 0 2px black;
   }
 
   .status-container {
-    display: flex;
-    align-items: center;
+    margin: 1rem 0;
 
     &--icon {
       width: 50px;
@@ -24,15 +26,16 @@
 
     &--status {
       margin: 0.25rem 0;
+      font-size: 1.2rem;
     }
   }
 
   &--rating {
-    width: 100px;
-    margin: 0.5rem 0;
+    width: 125px;
   }
 
   &--address {
     margin: 0.5rem 0;
+    font-size: 1.2rem;
   }
 }

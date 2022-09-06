@@ -1,5 +1,5 @@
 .input {
-  width: $page-width;
+  width: 20rem;
   padding: 0.25rem 1rem;
   font-size: 1.3rem;
   border-radius: 5px;
@@ -31,4 +31,10 @@
   color: $secondary-theme-alt;
   text-shadow: 0 0 1px black;
   text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .input {
+    width: 30rem;
+  }
 }

@@ -8,12 +8,11 @@ import LocateMe from './LocateMe';
 import Moneybag from '../../../assets/Emojis/Moneybag.webp';
 
 const mapContainerStyle = {
-  width: '100%',
   height: '60vh',
   borderRadius: '5px',
   border: '2px solid black',
   boxShadow: '2px 2px 2px black',
-  marginBottom: '2rem',
+  margin: '0 auto 2rem',
 };
 
 const BankMap = ({ initCenter, panTo, loadPlaces, requestedPlaces }) => {
@@ -61,13 +60,12 @@ const BankMap = ({ initCenter, panTo, loadPlaces, requestedPlaces }) => {
       {locMarkers}
       {selectedLoc && (
         <InfoWindow
-          className='info-window'
           position={selectedLoc.geometry.location}
           onCloseClick={() => {
             setSelectedLoc(null);
           }}
         >
-          <div>
+          <div className='info-window'>
             <h3 className='info-window--alert'>
               BAG SPOTTED! BAG SPOTTED! BAG SPOTTED! BAG SPOTTED! BAG SPOTTED!
               BAG SPOTTED! BAG SPOTTED!

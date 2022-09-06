@@ -965,17 +965,8 @@ main {
     font-size: 1.8rem;
   }
 }
-.wtf-loader {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 3;
-}
-
 .find-branch {
-  width: 80vw;
+  width: 60vw;
   margin: 15rem auto -12rem;
   text-align: center;
 }
@@ -986,21 +977,18 @@ main {
 .find-branch--map {
   margin: 1rem 0;
 }
+.find-branch .wtf-loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
 
 @media only screen and (min-width: 576px) {
   .find-branch {
     margin-top: 17rem;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .find-branch--search-bar {
-    width: 70vw;
-    margin: 0 auto;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .find-branch--search-bar {
-    width: 50vw;
   }
 }
 .help {
@@ -1638,6 +1626,12 @@ main {
   animation: blink 200ms steps(2, start);
   animation-iteration-count: 50;
 }
+.bank-map .info-window {
+  border-radius: 10px;
+  border: 2px solid rgb(175, 116, 175);
+  box-shadow: inset 0 0 500px rgb(225, 193, 15), 3px 3px black;
+  background-color: rgb(245, 245, 220);
+}
 .bank-map .info-window--alert {
   text-align: center;
   position: relative;
@@ -1699,19 +1693,21 @@ main {
 .loc-card {
   margin: 0.5rem 1rem 1rem;
   padding: 0.5rem 1rem;
-  border: 2px solid black;
-  border-radius: 5px;
-  box-shadow: 1px 1px 1px black;
-  background-color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  border-radius: 10px;
+  border: 3px solid rgb(175, 116, 175);
+  box-shadow: inset 0 0 500px rgb(225, 193, 15), 3px 3px black;
+  background-color: rgb(245, 245, 220);
   z-index: 2;
 }
 .loc-card--name {
-  color: rgb(0, 128, 0);
   margin: 0.5rem 0;
+  color: rgb(0, 128, 0);
+  text-decoration: underline;
+  text-shadow: 0 0 2px black;
 }
 .loc-card .status-container {
-  display: flex;
-  align-items: center;
+  margin: 1rem 0;
 }
 .loc-card .status-container--icon {
   width: 50px;
@@ -1720,17 +1716,18 @@ main {
 }
 .loc-card .status-container--status {
   margin: 0.25rem 0;
+  font-size: 1.2rem;
 }
 .loc-card--rating {
-  width: 100px;
-  margin: 0.5rem 0;
+  width: 125px;
 }
 .loc-card--address {
   margin: 0.5rem 0;
+  font-size: 1.2rem;
 }
 
 .input {
-  width: 80vw;
+  width: 20rem;
   padding: 0.25rem 1rem;
   font-size: 1.3rem;
   border-radius: 5px;
@@ -1764,6 +1761,11 @@ main {
   text-align: center;
 }
 
+@media only screen and (min-width: 768px) {
+  .input {
+    width: 30rem;
+  }
+}
 .slidebar-pos--homepage {
   bottom: 33rem;
 }
